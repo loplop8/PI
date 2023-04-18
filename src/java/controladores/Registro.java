@@ -1,5 +1,5 @@
 /*
- * Servlet Controlador CrearDepartamento.
+ * Servlet Controlador Registro.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -12,11 +12,14 @@ import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.RollbackException;
+import javax.persistence.TypedQuery;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -44,7 +47,11 @@ public class Registro extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, NoSuchAlgorithmException {
         String vista = "/registro.jsp";
-
+        
+        String mensajeNif="";
+        String mensajeEmail="";
+        String mensajeNick="";
+        String mensajeTelefono="";
         String error = "";
         String nombre = "";
         String apellidos = "";
@@ -59,7 +66,15 @@ public class Registro extends HttpServlet {
         String localidad = "";
         String provincia = "";
 
-        if (request.getParameter("nombre") != null && request.getParameter("apellidos") != null
+        
+        
+        
+        
+        
+        
+        
+        if (request.getParameter("nombre") != null 
+                && request.getParameter("apellidos") != null
                 && request.getParameter("apellidos") != null
                 && request.getParameter("email") != null
                 && request.getParameter("direccion") != null
@@ -72,19 +87,79 @@ public class Registro extends HttpServlet {
                 && request.getParameter("localidad") != null
                 && request.getParameter("provincia") != null) { //Si los campos no son null 
 
+                
+                
+                
+            
             nombre = request.getParameter("nombre");
+            request.setAttribute("nombre",nombre);
             apellidos = request.getParameter("apellidos");
+            request.setAttribute("apellidos",apellidos);
             email = request.getParameter("email");
             email.trim();
+            request.setAttribute("email",email);
             direccion = request.getParameter("direccion");
             direccion.trim();
+            request.setAttribute("direccion", direccion);
             telefono = request.getParameter("telefono");
             telefono.trim();
+            request.setAttribute("telefono",telefono);
             nickname = request.getParameter("nickname");
             nickname = nickname.trim();
+            request.setAttribute("nickname", nickname);
             nif = request.getParameter("nif");
+            request.setAttribute("nif", nif);
             contraseña = request.getParameter("contraseña");
-
+            request.setAttribute("contrasaeña", contraseña);
+            localidad = request.getParameter("localidad");
+            localidad.trim();
+            request.setAttribute("localidad",localidad);            
+            provincia = request.getParameter("provincia");    
+            request.setAttribute("provincia",provincia);
+            
+            
+                EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife");
+                EntityManager em = emf.createEntityManager();
+                TypedQuery<Usuario> queryNombre = em.createQuery("SELECT u FROM Usuario u WHERE u.nickname = :nickname" , Usuario.class);
+                queryNombre.setParameter("nickname", nickname);
+                TypedQuery<Usuario> queryEmail = em.createQuery("SELECT u FROM Usuario u WHERE u.email = :email" , Usuario.class);
+                queryEmail.setParameter("email", email);
+                
+                
+                TypedQuery<Usuario> queryNif = em.createQuery("SELECT u FROM Usuario u WHERE u.nif = :nif" , Usuario.class);
+                queryNif.setParameter("nif", nif);
+                TypedQuery<Usuario> queryTelefono = em.createQuery("SELECT u FROM Usuario u WHERE u.telefono = :telefono" , Usuario.class);
+                queryTelefono.setParameter("telefono", telefono);
+                List<Usuario> usuariosNombre = queryNombre.getResultList();                
+                List<Usuario> usuariosEmail = queryEmail.getResultList();                
+                List<Usuario> usuariosTelefono = queryTelefono.getResultList();
+                List<Usuario> usuariosNif = queryNif.getResultList();
+                
+                
+            
+            
+            
+            
+            if(!usuariosNif.isEmpty()){
+                        mensajeNif="El NIF que esta introduciendo ya esta en uso, si esta registrado vaya al login . Acepte para ir al login";
+                        request.setAttribute("mensajeNif", mensajeNif);
+                        
+                }else if(!usuariosEmail.isEmpty()){
+                        mensajeEmail="El Email ya esta en uso, utilice otro email o si esta registrado vaya al login . Acepte para ir al login";
+                        request.setAttribute("mensajeEmail", mensajeEmail);
+                        
+                }else if(!usuariosTelefono.isEmpty()){
+                    mensajeTelefono="El telefono que esta introduciendo ya esta en uso, si esta registrado vaya al login . Acepte para ir al login " ;
+                    request.setAttribute("mensajeTelefono",mensajeTelefono);
+                    
+                }
+                else if(!usuariosNombre.isEmpty()){
+                        mensajeNick="El Nick que esta introduciedo ya esta siendo usado por otro usuario, por favor use otro para poder registarse o acepte para ir al login";
+                        request.setAttribute("",mensajeNick );
+                        
+                }else{
+            
+            
             //Encriptamos la contraseña con sha256
             try {
                 // Crea una instancia del algoritmo de hash SHA-256
@@ -109,9 +184,7 @@ public class Registro extends HttpServlet {
                 e.printStackTrace();
             }
 
-            localidad = request.getParameter("localidad");
-            localidad.trim();
-            provincia = request.getParameter("provincia");
+            
             if (fecha_nacimiento == null) {
 
                 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd"); // Cambiamos el formato de la fecha
@@ -154,7 +227,7 @@ public class Registro extends HttpServlet {
                 u.setLocalidad(localidad);
                 u.setProvincia(provincia);
                 u.setUrl_img_perfil(null);
-                EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife");
+               
                 UsuarioJpaController ujc = new UsuarioJpaController(emf); //Llamamos controlador JPA USUARIO
                 try { //Persistimos los datos en la base de datos
                     ujc.create(u);
@@ -167,6 +240,7 @@ public class Registro extends HttpServlet {
 
             }
         }
+      }
         getServletContext().getRequestDispatcher(vista).forward(request, response);
 
     }

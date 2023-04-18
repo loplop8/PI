@@ -12,8 +12,8 @@ const fecha_nacimiento = form.elements.fecha_nacimiento;
 const contraseña = form.elements.contraseña;
 const contraseña_rep = form.elements.contraseña_rep;
 const politica_privacidad = form.elements.privacidad;
+const verifica_son_datosDni=form.elements.verifica_dni;
 const submit =document.getElementById("submit");
- let contadorContraseña=0; 
 
 // Expresiones regulares para validación de campos con patrón
 const regexNIF = /^\d{8}[A-Z]$/;
@@ -45,9 +45,11 @@ function compruebaNombre(inputNombre) {
     
     inputNombre.classList.add('is-invalid');
     alert("El nombre debe tener al menos 2 letras y solo pueden ser letras");
-  }else{
+        return false;
+    }else{
     inputNombre.classList.remove('is-invalid');  
-        }
+    return true;    
+    }
 }
 
 nombre.addEventListener('change', () => {
@@ -58,9 +60,11 @@ function compruebaApellidos(inputApellidos) {
     
     inputApellidos.classList.add('is-invalid');
     alert("Los apellidos deben tener al menos 2 caracteres y solo pueden ser letras");
+    return false;
     
   } else {
     inputApellidos.classList.remove('is-invalid');
+    return true;
       }
 }
 
@@ -84,16 +88,19 @@ function compruebaNIF(inputNIF) {
   if (!regexNIF.test(inputNIF.value)) {
     inputNIF.classList.add('is-invalid');
     alert("El formato del NIF no es valido");
+    return false;
   } else {
     
     var valido = comprobarLetraNIF(inputNIF.value);
     if (valido) {
       inputNIF.classList.remove('is-invalid');
+      return true;
           } else {
       inputNIF.classList.add('is-invalid');
       alert("La letra del NIF no es la correcta");
-      
+      return false;  
     }
+    
   }
 }
 
@@ -106,8 +113,10 @@ function compruebaEmail(inputEmail) {
     
     inputEmail.classList.add('is-invalid');
     alert("El email introducido no es valido");
+    return false;
   } else {
     inputEmail.classList.remove('is-invalid');
+    return true;
       }
 }
 
@@ -120,9 +129,11 @@ function compruebaTelefono(inputTelefono) {
     
     inputTelefono.classList.add('is-invalid');
     alert("El número de telefono no es valido, debe tener 9 digitos y comenzar por 6 o 7");
-  } else {
+    return false;
+    } else {
     inputTelefono.classList.remove('is-invalid');
-      }
+        return true;  
+    }
 }
 
 telefono.addEventListener('change', () => {
@@ -134,8 +145,10 @@ function compruebaNickname(inputNickname) {
     
     inputNickname.classList.add('is-invalid');
     alert("El nombre debe tener al menos 4 caracteres");
+    return false;
   } else {
     inputNickname.classList.remove('is-invalid');
+    return true;
       }
 }
 
@@ -148,8 +161,10 @@ function compruebaLocalidad(inputLocalidad) {
     
     inputLocalidad.classList.add('is-invalid');
     alert("La localidad debe tener al menos 2 letras y solo pueden ser letras");
-  } else {
+    return false;
+    } else {
     inputLocalidad.classList.remove('is-invalid');
+    return true;
       }
 }
 
@@ -162,8 +177,10 @@ function compruebaProvincia(inputProvincia) {
     
     inputProvincia.classList.add('is-invalid');
     alert("La provincia debe tener al menos 2 letras y solo pueden ser letras");
-  } else {
+    return false;
+    } else {
     inputProvincia.classList.remove('is-invalid');
+        return true;
       }
 }
 
@@ -176,9 +193,11 @@ function compruebaDireccion(inputDireccion) {
     
     inputDireccion.classList.add('is-invalid');
     alert("La dirección tiene que tener al menos 2 caracteres");
-  } else {
+        return false;
+    } else {
     inputDireccion.classList.remove('is-invalid');
-      }
+        return true;
+    }
 }
 
 direccion.addEventListener('change', () => {
@@ -186,7 +205,7 @@ direccion.addEventListener('change', () => {
 });
 
 function repiteContraseña(inputContrasena, inputContrasena_rep){
-    if(inputContrasena_rep.value== ""){
+    if(inputContrasena_rep.value === ""){
         return;
     }
     
@@ -202,19 +221,31 @@ function repiteContraseña(inputContrasena, inputContrasena_rep){
 
 function compruebaContraseña() {
   
-  if (regexContraseña.test(contraseña)) {
+  if (repiteContraseña(contraseña,contraseña_rep)) {
+   contraseña.classList.remove("is-invalid");
+     contraseña_rep.classList.remove("is-invalid");
+     
+     if (regexContraseña.test(contraseña.value) && regexContraseña.test(contraseña_rep.value) ) {
      contraseña.classList.remove("is-invalid");
+     contraseña_rep.classList.remove("is-invalid");
+        return true;
   } else {
-    document.getElementById("contraseña").classList.add("is-invalid");
-  }
+      
+    contraseña.classList.add("is-invalid");
+    contraseña_rep.classList.add("is-invalid");
+    alert("La contraseña debe de constar como minimo de una letra mayuscula,una misnuscula,un numero y caracter especial\n Minimo 8 caracteres y maximo 16");
+    return false;
+        }
 
-  if (contraseña === contraseña_rep) {
-    document.getElementById("contraseña_rep").classList.remove("is-invalid");
+     
   } else {
-    document.getElementById("contraseña_rep").classList.add("is-invalid");
-  }
+    contraseña.classList.add("is-invalid");
+    contraseña_rep.classList.add("is-invalid");
+    return false;
+  
+  
+    }
 }
-
 
 
 
@@ -227,9 +258,11 @@ function compruebaFechaNacimiento(inputFechaNacimiento) {
     
     inputFechaNacimiento.classList.add('is-invalid');
         alert(" La edad minima para registrarse en nuestra pagina web es de 18 años  ");
-  } else {
+        return false;
+    } else {
     inputFechaNacimiento.classList.remove('is-invalid');
-      }
+      return true;
+    }
 }
 
 fecha_nacimiento.addEventListener('change', () => {
@@ -243,6 +276,90 @@ contraseña.addEventListener('change', () => {
 
 contraseña_rep.addEventListener('change', () => {
     compruebaContraseña(contraseña,contraseña_rep);
+});
+
+
+
+function validarFormulario(event) {
+  
+  
+  
+  // Validamos el campo "nombre"
+  if (!compruebaNombre(nombre)) {
+    return;
+  }
+  
+  // Validamos el campo "apellidos"
+  if (!compruebaApellidos(apellidos)) {
+    return;
+  }
+  
+  // Validamos el campo "nif"
+  if (!compruebaNIF(nif)) {
+    return;
+  }
+  
+  // Validamos el campo "email"
+  if (!compruebaEmail(email)) {
+    return;
+  }
+  
+  // Validamos el campo "telefono"
+  if (!compruebaTelefono(telefono)) {
+    return;
+  }
+  
+  // Validamos el campo "nickname"
+  if (!compruebaNickname(nickname)) {
+    return;
+  }
+  
+  // Validamos el campo "localidad"
+  if (!compruebaLocalidad(localidad)) {
+    return;
+  }
+  
+  // Validamos el campo "provincia"
+  if (!compruebaProvincia(provincia)) {
+    return;
+  }
+  
+  // Validamos el campo "direccion"
+  if (!compruebaDireccion(direccion)) {
+    return;
+  }
+  
+  // Validamos el campo "fecha de nacimiento"
+  
+  if (!compruebaFechaNacimiento(fecha_nacimiento)) {
+    return;
+  }
+  
+  // Validamos el campo "contraseña"
+  if (!compruebaContraseña()) {
+    return;
+  }
+   
+  // Validamos el campo "política de privacidad"
+  if (!politica_privacidad.checked) {
+    alert("Debes aceptar la política de privacidad para registrarte");
+    return;
+  }
+  if (!verifica_son_datosDni.checked) {
+    alert("Debes verificar que los datos son los de tu DNI ");
+    return;
+  }
+  
+  
+  // Si llegamos aquí, todos los campos son válidos y podemos  enviar el formulario al servidor
+    alert("Estamos revisando sus datos,pulse en la notificación para poder continuar");
+    
+}
+
+
+form.addEventListener('submit', (event) => {
+  
+  validarFormulario(event);
 });
 
 

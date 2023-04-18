@@ -1,3 +1,8 @@
+
+
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -5,12 +10,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="boostrap/bootstrap-5.0.2-dist/css/bootstrap.min.css">
-
+        
         <script src="boostrap/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>  
         <link rel="stylesheet" href="./css/style2.css">
         <script src="./js/registro.js" defer></script>
-
+        
+        
         <title>Document</title>
     </head>
     <body>
@@ -60,39 +66,39 @@
                                     <form class="requires-validation" method="post">
                                         <div class="col-md-12">
                                             <label for="nombre">Nombre:</label>
-                                            <input class="form-control " type="text" name="nombre" placeholder="Nombre Completo " pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$" required/>
+                                            <input class="form-control " type="text" name="nombre" placeholder="Nombre Completo " pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$" <c:if test="${nombre != 'null'}"> value="${nombre}" </c:if> required/>
                                         </div>
                                         <div class="col-md-12 mt-1">
                                             <label for="apellidos">Apellidos:</label>
-                                            <input class="form-control " type="text" name="apellidos" placeholder="Apellidos" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$" required />
+                                            <input class="form-control " type="text" name="apellidos" placeholder="Apellidos" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$" <c:if test="${apellidos != 'null'}"> value="${apellidos}" </c:if> required />
                                         </div>
                                         <div class="col-md-12 mt-1">
                                             <label for="nif">NIF:</label>
-                                            <input class="form-control " type="text" name="nif" placeholder="Ejemplo: 12345678A" pattern="^\d{8}[A-Z]$" required />
+                                            <input class="form-control " type="text" name="nif" placeholder="Ejemplo: 12345678A" pattern="^\d{8}[A-Z]$" <c:if test="${nif != 'null'}"> value="${nif}" </c:if> required />
                                         </div>
                                         <div class="col-md-12 mt-1">
                                             <label for="email">Email:</label>
-                                            <input class="form-control " type="email" name="email" placeholder="Ejemplo: info@swl.es" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required />
+                                            <input class="form-control " type="email" name="email" placeholder="Ejemplo: info@swl.es" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" <c:if test="${email != 'null'}"> value="${email}" </c:if> required />
                                         </div>
                                         <div class="col-md-12  mt-1">
                                             <label for="telefono">Teléfono:</label>
-                                            <input class="form-control" type="tel" name="telefono" placeholder="Ejemplo: 607450598" pattern="^(6|7)\d{8}$$" required />
+                                            <input class="form-control" type="tel" name="telefono" placeholder="Ejemplo: 607450598" pattern="^(6|7)\d{8}$$" required <c:if test="${telefono != 'null'}"> value="${telefono}" </c:if> />
                                         </div>
                                         <div class="col-md-12 mt-1" >
                                             <label for="nickname">Nombre de Usuario:</label>
-                                            <input class="form-control " type="text" name="nickname" placeholder="Ejemplo: Nick23 " pattern="^[A-Za-z][A-Za-z0-9]{0,9}$" required />
+                                            <input class="form-control " type="text" name="nickname" placeholder="Ejemplo: Nick23 " pattern="^[A-Za-z][A-Za-z0-9]{0,9}$" required <c:if test="${nickname != 'null'}"> value="${nickname}" </c:if> />
                                         </div>
                                         <div class="col-md-12 mt-1">
                                             <label for="localidad">Localidad:</label>
-                                            <input class="form-control " type="text" name="localidad" placeholder="Ejemplo: Ea " pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$" required />
+                                            <input class="form-control " type="text" name="localidad" placeholder="Ejemplo: Ea " pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$" required <c:if test="${localidad != 'null'}"> value="${localidad}" </c:if> />
                                         </div>
                                         <div class="col-md-12 mt-1">
                                             <label for="provincia">Provincia:</label>
-                                            <input class="form-control " type="text" name="provincia" placeholder="Provincia" pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$" required />
+                                            <input class="form-control " type="text" name="provincia" placeholder="Provincia" pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$" required <c:if test="${provincia != 'null'}"> value="${provincia}" </c:if> />
                                         </div>
                                         <div class="col-md-12  mt-1">
                                             <label for="direccion">Dirección:</label>
-                                            <input class="form-control " type="text" name="direccion" placeholder="Dirección" pattern="^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s#,./-]+$" required />
+                                            <input class="form-control " type="text" name="direccion" placeholder="Dirección" pattern="^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s#,./-]+$" required <c:if test="${direccion != 'null'}"> value="${direccion}" </c:if> />
                                         </div>
                                         <div class="col-md-12 mt-1">
                                             <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
@@ -100,23 +106,27 @@
                                         </div>
                                         <div class="col-md-12 mt-1">
                                             <label for="contraseña">Contraseña:</label>
-                                            <input class="form-control " type="password" name="contraseña" placeholder="Contraseña" pattern="^(?=.*\d)(?=.*[\.\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z]).{8,16}$" required />
+                                            <input class="form-control " type="password" name="contraseña" placeholder="Contraseña" pattern="^(?=.*\d)(?=.*[\.\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z]).{8,16}$" <c:if test="${contraseña != 'null'}"> value="${contraseña}" </c:if> required />
                                         </div>
                                         <div class="col-md-12 mt-1">
                                             <label for="contraseña_rep">Repita su contraseña:</label>
-                                            <input class="form-control " type="password" name="contraseña_rep" placeholder="Repita su contraseña" pattern="^(?=.*\d)(?=.*[\.\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z]).{8,16}$" required  />
+                                            <input class="form-control " type="password" name="contraseña_rep" placeholder="Repita su contraseña" pattern="^(?=.*\d)(?=.*[\.\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z]).{8,16}$" required  <c:if test="${contraseña != 'null'}"> value="${contraseña}" </c:if> />
                                         </div>
                                         
                                         <div class="col-md-12">
-                                       <label for="politica">Acepto la politica de privacidad</label><br/> <input  type="checkbox" name="privacidad"  required/>   <a href="">Politica de Privacidad de SWL</a>                                
+                                            <label for="politica">Acepto la politica de privacidad</label><br/> <input  type="checkbox" name="privacidad"  required />   <a href="">Politica de Privacidad de SWL</a>                                
                                  </div>
                                         
                                         <div class="col-md-12">
                                             
-                                       <input  type="checkbox" name="verifica_dni"  required/><label for="verifica_dni">  Verifico que los datos introducidos son los de mi DNI </label>                                 
+                                            <input  type="checkbox" name="verifica_dni"   required/><label for="verifica_dni">  Verifico que los datos introducidos son los de mi DNI  </label>                                 
                                  </div>
+                                         
+                                        
                                     <div class="form-button mt-3">
-                                        <button id="submit" type="submit"  class="btn btn-primary">Registrate</button>
+                                        <input id="submit" type="submit"  class="btn btn-primary" value="Registrate">
+                                            
+                                            
                                     </div>
                                     </form>
 
@@ -264,6 +274,24 @@
 
 
 
-
+                                 
     </body>
+     <c:if test="${mensajeNif != null}"> 
+         <script> 
+            if( confirm("${mensajeNif}")){
+         window.location.assign("./Login");}
+         </script>
+     </c:if>
+        <c:if test="${mensajeEmail != null}"> <script> 
+            if( confirm("${mensajeEmail}")){
+         window.location.assign("./Login");}
+         </script> </c:if>
+        <c:if test="${mensajeTelefono != null}"> <script> 
+            if( confirm("${mensajeTelefono}")){
+         window.location.assign("./Login");}
+         </script> </c:if>
+        <c:if test="${mensajeNick != null}"> <script> 
+            if( confirm("${mensajeNick}")){
+         window.location.assign("./Login");}
+         </script> </c:if>   
 </html>
