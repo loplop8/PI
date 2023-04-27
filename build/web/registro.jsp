@@ -23,7 +23,7 @@
         <header class="text-white">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start w-100" id="cabecera">
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="index.html" class="nav-link px-2 text-secondary elem"><img src="img/LogoSWL.png" alt="LogoSWL" width="100px" height="40px"></a></li>
+                    <li><a href="./Inicio" class="nav-link px-2 text-secondary elem"><img src="img/LogoSWL.png" alt="LogoSWL" width="100px" height="40px"></a></li>
                     <li><a href="sobreNosotros.html" class="nav-link px-2 text-white mt-2 elementosNoResponsive">Anuncios</a></li>
                     <li><a href="#" class="nav-link px-2 text-white mt-2 elementosNoResponsive">Como Trabajamos</a></li>
                     <li><a href="#" class="nav-link px-2 text-white mt-2 elementosNoResponsive">Blog</a></li>
@@ -44,8 +44,8 @@
                                     <a href="#" class="nav-link px-2 text-white mt-2 elementosResponsive">Como Trabajamos</a>
                                     <a href="#" class="nav-link px-2 text-white mt-2 elementosResponsive">Blog</a>
                                     <a href="#" class="nav-link px-2 text-white mt-2 elementosResponsive">Encuentranos</a>
-                                    <a href="#" class="nav-link px-2 text-white mt-2 elementosResponsive"><button type="button" class="btn btn-outline-warning me-2"><a href="login.html" id="login">Iniciar sesión</a></button></a>
-                                    <a href="#" class="nav-link px-2 text-white mt-2 elementosResponsive"><button type="button" class="btn btn-outline-warning me-2"><a href="registro.html" id="login">Registrate</a></button></a>
+                                    <a href="#" class="nav-link px-2 text-white mt-2 elementosResponsive"><button type="button" class="btn btn-outline-warning me-2"><a href="./Login" id="login">Iniciar sesión</a></button></a>
+                                    <a href="#" class="nav-link px-2 text-white mt-2 elementosResponsive"><button type="button" class="btn btn-outline-warning me-2"><a href="./Registro" id="login">Registrate</a></button></a>
                                 </li>
                             </div>
                         </div>
@@ -64,55 +64,71 @@
                                     <h3>Registrate en Second Weapon Life</h3>
                                     <p>Rellena nuestro formulario</p>
                                     <form class="requires-validation" method="post">
-                                        <div class="col-md-12">
+                                        <div class="row">
+                                        <div class="col-md-6 mt-1">
                                             <label for="nombre">Nombre:</label>
                                             <input class="form-control " type="text" name="nombre" placeholder="Nombre Completo " pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$" <c:if test="${nombre != 'null'}"> value="${nombre}" </c:if> required/>
                                         </div>
-                                        <div class="col-md-12 mt-1">
+                                        <div class="col-md-6 mt-1">
                                             <label for="apellidos">Apellidos:</label>
                                             <input class="form-control " type="text" name="apellidos" placeholder="Apellidos" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$" <c:if test="${apellidos != 'null'}"> value="${apellidos}" </c:if> required />
                                         </div>
-                                        <div class="col-md-12 mt-1">
+                                        </div>
+                                        <div class="row">
+                                        <div class="col-md-6 mt-1">
                                             <label for="nif">NIF:</label>
                                             <input class="form-control " type="text" name="nif" placeholder="Ejemplo: 12345678A" pattern="^\d{8}[A-Z]$" <c:if test="${nif != 'null'}"> value="${nif}" </c:if> required />
                                         </div>
-                                        <div class="col-md-12 mt-1">
+                                        <div class="col-md-6 mt-1">
                                             <label for="email">Email:</label>
                                             <input class="form-control " type="email" name="email" placeholder="Ejemplo: info@swl.es" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" <c:if test="${email != 'null'}"> value="${email}" </c:if> required />
                                         </div>
-                                        <div class="col-md-12  mt-1">
+                                            </div>
+                                        <div class="row">
+                                        <div class="col-md-6  mt-1">
                                             <label for="telefono">Teléfono:</label>
                                             <input class="form-control" type="tel" name="telefono" placeholder="Ejemplo: 607450598" pattern="^(6|7)\d{8}$$" required <c:if test="${telefono != 'null'}"> value="${telefono}" </c:if> />
                                         </div>
-                                        <div class="col-md-12 mt-1" >
+                                        <div class="col-md-6 mt-1" >
                                             <label for="nickname">Nombre de Usuario:</label>
                                             <input class="form-control " type="text" name="nickname" placeholder="Ejemplo: Nick23 " pattern="^[A-Za-z][A-Za-z0-9]{0,9}$" required <c:if test="${nickname != 'null'}"> value="${nickname}" </c:if> />
                                         </div>
-                                        <div class="col-md-12 mt-1">
-                                            <label for="localidad">Localidad:</label>
-                                            <input class="form-control " type="text" name="localidad" placeholder="Ejemplo: Ea " pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$" required <c:if test="${localidad != 'null'}"> value="${localidad}" </c:if> />
-                                        </div>
-                                        <div class="col-md-12 mt-1">
+                                            </div>
+                                        <div class="row">
+                                        <div class="col-md-6 mt-1">
                                             <label for="provincia">Provincia:</label>
-                                            <input class="form-control " type="text" name="provincia" placeholder="Provincia" pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$" required <c:if test="${provincia != 'null'}"> value="${provincia}" </c:if> />
+                                            <select class="form-select " id="provincias"  name="provincias">
+                                                <option> Seleccione una provincia</option> 
+                                            </select>
                                         </div>
-                                        <div class="col-md-12  mt-1">
+                                        <div class="col-md-6 mt-1">
+                                            <label for="Municipio">Municipio:</label>
+                                            <select class="form-select " id="municipios" name="municipios">
+                                                <option>Seleccione un municipio</option>
+                                            </select>
+                                        </div>
+                                        
+                                            </div>
+                                        <div class="row">
+                                        <div class="col-md-6  mt-1">
                                             <label for="direccion">Dirección:</label>
                                             <input class="form-control " type="text" name="direccion" placeholder="Dirección" pattern="^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s#,./-]+$" required <c:if test="${direccion != 'null'}"> value="${direccion}" </c:if> />
                                         </div>
-                                        <div class="col-md-12 mt-1">
+                                        <div class="col-md-6 mt-1">
                                             <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
                                             <input class="form-control " type="date" name="fecha_nacimiento" placeholder=""  required />
                                         </div>
-                                        <div class="col-md-12 mt-1">
+                                            </div>
+                                        <div class="row">
+                                        <div class="col-md-6 mt-1">
                                             <label for="contraseña">Contraseña:</label>
                                             <input class="form-control " type="password" name="contraseña" placeholder="Contraseña" pattern="^(?=.*\d)(?=.*[\.\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z]).{8,16}$" <c:if test="${contraseña != 'null'}"> value="${contraseña}" </c:if> required />
                                         </div>
-                                        <div class="col-md-12 mt-1">
+                                        <div class="col-md-6 mt-1">
                                             <label for="contraseña_rep">Repita su contraseña:</label>
                                             <input class="form-control " type="password" name="contraseña_rep" placeholder="Repita su contraseña" pattern="^(?=.*\d)(?=.*[\.\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z]).{8,16}$" required  <c:if test="${contraseña != 'null'}"> value="${contraseña}" </c:if> />
                                         </div>
-                                        
+                                            </div>
                                         <div class="col-md-12">
                                             <label for="politica">Acepto la politica de privacidad</label><br/> <input  type="checkbox" name="privacidad"  required />   <a href="">Politica de Privacidad de SWL</a>                                
                                  </div>

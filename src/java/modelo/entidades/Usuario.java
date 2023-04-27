@@ -7,6 +7,9 @@ import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -48,29 +51,26 @@ public class Usuario implements Serializable {
     @Column(name="telefono")
     private String telefono;
     
+    @ManyToOne
+    @JoinColumn(name="id_municipio")
+    private Municipio id_municipio;
+
+    public Municipio getId_municipio() {
+        return id_municipio;
+    }
+
+    public void setId_municipio(Municipio id_municipio) {
+        this.id_municipio = id_municipio;
+    }
+
     
-    @Column(name="localidad")
-    private String localidad;
     
     
-    @Column(name="provincia")
-    private String provincia;
+    
 
-    public String getLocalidad() {
-        return localidad;
-    }
+    
 
-    public void setLocalidad(String localidad) {
-        this.localidad = localidad;
-    }
-
-    public String getProvincia() {
-        return provincia;
-    }
-
-    public void setProvincia(String provincia) {
-        this.provincia = provincia;
-    }
+    
     
     
     @Column(name="direccion")

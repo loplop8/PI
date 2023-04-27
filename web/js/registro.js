@@ -1,3 +1,47 @@
+// Obtener provincias
+fetch('./Rest/Provincias')
+  .then(response => response.json())
+  .then(data => {
+    // Agregar cada provincia al select
+    const selectProvincias = document.getElementById('provincias');
+    data.forEach(provincia => {
+      const option = document.createElement('option');
+      option.text = provincia.nombre;
+      option.value = provincia.id_provincia;
+      selectProvincias.add(option);
+    });
+  });
+
+// Obtener municipios de la provincia seleccionada
+document.getElementById('provincias').addEventListener('change', () => {
+  const provincia = document.getElementById('provincias').value;
+  fetch(`./Rest/Municipios/${provincia}`)
+    .then(response => response.json())
+    .then(data => {
+      // Limpiar select 1de municipios
+      const selectMunicipios = document.getElementById('municipios');
+      selectMunicipios.innerHTML = '';
+
+      // Agregar cada municipio al select
+      data.forEach(municipio => {
+        const option = document.createElement('option');
+        option.text = municipio.nombre;
+        option.value = municipio.id_municipio;
+        selectMunicipios.add(option);
+      });
+    });
+});
+
+
+
+
+
+
+
+
+
+
+const municipio=document.getElementById("municipios");
 const form = document.querySelector('.requires-validation');
 const nombre = form.elements.nombre;
 const apellidos = form.elements.apellidos;
@@ -5,8 +49,6 @@ const nif = form.elements.nif;
 const email = form.elements.email;
 const telefono = form.elements.telefono;
 const nickname = form.elements.nickname;
-const localidad = form.elements.localidad;
-const provincia = form.elements.provincia;
 const direccion = form.elements.direccion;
 const fecha_nacimiento = form.elements.fecha_nacimiento;
 const contraseña = form.elements.contraseña;
@@ -156,37 +198,11 @@ nickname.addEventListener('change', () => {
   compruebaNickname(nickname);
 });
 
-function compruebaLocalidad(inputLocalidad) {
-  if (!regexProvinciaLocalidadNombreApellidos.test(inputLocalidad.value)) {
-    
-    inputLocalidad.classList.add('is-invalid');
-    alert("La localidad debe tener al menos 2 letras y solo pueden ser letras");
-    return false;
-    } else {
-    inputLocalidad.classList.remove('is-invalid');
-    return true;
-      }
-}
 
-localidad.addEventListener('change', () => {
-  compruebaLocalidad(localidad);
-});
 
-function compruebaProvincia(inputProvincia) {
-  if (!regexProvinciaLocalidadNombreApellidos.test(inputProvincia.value)) {
-    
-    inputProvincia.classList.add('is-invalid');
-    alert("La provincia debe tener al menos 2 letras y solo pueden ser letras");
-    return false;
-    } else {
-    inputProvincia.classList.remove('is-invalid');
-        return true;
-      }
-}
 
-provincia.addEventListener('change', () => {
-  compruebaProvincia(provincia);
-});
+
+
 
 function compruebaDireccion(inputDireccion) {
   if (!regexDireccion.test(inputDireccion.value)) {
@@ -314,15 +330,7 @@ function validarFormulario(event) {
     return;
   }
   
-  // Validamos el campo "localidad"
-  if (!compruebaLocalidad(localidad)) {
-    return;
-  }
   
-  // Validamos el campo "provincia"
-  if (!compruebaProvincia(provincia)) {
-    return;
-  }
   
   // Validamos el campo "direccion"
   if (!compruebaDireccion(direccion)) {

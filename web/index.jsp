@@ -25,7 +25,7 @@
         
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="index.html" class="nav-link px-2 text-secondary"><img src="img/LogoSWL.png" alt="LogoSWL" width="100px" height="40px" ></a></li>
+          <li><a href="./Inicio" class="nav-link px-2 text-secondary"><img src="img/LogoSWL.png" alt="LogoSWL" width="100px" height="40px" ></a></li>
           <li><a href="sobreNosotros.html" class="nav-link px-2 text-white mt-2 elementosNoResponsive">Sobre Nosotros</a></li>
           <li><a href="#" class="nav-link px-2 text-white mt-2 elementosNoResponsive" >Como Trabajamos</a></li>
           <li><a href="#" class="nav-link px-2 text-white mt-2 elementosNoResponsive">Blog</a></li>

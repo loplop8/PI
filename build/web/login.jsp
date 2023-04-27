@@ -24,7 +24,7 @@
         
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="index.html" class="nav-link px-2 text-secondary"><img src="img/LogoSWL.png" alt="LogoSWL" width="100px" height="40px" ></a></li>
+          <li><a href="./Inicio" class="nav-link px-2 text-secondary"><img src="img/LogoSWL.png" alt="LogoSWL" width="100px" height="40px" ></a></li>
           <li><a href="sobreNosotros.html" class="nav-link px-2 text-white mt-2 elementosNoResponsive">Sobre Nosotros</a></li>
           <li><a href="#" class="nav-link px-2 text-white mt-2 elementosNoResponsive" >Como Trabajamos</a></li>
           <li><a href="#" class="nav-link px-2 text-white mt-2 elementosNoResponsive">Blog</a></li>
@@ -57,11 +57,11 @@
                     <a href="#" class="nav-link px-2 text-white mt-2 elementosResponsive">Encuentranos</a>
                   </a>
 
-                  <a href="#" class="nav-link px-2 text-white mt-2 elementosResponsive"><button type="button" class="btn btn-outline-warning  me-2"><a href="login.html" id="login"> Iniciar sesiï¿½n</a></button></a>
+                  <a href="#" class="nav-link px-2 text-white mt-2 elementosResponsive"><button type="button" class="btn btn-outline-warning  me-2"><a href="./Login" id="login"> Iniciar sesión</a></button></a>
                     
                 </a>
                   
-                <a href="#" class="nav-link px-2 text-white mt-2 elementosResponsive"><button type="button" class="btn btn-outline-warning me-2" > <a href="registro.html" id="login"> Registrate</a></button>
+                <a href="#" class="nav-link px-2 text-white mt-2 elementosResponsive"><button type="button" class="btn btn-outline-warning me-2" > <a href="./Registro" id="login"> Registrate</a></button>
               </a>
 
               </a>
@@ -79,8 +79,8 @@
                 <div class="form-holder">
                     <div class="form-content">
                         <div class="form-items">
-                            <h3>Iniciar sesiÃ³n </h3>
-                            <p>Introduce los datos para  iniciar sesiÃ³n</p>
+                            <h3>Iniciar sesión </h3>
+                            <p>Introduce los datos para  iniciar sesión</p>
                             <form method="post" >
     
                                 
@@ -90,10 +90,10 @@
     
                                <div class="col-md-12">
                                           
-                                
+                               
     
                                <div class="col-md-12">
-                                  <input class="form-control" type="password" name="password" placeholder="Contraseï¿½a" required>
+                                  <input class="form-control" type="password" name="contraseña" placeholder="Contraseña" required>
                                    
                                  
                              </div>
@@ -107,7 +107,7 @@
                       
     
                                 <div class="form-button mt-3">
-                                    <button id="submit" type="submit" class="btn btn-primary">Iniciar sesiÃ³n</button>
+                                    <button id="submit" type="submit" class="btn btn-primary">Iniciar sesión</button>
                                 </div>
                             </form>
                         </div>
@@ -208,7 +208,7 @@
   <div class="col-md-7 col-lg-8 text-center text-md-start">
     <!-- Copyright -->
     <div class="p-3">
-      ï¿½ Josï¿½ Antonio Lï¿½pez Lï¿½pez 
+      José Antonio López López 
       
     </div>
     <!-- Copyright -->

@@ -6,7 +6,6 @@
 package controladores;
 
 import java.io.IOException;
-import static java.lang.String.format;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
@@ -25,7 +24,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.dao.MunicipioJpaController;
 import modelo.dao.UsuarioJpaController;
+import modelo.entidades.Municipio;
 import modelo.entidades.Usuario;
 
 /**
@@ -63,14 +64,7 @@ public class Registro extends HttpServlet {
         String nif = "";
         String rol = "normal";
         String contraseña = "";
-        String localidad = "";
-        String provincia = "";
-
-        
-        
-        
-        
-        
+        Long id_municipio=0L;
         
         
         if (request.getParameter("nombre") != null 
@@ -84,12 +78,11 @@ public class Registro extends HttpServlet {
                 && request.getParameter("contraseña") != null
                 && request.getParameter("contraseña_rep") != null
                 && request.getParameter("privacidad") != null
-                && request.getParameter("localidad") != null
-                && request.getParameter("provincia") != null) { //Si los campos no son null 
+                && request.getParameter("municipios") != null
+                ) { //Si los campos no son null 
 
                 
-                
-                
+                 
             
             nombre = request.getParameter("nombre");
             request.setAttribute("nombre",nombre);
@@ -111,15 +104,14 @@ public class Registro extends HttpServlet {
             request.setAttribute("nif", nif);
             contraseña = request.getParameter("contraseña");
             request.setAttribute("contrasaeña", contraseña);
-            localidad = request.getParameter("localidad");
-            localidad.trim();
-            request.setAttribute("localidad",localidad);            
-            provincia = request.getParameter("provincia");    
-            request.setAttribute("provincia",provincia);
+            id_municipio=Long.valueOf(request.getParameter("municipios"));            
+            request.setAttribute("municipios",(id_municipio));            
+            
             
             
                 EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife");
                 EntityManager em = emf.createEntityManager();
+                
                 TypedQuery<Usuario> queryNombre = em.createQuery("SELECT u FROM Usuario u WHERE u.nickname = :nickname" , Usuario.class);
                 queryNombre.setParameter("nickname", nickname);
                 TypedQuery<Usuario> queryEmail = em.createQuery("SELECT u FROM Usuario u WHERE u.email = :email" , Usuario.class);
@@ -224,8 +216,8 @@ public class Registro extends HttpServlet {
                 u.setNickname(nickname);
                 u.setContraseña(contraseña);
                 u.setDireccion(direccion);
-                u.setLocalidad(localidad);
-                u.setProvincia(provincia);
+                MunicipioJpaController mjc=new MunicipioJpaController(emf);
+                u.setId_municipio(mjc.findMunicipio(id_municipio));
                 u.setUrl_img_perfil(null);
                
                 UsuarioJpaController ujc = new UsuarioJpaController(emf); //Llamamos controlador JPA USUARIO
