@@ -19,10 +19,10 @@ import modelo.entidades.Usuario;
  *
  * @author Zatonio
  */
-@WebServlet(name = "Inicio", urlPatterns = {"/Inicio"})
+@WebServlet(name = "Inicio", urlPatterns = {"/Inicio"}  )
 public class Inicio extends HttpServlet {
-
-    /**
+    
+        /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
@@ -37,7 +37,7 @@ public class Inicio extends HttpServlet {
            
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         request.setAttribute("usuario", usuario);
-        getServletContext().getRequestDispatcher(vista).forward(request, response);
+            getServletContext().getRequestDispatcher(vista).forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

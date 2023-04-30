@@ -5,7 +5,10 @@ package controladores;
  * @author Zatonio
  */
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.servlet.ServletException;
@@ -31,31 +34,33 @@ public class Login extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
+     * @throws java.security.NoSuchAlgorithmException
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, NoSuchAlgorithmException {
         String vista = "/login.jsp";
         // Si hemos recibido los datos del formulario
         if (request.getParameter("email") != null && 
-                request.getParameter("password") != null) {
+                request.getParameter("contraseña") != null) {
             String email = request.getParameter("email");
-            String password = request.getParameter("password");
+            String contraseña = request.getParameter("contraseña");
+           contraseña= security.Security.encriptaContraseña(contraseña);
             EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife");
             
             
             UsuarioJpaController ujc = new UsuarioJpaController(emf);
             List<Usuario> usuarios = ujc.findUsuarioEntities();
             for (Usuario u : usuarios) {
-                if (u.getEmail().equals(email) && u.getContraseña().equals(password)) {
+                if (u.getEmail().equals(email) && u.getContraseña().equals(contraseña)) {
                     request.getSession().setAttribute("usuario", u);
-                    response.sendRedirect("Inicio");
+                    response.sendRedirect("./Inicio");
                     return;
                 }
             }
-            String error = "Usuario o contraseÃ±a incorrectos";
+            String error = "Usuario o contraseña incorrectos";
             request.setAttribute("error", error);
             request.setAttribute("email", email);
-            request.setAttribute("password", password);
+            request.setAttribute("contraseña", contraseña);
         }
         getServletContext().getRequestDispatcher(vista).forward(request, response);
     }
@@ -72,7 +77,11 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -86,7 +95,11 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

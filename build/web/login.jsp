@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +10,7 @@
     <script src="boostrap/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>  
     <link rel="stylesheet" href="./css/style2.css">
+    <script src="./js/login.js" defer></script>
    
     <title>Document</title>
 </head>
@@ -81,11 +83,11 @@
                         <div class="form-items">
                             <h3>Iniciar sesión </h3>
                             <p>Introduce los datos para  iniciar sesión</p>
-                            <form method="post" >
+                            <form method="post" id="login">
     
                                 
                                 <div class="col-md-12">
-                                    <input class="form-control" type="email" name="email" placeholder="Email" required>
+                                    <input class="form-control" type="email" name="email" id="email" placeholder="Email" required>
                                      </div>
     
                                <div class="col-md-12">
@@ -93,23 +95,25 @@
                                
     
                                <div class="col-md-12">
-                                  <input class="form-control" type="password" name="contraseña" placeholder="Contraseña" required>
+                                  <input class="form-control" type="password" name="contraseña" id="contraseña" placeholder="Contraseña" required>
                                    
                                  
                              </div>
-    
+                             <c:if test="${error!=null}">
+                                 <label style="color: #ffc107;  ">${error}</label>>  
+                            </c:if>
                                
-                            <div class="form-check">
-                              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                              <label class="form-check-label">Todos los datos son correctos</label>
-                             
-                            </div>
+                            
                       
     
                                 <div class="form-button mt-3">
                                     <button id="submit" type="submit" class="btn btn-primary">Iniciar sesión</button>
                                 </div>
                             </form>
+                            
+                            <div class="">
+                            
+                            </div>   
                         </div>
                     
                 </div>

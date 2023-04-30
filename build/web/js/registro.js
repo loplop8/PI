@@ -18,11 +18,15 @@ document.getElementById('provincias').addEventListener('change', () => {
   fetch(`./Rest/Municipios/${provincia}`)
     .then(response => response.json())
     .then(data => {
-      // Limpiar select 1de municipios
+      // Limpiar select 1de municipios y agregar el predeterminado
       const selectMunicipios = document.getElementById('municipios');
-      selectMunicipios.innerHTML = '';
-
+      selectMunicipios.innerHTML="";
+      const optionPred= document.createElement('option');
+      optionPred.text="Seleccione un municipio";
+      optionPred.value="";
+      selectMunicipios.add(optionPred);
       // Agregar cada municipio al select
+      
       data.forEach(municipio => {
         const option = document.createElement('option');
         option.text = municipio.nombre;
@@ -61,7 +65,7 @@ const submit =document.getElementById("submit");
 const regexNIF = /^\d{8}[A-Z]$/;
 const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const regexTelefono = /^(6|7)\d{8}$/;
-const regexNickname = /^[A-Za-z][A-Za-z0-9]{0,9}$/;
+const regexNickname = /^[A-Za-z0-9][A-Za-z0-9]{4,9}$/;
 const regexProvinciaLocalidadNombreApellidos = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$/;
 const regexContraseña= /^(?=.*\d)(?=.*[\.\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z]).{8,16}$/;
 const regexDireccion = /^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s#,./-]+$/;
@@ -183,10 +187,10 @@ telefono.addEventListener('change', () => {
 });
 
 function compruebaNickname(inputNickname) {
-  if (!regexProvinciaLocalidadNombreApellidos.test(inputNickname.value)) {
+  if (!regexNickname.test(inputNickname.value)) {
     
     inputNickname.classList.add('is-invalid');
-    alert("El nombre debe tener al menos 4 caracteres");
+    alert("El nombre debe tener al menos 4 caracteres, máximo 9 y no contener caracteres especiales");
     return false;
   } else {
     inputNickname.classList.remove('is-invalid');

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +16,9 @@
     <title>Second Weapon Life </title>
 </head>
 <body>
-  <header class=" text-white" >
+  
+        <c:if test="${usuario.id_usuario==null}"> 
+    <header class=" text-white" >
     <div>
       
       
@@ -71,10 +74,89 @@
       </div>
     </div>
   </header>
-  
+  </c:if>
+    
+    <c:if test="${usuario.id_usuario!=null}">
+        
+        <header class=" text-white" >
+    <div>
+      
+      
+      
+      
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start w-100 "id="cabecera" id="cabecera" >
+        
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="index.html" class="nav-link px-2 text-secondary"><img src="img/LogoSWL.png" alt="LogoSWL" width="100px" height="40px" ></a></li>
+          <li><a href="sobreNosotros.html" class="nav-link px-2 text-white mt-2 elementosNoResponsive">Sobre Nosotros</a></li>
+          <li><a href="#" class="nav-link px-2 text-white mt-2 elementosNoResponsive" >Pricing</a></li>
+          <li><a href="#" class="nav-link px-2 text-white mt-2 elementosNoResponsive">FAQs</a></li>
+          <li><a href="#" class="nav-link px-2 text-white mt-2 elementosNoResponsive" >About</a></li>
+        </ul>
+
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 elementosNoResponsive" >
+          <input type="search" class="form-control form-control-dark" placeholder="Buscar..." aria-label="Search">
+        </form>
+
+        <div class="text-end">
+         
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid" id="Usuario">
+              
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <li class="nav-item dropdown " id="puntoNegro" >
+                  
+                    
+                   <a href="#" class="nav-link px-2 text-white mt-2 elementosResponsive">Anuncios</a>
+                  </a>
+                  <a href="#" class="nav-link px-2 text-white mt-2 elementosResponsive" >Pricing</a>
+                    <a href="#" class="nav-link px-2 text-white mt-2 elementosResponsive">FAQs</a>
+                  </a>
+                  
+                    <a href="#" class="nav-link px-2 text-white mt-2 elementosResponsive">About</a>
+                  </a>
+
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    ${usuario.nickname}
+                  </a>
+                  <ul class="dropdown-menu-dark dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink " >
+                    <li><a class="dropdown-item" href="#"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
+                      <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z"/>
+                    </svg> Compras</a></li>
+                    <li><a class="dropdown-item" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-seam-fill" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M15.528 2.973a.75.75 0 0 1 .472.696v8.662a.75.75 0 0 1-.472.696l-7.25 2.9a.75.75 0 0 1-.557 0l-7.25-2.9A.75.75 0 0 1 0 12.331V3.669a.75.75 0 0 1 .471-.696L7.443.184l.01-.003.268-.108a.75.75 0 0 1 .558 0l.269.108.01.003 6.97 2.789ZM10.404 2 4.25 4.461 1.846 3.5 1 3.839v.4l6.5 2.6v7.922l.5.2.5-.2V6.84l6.5-2.6v-.4l-.846-.339L8 5.961 5.596 5l6.154-2.461L10.404 2Z"/>
+                    </svg> Ventas</a></li>
+                    
+                    <li><a class="dropdown-item" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar4" viewBox="0 0 16 16">
+                      <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1H2zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5z"/>
+                    </svg> Mis anuncios</a></li>
+
+                    <li><a class="dropdown-item" href="editarUsuario.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                      <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                    </svg> Gestionar Perfil</a></li>
+                    <li><a class="dropdown-item" href="./CerrarSesion"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+                      <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                    </svg> Cerrar Sesión </a></li>
+          
+
+
+        </div>
+      </div>
+    </div>
+  </header>
+        
+    </c:if>
+    
       <main>
 
-        <section class="py-5 text-center container-fluid mt-5" id="slider">
+        <section class="py-1 text-center container-fluid mt-5" id="slider">
           
           <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
