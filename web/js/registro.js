@@ -18,15 +18,15 @@ document.getElementById('provincias').addEventListener('change', () => {
   fetch(`./Rest/Municipios/${provincia}`)
     .then(response => response.json())
     .then(data => {
-      // Limpiar select 1de municipios y agregar el predeterminado
+      // Limpiar select de municipios y agregar el predeterminado
       const selectMunicipios = document.getElementById('municipios');
       selectMunicipios.innerHTML="";
       const optionPred= document.createElement('option');
       optionPred.text="Seleccione un municipio";
       optionPred.value="";
       selectMunicipios.add(optionPred);
-      // Agregar cada municipio al select
       
+        // Agregar cada municipio al select
       data.forEach(municipio => {
         const option = document.createElement('option');
         option.text = municipio.nombre;
