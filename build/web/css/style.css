@@ -70,7 +70,9 @@
         display: none;
     }
 
-
+    .dropdown-menu{
+        left: -81% !important;
+    }
 
 
 
@@ -86,7 +88,9 @@
             display: block;
         }
 
-
+        .dropdown-menu{
+        left: 0% !important;
+    }
         
     input[type="search"]{
         width: 42%;
@@ -98,6 +102,8 @@
     }  
         
     }
+    
+    
 
 
 

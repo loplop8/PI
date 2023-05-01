@@ -29,7 +29,7 @@
           <li><a href="./Inicio" class="nav-link px-2 text-secondary"><img src="img/LogoSWL.png" alt="LogoSWL" width="100px" height="40px" ></a></li>
           <li><a href="sobreNosotros.html" class="nav-link px-2 text-white mt-2 elementosNoResponsive">Sobre Nosotros</a></li>
           <li><a href="#" class="nav-link px-2 text-white mt-2 elementosNoResponsive" >Como Trabajamos</a></li>
-          <li><a href="#" class="nav-link px-2 text-white mt-2 elementosNoResponsive">Blog</a></li>
+          <li><a href="#" class="nav-link px-2 text-white mt-2 elementosNoResponsive">Foro</a></li>
           <li><a href="#" class="nav-link px-2 text-white mt-2 elementosNoResponsive" >Encuentranos</a></li>
         </ul>
 
@@ -111,9 +111,7 @@
                                 </div>
                             </form>
                             
-                            <div class="">
-                            
-                            </div>   
+                               
                         </div>
                     
                 </div>

@@ -221,7 +221,9 @@ a:hover{
 .elementosResponsive{
     display: none;
 }
-
+ .dropdown-menu{
+        left: -81% !important;
+    }
 
 
 
@@ -237,7 +239,9 @@ a:hover{
     .elementosResponsive{
         display: block;
     }
-
+.dropdown-menu{
+        left: 0% !important;
+    }
 
     
 input[type="search"]{

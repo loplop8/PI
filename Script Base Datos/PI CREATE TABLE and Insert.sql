@@ -62,40 +62,29 @@ CREATE TABLE estado_pedido (
   descripcion VARCHAR(255)
 );
 
-CREATE TABLE pedido (
-  id_pedido BIGINT AUTO_INCREMENT PRIMARY KEY,
-  id_usuario BIGINT,
-  fecha_entrega DATE ,
-  fecha_compra DATE NOT NULL,
-  numero_pedido BIGINT,
-  id_estado_pedido BIGINT,
-  FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
-  FOREIGN KEY (id_estado_pedido) REFERENCES estado_pedido(id_estado_pedido)
-);
-
 CREATE TABLE arma (
   id_arma BIGINT AUTO_INCREMENT PRIMARY KEY,
   marca VARCHAR(255) NOT NULL,
   id_tipo_arma BIGINT NOT NULL,
-  id_pedido BIGINT NULL,
   id_usuario BIGINT NOT NULL,
   FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
-  FOREIGN KEY (id_tipo_arma) REFERENCES tipo_arma(id_tipo_arma),
-  FOREIGN KEY (id_pedido) REFERENCES pedido(id_pedido)
+  FOREIGN KEY (id_tipo_arma) REFERENCES tipo_arma(id_tipo_arma)
+  
 );
 
-CREATE TABLE anuncio (
-  id_anuncio BIGINT AUTO_INCREMENT PRIMARY KEY,
-  fecha_public DATE NOT NULL,
-  descripcion VARCHAR(255) NOT NULL,
-  titulo VARCHAR(255) NOT NULL,
-  precio DECIMAL(10,2) NOT NULL,
+CREATE TABLE pedido (
+  id_pedido BIGINT AUTO_INCREMENT PRIMARY KEY,
+  id_usuario BIGINT NOT NULL,
   id_arma BIGINT NOT NULL,
+  fecha_entrega DATE ,
+  fecha_compra DATE NOT NULL,
+  numero_pedido BIGINT  NOT NULL ,
+  id_estado_pedido BIGINT NOT NULL,
+
+  FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
+  FOREIGN KEY (id_estado_pedido) REFERENCES estado_pedido(id_estado_pedido),
   FOREIGN KEY (id_arma) REFERENCES arma(id_arma)
 );
-
-
-
 
 
 CREATE TABLE arma_fuego (
@@ -118,6 +107,21 @@ CREATE TABLE arma_replica (
   piezas_canon VARCHAR(255),
   FOREIGN KEY (id_arma) REFERENCES arma(id_arma)
 );
+
+
+CREATE TABLE anuncio (
+  id_anuncio BIGINT AUTO_INCREMENT PRIMARY KEY,
+  fecha_public DATE NOT NULL,
+  descripcion VARCHAR(255) NOT NULL,
+  titulo VARCHAR(255) NOT NULL,
+  precio DECIMAL(10,2) NOT NULL,
+  id_arma BIGINT NOT NULL,
+  FOREIGN KEY (id_arma) REFERENCES arma(id_arma)
+);
+
+
+
+
 
 CREATE TABLE contrato_compra_venta (
   id_contrato_compra_venta BIGINT AUTO_INCREMENT PRIMARY KEY,
@@ -142,7 +146,7 @@ CREATE TABLE factura (
 
 CREATE TABLE hilo (
     id_hilo BIGINT AUTO_INCREMENT PRIMARY KEY,
-    id_usuario BIGINT,
+    id_usuario BIGINT NOT NULL,
     titulo_descriptivo VARCHAR(100) NOT NULL,
     etiqueta_tema VARCHAR(50) NOT NULL,
     fecha_creacion DATE NOT NULL,
@@ -153,8 +157,8 @@ CREATE TABLE mensaje (
     id_mensaje BIGINT AUTO_INCREMENT PRIMARY KEY,
     contenido TEXT NOT NULL,
     fecha_publicacion DATE NOT NULL,
-    id_hilo BIGINT,
-    id_usuario BIGINT,
+    id_hilo BIGINT NOT NULL,
+    id_usuario BIGINT NOT NULL,
     FOREIGN KEY (id_hilo) REFERENCES hilo(id_hilo),
     FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
 );

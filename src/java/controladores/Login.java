@@ -53,10 +53,21 @@ public class Login extends HttpServlet {
             for (Usuario u : usuarios) {
                 if (u.getEmail().equals(email) && u.getContraseña().equals(contraseña)) {
                     request.getSession().setAttribute("usuario", u);
-                    response.sendRedirect("./Inicio");
-                    return;
+                    if("admin".equals(u.getRol())){
+                        response.sendRedirect("admin/PanelAdministracion");
+                        return;
+                        
+                    }else if("moderador".equals(u.getRol())){
+                        response.sendRedirect("moderador/PanelModeracion");
+                        return;
+                    }else{
+                        response.sendRedirect("./Inicio");
+                        return;
+                    }
+                    
                 }
             }
+        
             String error = "Usuario o contraseña incorrectos";
             request.setAttribute("error", error);
             request.setAttribute("email", email);

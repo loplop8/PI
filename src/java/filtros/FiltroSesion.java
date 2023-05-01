@@ -51,21 +51,21 @@ public class FiltroSesion implements Filter {
         // No hay login y estoy intentando acceder a una vista protegida -> redirigimos a login
         if (u == null && !isPublicUrl(uri)) { //Si ul usuario no us null y la uri no es publica aplicamos segun el rol
             res.sendRedirect(req.getContextPath() + "/Login");
-        } else if (u != null && "admin".equals(u.getRol()) && uri.contains("arbitro") ) {
+        } else if (u != null && "admin".equals(u.getRol()) && uri.contains("moderador") ) {
             res.sendRedirect(req.getContextPath() + "/Inicio");
-        } else if (u != null && "arbitro".equals(u.getRol()) && uri.contains("admin")) {
+        } else if (u != null && "moderador".equals(u.getRol()) && uri.contains("admin")) {
             res.sendRedirect(req.getContextPath() + "/Inicio");
-        } else {
+        }else if (u != null && "normal".equals(u.getRol()) && (uri.contains("admin") || uri.contains("moderador"))) {
+            res.sendRedirect(req.getContextPath() + "/Inicio");
+        }else{
             chain.doFilter(request, response);
         }
 
     }
 
     private boolean isPublicUrl(String uri) {
-        return !uri.contains("admin") && !uri.contains("arbitro");
+        return !uri.contains("admin") && !uri.contains("moderador") && !uri.contains("usuario") ;
     }
 
-    //Url admin /ligaBaloncesto/admin/....
-    //Url arbitro /ligaBaloncesto/arbitro/....
-    //Url publica /ligaBaloncesto/....
+    
 }
