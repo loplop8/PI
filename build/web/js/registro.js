@@ -139,8 +139,21 @@ function compruebaNIF(inputNIF) {
     
     var valido = comprobarLetraNIF(inputNIF.value);
     if (valido) {
-      inputNIF.classList.remove('is-invalid');
-      return true;
+      fetch(`./Rest/Usuarios`)
+      .then(response => response.json())
+      .then(data => {
+        const existeUsuario = data.some(usuario => usuario.nif === inputNIF.value);
+        if (existeUsuario) {
+          inputNIF.classList.add('is-invalid');
+          alert("Ese nombre de usuario ya esta en uso")
+          return false;
+        } else {
+          inputNIF.classList.remove('is-invalid');
+          return true;
+        }
+      })
+      .catch(error => console.error(error));
+  
           } else {
       inputNIF.classList.add('is-invalid');
       alert("La letra del NIF no es la correcta");
@@ -160,10 +173,21 @@ function compruebaEmail(inputEmail) {
     inputEmail.classList.add('is-invalid');
     alert("El email introducido no es valido");
     return false;
-  } else {
-    inputEmail.classList.remove('is-invalid');
-    return true;
-      }
+  } else {fetch(`./Rest/Usuarios`)
+      .then(response => response.json())
+      .then(data => {
+        const existeUsuario = data.some(usuario => usuario.email === inputEmail.value);
+        if (existeUsuario) {
+          inputEmail.classList.add('is-invalid');
+          alert("Ese email ya esta en uso");
+          return false;
+        } else {
+          inputEmail.classList.remove('is-invalid');
+          return true;
+        }
+      })
+      .catch(error => console.error(error));
+  }
 }
 
 email.addEventListener('change', () => {
@@ -177,10 +201,27 @@ function compruebaTelefono(inputTelefono) {
     alert("El número de telefono no es valido, debe tener 9 digitos y comenzar por 6 o 7");
     return false;
     } else {
-    inputTelefono.classList.remove('is-invalid');
-        return true;  
+        fetch(`./Rest/Usuarios`)
+      .then(response => response.json())
+      .then(data => {
+        const existeUsuario = data.some(usuario => usuario.telefono === inputTelefono.value);
+        if (existeUsuario) {
+          inputTelefono.classList.add('is-invalid');
+          alert("Ese télefono ya esta en uso");
+          return false;
+        } else {
+          inputTelefono.classList.remove('is-invalid');
+          return true;
+        }
+      })
+      .catch(error => console.error(error));
     }
-}
+  }
+        
+        
+        
+    
+
 
 telefono.addEventListener('change', () => {
   compruebaTelefono(telefono);
@@ -188,14 +229,25 @@ telefono.addEventListener('change', () => {
 
 function compruebaNickname(inputNickname) {
   if (!regexNickname.test(inputNickname.value)) {
-    
     inputNickname.classList.add('is-invalid');
     alert("El nombre debe tener al menos 4 caracteres, máximo 9 y no contener caracteres especiales");
     return false;
   } else {
-    inputNickname.classList.remove('is-invalid');
-    return true;
-      }
+    fetch(`./Rest/Usuarios`)
+      .then(response => response.json())
+      .then(data => {
+        const existeUsuario = data.some(usuario => usuario.nickname === inputNickname.value);
+        if (existeUsuario) {
+          inputNickname.classList.add('is-invalid');
+          alert("Ese nombre de usuario ya esta en uso")
+          return false;
+        } else {
+          inputNickname.classList.remove('is-invalid');
+          return true;
+        }
+      })
+      .catch(error => console.error(error));
+  }
 }
 
 nickname.addEventListener('change', () => {

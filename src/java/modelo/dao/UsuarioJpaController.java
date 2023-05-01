@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 import modelo.dao.exceptions.NonexistentEntityException;
 import modelo.entidades.Usuario;
@@ -128,6 +129,9 @@ public class UsuarioJpaController implements Serializable {
             em.close();
         }
     }
+    
+    
+    
 
     /*public int getLigaCount() {
         EntityManager em = getEntityManager();

@@ -88,17 +88,14 @@ public class RestController  {
       
       
       @GET
-      @Path("Usuarios/{nickname}")
-      public List<Usuario> getUsuariosNickname(@PathParam ("nickname") String nickname){
+      @Path("Usuarios")
+      public List<Usuario> getUsuariosNickname(){
           
           List<Usuario> usuarios = new ArrayList<>();
-        
-         
-          
-         EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife");
+           EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife");
           UsuarioJpaController ujc = new UsuarioJpaController(emf);
     try{
-        usuarios= ujc.findUsuariosNickname(nickname);
+        usuarios= ujc.findUsuarioEntities();
     }catch(Exception e){
         
     }
