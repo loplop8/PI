@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.entidades.Usuario;
 
 
 /**
@@ -35,6 +36,8 @@ public class PanelModeracion extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String vista = "/moderador/panelModeracion.jsp";
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        request.setAttribute("usuario", usuario);
         getServletContext().getRequestDispatcher(vista).forward(request, response);
     }
 

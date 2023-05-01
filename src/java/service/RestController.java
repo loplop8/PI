@@ -18,9 +18,11 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import modelo.dao.MunicipioJpaController;
 import modelo.dao.ProvinciaJpaController;
+import modelo.dao.UsuarioJpaController;
 import modelo.entidades.Municipio;
 import modelo.entidades.Provincia;
 import modelo.dao.exceptions.*;
+import modelo.entidades.Usuario;
 /**
  *
  * @author Zatonio
@@ -32,7 +34,7 @@ public class RestController  {
     
 
      
-    @GET     
+     @GET     
      @Path("Provincias")
       public List<Provincia> getProvincias() throws NonexistentEntityException{
           
@@ -59,7 +61,7 @@ public class RestController  {
     
     
     
-    @GET     
+     @GET     
      @Path("Municipios/{id}")
       public List<Municipio> getMunicipiosProvincia(@PathParam("id") Long idProvincia){
           
@@ -83,6 +85,25 @@ public class RestController  {
          return municipios;
        
          }
+      
+      
+      @GET
+      @Path("Usuarios/{nickname}")
+      public List<Usuario> getUsuariosNickname(@PathParam ("nickname") String nickname){
+          
+          List<Usuario> usuarios = new ArrayList<>();
+        
+         
+          
+         EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife");
+          UsuarioJpaController ujc = new UsuarioJpaController(emf);
+    try{
+        usuarios= ujc.findUsuariosNickname(nickname);
+    }catch(Exception e){
+        
+    }
+    return usuarios;
+      }
          
           
          

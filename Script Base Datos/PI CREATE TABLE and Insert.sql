@@ -1,5 +1,11 @@
 /*1º Crear Base de Datos con nombre: swl Despues ejecutar en esa base de datos.*/
 
+/*Aclaracion de usuarios por defecto por contraseña encriptada*/
+
+/*El usuario administrador por defecto es admin, su email es admin@swl.es, contraseña:admin */
+
+/*El usuario moderador por defecto es moderador, su email es moderador@swl.es contraseña:moderador*/
+
 CREATE TABLE provincia (
   id_provincia BIGINT  PRIMARY KEY,
   nombre VARCHAR(255)
@@ -8424,27 +8430,6 @@ INSERT INTO estado_pedido(estado,descripcion) VALUES ("Procesando","El pedido se
 INSERT INTO estado_pedido(estado,descripcion) VALUES ("Enviado","El pedido se ha realizado, y el vendedor ya ha realizado el envio");
 INSERT INTO estado_pedido(estado,descripcion) VALUES ("Entregado","El pedido ha llegado a su destino y ha sido entregado al cliente satisfactoriamente.");
 
+INSERT INTO `usuario` (`id_usuario`, `id_municipio`, `nickname`, `nombre`, `rol`, `apellidos`, `email`, `contraseña`, `telefono`, `direccion`, `fecha_nacimiento`, `nif`, `url_img_perfil`, `esta_activo`) VALUES (1, '6090', 'admin', 'admin', 'admin', 'admin', 'admin@swl.es', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', ' ', 'admin', '1995-08-09', ' ', NULL, 1);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+INSERT INTO `usuario` (`id_usuario`, `id_municipio`, `nickname`, `nombre`, `rol`, `apellidos`, `email`, `contraseña`, `telefono`, `direccion`, `fecha_nacimiento`, `nif`, `url_img_perfil`, `esta_activo`) VALUES ('2', '6090', 'moderador', 'moderador', 'moderador', 'moderador', 'moderador@swl.es', 'ee8a8f8ec1e02b0461eace422a327ccb163c48838cbfc922b96778184ec1c73b', 'telefomod', 'C/Granada, 13', '1995-08-09', 'nifmod', NULL, '1');
