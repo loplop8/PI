@@ -108,6 +108,9 @@
                                 </div>
                             </div>
                     </div>
+                </div>
+            
+                    
                     </header>
 
                     <main>
@@ -117,16 +120,23 @@
         <div class="form-holder">
           <div class="form-content">
             <div class="form-items">
-              <h3>Panel de Administracion</h3>
-              <p>Seleccione que desea administrar</p>
+              <h3>Panel de Moderación</h3>
+              <p>Seleccione que desea moderar</p>
 
               <div class="button mt-3 d-flex justify-content-center text-center">
                 <button class="btn btn-primary"><a href="AdministrarUsuarios">Puntuar Usuarios</a></button>
               </div>
               
               <div class="button mt-3 d-flex justify-content-center text-center">
-                <button class="btn btn-primary"><a href="AdministrarUsuarios">Puntuar Usuarios</a></button>
+                <button class="btn btn-primary"><a href="AdministrarUsuarios">Moderar Mensajes</a></button>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+                    </main>
              
                     <footer
                         class="text-center text-lg-start text-white"

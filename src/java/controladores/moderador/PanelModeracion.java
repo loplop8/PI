@@ -21,7 +21,7 @@ import modelo.entidades.Usuario;
  *
  * @author Zatonio
  */
-@WebServlet(name = "PanelModeracion", urlPatterns = {"/admin/PanelModeracion"})
+@WebServlet(name = "PanelModeracion", urlPatterns = {"/moderador/PanelModeracion"})
 public class PanelModeracion extends HttpServlet {
 
     /**

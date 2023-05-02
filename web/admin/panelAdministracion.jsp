@@ -139,7 +139,7 @@
     </div>
   </div>
 </main>
-                    <footer
+        <footer>
                         class="text-center text-lg-start text-white"
                         >
 

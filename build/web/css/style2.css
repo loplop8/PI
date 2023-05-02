@@ -169,7 +169,9 @@ main{
     margin-top: 3%;
 }
 
-
+#img-usr {
+  border-radius: 50%;
+}
 
 
 
