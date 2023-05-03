@@ -1,0 +1,319 @@
+02-May-2023 00:07:31.100 INFORMACIÓN [http-nio-8080-exec-13] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/SecondWeaponLife]
+02-May-2023 00:07:31.151 ADVERTENCIA [http-nio-8080-exec-13] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc La aplicación web [SecondWeaponLife] registró el conductor JDBC [com.mysql.cj.jdbc.Driver] pero falló al anular el registro mientras la aplicación web estaba parada. Para prevenir un fallo de memoria, se ha anulado el registro del conductor JDBC por la fuerza.
+02-May-2023 00:07:31.152 ADVERTENCIA [http-nio-8080-exec-13] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [SecondWeaponLife] appears to have started a thread named [mysql-cj-abandoned-connection-cleanup] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:144)
+ com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:85)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+02-May-2023 00:07:33.438 INFORMACIÓN [http-nio-8080-exec-13] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+02-May-2023 00:07:34.427 INFORMACIÓN [mysql-cj-abandoned-connection-cleanup] org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+	java.lang.IllegalStateException: Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+		at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1432)
+		at org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:1057)
+		at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.checkThreadContextClassLoader(AbandonedConnectionCleanupThread.java:117)
+		at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:84)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+		at java.lang.Thread.run(Thread.java:748)
+02-May-2023 00:07:34.871 INFORMACIÓN [http-nio-8080-exec-13] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+02-May-2023 00:12:22.175 INFORMACIÓN [http-nio-8080-exec-28] org.apache.catalina.startup.HostConfig.undeploy Repliegue (undeploy) de la aplicación web que tiene como trayectoria de contexto [/SecondWeaponLife]
+02-May-2023 00:12:22.193 INFORMACIÓN [http-nio-8080-exec-25] org.apache.catalina.startup.HostConfig.deployDescriptor Desplieque del descriptor de configuración [C:\tomcat9\conf\Catalina\localhost\SecondWeaponLife.xml]
+02-May-2023 00:12:22.195 ADVERTENCIA [http-nio-8080-exec-25] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/SecondWeaponLife] in deployment descriptor [C:\tomcat9\conf\Catalina\localhost\SecondWeaponLife.xml] has been ignored
+02-May-2023 00:12:24.525 INFORMACIÓN [http-nio-8080-exec-25] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+02-May-2023 00:12:25.851 INFORMACIÓN [http-nio-8080-exec-25] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [C:\tomcat9\conf\Catalina\localhost\SecondWeaponLife.xml] has finished in [3.658] ms
+02-May-2023 00:12:25.856 INFORMACIÓN [http-nio-8080-exec-23] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/SecondWeaponLife]] after start() had already been called. The second call will be ignored.
+02-May-2023 00:13:29.744 INFORMACIÓN [http-nio-8080-exec-38] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/SecondWeaponLife]
+02-May-2023 00:13:29.796 ADVERTENCIA [http-nio-8080-exec-38] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc La aplicación web [SecondWeaponLife] registró el conductor JDBC [com.mysql.cj.jdbc.Driver] pero falló al anular el registro mientras la aplicación web estaba parada. Para prevenir un fallo de memoria, se ha anulado el registro del conductor JDBC por la fuerza.
+02-May-2023 00:13:29.797 ADVERTENCIA [http-nio-8080-exec-38] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [SecondWeaponLife] appears to have started a thread named [mysql-cj-abandoned-connection-cleanup] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:144)
+ com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:85)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+02-May-2023 00:13:31.580 INFORMACIÓN [mysql-cj-abandoned-connection-cleanup] org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+	java.lang.IllegalStateException: Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+		at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1432)
+		at org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:1057)
+		at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.checkThreadContextClassLoader(AbandonedConnectionCleanupThread.java:117)
+		at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:84)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+		at java.lang.Thread.run(Thread.java:748)
+02-May-2023 00:13:32.276 INFORMACIÓN [http-nio-8080-exec-38] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+02-May-2023 00:13:33.562 INFORMACIÓN [http-nio-8080-exec-38] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+02-May-2023 00:16:38.300 INFORMACIÓN [http-nio-8080-exec-43] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/SecondWeaponLife]
+02-May-2023 00:16:38.329 ADVERTENCIA [http-nio-8080-exec-43] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc La aplicación web [SecondWeaponLife] registró el conductor JDBC [com.mysql.cj.jdbc.Driver] pero falló al anular el registro mientras la aplicación web estaba parada. Para prevenir un fallo de memoria, se ha anulado el registro del conductor JDBC por la fuerza.
+02-May-2023 00:16:38.330 ADVERTENCIA [http-nio-8080-exec-43] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [SecondWeaponLife] appears to have started a thread named [mysql-cj-abandoned-connection-cleanup] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:144)
+ com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:85)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+02-May-2023 00:16:40.545 INFORMACIÓN [http-nio-8080-exec-43] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+02-May-2023 00:16:40.735 INFORMACIÓN [mysql-cj-abandoned-connection-cleanup] org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+	java.lang.IllegalStateException: Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+		at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1432)
+		at org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:1057)
+		at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.checkThreadContextClassLoader(AbandonedConnectionCleanupThread.java:117)
+		at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:84)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+		at java.lang.Thread.run(Thread.java:748)
+02-May-2023 00:16:41.878 INFORMACIÓN [http-nio-8080-exec-43] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+02-May-2023 00:18:03.262 INFORMACIÓN [http-nio-8080-exec-50] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/SecondWeaponLife]
+02-May-2023 00:18:03.287 ADVERTENCIA [http-nio-8080-exec-50] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc La aplicación web [SecondWeaponLife] registró el conductor JDBC [com.mysql.cj.jdbc.Driver] pero falló al anular el registro mientras la aplicación web estaba parada. Para prevenir un fallo de memoria, se ha anulado el registro del conductor JDBC por la fuerza.
+02-May-2023 00:18:03.288 ADVERTENCIA [http-nio-8080-exec-50] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [SecondWeaponLife] appears to have started a thread named [mysql-cj-abandoned-connection-cleanup] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:144)
+ com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:85)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+02-May-2023 00:18:03.345 INFORMACIÓN [mysql-cj-abandoned-connection-cleanup] org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+	java.lang.IllegalStateException: Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+		at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1432)
+		at org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:1057)
+		at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.checkThreadContextClassLoader(AbandonedConnectionCleanupThread.java:117)
+		at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:84)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+		at java.lang.Thread.run(Thread.java:748)
+02-May-2023 00:18:05.574 INFORMACIÓN [http-nio-8080-exec-50] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+02-May-2023 00:18:07.039 INFORMACIÓN [http-nio-8080-exec-50] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+02-May-2023 00:18:53.113 INFORMACIÓN [http-nio-8080-exec-56] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/SecondWeaponLife]
+02-May-2023 00:18:53.137 ADVERTENCIA [http-nio-8080-exec-56] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc La aplicación web [SecondWeaponLife] registró el conductor JDBC [com.mysql.cj.jdbc.Driver] pero falló al anular el registro mientras la aplicación web estaba parada. Para prevenir un fallo de memoria, se ha anulado el registro del conductor JDBC por la fuerza.
+02-May-2023 00:18:53.138 ADVERTENCIA [http-nio-8080-exec-56] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [SecondWeaponLife] appears to have started a thread named [mysql-cj-abandoned-connection-cleanup] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:144)
+ com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:85)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+02-May-2023 00:18:54.976 INFORMACIÓN [mysql-cj-abandoned-connection-cleanup] org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+	java.lang.IllegalStateException: Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+		at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1432)
+		at org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:1057)
+		at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.checkThreadContextClassLoader(AbandonedConnectionCleanupThread.java:117)
+		at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:84)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+		at java.lang.Thread.run(Thread.java:748)
+02-May-2023 00:18:55.420 INFORMACIÓN [http-nio-8080-exec-56] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+02-May-2023 00:18:56.883 INFORMACIÓN [http-nio-8080-exec-56] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+02-May-2023 00:21:45.814 INFORMACIÓN [http-nio-8080-exec-63] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/SecondWeaponLife]
+02-May-2023 00:21:45.839 ADVERTENCIA [http-nio-8080-exec-63] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc La aplicación web [SecondWeaponLife] registró el conductor JDBC [com.mysql.cj.jdbc.Driver] pero falló al anular el registro mientras la aplicación web estaba parada. Para prevenir un fallo de memoria, se ha anulado el registro del conductor JDBC por la fuerza.
+02-May-2023 00:21:45.840 ADVERTENCIA [http-nio-8080-exec-63] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [SecondWeaponLife] appears to have started a thread named [mysql-cj-abandoned-connection-cleanup] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:144)
+ com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:85)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+02-May-2023 00:21:45.943 INFORMACIÓN [mysql-cj-abandoned-connection-cleanup] org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+	java.lang.IllegalStateException: Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+		at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1432)
+		at org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:1057)
+		at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.checkThreadContextClassLoader(AbandonedConnectionCleanupThread.java:117)
+		at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:84)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+		at java.lang.Thread.run(Thread.java:748)
+02-May-2023 00:21:47.932 INFORMACIÓN [http-nio-8080-exec-63] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+02-May-2023 00:21:49.391 INFORMACIÓN [http-nio-8080-exec-63] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+02-May-2023 00:22:50.579 INFORMACIÓN [http-nio-8080-exec-71] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/SecondWeaponLife]
+02-May-2023 00:22:50.609 ADVERTENCIA [http-nio-8080-exec-71] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc La aplicación web [SecondWeaponLife] registró el conductor JDBC [com.mysql.cj.jdbc.Driver] pero falló al anular el registro mientras la aplicación web estaba parada. Para prevenir un fallo de memoria, se ha anulado el registro del conductor JDBC por la fuerza.
+02-May-2023 00:22:50.610 ADVERTENCIA [http-nio-8080-exec-71] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [SecondWeaponLife] appears to have started a thread named [mysql-cj-abandoned-connection-cleanup] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:144)
+ com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:85)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+02-May-2023 00:22:51.900 INFORMACIÓN [mysql-cj-abandoned-connection-cleanup] org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+	java.lang.IllegalStateException: Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+		at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1432)
+		at org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:1057)
+		at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.checkThreadContextClassLoader(AbandonedConnectionCleanupThread.java:117)
+		at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:84)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+		at java.lang.Thread.run(Thread.java:748)
+02-May-2023 00:22:52.809 INFORMACIÓN [http-nio-8080-exec-71] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+02-May-2023 00:22:53.929 INFORMACIÓN [http-nio-8080-exec-71] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+02-May-2023 00:33:07.634 INFORMACIÓN [http-nio-8080-exec-81] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/SecondWeaponLife]
+02-May-2023 00:33:07.662 ADVERTENCIA [http-nio-8080-exec-81] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc La aplicación web [SecondWeaponLife] registró el conductor JDBC [com.mysql.cj.jdbc.Driver] pero falló al anular el registro mientras la aplicación web estaba parada. Para prevenir un fallo de memoria, se ha anulado el registro del conductor JDBC por la fuerza.
+02-May-2023 00:33:07.663 ADVERTENCIA [http-nio-8080-exec-81] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [SecondWeaponLife] appears to have started a thread named [mysql-cj-abandoned-connection-cleanup] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:144)
+ com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:85)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+02-May-2023 00:33:09.953 INFORMACIÓN [mysql-cj-abandoned-connection-cleanup] org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+	java.lang.IllegalStateException: Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+		at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1432)
+		at org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:1057)
+		at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.checkThreadContextClassLoader(AbandonedConnectionCleanupThread.java:117)
+		at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:84)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+		at java.lang.Thread.run(Thread.java:748)
+02-May-2023 00:33:09.972 INFORMACIÓN [http-nio-8080-exec-81] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+02-May-2023 00:33:11.217 INFORMACIÓN [http-nio-8080-exec-81] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+02-May-2023 00:33:11.552 INFORMACIÓN [http-nio-8080-exec-84] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/SecondWeaponLife]
+02-May-2023 00:33:13.792 INFORMACIÓN [http-nio-8080-exec-84] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+02-May-2023 00:33:14.971 INFORMACIÓN [http-nio-8080-exec-84] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+02-May-2023 00:42:06.932 INFORMACIÓN [http-nio-8080-exec-90] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/SecondWeaponLife]
+02-May-2023 00:42:09.250 INFORMACIÓN [http-nio-8080-exec-90] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+02-May-2023 00:42:10.430 INFORMACIÓN [http-nio-8080-exec-90] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+02-May-2023 00:42:27.659 INFORMACIÓN [http-nio-8080-exec-94] org.apache.catalina.startup.HostConfig.undeploy Repliegue (undeploy) de la aplicación web que tiene como trayectoria de contexto [/SecondWeaponLife]
+02-May-2023 00:42:27.680 INFORMACIÓN [http-nio-8080-exec-96] org.apache.catalina.startup.HostConfig.deployDescriptor Desplieque del descriptor de configuración [C:\tomcat9\conf\Catalina\localhost\SecondWeaponLife.xml]
+02-May-2023 00:42:27.681 ADVERTENCIA [http-nio-8080-exec-96] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/SecondWeaponLife] in deployment descriptor [C:\tomcat9\conf\Catalina\localhost\SecondWeaponLife.xml] has been ignored
+02-May-2023 00:42:29.853 INFORMACIÓN [http-nio-8080-exec-96] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+02-May-2023 00:42:31.027 INFORMACIÓN [http-nio-8080-exec-96] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [C:\tomcat9\conf\Catalina\localhost\SecondWeaponLife.xml] has finished in [3.348] ms
+02-May-2023 00:42:31.031 INFORMACIÓN [http-nio-8080-exec-92] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/SecondWeaponLife]] after start() had already been called. The second call will be ignored.
+02-May-2023 00:42:42.125 INFORMACIÓN [http-nio-8080-exec-101] org.apache.catalina.startup.HostConfig.undeploy Repliegue (undeploy) de la aplicación web que tiene como trayectoria de contexto [/SecondWeaponLife]
+02-May-2023 00:42:42.139 INFORMACIÓN [http-nio-8080-exec-88] org.apache.catalina.startup.HostConfig.deployDescriptor Desplieque del descriptor de configuración [C:\tomcat9\conf\Catalina\localhost\SecondWeaponLife.xml]
+02-May-2023 00:42:42.140 ADVERTENCIA [http-nio-8080-exec-88] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/SecondWeaponLife] in deployment descriptor [C:\tomcat9\conf\Catalina\localhost\SecondWeaponLife.xml] has been ignored
+02-May-2023 00:42:44.305 INFORMACIÓN [http-nio-8080-exec-88] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+02-May-2023 00:42:45.512 INFORMACIÓN [http-nio-8080-exec-88] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [C:\tomcat9\conf\Catalina\localhost\SecondWeaponLife.xml] has finished in [3.373] ms
+02-May-2023 00:42:45.515 INFORMACIÓN [http-nio-8080-exec-102] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/SecondWeaponLife]] after start() had already been called. The second call will be ignored.
+02-May-2023 00:44:08.681 INFORMACIÓN [http-nio-8080-exec-108] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/SecondWeaponLife]
+02-May-2023 00:44:08.730 ADVERTENCIA [http-nio-8080-exec-108] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc La aplicación web [SecondWeaponLife] registró el conductor JDBC [com.mysql.cj.jdbc.Driver] pero falló al anular el registro mientras la aplicación web estaba parada. Para prevenir un fallo de memoria, se ha anulado el registro del conductor JDBC por la fuerza.
+02-May-2023 00:44:08.731 ADVERTENCIA [http-nio-8080-exec-108] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [SecondWeaponLife] appears to have started a thread named [mysql-cj-abandoned-connection-cleanup] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:144)
+ com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:85)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+02-May-2023 00:44:09.077 INFORMACIÓN [mysql-cj-abandoned-connection-cleanup] org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+	java.lang.IllegalStateException: Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+		at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1432)
+		at org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:1057)
+		at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.checkThreadContextClassLoader(AbandonedConnectionCleanupThread.java:117)
+		at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:84)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+		at java.lang.Thread.run(Thread.java:748)
+02-May-2023 00:44:11.029 INFORMACIÓN [http-nio-8080-exec-108] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+02-May-2023 00:44:12.505 INFORMACIÓN [http-nio-8080-exec-108] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+02-May-2023 00:44:38.215 INFORMACIÓN [http-nio-8080-exec-114] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/SecondWeaponLife]
+02-May-2023 00:44:40.650 INFORMACIÓN [http-nio-8080-exec-114] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+02-May-2023 00:44:41.971 INFORMACIÓN [http-nio-8080-exec-114] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+02-May-2023 00:44:43.178 INFORMACIÓN [http-nio-8080-exec-107] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/SecondWeaponLife]
+02-May-2023 00:44:45.534 INFORMACIÓN [http-nio-8080-exec-107] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+02-May-2023 00:44:46.883 INFORMACIÓN [http-nio-8080-exec-107] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+02-May-2023 00:54:15.974 INFORMACIÓN [http-nio-8080-exec-126] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/SecondWeaponLife]
+02-May-2023 00:54:39.562 INFORMACIÓN [http-nio-8080-exec-126] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+02-May-2023 00:54:44.501 INFORMACIÓN [http-nio-8080-exec-126] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+02-May-2023 00:55:16.132 INFORMACIÓN [http-nio-8080-exec-128] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/SecondWeaponLife]
+02-May-2023 00:55:18.449 INFORMACIÓN [http-nio-8080-exec-128] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+02-May-2023 00:55:19.667 INFORMACIÓN [http-nio-8080-exec-128] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+02-May-2023 01:00:45.298 INFORMACIÓN [http-nio-8080-exec-135] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/SecondWeaponLife]
+02-May-2023 01:00:48.435 INFORMACIÓN [http-nio-8080-exec-135] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+02-May-2023 01:00:50.002 INFORMACIÓN [http-nio-8080-exec-135] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+02-May-2023 01:00:50.335 INFORMACIÓN [http-nio-8080-exec-134] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/SecondWeaponLife]
+02-May-2023 01:00:52.700 INFORMACIÓN [http-nio-8080-exec-134] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+02-May-2023 01:00:54.157 INFORMACIÓN [http-nio-8080-exec-134] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+02-May-2023 01:02:20.614 INFORMACIÓN [http-nio-8080-exec-143] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/SecondWeaponLife]
+02-May-2023 01:02:23.206 INFORMACIÓN [http-nio-8080-exec-143] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+02-May-2023 01:02:24.931 INFORMACIÓN [http-nio-8080-exec-143] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+02-May-2023 01:02:34.896 INFORMACIÓN [http-nio-8080-exec-137] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/SecondWeaponLife]
+02-May-2023 01:02:43.571 INFORMACIÓN [http-nio-8080-exec-137] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+02-May-2023 01:02:45.265 INFORMACIÓN [http-nio-8080-exec-137] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+02-May-2023 01:02:45.606 INFORMACIÓN [http-nio-8080-exec-138] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/SecondWeaponLife]
+02-May-2023 01:02:52.331 INFORMACIÓN [http-nio-8080-exec-138] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+02-May-2023 01:02:53.847 INFORMACIÓN [http-nio-8080-exec-138] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+02-May-2023 01:03:30.304 INFORMACIÓN [http-nio-8080-exec-150] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/SecondWeaponLife]
+02-May-2023 01:03:36.983 INFORMACIÓN [http-nio-8080-exec-150] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+02-May-2023 01:03:38.488 INFORMACIÓN [http-nio-8080-exec-150] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+02-May-2023 01:03:42.925 INFORMACIÓN [http-nio-8080-exec-133] org.apache.catalina.startup.HostConfig.undeploy Repliegue (undeploy) de la aplicación web que tiene como trayectoria de contexto [/SecondWeaponLife]
+02-May-2023 01:03:42.946 INFORMACIÓN [http-nio-8080-exec-142] org.apache.catalina.startup.HostConfig.deployDescriptor Desplieque del descriptor de configuración [C:\tomcat9\conf\Catalina\localhost\SecondWeaponLife.xml]
+02-May-2023 01:03:42.947 ADVERTENCIA [http-nio-8080-exec-142] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/SecondWeaponLife] in deployment descriptor [C:\tomcat9\conf\Catalina\localhost\SecondWeaponLife.xml] has been ignored
+02-May-2023 01:03:49.504 INFORMACIÓN [http-nio-8080-exec-142] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+02-May-2023 01:03:51.090 INFORMACIÓN [http-nio-8080-exec-142] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [C:\tomcat9\conf\Catalina\localhost\SecondWeaponLife.xml] has finished in [8.143] ms
+02-May-2023 01:03:51.093 INFORMACIÓN [http-nio-8080-exec-148] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/SecondWeaponLife]] after start() had already been called. The second call will be ignored.
+02-May-2023 01:19:40.550 INFORMACIÓN [http-nio-8080-exec-158] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/SecondWeaponLife]
+02-May-2023 01:19:40.595 ADVERTENCIA [http-nio-8080-exec-158] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc La aplicación web [SecondWeaponLife] registró el conductor JDBC [com.mysql.cj.jdbc.Driver] pero falló al anular el registro mientras la aplicación web estaba parada. Para prevenir un fallo de memoria, se ha anulado el registro del conductor JDBC por la fuerza.
+02-May-2023 01:19:40.596 ADVERTENCIA [http-nio-8080-exec-158] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [SecondWeaponLife] appears to have started a thread named [mysql-cj-abandoned-connection-cleanup] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:144)
+ com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:85)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+02-May-2023 01:19:41.868 INFORMACIÓN [mysql-cj-abandoned-connection-cleanup] org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+	java.lang.IllegalStateException: Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+		at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1432)
+		at org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:1057)
+		at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.checkThreadContextClassLoader(AbandonedConnectionCleanupThread.java:117)
+		at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:84)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+		at java.lang.Thread.run(Thread.java:748)
+02-May-2023 01:19:47.785 INFORMACIÓN [http-nio-8080-exec-158] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+02-May-2023 01:19:49.802 INFORMACIÓN [http-nio-8080-exec-158] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+02-May-2023 01:38:29.202 INFORMACIÓN [http-nio-8080-exec-169] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/SecondWeaponLife]
+02-May-2023 01:38:29.222 ADVERTENCIA [http-nio-8080-exec-169] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc La aplicación web [SecondWeaponLife] registró el conductor JDBC [com.mysql.cj.jdbc.Driver] pero falló al anular el registro mientras la aplicación web estaba parada. Para prevenir un fallo de memoria, se ha anulado el registro del conductor JDBC por la fuerza.
+02-May-2023 01:38:29.223 ADVERTENCIA [http-nio-8080-exec-169] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [SecondWeaponLife] appears to have started a thread named [mysql-cj-abandoned-connection-cleanup] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:144)
+ com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:85)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+02-May-2023 01:38:32.968 INFORMACIÓN [mysql-cj-abandoned-connection-cleanup] org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+	java.lang.IllegalStateException: Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+		at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1432)
+		at org.apache.catalina.loader.WebappClassLoaderBase.getResource(WebappClassLoaderBase.java:1057)
+		at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.checkThreadContextClassLoader(AbandonedConnectionCleanupThread.java:117)
+		at com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:84)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+		at java.lang.Thread.run(Thread.java:748)
+02-May-2023 01:38:36.340 INFORMACIÓN [http-nio-8080-exec-169] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+02-May-2023 01:38:37.877 INFORMACIÓN [http-nio-8080-exec-169] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+02-May-2023 01:39:16.363 INFORMACIÓN [http-nio-8080-exec-176] org.apache.catalina.core.StandardContext.reload Ha comenzado la recarga de Contexto [/SecondWeaponLife]
+02-May-2023 01:39:23.342 INFORMACIÓN [http-nio-8080-exec-176] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+02-May-2023 01:39:24.923 INFORMACIÓN [http-nio-8080-exec-176] org.apache.catalina.core.StandardContext.reload Se ha completado la recarga de este Contexto
+02-May-2023 01:39:25.457 INFORMACIÓN [http-nio-8080-exec-178] org.apache.catalina.startup.HostConfig.undeploy Repliegue (undeploy) de la aplicación web que tiene como trayectoria de contexto [/SecondWeaponLife]
+02-May-2023 01:39:25.475 INFORMACIÓN [http-nio-8080-exec-175] org.apache.catalina.startup.HostConfig.deployDescriptor Desplieque del descriptor de configuración [C:\tomcat9\conf\Catalina\localhost\SecondWeaponLife.xml]
+02-May-2023 01:39:25.477 ADVERTENCIA [http-nio-8080-exec-175] org.apache.catalina.startup.HostConfig.deployDescriptor The path attribute with value [/SecondWeaponLife] in deployment descriptor [C:\tomcat9\conf\Catalina\localhost\SecondWeaponLife.xml] has been ignored
+02-May-2023 01:39:32.498 INFORMACIÓN [http-nio-8080-exec-175] org.apache.jasper.servlet.TldScanner.scanJars Al menos un JAR, que se ha explorado buscando TLDs, aún no contenía TLDs. Activar historial de depuración para este historiador para una completa lista de los JARs que fueron explorados y de los que nos se halló TLDs. Saltarse JARs no necesarios durante la exploración puede dar lugar a una mejora de tiempo significativa en el arranque y compilación de JSP .
+02-May-2023 01:39:33.904 INFORMACIÓN [http-nio-8080-exec-175] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [C:\tomcat9\conf\Catalina\localhost\SecondWeaponLife.xml] has finished in [8.429] ms
+02-May-2023 01:39:33.909 INFORMACIÓN [http-nio-8080-exec-171] org.apache.catalina.util.LifecycleBase.start The start() method was called on component [StandardEngine[Catalina].StandardHost[localhost].StandardContext[/SecondWeaponLife]] after start() had already been called. The second call will be ignored.
+02-May-2023 02:17:07.823 INFORMACIÓN [main] org.apache.catalina.core.StandardServer.await Se ha recibido un comando de apagado a través del puerto de apagado. Parando la instancia del Servidor.
+02-May-2023 02:17:07.824 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+02-May-2023 02:17:08.083 INFORMACIÓN [main] org.apache.catalina.core.StandardService.stopInternal Parando servicio [Catalina]
+02-May-2023 02:17:08.104 ADVERTENCIA [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [LigaBaloncesto] appears to have started a thread named [mysql-cj-abandoned-connection-cleanup] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+02-May-2023 02:17:08.142 ADVERTENCIA [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc La aplicación web [SecondWeaponLife] registró el conductor JDBC [com.mysql.cj.jdbc.Driver] pero falló al anular el registro mientras la aplicación web estaba parada. Para prevenir un fallo de memoria, se ha anulado el registro del conductor JDBC por la fuerza.
+02-May-2023 02:17:08.143 ADVERTENCIA [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [SecondWeaponLife] appears to have started a thread named [mysql-cj-abandoned-connection-cleanup] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:144)
+ com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:85)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+02-May-2023 02:17:08.155 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+02-May-2023 02:17:08.166 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+02-May-2023 02:17:08.169 INFORMACIÓN [Thread-5] org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [java.lang.Process].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+	java.lang.IllegalStateException: Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [java.lang.Process].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+		at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1432)
+		at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForClassLoading(WebappClassLoaderBase.java:1420)
+		at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1259)
+		at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1220)
+		at org.apache.tika.parser.AbstractExternalProcessParser.lambda$static$0(AbstractExternalProcessParser.java:43)
+		at java.lang.Thread.run(Thread.java:748)
+02-May-2023 02:17:08.169 INFORMACIÓN [Thread-3] org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [java.lang.Process].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+	java.lang.IllegalStateException: Acceso ilegal: esta instancia de aplicación web ya ha sido parada.  Could not load [java.lang.Process].  La eventual traza de pila que sigue ha sido motivada por un error lanzado con motivos de depuración así como para intentar terminar el hilo que motivó el acceso ilegal y no tiene impacto funcional.
+		at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForResourceLoading(WebappClassLoaderBase.java:1432)
+		at org.apache.catalina.loader.WebappClassLoaderBase.checkStateForClassLoading(WebappClassLoaderBase.java:1420)
+		at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1259)
+		at org.apache.catalina.loader.WebappClassLoaderBase.loadClass(WebappClassLoaderBase.java:1220)
+		at org.apache.tika.parser.AbstractExternalProcessParser.lambda$static$0(AbstractExternalProcessParser.java:43)
+		at java.lang.Thread.run(Thread.java:748)
