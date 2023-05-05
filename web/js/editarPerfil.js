@@ -1,8 +1,11 @@
 
 const form = document.querySelector('.requires-validation');
 const email = document.querySelector("#email");
+const valorEmail=email.value; //Primer valor que se encuentra al entrar en la pagina, por si se equivoca y lo quiere volver a poner que no le de error
 const telefono = document.querySelector("#telefono");
+const valorTelefono=telefono.value;
 const nickname = document.querySelector("#nickname");
+const valorNickName=nickname.value;
 const submit =document.getElementById("submit");
 
 // Expresiones regulares para validación de campos con patrón
@@ -18,6 +21,9 @@ const regexNickname = /^[A-Za-z0-9][A-Za-z0-9]{4,9}$/;
 function compruebaEmail(inputEmail) {
   if (!regexEmail.test(inputEmail.value)) {
     
+        
+    
+    
     inputEmail.classList.add('is-invalid');
     alert("El email introducido no es valido");
     return false;
@@ -26,16 +32,25 @@ function compruebaEmail(inputEmail) {
       .then(data => {
         const existeUsuario = data.some(usuario => usuario.email === inputEmail.value);
         if (existeUsuario) {
+            
+            if(valorEmail===inputEmail.value){
+          inputEmail.classList.remove('is-invalid');
+          return true;
+          
+    }else{
+            
           inputEmail.classList.add('is-invalid');
           alert("Ese email ya esta en uso");
           return false;
-        } else {
+      }
+  } else {
           inputEmail.classList.remove('is-invalid');
           return true;
         }
       })
       .catch(error => console.error(error));
   }
+  
 }
 
 email.addEventListener('change', () => {
@@ -54,10 +69,18 @@ function compruebaTelefono(inputTelefono) {
       .then(data => {
         const existeUsuario = data.some(usuario => usuario.telefono === inputTelefono.value);
         if (existeUsuario) {
+            
+            
+            if(valorTelefono===inputTelefono.value){
+          inputTelefono.classList.remove('is-invalid');
+          return true;
+          
+    }else{
           inputTelefono.classList.add('is-invalid');
           alert("Ese télefono ya esta en uso");
           return false;
-        } else {
+        }
+    } else {
           inputTelefono.classList.remove('is-invalid');
           return true;
         }
@@ -86,10 +109,21 @@ function compruebaNickname(inputNickname) {
       .then(data => {
         const existeUsuario = data.some(usuario => usuario.nickname === inputNickname.value);
         if (existeUsuario) {
+            
+            
+            if(valorNickName===inputNickname.value){
+          inputNickname.classList.remove('is-invalid');
+          return true;
+          
+    }else{
+        
+    
           inputNickname.classList.add('is-invalid');
           alert("Ese nombre de usuario ya esta en uso")
           return false;
-        } else {
+        }
+    }
+        else {
           inputNickname.classList.remove('is-invalid');
           return true;
         }

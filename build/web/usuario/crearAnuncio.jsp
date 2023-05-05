@@ -1,22 +1,24 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%-- 
+    Document   : crearAnuncio
+    Created on : 05-may-2023, 10:33:05
+    Author     : Zatonio
+--%>
+
+<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
         <link rel="stylesheet" href="../boostrap/bootstrap-5.0.2-dist/css/bootstrap.min.css">
-
+        
         <script src="../boostrap/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>  
-        <link rel="stylesheet" href="./../css/style2.css">
-
+        <link rel="stylesheet" href="../css/style2.css">
+        <title>JSP Page</title>
     </head>
-
     <body>
-
-
-
         <header class=" text-white">
     <div>
 
@@ -167,37 +169,9 @@
                     </div>
             </div>
 </header>
-
-                    <main>
-  <div class="container">
-    <div class="form-body">
-      <div class="row">
-        <div class="form-holder">
-          <div class="form-content">
-            <div class="form-items">
-              <h3>Panel de Administracion</h3>
-              <p>Seleccione que desea administrar</p>
-
-              <div class="button mt-3 d-flex justify-content-center text-center">
-                <button class="btn btn-primary"><a href="AdministrarUsuarios">Administrar Usuarios</a></button>
-              </div>
-              <div class="button mt-3 d-flex justify-content-center text-center">
-                <button class="btn btn-primary"><a href="AdministrarAnuncios">Administrar Anuncios</a></button>
-              </div>
-              <div class="button mt-3 d-flex justify-content-center text-center">
-                <button class="btn btn-primary"><a href="AdministrarPedidos">Administrar Pedidos</a></button>
-              </div>
-              <div class="button mt-3 d-flex justify-content-center text-center">
-                <button class="btn btn-primary"><a href="VerificarDocumentos">Verificar Documentos</a></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</main>
-        <footer>
+                                            
+         
+     <footer
                         class="text-center text-lg-start text-white"
                         >
 
@@ -350,15 +324,7 @@
                             <!-- Section: Copyright -->
                         </div>
                         <!-- Grid container -->
-                    </footer>
-
-
-
-
-
-
-
-
-
-                    </body>
-                    </html>
+                    </footer>                                       
+                                            
+    </body>
+</html>

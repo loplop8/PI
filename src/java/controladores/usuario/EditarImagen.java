@@ -28,9 +28,9 @@ import org.apache.tika.Tika;
  *
  * @author Zatonio
  */
-@WebServlet(name = "SubirImagen", urlPatterns = {"/usuario/SubirImagen"})
-@MultipartConfig(maxFileSize = 1000000, fileSizeThreshold = 1000000)  //Añadimos la configuracion Multipart 
-public class SubirImagen extends HttpServlet {
+@WebServlet(name = "EditarImagen", urlPatterns = {"/usuario/EditarImagen"})
+@MultipartConfig(maxFileSize = 10000000, fileSizeThreshold = 10000000)  //Añadimos la configuracion Multipart 
+public class EditarImagen extends HttpServlet {
     private static final String UPLOAD_DIR = "uploads";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,7 +43,7 @@ public class SubirImagen extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-     String vista = "/usuario/editarPerfil.jsp";
+     String vista = "/usuario/errorCambiandoImagen.jsp";
      String error="";   
         // Obtiene el archivo de la solicitud
         Part filePart = request.getPart("file");
@@ -60,8 +60,9 @@ public class SubirImagen extends HttpServlet {
         
         // Verifica que el archivo sea una imagen
         if (!mimeType.startsWith("image/")) {
-            error="El archivo debe ser una imagen";
-            request.setAttribute("error", error);
+            error="El archivo debe ser un archivo de imagen valido";
+            request.setAttribute("errorImagen", error);
+            
             getServletContext().getRequestDispatcher(vista).forward(request, response);
             return;
         }
@@ -83,9 +84,8 @@ public class SubirImagen extends HttpServlet {
         
         
         
-        // Ponemos la url como un atributo para mandarlo a la vista
+        // Ponemos la url para guardar la url en la base de datos
         String fileUrl = request.getContextPath() + "/" + UPLOAD_DIR + "/" + fileName;
-        request.setAttribute("fileUrl", fileUrl);
         
         
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
@@ -98,16 +98,21 @@ public class SubirImagen extends HttpServlet {
         try {
                     ujc.edit(usuario);
                     
-                    getServletContext().getRequestDispatcher(vista).forward(request, response);
+                    
+                    response.sendRedirect("./EditarPerfil");
                     return;
                 } catch (Exception e) {
-                    request.setAttribute("error", "Error editando el usuario");
+                    request.setAttribute("error", "Error editando la imagen de perfil");
                     request.setAttribute("usuario", usuario);
+                    getServletContext().getRequestDispatcher(vista).forward(request, response);
+                    
+            
                 }
         
         
         // Redirige a la vista de edición de perfil
-        getServletContext().getRequestDispatcher(vista).forward(request, response);
+        
+        response.sendRedirect("./EditarPerfil");
     }
 
     /**

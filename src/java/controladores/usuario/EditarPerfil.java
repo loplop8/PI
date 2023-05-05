@@ -36,14 +36,9 @@ public class EditarPerfil extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String vista = "/usuario/editarPerfil.jsp";
-           
+        String vista = "/usuario/editarPerfil.jsp";           
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         request.setAttribute("usuario", usuario);
-     
-        
-        
-        
         if (request.getParameter("email") != null || request.getParameter("email") != null || request.getParameter("telefono") != null) { //Si se recoge alguno de los tres parametros editables  es que ya ha estado en la vista y a pulsado en editar  en el fomrulario 
             // Editando
             EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife");

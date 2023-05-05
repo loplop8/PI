@@ -30,9 +30,9 @@
                     <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                         <li><a href="./Inicio" class="nav-link px-2 text-secondary"><img src="img/LogoSWL.png" alt="LogoSWL" width="100px" height="40px" ></a></li>
                         <li><a href="./SobreNosotros" class="nav-link px-2 text-white mt-2 elementosNoResponsive">Sobre Nosotros</a></li>
-                        <li><a href="#" class="nav-link px-2 text-white mt-2 elementosNoResponsive" >Como Trabajamos</a></li>
-                        <li><a href="#" class="nav-link px-2 text-white mt-2 elementosNoResponsive">Foro</a></li>
-                        <li><a href="#" class="nav-link px-2 text-white mt-2 elementosNoResponsive" >Encuentranos</a></li>
+                        <li><a href="./ComoTrabajamos" class="nav-link px-2 text-white mt-2 elementosNoResponsive" >Como Trabajamos</a></li>
+                        <li><a href="./Foro" class="nav-link px-2 text-white mt-2 elementosNoResponsive">Foro</a></li>
+                        <li><a href="./Encuentranos" class="nav-link px-2 text-white mt-2 elementosNoResponsive" >Encuentranos</a></li>
                     </ul>
 
                     <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-5 elementosNoResponsive" >
@@ -52,13 +52,13 @@
                                     <li class="nav-item dropdown " id="puntoNegro" >
 
 
-                                        <a href="sobreNosotros.html" class="nav-link px-2 text-white mt-2 elementosResponsive">Sobre Nosotros</a>
+                                        <a href="./SobreNosotros" class="nav-link px-2 text-white mt-2 elementosResponsive">Sobre Nosotros</a>
 
-                                        <a href="#" class="nav-link px-2 text-white mt-2 elementosResponsive" >Como Trabajamos</a>
-                                        <a href="#" class="nav-link px-2 text-white mt-2 elementosResponsive">Foro</a>
+                                        <a href="./ComoTrabajamos" class="nav-link px-2 text-white mt-2 elementosResponsive" >Como Trabajamos</a>
+                                        <a href="./Foro" class="nav-link px-2 text-white mt-2 elementosResponsive">Foro</a>
                                         </a>
 
-                                        <a href="#" class="nav-link px-2 text-white mt-2 elementosResponsive">Encuentranos</a>
+                                        <a href="./Encuentranos" class="nav-link px-2 text-white mt-2 elementosResponsive">Encuentranos</a>
                                         </a>
                                         <c:if test="${usuario.id_usuario==null}">
 
@@ -73,7 +73,8 @@
                                         </c:if>
                                         <c:if test="${usuario.id_usuario!=null}">
                                             <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                ${usuario.nickname}
+
+                                                <img src="${usuario.url_img_perfil}" width="50">   ${usuario.nickname}
                                             </a>
 
 
@@ -93,19 +94,24 @@
                                                         </c:if>
 
 
+                                                <li><a class="dropdown-item" href="./usuario/CrearAnuncio"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-newspaper" viewBox="0 0 16 16">
+                                                        <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z"/>
+                                                        <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
+                                                        </svg> Crear Anuncio</a></li>                                          
 
-                                                <li><a class="dropdown-item" href="#"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
+
+                                                <li><a class="dropdown-item" href="./usuario/Compras"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
                                                         <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z"/>
                                                         </svg> Compras</a></li>
-                                                <li><a class="dropdown-item" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-seam-fill" viewBox="0 0 16 16">
+                                                <li><a class="dropdown-item" href="./usuario/Ventas"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-seam-fill" viewBox="0 0 16 16">
                                                         <path fill-rule="evenodd" d="M15.528 2.973a.75.75 0 0 1 .472.696v8.662a.75.75 0 0 1-.472.696l-7.25 2.9a.75.75 0 0 1-.557 0l-7.25-2.9A.75.75 0 0 1 0 12.331V3.669a.75.75 0 0 1 .471-.696L7.443.184l.01-.003.268-.108a.75.75 0 0 1 .558 0l.269.108.01.003 6.97 2.789ZM10.404 2 4.25 4.461 1.846 3.5 1 3.839v.4l6.5 2.6v7.922l.5.2.5-.2V6.84l6.5-2.6v-.4l-.846-.339L8 5.961 5.596 5l6.154-2.461L10.404 2Z"/>
                                                         </svg> Ventas</a></li>
 
-                                                <li><a class="dropdown-item" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar4" viewBox="0 0 16 16">
+                                                <li><a class="dropdown-item" href="./usuario/MisAnuncios"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar4" viewBox="0 0 16 16">
                                                         <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1H2zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5z"/>
                                                         </svg> Mis anuncios</a></li>
 
-                                                <li><a class="dropdown-item" href="usuario/GestionarPerfil"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                                <li><a class="dropdown-item" href="./usuario/GestionarPerfil"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                                                         <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                                                         <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                                                         </svg> Gestionar Perfil</a></li>

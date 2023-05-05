@@ -175,29 +175,18 @@
         <div class="form-holder">
           <div class="form-content">
             <div class="form-items">
-              <h3>Panel de Administracion</h3>
-              <p>Seleccione que desea administrar</p>
-
-              <div class="button mt-3 d-flex justify-content-center text-center">
-                <button class="btn btn-primary"><a href="AdministrarUsuarios">Administrar Usuarios</a></button>
-              </div>
-              <div class="button mt-3 d-flex justify-content-center text-center">
-                <button class="btn btn-primary"><a href="AdministrarAnuncios">Administrar Anuncios</a></button>
-              </div>
-              <div class="button mt-3 d-flex justify-content-center text-center">
-                <button class="btn btn-primary"><a href="AdministrarPedidos">Administrar Pedidos</a></button>
-              </div>
-              <div class="button mt-3 d-flex justify-content-center text-center">
-                <button class="btn btn-primary"><a href="VerificarDocumentos">Verificar Documentos</a></button>
-              </div>
+              <h3>Error</h3>
+              <p>${errorImagen}</p>
+              <button type="button" class="btn btn-outline-warning me-2" > <a href="./EditarPerfil" id="login">Volver</a></button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</main>
-        <footer>
+                    </main>
+             
+                    <footer
                         class="text-center text-lg-start text-white"
                         >
 
