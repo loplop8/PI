@@ -39,12 +39,15 @@ public class Licencia implements Serializable {
     @JoinColumn(name="id_tipo_licencia")
     private TipoLicencia id_tipo_licencia;
 
+    @Temporal(TemporalType.DATE)
     @Column(name="valida_hasta")
     private Date valida_hasta;
     
+    @Temporal(TemporalType.DATE)
     @Column(name="valida_desde")
     private Date valida_desde;
     
+    @Temporal(TemporalType.DATE)
     @Column(name="fecha_expedicion")
     private Date restricciones;
     
