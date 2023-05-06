@@ -22,19 +22,23 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Zatonio
  */
 @Entity
-@Table(name = "hilo")
+@Table(name = "mensaje")
 @Cacheable(false)
 @XmlRootElement
 public class Mensaje implements Serializable {
 
     @Id
-    @Column(name="id_hilo")
-    private Long id_hilo;
+    @Column(name="id_mensaje")
+    private Long id_mensaje;
 
-   @ManyToOne
+    @ManyToOne
     @JoinColumn(name="id_usuario")
     private Usuario id_usuario;
     
+   
+    @ManyToOne
+    @JoinColumn(name="id_hilo")
+    private Usuario id_hilo;
 
     public Usuario getId_usuario() {
         return id_usuario;
@@ -44,54 +48,53 @@ public class Mensaje implements Serializable {
         this.id_usuario = id_usuario;
     }
 
-    @Column(name="titutlo_descriptivo")
-    private String titutlo_descriptivo;
+    @Column(name="contenido")
+    private String contenido;
    
     
-    @Column(name="etiqueta_tema")
-    private String etiqueta_tema;
-   
     @Temporal(TemporalType.DATE)
-    @Column(name="fecha_creacion")
-    private Date fecha_creacion;
+    @Column(name="fecha_publicacion")
+    private Date fecha_publicacion;
 
-    public Long getId_hilo() {
+    public Long getId_mensaje() {
+        return id_mensaje;
+    }
+
+    public void setId_mensaje(Long id_mensaje) {
+        this.id_mensaje = id_mensaje;
+    }
+
+    public Usuario getId_hilo() {
         return id_hilo;
     }
 
-    public void setId_hilo(Long id_hilo) {
+    public void setId_hilo(Usuario id_hilo) {
         this.id_hilo = id_hilo;
     }
 
-    public String getTitutlo_descriptivo() {
-        return titutlo_descriptivo;
+    public String getContenido() {
+        return contenido;
     }
 
-    public void setTitutlo_descriptivo(String titutlo_descriptivo) {
-        this.titutlo_descriptivo = titutlo_descriptivo;
+    public void setContenido(String contenido) {
+        this.contenido = contenido;
     }
 
-    public String getEtiqueta_tema() {
-        return etiqueta_tema;
+    public Date getFecha_publicacion() {
+        return fecha_publicacion;
     }
 
-    public void setEtiqueta_tema(String etiqueta_tema) {
-        this.etiqueta_tema = etiqueta_tema;
-    }
-
-    public Date getFecha_creacion() {
-        return fecha_creacion;
-    }
-
-    public void setFecha_creacion(Date fecha_creacion) {
-        this.fecha_creacion = fecha_creacion;
+    public void setFecha_publicacion(Date fecha_publicacion) {
+        this.fecha_publicacion = fecha_publicacion;
     }
 
     @Override
     public String toString() {
-        return "Hilo{" + "id_hilo=" + id_hilo + ", id_usuario=" + id_usuario + ", titutlo_descriptivo=" + titutlo_descriptivo + ", etiqueta_tema=" + etiqueta_tema + ", fecha_creacion=" + fecha_creacion + '}';
+        return "Mensaje{" + "id_mensaje=" + id_mensaje + ", id_usuario=" + id_usuario + ", id_hilo=" + id_hilo + ", contenido=" + contenido + ", fecha_publicacion=" + fecha_publicacion + '}';
     }
+
     
+
     
     
     
