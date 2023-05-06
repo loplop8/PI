@@ -226,7 +226,7 @@ public class Registro extends HttpServlet {
                 UsuarioJpaController ujc = new UsuarioJpaController(emf); //Llamamos controlador JPA USUARIO
                 try { //Persistimos los datos en la base de datos
                     ujc.create(u);
-                    response.sendRedirect("Inicio"); // 
+                    response.sendRedirect("./Login"); // 
                     return;
                 } catch (RollbackException e) {
                     System.out.println(e);

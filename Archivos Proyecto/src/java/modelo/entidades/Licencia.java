@@ -35,7 +35,7 @@ public class Licencia implements Serializable {
     @JoinColumn(name="id_usuario")
     private Usuario id_usuario;
     
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name="id_tipo_licencia")
     private TipoLicencia id_tipo_licencia;
 
