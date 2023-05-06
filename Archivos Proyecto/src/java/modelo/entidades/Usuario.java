@@ -94,6 +94,40 @@ public class Usuario implements Serializable {
     @Column(name="esta_activo")
     private Boolean esta_activo;
 
+    
+    @Column(name="dni_validado")
+    private Boolean dni_validado;
+
+    @Column(name="url_img_dni_anverso")
+    private String url_img_dni_anverso;
+    
+    @Column(name="url_img_dni_reverso")
+    private String url_img_dni_reverso;
+
+    public Boolean getDni_validado() {
+        return dni_validado;
+    }
+
+    public void setDni_validado(Boolean dni_validado) {
+        this.dni_validado = dni_validado;
+    }
+
+    public String getUrl_img_dni_anverso() {
+        return url_img_dni_anverso;
+    }
+
+    public void setUrl_img_dni_anverso(String url_img_dni_anverso) {
+        this.url_img_dni_anverso = url_img_dni_anverso;
+    }
+
+    public String getUrl_img_dni_reverso() {
+        return url_img_dni_reverso;
+    }
+
+    public void setUrl_img_dni_reverso(String url_img_dni_reverso) {
+        this.url_img_dni_reverso = url_img_dni_reverso;
+    }
+    
     public Long getId_usuario() {
         return id_usuario;
     }
@@ -200,8 +234,10 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "Usuario{" + "id_usuario=" + id_usuario + ", nickname=" + nickname + ", nombre=" + nombre + ", apellidos=" + apellidos + ", email=" + email +  ", telefono=" + telefono + ", direccion=" + direccion + ", fecha_nacimiento=" + fecha_nacimiento + ", nif=" + nif + ", url_img_perfil=" + url_img_perfil + ", esta_activo=" + esta_activo + '}';
+        return "Usuario{" + "id_usuario=" + id_usuario + ", nickname=" + nickname + ", nombre=" + nombre + ", apellidos=" + apellidos + ", email=" + email + ", contrase\u00f1a=" + contraseña + ", rol=" + rol + ", telefono=" + telefono + ", id_municipio=" + id_municipio + ", direccion=" + direccion + ", fecha_nacimiento=" + fecha_nacimiento + ", nif=" + nif + ", url_img_perfil=" + url_img_perfil + ", esta_activo=" + esta_activo + ", dni_validado=" + dni_validado + ", url_img_dni_anverso=" + url_img_dni_anverso + ", url_img_dni_reverso=" + url_img_dni_reverso + '}';
     }
+
+   
     
     
     

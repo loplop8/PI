@@ -219,6 +219,9 @@ public class Registro extends HttpServlet {
                 MunicipioJpaController mjc=new MunicipioJpaController(emf);
                 u.setId_municipio(mjc.findMunicipio(id_municipio));
                 u.setUrl_img_perfil(null);
+                u.setUrl_img_dni_anverso(null);
+                u.setUrl_img_dni_reverso(null);
+                u.setDni_validado(Boolean.FALSE);
                
                 UsuarioJpaController ujc = new UsuarioJpaController(emf); //Llamamos controlador JPA USUARIO
                 try { //Persistimos los datos en la base de datos
