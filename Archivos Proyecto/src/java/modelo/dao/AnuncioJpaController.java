@@ -11,18 +11,16 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
-import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 import modelo.dao.exceptions.NonexistentEntityException;
-import modelo.entidades.Municipio;
-
+import modelo.entidades.Anuncio;
 /**
  *
  * @author Zatonio
  */
-public class MunicipioJpaController implements Serializable {
+public class AnuncioJpaController implements Serializable {
 
-    public MunicipioJpaController(EntityManagerFactory emf) {
+    public AnuncioJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
@@ -31,12 +29,12 @@ public class MunicipioJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Municipio municipio) {
+    public void create(Anuncio anuncio) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(municipio);
+            em.persist(anuncio);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -45,27 +43,27 @@ public class MunicipioJpaController implements Serializable {
         }
     }
 
-    public void edit(Municipio municipio) throws NonexistentEntityException, Exception {
+    public void edit(Anuncio anuncio) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
             
-            Municipio persistentMunicipio = em.find(Municipio.class, municipio.getId_municipio());
+            Anuncio persistentAnuncio = em.find(Anuncio.class, anuncio.getId_anuncio());
             
-            if(persistentMunicipio == null) {
+            if(persistentAnuncio == null) {
                 throw new Exception();
             }
             
-            municipio = em.merge(municipio);
+            anuncio = em.merge(anuncio);
             em.getTransaction().commit();
             
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Long id = municipio.getId_municipio();
-                if (findMunicipio(id) == null) {
-                    throw new NonexistentEntityException("El municipio con id " + id + " no existe.");
+                Long id = anuncio.getId_anuncio();
+                if (findAnuncio(id) == null) {
+                    throw new NonexistentEntityException("El anuncio con id " + id + " no existe.");
                 }
             }
             throw ex;
@@ -82,14 +80,14 @@ public class MunicipioJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Municipio municipio;
+            Anuncio anuncio;
             try {
-                municipio = em.getReference(Municipio.class, id);
+                anuncio = em.getReference(Anuncio.class, id);
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The empleado with id " + id + " no longer exists.", enfe);
             }
             
-            em.remove(municipio);
+            em.remove(anuncio);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -98,19 +96,19 @@ public class MunicipioJpaController implements Serializable {
         }
     }
     
-    public List<Municipio> findMunicipioEntities() {
-        return MunicipioJpaController.this.findMunicipioEntities(true, -1, -1);
+    public List<Anuncio> findAnuncioEntities() {
+        return AnuncioJpaController.this.findAnuncioEntities(true, -1, -1);
     }
 
-    public List<Municipio> findMunicipioEntities(int maxResults, int firstResult) {
-        return MunicipioJpaController.this.findMunicipioEntities(false, maxResults, firstResult);
+    public List<Anuncio> findAnuncioEntities(int maxResults, int firstResult) {
+        return AnuncioJpaController.this.findAnuncioEntities(false, maxResults, firstResult);
     }
 
-    private List<Municipio> findMunicipioEntities(boolean all, int maxResults, int firstResult) {
+    private List<Anuncio> findAnuncioEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(Municipio.class));
+            cq.select(cq.from(Anuncio.class));
             Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -122,20 +120,14 @@ public class MunicipioJpaController implements Serializable {
         }
     }
 
-    public Municipio findMunicipio(Long id) {
+    public Anuncio findAnuncio(Long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Municipio.class, id);
+            return em.find(Anuncio.class, id);
         } finally {
             em.close();
         }
     }
-
-    public List<Municipio> findMunicipiosPorProvincia(Long idProvincia) {
-        EntityManager em = getEntityManager();
-        TypedQuery<Municipio> query = em.createNamedQuery("Municipio.findMunicipiosPorProvincia", Municipio.class);
-        query.setParameter("idProvincia", idProvincia);
-        return query.getResultList();
-    }
+    
     
 }

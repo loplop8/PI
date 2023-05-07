@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package modelo.dao;
 
@@ -11,18 +10,19 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
-import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import modelo.dao.exceptions.NonexistentEntityException;
-import modelo.entidades.Municipio;
+import modelo.dao.exceptions.PreexistingEntityException;
+import modelo.entidades.Hilo;
 
 /**
  *
  * @author Zatonio
  */
-public class MunicipioJpaController implements Serializable {
+public class HiloJpaController implements Serializable {
 
-    public MunicipioJpaController(EntityManagerFactory emf) {
+    public HiloJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
@@ -31,13 +31,18 @@ public class MunicipioJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Municipio municipio) {
+    public void create(Hilo hilo) throws PreexistingEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(municipio);
+            em.persist(hilo);
             em.getTransaction().commit();
+        } catch (Exception ex) {
+            if (findHilo(hilo.getId_hilo()) != null) {
+                throw new PreexistingEntityException("Hilo " + hilo + " already exists.", ex);
+            }
+            throw ex;
         } finally {
             if (em != null) {
                 em.close();
@@ -45,27 +50,19 @@ public class MunicipioJpaController implements Serializable {
         }
     }
 
-    public void edit(Municipio municipio) throws NonexistentEntityException, Exception {
+    public void edit(Hilo hilo) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            
-            Municipio persistentMunicipio = em.find(Municipio.class, municipio.getId_municipio());
-            
-            if(persistentMunicipio == null) {
-                throw new Exception();
-            }
-            
-            municipio = em.merge(municipio);
+            hilo = em.merge(hilo);
             em.getTransaction().commit();
-            
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Long id = municipio.getId_municipio();
-                if (findMunicipio(id) == null) {
-                    throw new NonexistentEntityException("El municipio con id " + id + " no existe.");
+                Long id = hilo.getId_hilo();
+                if (findHilo(id) == null) {
+                    throw new NonexistentEntityException("The hilo with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -78,18 +75,17 @@ public class MunicipioJpaController implements Serializable {
 
     public void destroy(Long id) throws NonexistentEntityException {
         EntityManager em = null;
-        
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Municipio municipio;
+            Hilo hilo;
             try {
-                municipio = em.getReference(Municipio.class, id);
+                hilo = em.getReference(Hilo.class, id);
+                hilo.getId_hilo();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The empleado with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The hilo with id " + id + " no longer exists.", enfe);
             }
-            
-            em.remove(municipio);
+            em.remove(hilo);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -97,20 +93,20 @@ public class MunicipioJpaController implements Serializable {
             }
         }
     }
-    
-    public List<Municipio> findMunicipioEntities() {
-        return MunicipioJpaController.this.findMunicipioEntities(true, -1, -1);
+
+    public List<Hilo> findHiloEntities() {
+        return findHiloEntities(true, -1, -1);
     }
 
-    public List<Municipio> findMunicipioEntities(int maxResults, int firstResult) {
-        return MunicipioJpaController.this.findMunicipioEntities(false, maxResults, firstResult);
+    public List<Hilo> findHiloEntities(int maxResults, int firstResult) {
+        return findHiloEntities(false, maxResults, firstResult);
     }
 
-    private List<Municipio> findMunicipioEntities(boolean all, int maxResults, int firstResult) {
+    private List<Hilo> findHiloEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(Municipio.class));
+            cq.select(cq.from(Hilo.class));
             Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -122,20 +118,26 @@ public class MunicipioJpaController implements Serializable {
         }
     }
 
-    public Municipio findMunicipio(Long id) {
+    public Hilo findHilo(Long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Municipio.class, id);
+            return em.find(Hilo.class, id);
         } finally {
             em.close();
         }
     }
 
-    public List<Municipio> findMunicipiosPorProvincia(Long idProvincia) {
+    public int getHiloCount() {
         EntityManager em = getEntityManager();
-        TypedQuery<Municipio> query = em.createNamedQuery("Municipio.findMunicipiosPorProvincia", Municipio.class);
-        query.setParameter("idProvincia", idProvincia);
-        return query.getResultList();
+        try {
+            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+            Root<Hilo> rt = cq.from(Hilo.class);
+            cq.select(em.getCriteriaBuilder().count(rt));
+            Query q = em.createQuery(cq);
+            return ((Long) q.getSingleResult()).intValue();
+        } finally {
+            em.close();
+        }
     }
     
 }
