@@ -1,12 +1,18 @@
-    body,div,footer{
+   
+html{
+   
+}
+
+body,div,footer{
         background-color:#212529;
+        
     }
 
     header{
         position: static;
         top: 3 px;
         z-index: 3;
-        width: 103%;
+        width: 100%;
         margin: -2%;
         padding: 0em 1em 0em 1em ;
     }
@@ -70,9 +76,7 @@
         display: none;
     }
 
-    .dropdown-menu{
-        left: -81% !important;
-    }
+    
 
 
 

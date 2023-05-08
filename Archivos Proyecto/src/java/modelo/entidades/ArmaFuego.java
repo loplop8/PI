@@ -29,7 +29,7 @@ public class ArmaFuego implements Serializable {
 
     @Id
     @ManyToOne
-    @Column(name="id_arma")
+    @JoinColumn(name="id_arma")
     private Arma id_arma;
 
     public Arma getId_arma() {

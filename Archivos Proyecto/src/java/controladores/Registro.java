@@ -79,6 +79,7 @@ public class Registro extends HttpServlet {
                 && request.getParameter("contraseña_rep") != null
                 && request.getParameter("privacidad") != null
                 && request.getParameter("municipios") != null
+                
                 ) { //Si los campos no son null 
 
                 
@@ -112,44 +113,12 @@ public class Registro extends HttpServlet {
                 EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife");
                 EntityManager em = emf.createEntityManager();
                 
-                TypedQuery<Usuario> queryNombre = em.createQuery("SELECT u FROM Usuario u WHERE u.nickname = :nickname" , Usuario.class);
-                queryNombre.setParameter("nickname", nickname);
-                TypedQuery<Usuario> queryEmail = em.createQuery("SELECT u FROM Usuario u WHERE u.email = :email" , Usuario.class);
-                queryEmail.setParameter("email", email);
-                
-                
-                TypedQuery<Usuario> queryNif = em.createQuery("SELECT u FROM Usuario u WHERE u.nif = :nif" , Usuario.class);
-                queryNif.setParameter("nif", nif);
-                TypedQuery<Usuario> queryTelefono = em.createQuery("SELECT u FROM Usuario u WHERE u.telefono = :telefono" , Usuario.class);
-                queryTelefono.setParameter("telefono", telefono);
-                List<Usuario> usuariosNombre = queryNombre.getResultList();                
-                List<Usuario> usuariosEmail = queryEmail.getResultList();                
-                List<Usuario> usuariosTelefono = queryTelefono.getResultList();
-                List<Usuario> usuariosNif = queryNif.getResultList();
-                
                 
             
             
             
             
-            if(!usuariosNif.isEmpty()){
-                        mensajeNif="El NIF que esta introduciendo ya esta en uso, si esta registrado vaya al login . Acepte para ir al login";
-                        request.setAttribute("mensajeNif", mensajeNif);
-                        
-                }else if(!usuariosEmail.isEmpty()){
-                        mensajeEmail="El Email ya esta en uso, utilice otro email o si esta registrado vaya al login . Acepte para ir al login";
-                        request.setAttribute("mensajeEmail", mensajeEmail);
-                        
-                }else if(!usuariosTelefono.isEmpty()){
-                    mensajeTelefono="El telefono que esta introduciendo ya esta en uso, si esta registrado vaya al login . Acepte para ir al login " ;
-                    request.setAttribute("mensajeTelefono",mensajeTelefono);
-                    
-                }
-                else if(!usuariosNombre.isEmpty()){
-                        mensajeNick="El Nick que esta introduciedo ya esta siendo usado por otro usuario, por favor use otro para poder registarse o acepte para ir al login";
-                        request.setAttribute("",mensajeNick );
-                        
-                }else{
+            
             
             
             //Encriptamos la contraseña con sha256
@@ -234,7 +203,7 @@ public class Registro extends HttpServlet {
                 }
 
             }
-        }
+        
       }
         getServletContext().getRequestDispatcher(vista).forward(request, response);
 

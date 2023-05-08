@@ -1,6 +1,12 @@
-   body,.header,footer{
+  
+html{
+    overflow-x: hidden;
+}
+
+body,.header,footer{
         background-color:#212529;
         color: white;
+        
          
         
           
@@ -10,7 +16,7 @@
         position: static;
         top: 3 px;
         z-index: 3;
-        width: 103%;
+        width: 100%;
         margin: -2%;
         padding: 0em 1em 0em 1em ;
     }

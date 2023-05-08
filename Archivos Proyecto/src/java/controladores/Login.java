@@ -53,6 +53,13 @@ public class Login extends HttpServlet {
             for (Usuario u : usuarios) {
                 if (u.getEmail().equals(email) && u.getContraseña().equals(contraseña)) {
                     request.getSession().setAttribute("usuario", u);
+                    
+                    if(u.getEsta_activo()==false){
+                        response.sendRedirect("./Error");
+                        return;
+                    }else{
+                    
+                    
                     if("admin".equals(u.getRol())){
                         response.sendRedirect("admin/PanelAdministracion");
                         return;
@@ -65,6 +72,8 @@ public class Login extends HttpServlet {
                         return;
                     }
                     
+                    }
+                    
                 }
             }
         
@@ -73,6 +82,7 @@ public class Login extends HttpServlet {
             request.setAttribute("email", email);
             request.setAttribute("contraseña", contraseña);
         }
+        
         getServletContext().getRequestDispatcher(vista).forward(request, response);
     }
 

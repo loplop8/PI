@@ -367,22 +367,5 @@
 
                                  
     </body>
-     <c:if test="${mensajeNif != null}"> 
-         <script> 
-            if( confirm("${mensajeNif}")){
-         window.location.assign("./Login");}
-         </script>
-     </c:if>
-        <c:if test="${mensajeEmail != null}"> <script> 
-            if( confirm("${mensajeEmail}")){
-         window.location.assign("./Login");}
-         </script> </c:if>
-        <c:if test="${mensajeTelefono != null}"> <script> 
-            if( confirm("${mensajeTelefono}")){
-         window.location.assign("./Login");}
-         </script> </c:if>
-        <c:if test="${mensajeNick != null}"> <script> 
-            if( confirm("${mensajeNick}")){
-         window.location.assign("./Login");}
-         </script> </c:if>   
+        
 </html>

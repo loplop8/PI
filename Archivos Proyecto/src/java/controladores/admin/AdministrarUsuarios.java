@@ -6,11 +6,14 @@ package controladores.admin;
  */
 
 import java.io.IOException;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.dao.UsuarioJpaController;
 import modelo.entidades.Usuario;
 
 
@@ -18,8 +21,8 @@ import modelo.entidades.Usuario;
  *
  * @author Zatonio
  */
-@WebServlet(name = "PanelAdministracion", urlPatterns = {"/admin/PanelAdministracion"})
-public class PanelAdministracion extends HttpServlet {
+@WebServlet(name = "AdministrarUsuarios", urlPatterns = {"/admin/AdministrarUsuarios"})
+public class AdministrarUsuarios extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,9 +35,12 @@ public class PanelAdministracion extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String vista = "/admin/panelAdministracion.jsp";
+        String vista = "/admin/administrarUsuarios.jsp";
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         request.setAttribute("usuario", usuario);
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife"); 
+        UsuarioJpaController djc = new UsuarioJpaController(emf);
+        request.setAttribute("usuarios", djc.findUsuarioEntities()); //Mandamos los usuarios a la vista
         getServletContext().getRequestDispatcher(vista).forward(request, response);
     }
 

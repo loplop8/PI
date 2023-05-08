@@ -239,7 +239,7 @@ function compruebaNickname(inputNickname) {
         const existeUsuario = data.some(usuario => usuario.nickname === inputNickname.value);
         if (existeUsuario) {
           inputNickname.classList.add('is-invalid');
-          alert("Ese nombre de usuario ya esta en uso")
+          alert("Ese nif ya esta en uso");
           return false;
         } else {
           inputNickname.classList.remove('is-invalid');
@@ -358,65 +358,77 @@ function validarFormulario(event) {
   
   // Validamos el campo "nombre"
   if (!compruebaNombre(nombre)) {
+    event.preventDefault();
     return;
   }
   
   // Validamos el campo "apellidos"
   if (!compruebaApellidos(apellidos)) {
-    return;
+    event.preventDefault();
+        return;
   }
   
   // Validamos el campo "nif"
   if (!compruebaNIF(nif)) {
-    return;
+    event.preventDefault();
+        return;
   }
   
   // Validamos el campo "email"
   if (!compruebaEmail(email)) {
-    return;
+    event.preventDefault();
+        return;
   }
   
   // Validamos el campo "telefono"
   if (!compruebaTelefono(telefono)) {
-    return;
+    event.preventDefault();
+        return;
   }
   
   // Validamos el campo "nickname"
   if (!compruebaNickname(nickname)) {
-    return;
+    event.preventDefault();
+        return;
   }
   
   
   
   // Validamos el campo "direccion"
   if (!compruebaDireccion(direccion)) {
-    return;
+    event.preventDefault();
+        return;
   }
   
   // Validamos el campo "fecha de nacimiento"
   
   if (!compruebaFechaNacimiento(fecha_nacimiento)) {
-    return;
+    event.preventDefault();
+        return;
   }
   
   // Validamos el campo "contraseña"
   if (!compruebaContraseña()) {
-    return;
+    event.preventDefault();
+        return;
   }
    
   // Validamos el campo "política de privacidad"
   if (!politica_privacidad.checked) {
-    alert("Debes aceptar la política de privacidad para registrarte");
+    event.preventDefault();
+        alert("Debes aceptar la política de privacidad para registrarte");
     return;
   }
+  
   if (!verifica_son_datosDni.checked) {
-    alert("Debes verificar que los datos son los de tu DNI ");
-    return;
+    
+        alert("Debes verificar que los datos son los de tu DNI ");
+    event.preventDefault();
+        return;
   }
   
   
-  // Si llegamos aquí, todos los campos son válidos y podemos  enviar el formulario al servidor
-    alert("Estamos revisando sus datos,pulse en la notificación para poder continuar");
+    
     
 }
 
