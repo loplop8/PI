@@ -18,10 +18,12 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import modelo.dao.MunicipioJpaController;
 import modelo.dao.ProvinciaJpaController;
+import modelo.dao.TipoLicenciaJpaController;
 import modelo.dao.UsuarioJpaController;
 import modelo.entidades.Municipio;
 import modelo.entidades.Provincia;
 import modelo.dao.exceptions.*;
+import modelo.entidades.TipoLicencia;
 import modelo.entidades.Usuario;
 /**
  *
@@ -100,6 +102,24 @@ public class RestController  {
         
     }
     return usuarios;
+      }
+      
+      
+      @GET
+      @Path("TipoLicencias")
+      public List<TipoLicencia> getTiposLicencia(){
+          List<TipoLicencia> tipos= new ArrayList<>();
+           EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife");
+           TipoLicenciaJpaController tjc= new TipoLicenciaJpaController(emf);
+           
+           try{
+        tipos= tjc.findTipoLicenciaEntities();
+    }catch(Exception e){
+        
+    }
+    return tipos;
+     
+           
       }
          
           

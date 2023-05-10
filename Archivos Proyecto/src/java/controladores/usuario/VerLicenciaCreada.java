@@ -16,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.entidades.Licencia;
 import modelo.entidades.Usuario;
 
 
@@ -23,8 +24,8 @@ import modelo.entidades.Usuario;
  *
  * @author Zatonio
  */
-@WebServlet(name = "GestionarPerfil", urlPatterns = {"/usuario/GestionarPerfil"})
-public class GestionarPerfil extends HttpServlet {
+@WebServlet(name = "VerLicenciaCreada", urlPatterns = {"/usuario/VerLicenciaCreada"})
+public class VerLicenciaCreada extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,9 +38,23 @@ public class GestionarPerfil extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String vista = "/usuario/gestionarPerfil.jsp";
+        String vista = "/usuario/verLicenciaCreada.jsp";
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         request.setAttribute("usuario", usuario);
+        
+        Licencia l= (Licencia)request.getSession().getAttribute("licencia");
+        request.setAttribute("licencia", l);
+        
+            request.getSession().removeAttribute("observaciones");
+            request.getSession().removeAttribute("valida_desde");
+            request.getSession().removeAttribute("valida_hasta");
+            request.getSession().removeAttribute("fecha_expedicion");
+            request.getSession().removeAttribute("restricciones");
+            request.getSession().removeAttribute("anversoLicencia");
+            request.getSession().removeAttribute("reversoLicencia");
+            request.getSession().removeAttribute("tipo_licencia");
+            request.getSession().removeAttribute("licencia");
+        
         getServletContext().getRequestDispatcher(vista).forward(request, response);
     }
 

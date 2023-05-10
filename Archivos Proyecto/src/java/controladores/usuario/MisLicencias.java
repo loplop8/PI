@@ -8,7 +8,8 @@ package controladores.usuario;
 import controladores.moderador.*;
 import controladores.admin.*;
 import java.io.IOException;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.servlet.ServletException;
@@ -16,6 +17,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.dao.LicenciaJpaController;
+import modelo.entidades.Licencia;
 import modelo.entidades.Usuario;
 
 
@@ -23,8 +26,8 @@ import modelo.entidades.Usuario;
  *
  * @author Zatonio
  */
-@WebServlet(name = "GestionarPerfil", urlPatterns = {"/usuario/GestionarPerfil"})
-public class GestionarPerfil extends HttpServlet {
+@WebServlet(name = "MisLicencias", urlPatterns = {"/usuario/MisLicencias"})
+public class MisLicencias extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,11 +40,26 @@ public class GestionarPerfil extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String vista = "/usuario/gestionarPerfil.jsp";
+        String vista="/usuario/verLicenciasArmas.jsp";
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
-        request.setAttribute("usuario", usuario);
-        getServletContext().getRequestDispatcher(vista).forward(request, response);
-    }
+         request.setAttribute("usuario", usuario);
+         EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife");
+         LicenciaJpaController ljc=new LicenciaJpaController(emf);
+         List<Licencia> licencias= ljc.findLicenciaEntities();
+         List<Licencia> licenciasUsuario=new ArrayList<>();
+         
+         
+         for (Licencia licencia : licencias) {
+            if(licencia.getId_usuario().getId_usuario().equals(usuario.getId_usuario())){
+                licenciasUsuario.add(licencia);
+        }
+         }
+         
+         request.setAttribute("licencias", licenciasUsuario);
+        
+            getServletContext().getRequestDispatcher(vista).forward(request, response);
+        }
+    
 
     /**
      * Handles the HTTP <code>GET</code> method.

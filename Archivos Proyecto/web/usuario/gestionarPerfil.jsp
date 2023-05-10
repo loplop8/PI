@@ -183,23 +183,29 @@
               </div>
               
               <div class="button mt-3 d-flex justify-content-center text-center">
-                <button class="btn btn-primary"><a href="AdministrarUsuarios">Ver mis pedidos</a></button>
+                <button class="btn btn-primary"><a href="VerPedidos">Ver mis pedidos</a></button>
               </div>
               
               
               <div class="button mt-3 d-flex justify-content-center text-center">
-                <button class="btn btn-primary"><a href="AdministrarUsuarios">Ver mis anuncios</a></button>
+                <button class="btn btn-primary"><a href="VerAnuncios">Ver mis anuncios</a></button>
               </div>
               
               
               <div class="button mt-3 d-flex justify-content-center text-center">
-                <button class="btn btn-primary"><a href="AdministrarUsuarios">Ver mis entradas en el foro</a></button>
+                <button class="btn btn-primary"><a href="EntradasForo">Ver mis entradas en el foro</a></button>
               </div>
               
               
               <div class="button mt-3 d-flex justify-content-center text-center">
-                <button class="btn btn-primary"><a href="AdministrarUsuarios">Ver mis licencias de armas</a></button>
+                <button class="btn btn-primary"><a href="./MisLicencias">Ver mis licencias de armas</a></button>
               </div>
+              
+              <div class="button mt-3 d-flex justify-content-center text-center">
+                <button class="btn btn-primary"><a href="AnadirLicencia">Añadir licencias de armas</a></button>
+              </div>
+              
+              
               
             </div>
           </div>

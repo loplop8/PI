@@ -49,14 +49,25 @@ public class Licencia implements Serializable {
     
     @Temporal(TemporalType.DATE)
     @Column(name="fecha_expedicion")
-    private Date restricciones;
+    private Date fecha_expedicion;
     
     @Column(name="observaciones")
     private String observaciones;
     
+    @Column(name="restricciones")
+    private String restricciones;
+    
     @Column(name="licencia_validada")
     private Boolean licencia_validada;
 
+    @Column(name="url_img_licencia_anverso")
+    private String url_img_licencia_anverso;
+    
+    @Column(name="url_img_licencia_reverso")
+    private String url_img_licencia_reverso;
+    
+    
+    
     public Long getId_licencia() {
         return id_licencia;
     }
@@ -97,12 +108,12 @@ public class Licencia implements Serializable {
         this.valida_desde = valida_desde;
     }
 
-    public Date getRestricciones() {
-        return restricciones;
+    public Date getFechaExpedicion() {
+        return fecha_expedicion;
     }
 
-    public void setRestricciones(Date restricciones) {
-        this.restricciones = restricciones;
+    public void setFechaExpedicion(Date restricciones) {
+        this.fecha_expedicion = restricciones;
     }
 
     public String getObservaciones() {
@@ -121,10 +132,49 @@ public class Licencia implements Serializable {
         this.licencia_validada = licencia_validada;
     }
 
+    public Date getFecha_expedicion() {
+        return fecha_expedicion;
+    }
+
+    public void setFecha_expedicion(Date fecha_expedicion) {
+        this.fecha_expedicion = fecha_expedicion;
+    }
+
+    public String getRestricciones() {
+        return restricciones;
+    }
+
+    public void setRestricciones(String restricciones) {
+        this.restricciones = restricciones;
+    }
+
+    public String getUrl_img_licencia_anverso() {
+        return url_img_licencia_anverso;
+    }
+
+    public void setUrl_img_licencia_anverso(String url_img_licencia_anverso) {
+        this.url_img_licencia_anverso = url_img_licencia_anverso;
+    }
+
+    public String getUrl_img_licencia_reverso() {
+        return url_img_licencia_reverso;
+    }
+
+    public void setUrl_img_licencia_reverso(String url_img_licencia_reverso) {
+        this.url_img_licencia_reverso = url_img_licencia_reverso;
+    }
+
     @Override
     public String toString() {
-        return "Licencia{" + "id_licencia=" + id_licencia + ", id_usuario=" + id_usuario + ", id_tipo_licencia=" + id_tipo_licencia + ", valida_hasta=" + valida_hasta + ", valida_desde=" + valida_desde + ", restricciones=" + restricciones + ", observaciones=" + observaciones + ", licencia_validada=" + licencia_validada + '}';
+        return "Licencia{" + "id_licencia=" + id_licencia + ", id_usuario=" + id_usuario + ", id_tipo_licencia=" + id_tipo_licencia + ", valida_hasta=" + valida_hasta + ", valida_desde=" + valida_desde + ", fecha_expedicion=" + fecha_expedicion + ", observaciones=" + observaciones + ", restricciones=" + restricciones + ", licencia_validada=" + licencia_validada + ", url_img_licencia_anverso=" + url_img_licencia_anverso + ", url_img_licencia_reverso=" + url_img_licencia_reverso + '}';
     }
+    
+
+    
+    
+    
+
+    
     
     
     

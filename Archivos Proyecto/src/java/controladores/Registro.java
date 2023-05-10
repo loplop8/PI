@@ -79,7 +79,7 @@ public class Registro extends HttpServlet {
                 && request.getParameter("contraseña_rep") != null
                 && request.getParameter("privacidad") != null
                 && request.getParameter("municipios") != null
-                
+                && request.getParameter("fecha_nacimiento") !=null
                 ) { //Si los campos no son null 
 
                 

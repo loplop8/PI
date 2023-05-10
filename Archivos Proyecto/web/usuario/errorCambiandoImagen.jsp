@@ -177,7 +177,7 @@
             <div class="form-items">
               <h3>Error</h3>
               <p>${errorImagen}</p>
-              <button type="button" class="btn btn-outline-warning me-2" > <a href="./EditarPerfil" id="login">Volver</a></button>
+              <button type="button" class="btn btn-outline-warning me-2" > <a href="./GestionarPerfil" id="login">Volver a tu perfil</a></button>
             </div>
           </div>
         </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-05-2023 a las 03:28:16
+-- Tiempo de generación: 09-05-2023 a las 19:36:06
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -62,7 +62,9 @@ CREATE TABLE `arma_fuego` (
   `calibre` varchar(255) NOT NULL,
   `num_identificacion` varchar(255) NOT NULL,
   `fecha_expedicion_guia` date NOT NULL,
-  `guia_validada` tinyint(1) NOT NULL
+  `guia_validada` tinyint(1) NOT NULL,
+  `url_img_guia_reverso` varchar(255) DEFAULT NULL,
+  `url_img_guia_anverso` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -173,7 +175,9 @@ CREATE TABLE `licencia` (
   `fecha_expedicion` date NOT NULL,
   `restricciones` varchar(255) DEFAULT NULL,
   `observaciones` varchar(255) DEFAULT NULL,
-  `licencia_validada` tinyint(4) NOT NULL
+  `licencia_validada` tinyint(4) NOT NULL,
+  `url_img_licencia_anverso` varchar(255) DEFAULT NULL,
+  `url_img_licencia_reverso` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -8561,9 +8565,11 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `id_municipio`, `nickname`, `nombre`, `rol`, `apellidos`, `email`, `contraseña`, `telefono`, `direccion`, `fecha_nacimiento`, `nif`, `url_img_perfil`, `esta_activo`, `dni_validado`, `url_img_dni_anverso`, `url_img_dni_reverso`) VALUES
-(1, 6090, 'admin', 'admin', 'admin', 'admin', 'admin@swl.es', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', ' ', 'admin', '1995-08-09', ' ', '/SecondWeaponLife/uploads/CapturaOutlook.JPG', 1, 0, '', ''),
+(1, 6090, 'admin', 'admin', 'admin', 'admin', 'admin@swl.es', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', ' ', 'admin', '1995-08-09', ' ', '/SecondWeaponLife/uploads/WIN_20230215_23_09_35_Pro.jpg', 1, 0, '', ''),
 (2, 6090, 'moderador', 'moderador', 'moderador', 'moderador', 'moderador@swl.es', 'ee8a8f8ec1e02b0461eace422a327ccb163c48838cbfc922b96778184ec1c73b', 'telefomod', 'C/Granada, 13', '1995-08-09', 'nifmod', NULL, 1, 0, '', ''),
-(3, 6090, 'Zatonio', 'José Antonio', 'normal', 'López López ', '19joseantonio95@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '607450598', 'C/Granada, 13', '1995-08-09', '45811622S', '/SecondWeaponLife/uploads/WIN_20230215_23_09_35_Pro.jpg', 1, 0, '', '');
+(3, 6090, 'Zatonio', 'José Antonio', 'normal', 'López López ', '19joseantonio95@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '607450598', 'Zatonio', '1995-08-09', '45811622S', '/SecondWeaponLife/uploads/WIN_20230215_23_09_35_Pro.jpg', 1, 0, '', ''),
+(4, 6172, 'Rosa23', 'Rosa Maria ', 'normal', 'López López ', 'rosmar@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '607892077', 'Rosa23', '1991-08-28', '45811621Z', NULL, 1, 0, NULL, NULL),
+(5, 6090, 'Rosmar64', 'Rosa Maria ', 'admin', 'López Marín', 'rosa64@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '607892343', 'Rosmar64', '1964-02-08', '28472682Q', '/SecondWeaponLife/uploads/WIN_20230215_23_09_35_Pro.jpg', 1, 0, NULL, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -8779,7 +8785,7 @@ ALTER TABLE `tipo_licencia`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_usuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
