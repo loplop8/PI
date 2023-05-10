@@ -31,7 +31,7 @@ import org.apache.tika.Tika;
 @WebServlet(name = "EditarImagen", urlPatterns = {"/usuario/EditarImagen"})
 @MultipartConfig(maxFileSize = 10000000, fileSizeThreshold = 10000000)  //Añadimos la configuracion Multipart 
 public class EditarImagen extends HttpServlet {
-    private static final String UPLOAD_DIR = "uploads";
+    private static final String UPLOAD_DIR = "uploads/perfil";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -43,13 +43,15 @@ public class EditarImagen extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+     Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        
      String vista = "/usuario/errorCambiandoImagen.jsp";
      String error="";   
         // Obtiene el archivo de la solicitud
         Part filePart = request.getPart("file");
         
         // Obtiene el nombre del archivo del archivo de la solicitud
-        String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+        String fileName = usuario.getNickname()+usuario.getId_usuario()+Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
         
         // Obtiene el stream de entrada del archivo de la solicitud
         InputStream fileContent = filePart.getInputStream();
@@ -88,7 +90,7 @@ public class EditarImagen extends HttpServlet {
         String fileUrl = request.getContextPath() + "/" + UPLOAD_DIR + "/" + fileName;
         
         
-        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife");
         UsuarioJpaController ujc= new UsuarioJpaController(emf);
         

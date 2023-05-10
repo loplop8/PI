@@ -1,11 +1,5 @@
-/*
- * Servlet Controlador MenuDepartamentos.
- */
+
 package controladores.usuario;
-/**
- *
- * @author Zatonio
- */
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,8 +7,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.Date;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -22,7 +14,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
-import modelo.dao.UsuarioJpaController;
 import modelo.entidades.Usuario;
 import org.apache.tika.Tika;
 /**
@@ -32,7 +23,7 @@ import org.apache.tika.Tika;
 @WebServlet(name = "AnadirImagenAnversoLicencia", urlPatterns = {"/usuario/AnadirImagenAnversoLicencia"})
 @MultipartConfig(maxFileSize = 10000000, fileSizeThreshold = 10000000)  //Añadimos la configuracion Multipart 
 public class AnadirImagenAnversoLicencia extends HttpServlet {
-    private static final String UPLOAD_DIR = "uploads";
+    private static final String UPLOAD_DIR = "uploads/licencia";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -44,6 +35,7 @@ public class AnadirImagenAnversoLicencia extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+     
      
      Date valida_desde=(Date)request.getSession().getAttribute("valida_desde");
            request.getSession().setAttribute("valida_desde",valida_desde);
@@ -57,6 +49,8 @@ public class AnadirImagenAnversoLicencia extends HttpServlet {
            request.getSession().setAttribute("observaciones",observaciones);
            String tipo_licencia=(String)request.getSession().getAttribute("tipo_licencia");   
            request.getSession().setAttribute("tipo_licencia",tipo_licencia);
+           
+            Usuario usuario=(Usuario)request.getSession().getAttribute("usuario");
         
      String controldorAnadirImagenLicencia="/usuario/AnadirImagenLicencia";
      String vista = "/usuario/errorCambiandoImagen.jsp";
@@ -65,7 +59,7 @@ public class AnadirImagenAnversoLicencia extends HttpServlet {
         Part filePart = request.getPart("file");
         
         // Obtiene el nombre del archivo del archivo de la solicitud
-        String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+        String fileName = "Anverso"+usuario.getNickname()+usuario.getId_usuario()+Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
         
         // Obtiene el stream de entrada del archivo de la solicitud
         InputStream fileContent = filePart.getInputStream();

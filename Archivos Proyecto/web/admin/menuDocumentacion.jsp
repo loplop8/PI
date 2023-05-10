@@ -175,21 +175,19 @@
         <div class="form-holder">
           <div class="form-content">
             <div class="form-items">
-              <h3>Panel de Administracion</h3>
-              <p>Seleccione que desea administrar</p>
+             <h3>Verificación de Documentos</h3>
+              <p>Seleccione que documentación desea administrar</p>
 
               <div class="button mt-3 d-flex justify-content-center text-center">
-                <button class="btn btn-primary"><a href="AdministrarUsuarios">Administrar Usuarios</a></button>
+                <button class="btn btn-primary"><a href="AdministrarDNI">Documentos de Identidad</a></button>
               </div>
               <div class="button mt-3 d-flex justify-content-center text-center">
-                <button class="btn btn-primary"><a href="AdministrarAnuncios">Administrar Anuncios</a></button>
+                <button class="btn btn-primary"><a href="AdministrarLicencias">Licencias de Armas</a></button>
               </div>
               <div class="button mt-3 d-flex justify-content-center text-center">
-                <button class="btn btn-primary"><a href="AdministrarPedidos">Administrar Pedidos</a></button>
+                <button class="btn btn-primary"><a href="AdministrarGuias">Guias de Armas</a></button>
               </div>
-              <div class="button mt-3 d-flex justify-content-center text-center">
-                <button class="btn btn-primary"><a href="MenuDocumentacion">Verificar Documentos</a></button>
-              </div>
+              
             </div>
           </div>
         </div>
