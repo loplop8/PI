@@ -230,7 +230,7 @@
                                         <div class="row">
                                         <div class="col-md-6  mt-1">
                                             <label for="direccion">Dirección:</label>
-                                            <input class="form-control " type="text" name="direccion" placeholder="Dirección" pattern="^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s#,./-]+$" required <c:if test="${usuarioEditar != 'null'}"> value="${usuarioEditar.nickname}" </c:if> />
+                                            <input class="form-control " type="text" name="direccion" placeholder="Dirección" pattern="^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s#,./-]+$" required <c:if test="${usuarioEditar != 'null'}"> value="${usuarioEditar.direccion}" </c:if> />
                                         </div>
                                         <div class="col-md-6 mt-1">
                                             <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
