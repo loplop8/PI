@@ -201,9 +201,17 @@
                 <button class="btn btn-primary"><a href="./MisLicencias">Ver mis licencias de armas</a></button>
               </div>
               
+              <c:if test="${!usuario.dni_validado}">
               <div class="button mt-3 d-flex justify-content-center text-center">
-                <button class="btn btn-primary"><a href="AnadirLicencia">Añadir licencias de armas</a></button>
+                <button class="btn btn-primary"><a href="./AnadirImagenDNI">Verificar DNI </a></button>
+              </div>    
+              </c:if>
+              
+              
+              <div class="button mt-3 d-flex justify-content-center text-center">
+                <button class="btn btn-primary"><a href="./AnadirLicencia">Añadir licencias de armas</a></button>
               </div>
+             
               
               
               

@@ -253,12 +253,7 @@ function compruebaTelefono(inputTelefono) {
       .catch(error => console.error(error));
     }
   }
-        
-        
-        
-    
-
-
+                            
 telefono.addEventListener('change', () => {
   compruebaTelefono(telefono);
 });

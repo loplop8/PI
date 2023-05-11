@@ -37,6 +37,16 @@ document.getElementById('provincias').addEventListener('change', () => {
 });
 
 
+var usuarios = [];
+
+fetch('./Rest/Usuarios')
+  .then(response => response.json())
+  .then(data => {
+    usuarios = data;
+  })
+  .catch(error => console.error(error));
+
+
 
 
 
@@ -131,36 +141,34 @@ function comprobarLetraNIF(nif) {
 }
 
 function compruebaNIF(inputNIF) {
+  var valor = false;
+
   if (!regexNIF.test(inputNIF.value)) {
     inputNIF.classList.add('is-invalid');
-    alert("El formato del NIF no es valido");
-    return false;
+    alert("El formato del NIF no es válido");
+    valor = false;
   } else {
-    
     var valido = comprobarLetraNIF(inputNIF.value);
+
     if (valido) {
-      fetch(`./Rest/Usuarios`)
-      .then(response => response.json())
-      .then(data => {
-        const existeUsuario = data.some(usuario => usuario.nif === inputNIF.value);
-        if (existeUsuario) {
-          inputNIF.classList.add('is-invalid');
-          alert("Ese nombre de usuario ya esta en uso")
-          return false;
-        } else {
-          inputNIF.classList.remove('is-invalid');
-          return true;
-        }
-      })
-      .catch(error => console.error(error));
-  
-          } else {
+      const existeUsuario = usuarios.some(usuario => usuario.nif === inputNIF.value);
+
+      if (existeUsuario) {
+        inputNIF.classList.add('is-invalid');
+        alert("Ese NIF ya está en uso");
+        valor = false;
+      } else {
+        inputNIF.classList.remove('is-invalid');
+        valor = true;
+      }
+    } else {
       inputNIF.classList.add('is-invalid');
       alert("La letra del NIF no es la correcta");
-      return false;  
+      valor = false;
     }
-    
   }
+
+  return valor;
 }
 
 nif.addEventListener('change', () => {
@@ -169,24 +177,19 @@ nif.addEventListener('change', () => {
 
 function compruebaEmail(inputEmail) {
   if (!regexEmail.test(inputEmail.value)) {
-    
     inputEmail.classList.add('is-invalid');
-    alert("El email introducido no es valido");
+    alert("El email introducido no es válido");
     return false;
-  } else {fetch(`./Rest/Usuarios`)
-      .then(response => response.json())
-      .then(data => {
-        const existeUsuario = data.some(usuario => usuario.email === inputEmail.value);
-        if (existeUsuario) {
-          inputEmail.classList.add('is-invalid');
-          alert("Ese email ya esta en uso");
-          return false;
-        } else {
-          inputEmail.classList.remove('is-invalid');
-          return true;
-        }
-      })
-      .catch(error => console.error(error));
+  } else {
+    const existeUsuario = usuarios.some(usuario => usuario.email === inputEmail.value);
+    if (existeUsuario) {
+      inputEmail.classList.add('is-invalid');
+      alert("Ese email ya está en uso");
+      return false;
+    } else {
+      inputEmail.classList.remove('is-invalid');
+      return true;
+    }
   }
 }
 
@@ -196,32 +199,21 @@ email.addEventListener('change', () => {
 
 function compruebaTelefono(inputTelefono) {
   if (!regexTelefono.test(inputTelefono.value)) {
-    
     inputTelefono.classList.add('is-invalid');
-    alert("El número de telefono no es valido, debe tener 9 digitos y comenzar por 6 o 7");
+    alert("El número de teléfono no es válido, debe tener 9 dígitos y comenzar por 6 o 7");
     return false;
+  } else {
+    const existeUsuario = usuarios.some(usuario => usuario.telefono === inputTelefono.value);
+    if (existeUsuario) {
+      inputTelefono.classList.add('is-invalid');
+      alert("Ese teléfono ya está en uso");
+      return false;
     } else {
-        fetch(`./Rest/Usuarios`)
-      .then(response => response.json())
-      .then(data => {
-        const existeUsuario = data.some(usuario => usuario.telefono === inputTelefono.value);
-        if (existeUsuario) {
-          inputTelefono.classList.add('is-invalid');
-          alert("Ese télefono ya esta en uso");
-          return false;
-        } else {
-          inputTelefono.classList.remove('is-invalid');
-          return true;
-        }
-      })
-      .catch(error => console.error(error));
+      inputTelefono.classList.remove('is-invalid');
+      return true;
     }
   }
-        
-        
-        
-    
-
+}
 
 telefono.addEventListener('change', () => {
   compruebaTelefono(telefono);
@@ -233,20 +225,15 @@ function compruebaNickname(inputNickname) {
     alert("El nombre debe tener al menos 4 caracteres, máximo 9 y no contener caracteres especiales");
     return false;
   } else {
-    fetch(`./Rest/Usuarios`)
-      .then(response => response.json())
-      .then(data => {
-        const existeUsuario = data.some(usuario => usuario.nickname === inputNickname.value);
-        if (existeUsuario) {
-          inputNickname.classList.add('is-invalid');
-          alert("Ese nif ya esta en uso");
-          return false;
-        } else {
-          inputNickname.classList.remove('is-invalid');
-          return true;
-        }
-      })
-      .catch(error => console.error(error));
+    const existeUsuario = usuarios.some(usuario => usuario.nickname === inputNickname.value);
+    if (existeUsuario) {
+      inputNickname.classList.add('is-invalid');
+      alert("Ese nickname ya está en uso");
+      return false;
+    } else {
+      inputNickname.classList.remove('is-invalid');
+      return true;
+    }
   }
 }
 

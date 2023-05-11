@@ -142,31 +142,31 @@
                                         <div class="row">
                                         <div class="col-md-6 mt-1">
                                             <label for="nombre">Nombre:</label>
-                                            <input class="form-control " type="text" name="nombre" placeholder="Nombre Completo " pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$" <c:if test="${nombre != 'null'}"> value="${nombre}" </c:if> required/>
+                                            <input class="form-control " type="text" name="nombre" id="nombre" placeholder="Nombre Completo " pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$" <c:if test="${nombre != 'null'}"> value="${nombre}" </c:if> required/>
                                         </div>
                                         <div class="col-md-6 mt-1">
                                             <label for="apellidos">Apellidos:</label>
-                                            <input class="form-control " type="text" name="apellidos" placeholder="Apellidos" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$" <c:if test="${apellidos != 'null'}"> value="${apellidos}" </c:if> required />
+                                            <input class="form-control " type="text" name="apellidos" id="apellidos" placeholder="Apellidos" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$" <c:if test="${apellidos != 'null'}"> value="${apellidos}" </c:if> required />
                                         </div>
                                         </div>
                                         <div class="row">
                                         <div class="col-md-6 mt-1">
                                             <label for="nif">NIF:</label>
-                                            <input class="form-control " type="text" name="nif" placeholder="Ejemplo: 12345678A" pattern="^\d{8}[A-Z]$" <c:if test="${nif != 'null'}"> value="${nif}" </c:if> required />
+                                            <input class="form-control " type="text" name="nif" id="nif" placeholder="Ejemplo: 12345678A" pattern="^\d{8}[A-Z]$" <c:if test="${nif != 'null'}"> value="${nif}" </c:if> required />
                                         </div>
                                         <div class="col-md-6 mt-1">
                                             <label for="email">Email:</label>
-                                            <input class="form-control " type="email" name="email" placeholder="Ejemplo: info@swl.es" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" <c:if test="${email != 'null'}"> value="${email}" </c:if> required />
+                                            <input class="form-control " type="email" name="email" id="email"  placeholder="Ejemplo: info@swl.es" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" <c:if test="${email != 'null'}"> value="${email}" </c:if> required />
                                         </div>
                                             </div>
                                         <div class="row">
                                         <div class="col-md-6  mt-1">
                                             <label for="telefono">Teléfono:</label>
-                                            <input class="form-control" type="tel" name="telefono" placeholder="Ejemplo: 607450598" pattern="^(6|7)\d{8}$$" required <c:if test="${telefono != 'null'}"> value="${telefono}" </c:if> />
+                                            <input class="form-control" type="tel" name="telefono" id="telefono" placeholder="Ejemplo: 607450598" pattern="^(6|7)\d{8}$$" required <c:if test="${telefono != 'null'}"> value="${telefono}" </c:if> />
                                         </div>
                                         <div class="col-md-6 mt-1" >
                                             <label for="nickname">Nombre de Usuario:</label>
-                                            <input class="form-control " type="text" name="nickname" placeholder="Ejemplo: Nick23 " pattern="^[A-Za-z][A-Za-z0-9]{0,9}$" required <c:if test="${nickname != 'null'}"> value="${nickname}" </c:if> />
+                                            <input class="form-control " type="text" name="nickname" id="nickname" placeholder="Ejemplo: Nick23 " pattern="^[A-Za-z][A-Za-z0-9]{0,9}$" required <c:if test="${nickname != 'null'}"> value="${nickname}" </c:if> />
                                         </div>
                                             </div>
                                         <div class="row">
@@ -187,17 +187,17 @@
                                         <div class="row">
                                         <div class="col-md-6  mt-1">
                                             <label for="direccion">Dirección:</label>
-                                            <input class="form-control " type="text" name="direccion" placeholder="Dirección" pattern="^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s#,./-]+$" required <c:if test="${direccion != 'null'}"> value="${direccion}" </c:if> />
+                                            <input class="form-control " type="text" id="direccion" name="direccion" placeholder="Dirección" pattern="^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s#,./-]+$" required <c:if test="${direccion != 'null'}"> value="${direccion}" </c:if> />
                                         </div>
                                         <div class="col-md-6 mt-1">
                                             <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-                                            <input class="form-control " type="date" name="fecha_nacimiento" placeholder=""  required />
+                                            <input class="form-control " type="date" name="fecha_nacimiento" id="fecha_nacimiento" placeholder=""  required />
                                         </div>
                                             </div>
                                         <div class="row">
                                         <div class="col-md-6 mt-1">
                                             <label for="contraseña">Contraseña:</label>
-                                            <input class="form-control " type="password" name="contraseña" placeholder="Contraseña" pattern="^(?=.*\d)(?=.*[\.\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z]).{8,16}$" <c:if test="${contraseña != 'null'}"> value="${contraseña}" </c:if> required />
+                                            <input class="form-control " type="password" name="contraseña"  placeholder="Contraseña" pattern="^(?=.*\d)(?=.*[\.\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z]).{8,16}$" <c:if test="${contraseña != 'null'}"> value="${contraseña}" </c:if> required />
                                         </div>
                                         <div class="col-md-6 mt-1">
                                             <label for="contraseña_rep">Repita su contraseña:</label>
