@@ -6,17 +6,24 @@ package controladores;
  */
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.RollbackException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.dao.LicenciaJpaController;
+import modelo.dao.TipoLicenciaJpaController;
 import modelo.dao.UsuarioJpaController;
+import modelo.entidades.Licencia;
+import modelo.entidades.TipoLicencia;
 import modelo.entidades.Usuario;
 
 /**
@@ -37,7 +44,7 @@ public class Login extends HttpServlet {
      * @throws java.security.NoSuchAlgorithmException
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, NoSuchAlgorithmException {
+            throws ServletException, IOException, NoSuchAlgorithmException, Exception {
         String vista = "/login.jsp";
         // Si hemos recibido los datos del formulario
         if (request.getParameter("email") != null && 
@@ -68,8 +75,77 @@ public class Login extends HttpServlet {
                         response.sendRedirect("moderador/PanelModeracion");
                         return;
                     }else{
-                        response.sendRedirect("./Inicio");
-                        return;
+            
+            LicenciaJpaController ljc=new LicenciaJpaController(emf);            
+            
+            List<Licencia> licencias=new ArrayList<>();
+            
+            licencias=ljc.findLicenciaEntities();
+            Boolean encontrado=false;
+            for(Licencia l : licencias){
+                if(l.getId_usuario().equals(u.getId_usuario())){
+                    encontrado=true;
+                    break;
+                }
+            }
+            
+            if(encontrado==false){
+                TipoLicencia tl=new TipoLicencia();
+            
+            
+            List<TipoLicencia>tiposLicencias=new ArrayList<>();
+            
+            TipoLicenciaJpaController tljc=new TipoLicenciaJpaController(emf);
+            
+            
+            tiposLicencias= tljc.findTipoLicenciaEntities();
+            
+                for(int i=0; i<tiposLicencias.size();i++){
+                    if(tiposLicencias.get(i).getId_tipo_licencia()==1L){
+                        tl=tiposLicencias.get(i);
+                        break;
+                    }
+                }
+            
+                
+            Licencia l= new Licencia();
+            
+            Date fecha=new Date();
+            
+            l.setFechaExpedicion(fecha);
+            l.setValida_desde(fecha);
+            l.setValida_hasta(fecha);
+            l.setId_tipo_licencia(tl);
+            l.setObservaciones("");
+            l.setRestricciones("");
+            l.setUrl_img_licencia_anverso("");
+            l.setUrl_img_licencia_reverso("");
+            l.setId_usuario(u);
+            l.setLicencia_validada(true);
+            
+                System.out.println(l);
+          
+            
+                 try { //Persistimos los datos en la base de datos
+                    ljc.create(l);
+                     response.sendRedirect("./Inicio");
+                    return;
+                    
+                } catch (RollbackException e) {
+                    System.out.println(e);
+                    
+                }
+                response.sendRedirect("./Inicio");
+                return;
+            }else{
+                response.sendRedirect("./Inicio");
+                return;
+            }
+                        
+                        
+                        
+                        
+                        
                     }
                     
                     }
@@ -102,6 +178,8 @@ public class Login extends HttpServlet {
             processRequest(request, response);
         } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -119,6 +197,8 @@ public class Login extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
