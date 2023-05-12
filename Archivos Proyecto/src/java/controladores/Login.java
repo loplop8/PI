@@ -9,6 +9,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManagerFactory;
@@ -48,7 +49,7 @@ public class Login extends HttpServlet {
         String vista = "/login.jsp";
         // Si hemos recibido los datos del formulario
         if (request.getParameter("email") != null && 
-                request.getParameter("contraseña") != null) {
+            request.getParameter("contraseña") != null) {
             String email = request.getParameter("email");
             String contraseña = request.getParameter("contraseña");
            contraseña= security.Security.encriptaContraseña(contraseña);
@@ -83,7 +84,7 @@ public class Login extends HttpServlet {
             licencias=ljc.findLicenciaEntities();
             Boolean encontrado=false;
             for(Licencia l : licencias){
-                if(l.getId_usuario().equals(u.getId_usuario())){
+                if(Objects.equals(l.getId_usuario().getId_usuario(), u.getId_usuario())){
                     encontrado=true;
                     break;
                 }
@@ -93,7 +94,7 @@ public class Login extends HttpServlet {
                 TipoLicencia tl=new TipoLicencia();
             
             
-            List<TipoLicencia>tiposLicencias=new ArrayList<>();
+            List<TipoLicencia>tiposLicencias=new ArrayList<TipoLicencia>();
             
             TipoLicenciaJpaController tljc=new TipoLicenciaJpaController(emf);
             
