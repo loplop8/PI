@@ -5,11 +5,13 @@
 package modelo.dao;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import modelo.dao.exceptions.NonexistentEntityException;
@@ -140,4 +142,38 @@ public class TipoArmaJpaController implements Serializable {
         }
     }
     
+   public List<TipoArma> obtenerTiposArmasPorUsuario(Long userId) {
+        EntityManager entityManager=getEntityManager();
+       String queryString ="SELECT t.tipo, t.id_tipo_arma " +
+    "FROM Usuario u, Licencia l, TipoLicencia tl, TipoLicenciaFacultaTipoArma f, TipoArma t " +
+    "WHERE (u.id_usuario = l.id_usuario.id_usuario " +
+    "AND l.id_tipo_licencia.id_tipo_licencia = tl.id_tipo_licencia " +
+    "AND tl.id_tipo_licencia = f.idTipoLicencia " +
+    "AND f.idTipoArma = t.id_tipo_arma " +               
+    "AND u.id_usuario = :userId)";
+
+        TypedQuery<Object[]> query = entityManager.createQuery(queryString, Object[].class)
+                .setParameter("userId", userId);
+
+        List<TipoArma> tiposArmas = new ArrayList<>();
+    List<Object[]> results = query.getResultList();
+    for (Object[] result : results) {
+        TipoArma tipoArma = new TipoArma();
+        tipoArma.setTipo((String) result[0]);
+        tipoArma.setId_tipo_arma((Long) result[1]);
+        tiposArmas.add(tipoArma);
+    }
+
+    return tiposArmas;
 }
+
+
+
+
+
+
+
+    }
+
+    
+

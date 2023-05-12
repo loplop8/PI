@@ -10,12 +10,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import modelo.dao.exceptions.NonexistentEntityException;
 import modelo.dao.exceptions.PreexistingEntityException;
+import modelo.entidades.TipoArma;
 import modelo.entidades.TipoLicenciaFacultaTipoArma;
-import modelo.entidades.TipoLicenciaFacultaTipoArmaId;
 
 /**
  *
@@ -33,9 +34,6 @@ public class TipoLicenciaFacultaTipoArmaJpaController implements Serializable {
     }
 
     public void create(TipoLicenciaFacultaTipoArma tipoLicenciaFacultaTipoArma) throws PreexistingEntityException, Exception {
-        if (tipoLicenciaFacultaTipoArma.getId() == null) {
-            tipoLicenciaFacultaTipoArma.setId(new TipoLicenciaFacultaTipoArmaId());
-        }
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -43,7 +41,7 @@ public class TipoLicenciaFacultaTipoArmaJpaController implements Serializable {
             em.persist(tipoLicenciaFacultaTipoArma);
             em.getTransaction().commit();
         } catch (Exception ex) {
-            if (findTipoLicenciaFacultaTipoArma(tipoLicenciaFacultaTipoArma.getId()) != null) {
+            if (findTipoLicenciaFacultaTipoArma(tipoLicenciaFacultaTipoArma.getIdTipoLicencia()) != null) {
                 throw new PreexistingEntityException("TipoLicenciaFacultaTipoArma " + tipoLicenciaFacultaTipoArma + " already exists.", ex);
             }
             throw ex;
@@ -64,7 +62,7 @@ public class TipoLicenciaFacultaTipoArmaJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                TipoLicenciaFacultaTipoArmaId id = tipoLicenciaFacultaTipoArma.getId();
+                Long id = tipoLicenciaFacultaTipoArma.getIdTipoLicencia();
                 if (findTipoLicenciaFacultaTipoArma(id) == null) {
                     throw new NonexistentEntityException("The tipoLicenciaFacultaTipoArma with id " + id + " no longer exists.");
                 }
@@ -77,7 +75,7 @@ public class TipoLicenciaFacultaTipoArmaJpaController implements Serializable {
         }
     }
 
-    public void destroy(TipoLicenciaFacultaTipoArmaId id) throws NonexistentEntityException {
+    public void destroy(Long id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -85,7 +83,7 @@ public class TipoLicenciaFacultaTipoArmaJpaController implements Serializable {
             TipoLicenciaFacultaTipoArma tipoLicenciaFacultaTipoArma;
             try {
                 tipoLicenciaFacultaTipoArma = em.getReference(TipoLicenciaFacultaTipoArma.class, id);
-                tipoLicenciaFacultaTipoArma.getId();
+                tipoLicenciaFacultaTipoArma.getIdTipoLicencia();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The tipoLicenciaFacultaTipoArma with id " + id + " no longer exists.", enfe);
             }
@@ -122,7 +120,7 @@ public class TipoLicenciaFacultaTipoArmaJpaController implements Serializable {
         }
     }
 
-    public TipoLicenciaFacultaTipoArma findTipoLicenciaFacultaTipoArma(TipoLicenciaFacultaTipoArmaId id) {
+    public TipoLicenciaFacultaTipoArma findTipoLicenciaFacultaTipoArma(Long id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(TipoLicenciaFacultaTipoArma.class, id);
@@ -143,5 +141,15 @@ public class TipoLicenciaFacultaTipoArmaJpaController implements Serializable {
             em.close();
         }
     }
+    
+   
+
+
+
+
+
+
+
+    
     
 }

@@ -178,8 +178,8 @@
                         <div class="form-holder">
                             <div class="form-content">
                                 <div class="form-items">
-                                    <h3>Edite sus datos:</h3>
-                                    <p>Solo puede cambiar el Nombre de Usuario,Email y Telefono. Si quiere cambiar la direccion de residencia debe ponerse en contacto con el admistrador por correo <a>admin@swl.es </a></p>
+                                    <h3>Crear un nuevo anuncio</h3>
+                                    <p></p>
                                     <form class="requires-validation" action="./EditarPerfil" method="post">
                                         <div class="row">
                                         <div class="col-md-6 mt-1">
