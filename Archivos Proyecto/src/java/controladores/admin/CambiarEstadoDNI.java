@@ -6,8 +6,6 @@ package controladores.admin;
  */
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.servlet.ServletException;
@@ -15,9 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.dao.LicenciaJpaController;
 import modelo.dao.UsuarioJpaController;
-import modelo.entidades.Licencia;
 import modelo.entidades.Usuario;
 
 
@@ -25,8 +21,8 @@ import modelo.entidades.Usuario;
  *
  * @author Zatonio
  */
-@WebServlet(name = "AdministrarLicencias", urlPatterns = {"/admin/AdministrarLicencias"})
-public class AdministrarLicencias extends HttpServlet {
+@WebServlet(name = "CambiarEstadoDNI", urlPatterns = {"/admin/CambiarEstadoDNI"})
+public class CambiarEstadoDNI extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,22 +35,59 @@ public class AdministrarLicencias extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String vista = "/admin/administrarLicencias.jsp";
+        String vista = "/admin/error.jsp";
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         request.setAttribute("usuario", usuario);
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife"); 
-        LicenciaJpaController ljc = new LicenciaJpaController(emf);
-        List<Licencia> licencias=new ArrayList<>();
-        licencias= ljc.findLicenciaEntities() ;
-        List<Licencia> licenciasV=new ArrayList<>();
-        for(Licencia l: licencias){
-            if(l.getId_tipo_licencia().getId_tipo_licencia()!=1){ //Filtramos para que no salgan las licencias creadas por defecto
-                licenciasV.add(l);
+        
+        String error="";
+        
+           
+        
+        if(request.getParameter("usuarioEditar")!=null){
+           
+           EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife"); 
+        UsuarioJpaController ujc = new UsuarioJpaController(emf);
+        Long id = Long.valueOf(request.getParameter("usuarioEditar"));
+        
+            Usuario editar = ujc.findUsuario(id);
+            
+         if(editar.getDni_validado()==true){
+             editar.setDni_validado(false);
+         }else{
+             editar.setDni_validado(true);
+         }
+         
+           
+        
+        try {
+                    ujc.edit(editar);
+                    
+                    response.sendRedirect("./AdministrarUsuarios");
+                    return;
+                } catch (Exception e) {
+                    request.setAttribute("error", "Error editando el usuario");
+                    request.setAttribute("usuario", usuario);
+                }
+            
+
+            
+        }else{
+            error="Lo siento ha habido un fallo en la aplicacion";
+            request.setAttribute("error", error);
+            
+        }
+                 if (!error.isEmpty()) {
+                 getServletContext().getRequestDispatcher(vista).forward(request, response);
+                
             }
-        } 
-        request.setAttribute("licencias",licenciasV ); //Mandamos los usuarios a la vista
-        getServletContext().getRequestDispatcher(vista).forward(request, response);
-    }
+    }   
+            
+        
+        
+        
+        
+        
+    
 
     /**
      * Handles the HTTP <code>GET</code> method.

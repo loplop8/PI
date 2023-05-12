@@ -51,7 +51,10 @@ public class MisLicencias extends HttpServlet {
          
          for (Licencia licencia : licencias) {
             if(licencia.getId_usuario().getId_usuario().equals(usuario.getId_usuario())){
-                licenciasUsuario.add(licencia);
+                if(licencia.getId_tipo_licencia().getId_tipo_licencia()!=1){ //Filtro para que no salgan las licencias creaas por defecto
+                     licenciasUsuario.add(licencia); 
+                }
+               
         }
          }
          

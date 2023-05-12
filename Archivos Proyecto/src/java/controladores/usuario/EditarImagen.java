@@ -51,8 +51,11 @@ public class EditarImagen extends HttpServlet {
         Part filePart = request.getPart("file");
         
         // Obtiene el nombre del archivo del archivo de la solicitud
-        String fileName = usuario.getNickname()+usuario.getId_usuario()+Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
-        
+        String filePath = Paths.get(filePart.getSubmittedFileName()).toString();
+        String fileType = filePath.substring(filePath.lastIndexOf('.') + 1);
+        String userId = "ud" + usuario.getId_usuario();
+
+        String fileName = usuario.getNickname() + userId + "." + fileType;
         // Obtiene el stream de entrada del archivo de la solicitud
         InputStream fileContent = filePart.getInputStream();
         

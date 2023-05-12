@@ -182,15 +182,19 @@
                                 <thead>
                                     <tr>
                                         
-                                        <th>Nombre Usuario</th>
-                                        <th>Rol</th>
-                                        <th>NIF</th>                                        
-                                        <th>Nombre</th>
-                                        <th>Apellidos</th>
-                                        <th>Email</th>
-                                        <th>Teléfono</th>
-                                        <th>Esta activo</th>
-                                        <th colspan="2" class="text-center">Acciones</th>
+                                        <th class="text-center align-middle">Nombre Usuario</th>
+                                        <th class="text-center align-middle">Rol</th>
+                                        <th class="text-center align-middle">NIF</th>                                        
+                                        <th class="text-center align-middle">Nombre</th>
+                                        <th class="text-center align-middle">Apellidos</th>
+                                        <th class="text-center align-middle">Email</th>
+                                        <th class="text-center align-middle">Teléfono</th>
+                                        
+                                        <th class="text-center align-middle">Anverso DNI</th>
+                                        <th class="text-center align-middle">Reverso DNI</th>
+                                        <th class="text-center align-middle">DNI Verificado</th>
+                                        <th class="text-center align-middle">Esta activo</th>
+                                        <th colspan="3" class="text-center">Acciones</th>
                                         
                                     </tr>
                                 </thead>
@@ -198,25 +202,40 @@
                                     
                                     <c:forEach  items="${usuarios}" var="u">
                                     <tr>
-                                        <td>${u.nickname}</td>
-                                        <td>${u.rol}</td>
-                                        <td>${u.nif}</td>
-                                        <td>${u.nombre}</td>
-                                        <td>${u.apellidos}</td>
-                                        <td>${u.email}</td>
-                                        <td>${u.telefono}</td>
-                                        <c:if test="${u.esta_activo}"><td>Sí</td></c:if>
-                                        <c:if test="${!u.esta_activo}"><td>No</td></c:if>   
+                                        <td class="text-center align-middle"> ${u.nickname}</td>
+                                        <td class="text-center align-middle"> ${u.rol}</td>
+                                        <td class="text-center align-middle"> ${u.nif}</td>
+                                        <td class="text-center align-middle"> ${u.nombre}</td>
+                                        <td class="text-center align-middle"> ${u.apellidos}</td>
+                                        <td class="text-center align-middle"> ${u.email}</td>
+                                        <td class="text-center align-middle"> ${u.telefono}</td>
+                                        
+                                        <td class="text-center align-middle"> 
+                                            
+                                                                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#usuarioA${u.id_usuario}">
+                                                                        <img src="${u.url_img_dni_anverso}" width="50" alt="Anverso "/>
+                                                                    </button>
+                                                                </td>
+                                                                <td class="text-center align-middle">
+                                                                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#usuarioR${u.id_usuario}">
+                                                                        <img src="${u.url_img_dni_reverso}" width="50" alt="Reverso "/>
+                                                                    </button>
+                                                                </td>
+                                        <c:if test="${u.dni_validado}"><td class="text-center align-middle">Sí</td></c:if>
+                                        <c:if test="${!u.dni_validado}"><td class="text-center align-middle">No</td></c:if>   
+                                                                
+                                        <c:if test="${u.esta_activo}"><td class="text-center align-middle">Sí</td></c:if>
+                                        <c:if test="${!u.esta_activo}"><td class="text-center align-middle">No</td></c:if>   
                                         
                                         
-                                        <td >
+                                        <td class="text-center align-middle">
                                             <form action="./EditarPerfilUsuario" method="post">
                                             
                                                 <input type="hidden" name="usuarioEditar" value="${u.id_usuario}"/>
                                             <input type="submit" class="btn btn-sm btn-primary" value="Editar"/>
                                             </form>
                                         </td>
-                                        <td>
+                                        <td class="text-center align-middle">
                                             <form action="./CambiarEstadoUsuario" method="post">
                                                 
                                             
@@ -224,6 +243,19 @@
                                             <c:if test="${u.esta_activo}"><input type="submit" class="btn btn-sm btn-danger" value="Dar de Baja"/></c:if>
                                             
                                             <c:if test="${!u.esta_activo}"><input type="submit" class="btn btn-sm btn-success" value="Dar de Alta"/> </c:if>
+                                            
+                                            </form>
+                                            
+                                        
+                                        </td>
+                                        <td class="text-center align-middle">
+                                            <form action="./CambiarEstadoDNI" method="post">
+                                                
+                                            
+                                            <input type="hidden" name="usuarioEditar" value="${u.id_usuario}"/>
+                                            <c:if test="${u.dni_validado}"><input type="submit" class="btn btn-sm btn-danger" value="Desvalidar DNI"/></c:if>
+                                            
+                                            <c:if test="${!u.dni_validado}"><input type="submit" class="btn btn-sm btn-success" value="Validar DNI"/> </c:if>
                                             
                                             </form>
                                             
@@ -240,6 +272,22 @@
             </div>
         </div>
     </div>
+                        <c:forEach  items="${usuarios}" var="u">
+                            <div tabindex="-1 " aria-labelledby="usuarioA${u.id_usuario}" aria-hidden="true" class="modal fade" id="usuarioA${u.id_usuario}">
+                                <div class="modal-dialog modal-lg modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <img src="${u.url_img_dni_anverso}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div tabindex="-1 " aria-labelledby="usuarioR${u.id_usuario}" aria-hidden="true" class="modal fade" id="usuarioR${u.id_usuario}">
+                                <div class="modal-dialog modal-lg modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <img src="${u.url_img_dni_reverso}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>        
 </main>
         <footer
   class="text-center text-lg-start text-white"

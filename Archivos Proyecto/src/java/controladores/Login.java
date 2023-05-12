@@ -112,10 +112,11 @@ public class Login extends HttpServlet {
             Licencia l= new Licencia();
             
             Date fecha=new Date();
-            
+            Date fechaFutura=new Date(fecha.getTime()+1000L*365*24*60*60*1000); //Fecha dentro de 1000 años
             l.setFechaExpedicion(fecha);
             l.setValida_desde(fecha);
-            l.setValida_hasta(fecha);
+             
+            l.setValida_hasta(fechaFutura);
             l.setId_tipo_licencia(tl);
             l.setObservaciones("");
             l.setRestricciones("");
