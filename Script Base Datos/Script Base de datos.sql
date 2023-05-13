@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-05-2023 a las 19:36:06
+-- Tiempo de generación: 13-05-2023 a las 19:01:46
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -20,6 +20,21 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `swl`
 --
+
+DELIMITER $$
+--
+-- Procedimientos
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `borrarLicenciaCadudcada` ()   BEGIN
+    DECLARE fecha_actual DATE;
+    
+    SET fecha_actual = CURDATE();
+    
+    DELETE FROM licencia WHERE licencia.valida_hasta < fecha_actual;
+    
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -179,6 +194,15 @@ CREATE TABLE `licencia` (
   `url_img_licencia_anverso` varchar(255) DEFAULT NULL,
   `url_img_licencia_reverso` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `licencia`
+--
+
+INSERT INTO `licencia` (`id_licencia`, `id_usuario`, `id_tipo_licencia`, `valida_hasta`, `valida_desde`, `fecha_expedicion`, `restricciones`, `observaciones`, `licencia_validada`, `url_img_licencia_anverso`, `url_img_licencia_reverso`) VALUES
+(14, 3, 5, '2023-09-13', '2018-09-13', '2018-09-15', '', '', 1, '/SecondWeaponLife/uploads/licencia/AnversoZatonio3WhatsApp Image 2023-05-10 at 20.14.02.jpeg', '/SecondWeaponLife/uploads/licencia/ReversoZatonio3WhatsApp Image 2023-05-10 at 20.14.19.jpeg'),
+(29, 31, 1, '3022-09-12', '2023-05-12', '2023-05-12', '', '', 1, '', ''),
+(30, 31, 2, '2023-07-13', '2002-12-12', '2002-12-13', '', '', 1, '/SecondWeaponLife/uploads/licencia/Anversoedulopmat31WhatsApp Image 2023-05-10 at 20.14.19.jpeg', '/SecondWeaponLife/uploads/licencia/Reversoedulopmat31Image0001.JPG');
 
 -- --------------------------------------------------------
 
@@ -8565,11 +8589,29 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `id_municipio`, `nickname`, `nombre`, `rol`, `apellidos`, `email`, `contraseña`, `telefono`, `direccion`, `fecha_nacimiento`, `nif`, `url_img_perfil`, `esta_activo`, `dni_validado`, `url_img_dni_anverso`, `url_img_dni_reverso`) VALUES
-(1, 6090, 'admin', 'admin', 'admin', 'admin', 'admin@swl.es', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', ' ', 'admin', '1995-08-09', ' ', '/SecondWeaponLife/uploads/WIN_20230215_23_09_35_Pro.jpg', 1, 0, '', ''),
-(2, 6090, 'moderador', 'moderador', 'moderador', 'moderador', 'moderador@swl.es', 'ee8a8f8ec1e02b0461eace422a327ccb163c48838cbfc922b96778184ec1c73b', 'telefomod', 'C/Granada, 13', '1995-08-09', 'nifmod', NULL, 1, 0, '', ''),
-(3, 6090, 'Zatonio', 'José Antonio', 'normal', 'López López ', '19joseantonio95@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '607450598', 'Zatonio', '1995-08-09', '45811622S', '/SecondWeaponLife/uploads/WIN_20230215_23_09_35_Pro.jpg', 1, 0, '', ''),
-(4, 6172, 'Rosa23', 'Rosa Maria ', 'normal', 'López López ', 'rosmar@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '607892077', 'Rosa23', '1991-08-28', '45811621Z', NULL, 1, 0, NULL, NULL),
-(5, 6090, 'Rosmar64', 'Rosa Maria ', 'admin', 'López Marín', 'rosa64@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '607892343', 'Rosmar64', '1964-02-08', '28472682Q', '/SecondWeaponLife/uploads/WIN_20230215_23_09_35_Pro.jpg', 1, 0, NULL, NULL);
+(1, 6090, 'admin', 'admin', 'admin', 'admin', 'admin@swl.es', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', ' ', 'admin', '1995-08-09', ' ', '/SecondWeaponLife/uploads/perfil/adminud1.JPG', 1, 1, '/SecondWeaponLife/uploads/dni/Anversoadmin1WhatsApp Image 2023-05-10 at 20.14.02.jpeg', '/SecondWeaponLife/uploads/dni/Reversoadmin1Image0001.JPG'),
+(2, 6090, 'moderador', 'moderador', 'moderador', 'moderador', 'moderador@swl.es', 'ee8a8f8ec1e02b0461eace422a327ccb163c48838cbfc922b96778184ec1c73b', 'telefomod', 'C/Granada, 13', '1995-08-09', 'nifmod', NULL, 1, 1, '', ''),
+(3, 6090, 'Zatonio', 'José Antonio', 'normal', 'López López ', '19joseantonio95@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '607450598', 'Zatonio', '1995-08-09', '45811622S', '/SecondWeaponLife/uploads/perfil/Zatonio3WIN_20230215_23_09_35_Pro.jpg', 1, 1, '/SecondWeaponLife/uploads/dni/AnversoZatonio3Casos de Uso.png', '/SecondWeaponLife/uploads/dni/ReversoZatonio3ARBOL.png'),
+(4, 6172, 'Rosa23', 'Rosa Maria ', 'normal', 'López López ', 'rosmar@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '607892077', 'Rosa23', '1991-08-28', '45811621Z', NULL, 1, 1, NULL, NULL),
+(5, 6090, 'Rosmar64', 'Rosa Maria ', 'admin', 'López Marín', 'rosa64@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '607892343', 'Rosmar64', '1964-02-08', '28472682Q', '/SecondWeaponLife/uploads/WIN_20230215_23_09_35_Pro.jpg', 1, 1, NULL, NULL),
+(31, 6090, 'edulopmat', 'Eduardo ', 'normal', 'López Mateos', 'edulopmat@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '607450395', 'C/Granada, 13', '1960-02-27', '28675572T', NULL, 1, 1, NULL, NULL);
+
+--
+-- Disparadores `usuario`
+--
+DELIMITER $$
+CREATE TRIGGER `licenciaDefecto` AFTER INSERT ON `usuario` FOR EACH ROW BEGIN
+    DECLARE fecha_actual DATE;
+    DECLARE valida_hasta_date DATE;
+    
+    SET fecha_actual = CURDATE();
+    SET valida_hasta_date = DATE_ADD(fecha_actual, INTERVAL 100 YEAR);
+    
+    INSERT INTO licencia (id_usuario, id_tipo_licencia, valida_hasta, valida_desde, fecha_expedicion, restricciones, observaciones, licencia_validada, url_img_licencia_anverso, url_img_licencia_reverso)
+    VALUES (NEW.id_usuario, 1, valida_hasta_date, fecha_actual, fecha_actual, '', '', 1, NULL, NULL);
+END
+$$
+DELIMITER ;
 
 --
 -- Índices para tablas volcadas
@@ -8755,7 +8797,7 @@ ALTER TABLE `imagen`
 -- AUTO_INCREMENT de la tabla `licencia`
 --
 ALTER TABLE `licencia`
-  MODIFY `id_licencia` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_licencia` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `mensaje`
@@ -8785,7 +8827,7 @@ ALTER TABLE `tipo_licencia`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_usuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- Restricciones para tablas volcadas
@@ -8881,6 +8923,14 @@ ALTER TABLE `tipo_licencia_faculta_tipo_arma`
 --
 ALTER TABLE `usuario`
   ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`id_municipio`) REFERENCES `municipio` (`id_municipio`);
+
+DELIMITER $$
+--
+-- Eventos
+--
+CREATE DEFINER=`root`@`localhost` EVENT `borraLicencia` ON SCHEDULE EVERY 1 DAY STARTS '2023-05-13 18:35:00' ON COMPLETION NOT PRESERVE ENABLE DO CALL borrarLicenciaCadudcada()$$
+
+DELIMITER ;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

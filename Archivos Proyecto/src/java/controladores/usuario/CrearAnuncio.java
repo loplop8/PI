@@ -37,8 +37,24 @@ public class CrearAnuncio extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String vista = "/usuario/crearAnuncio.jsp";
+        String vistaError="/../error";
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         request.setAttribute("usuario", usuario);
+        
+        
+        
+        if(usuario.getDni_validado()==false){
+            String error="Lo sentimos, su dni debe estar validado para poder crear un anuncio";
+            request.setAttribute("error", error);
+            getServletContext().getRequestDispatcher(vistaError).forward(request, response);
+        }
+        
+        if(request.getParameter("tipo_arma")!=null){
+            
+            
+            
+        }
+        
         getServletContext().getRequestDispatcher(vista).forward(request, response);
     }
 

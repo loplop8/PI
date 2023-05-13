@@ -14,6 +14,7 @@
         <script src="../boostrap/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>  
         <link rel="stylesheet" href="../css/style2.css">
+        <script src="../js/crearAnuncio.js" defer></script>
        
         
         
@@ -179,101 +180,36 @@
                             <div class="form-content">
                                 <div class="form-items">
                                     <h3>Crear un nuevo anuncio</h3>
-                                    <p></p>
-                                    <form class="requires-validation" action="./EditarPerfil" method="post">
-                                        <div class="row">
-                                        <div class="col-md-6 mt-1">
-                                            <label for="nombre">Nombre:</label>
-                                            <input class="form-control " type="text" name="nombre" placeholder="Nombre Completo " pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$" <c:if test="${usuario.nombre != 'null'}"> value="${usuario.nombre}" </c:if> disabled required/>
-                                        </div>
-                                        <div class="col-md-6 mt-1">
-                                            <label for="apellidos">Apellidos:</label>
-                                            <input class="form-control " type="text" name="apellidos" placeholder="Apellidos" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$" <c:if test="${usuario.apellidos != 'null'}"> value="${usuario.apellidos}" disabled </c:if> required />
-                                        </div>
-                                        </div>
-                                        <div class="row">
-                                        <div class="col-md-6 mt-1">
-                                            <label for="nif">NIF:</label>
-                                            <input class="form-control " type="text" name="nif" placeholder="Ejemplo: 12345678A" pattern="^\d{8}[A-Z]$" <c:if test="${usuario.nif != 'null'}"> value="${ usuario.nif}" </c:if> required disabled />
-                                        </div>
-                                        <div class="col-md-6 mt-1">
-                                            <label for="email">Email:</label>
-                                            <input class="form-control " type="email" name="email"  placeholder="Ejemplo: info@swl.es" id="email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" <c:if test="${usuario.email != 'null'}"> value="${usuario.email}" </c:if> required />
-                                        </div>
-                                            </div>
-                                        <div class="row">
-                                        <div class="col-md-6  mt-1">
-                                            <label for="telefono">Teléfono:</label>
-                                            <input class="form-control" type="tel" name="telefono" id="telefono" placeholder="Ejemplo: 607450598" pattern="^(6|7)\d{8}$$" required <c:if test="${usuario.telefono != 'null'}"> value="${usuario.telefono}" </c:if> />
-                                        </div>
-                                        <div class="col-md-6 mt-1" >
-                                            <label for="nickname">Nombre de Usuario:</label>
-                                            <input class="form-control " type="text" name="nickname" id="nickname" placeholder="Ejemplo: Nick23 " pattern="^[A-Za-z][A-Za-z0-9]{0,9}$" required <c:if test="${usuario.nickname != 'null'}"> value="${usuario.nickname}" </c:if> />
-                                        </div>
-                                            </div>
+                                    <p>Inserte los datos de su arma para poder crear el anuncio</p>
+                                    <form class="requires-validation" action="./CrearAnuncio" method="post">
                                         <div class="row">
                                         
-                                        <div class="col-md-6 mt-1">
-                                            <label for="Provincia">Provincia:</label>
-                                            <select class="form-select " id="provincias" name="provincias" disabled>
-                                                <option value="${usuario.id_municipio.provincia.id_provincia}"> ${usuario.id_municipio.provincia.nombre} </option>
+                                        <div class="col-md-12 mt-1">
+                                            <label for="tipo_arma">Tipo Arma</label>
+                                            <select class="form-select " id="tipo_arma" name="tipo_arma" >
+                                                <option value="">Seleccione un tipo </option>
                                             </select>
                                         </div>    
                                             
                                             
-                                        <div class="col-md-6 mt-1">
-                                            <label for="Municipio">Municipio:</label>
-                                            <select class="form-select " id="municipios" name="municipios" disabled>
-                                                <option value="${usuario.id_municipio.id_municipio}"> ${usuario.id_municipio.nombre} </option>
-                                            </select>
-                                        </div>
+                                        
                                         
                                             </div>
-                                        <div class="row">
-                                        <div class="col-md-6  mt-1">
-                                            <label for="direccion">Dirección:</label>
-                                            <input class="form-control " type="text" name="direccion" placeholder="Dirección" pattern="^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s#,./-]+$" required <c:if test="${usuario.direccion != 'null'}"> value="${usuario.direccion}" disabled  </c:if> />
-                                        </div>
-                                        <div class="col-md-6 mt-1">
-                                            <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-                                            
-                                            <input class="form-control " type="text" name="fecha_nacimiento" placeholder="" value="<fmt:formatDate value="${usuario.fecha_nacimiento}" pattern="dd-MM-yyyy"/>"  disabled required />
-                                        </div>
-                                            </div>
+                                        
                                         <div class="row">
                                         
                                             
                                          
                                         
                                     <div class="form-button mt-3">
-                                        <input id="submit" type="submit"  class="btn btn-primary" value="Edite sus datos ">
+                                        <input id="submit" type="submit"  class="btn btn-primary" value="Ir a la vista previa ">
                                             
                                             
                                     </div>
                                     </form>
                                         
                                         
-                                    <form action="./EditarImagen" method="post" enctype="multipart/form-data">
-                                            
-                                        
-    
-                                        <div class="form-group  ">
-                                        <label for="imagen-actual">Imagen de perfil actual:</label>
-                                        <c:if test="${usuario.url_img_perfil==null}">
-                                        <img src="https://via.placeholder.com/150" alt="Imagen del usuario" class="d-block mb-2">
-                                        </c:if>
-                                        <c:if test="${usuario.url_img_perfil!=null}">
-                                            <img src="${usuario.url_img_perfil}"  width="100"  alt="Imagen de perfil" class="d-block mb-2">
-                                        </c:if>
-                                            <input class="form-control" type="file" name="file"  >
-                                        <input type="submit" class="btn btn-primary mt-2" value="Cambiar Imagen">
-                                        
-                                        </div>
-                                        <c:if test="${error!=null}">
-                                            <p>${error}</p>
-                                        </c:if>
-                                            </div>
-                                        </form>    
+                                    
 
                                 </div>
                             </div>
