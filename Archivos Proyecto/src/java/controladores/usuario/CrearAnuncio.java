@@ -23,8 +23,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.dao.ArmaJpaController;
+import modelo.dao.ArmaReplicaJpaController;
 import modelo.dao.TipoArmaJpaController;
 import modelo.entidades.Arma;
+import modelo.entidades.ArmaFuego;
+import modelo.entidades.ArmaReplica;
 import modelo.entidades.TipoArma;
 import modelo.entidades.Usuario;
 
@@ -49,6 +52,7 @@ public class CrearAnuncio extends HttpServlet {
             throws ServletException, IOException, Exception {
         String vista = "/usuario/crearAnuncio.jsp";
         String vistaError="/usuario/errorCambiandoImagen.jsp";
+        String vistaInformacionAnuncio="/usuario/informacionAnuncio.jsp";
         String vistaImagenAnversoGuia="/usuario/anadirImagenAnversoGuia.jsp";
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         request.setAttribute("usuario", usuario);
@@ -113,13 +117,11 @@ public class CrearAnuncio extends HttpServlet {
             getServletContext().getRequestDispatcher(vistaImagenAnversoGuia).forward(request, response);
             
         }else if(request.getParameter("tipo_arma")!=null && request.getParameter("tipo_gas")!=null&& request.getParameter("capacidad_cargador")!=null && request.getParameter("piezas_canon")!=null){
-             Long idLicencia=Long.parseLong(request.getParameter("licencia"));
-            String marca=request.getParameter("marca");
-            String num_guia=request.getParameter("num_guia");
-            String calibre=request.getParameter("calibre");
-            String num_identificacion=request.getParameter("num_identificacion");
-           
             
+            String marca=request.getParameter("marca");
+            String tipo_gas=request.getParameter("tipo_gas");
+            Integer capacacidad_cargador=Integer.parseInt(request.getParameter("capacidad_cargador"));
+            String piezas_canon=request.getParameter("piezas_canon");
             String idTipoArma=request.getParameter("tipo_arma");
             Long idTipoArmaLong=Long.parseLong(idTipoArma);
            EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife");
@@ -128,12 +130,13 @@ public class CrearAnuncio extends HttpServlet {
             TipoArmaJpaController tajc= new TipoArmaJpaController(emf);
             
              ta= tajc.findTipoArma(idTipoArmaLong);
-
+             
             Arma a=new Arma();
             a.setId_tipo_arma(ta); //En la persistencia recuperamos el id
             a.setId_usuario(usuario);
-            a.setMarca(marca);
+            a.setMarca(marca);  
             ArmaJpaController ajc=new ArmaJpaController(emf);
+            
             try{
              ajc.create(a);
             
@@ -142,8 +145,25 @@ public class CrearAnuncio extends HttpServlet {
             }
             
             
+            ArmaReplica ar=new ArmaReplica();
             
-            getServletContext().getRequestDispatcher(vistaError).forward(request, response);
+            ArmaReplicaJpaController arjc=new ArmaReplicaJpaController(emf);
+            
+            ar.setCapacidad_cargador(capacacidad_cargador);
+            ar.setPiezas_canon(piezas_canon);
+            ar.setTipo_gas(tipo_gas);
+            ar.setCapacidad_cargador(capacacidad_cargador);
+            ar.setId_arma(a);
+            
+            try{
+             arjc.create(ar);
+            
+            }catch(Exception e){
+                
+            }
+            
+            
+            getServletContext().getRequestDispatcher(vistaInformacionAnuncio).forward(request, response);
         }else{
         
         getServletContext().getRequestDispatcher(vista).forward(request, response);

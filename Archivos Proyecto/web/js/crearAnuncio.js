@@ -16,7 +16,6 @@ fetch('../Rest/UsuarioPuedeUsarTipoArma')
           select.add(option);
       }    
     });
- 
   });
     
     
@@ -91,7 +90,10 @@ function mostrarCampos() {
     agregarCampoEtiqueta("Marca:", "marca", container);
     agregarCampoEtiqueta("Tipo de Gas:", "tipo_gas", container);
     agregarCampoEtiqueta("Piezas de Cañón:", "piezas_canon", container);
-  }
+    agregarCampoEtiqueta("Capacidad del cargador","capacidad_cargador",container)
+    
+    
+    }
 
   var submitButton = formulario.querySelector(".form-button");
   formulario.appendChild(submitButton);
@@ -110,10 +112,12 @@ function agregarCampoEtiqueta(labelText, inputName, container) {
   var inputCol = document.createElement("div");
   inputCol.classList.add("col-md-12");
   var input = document.createElement("input");
-  if(inputName!=="fecha_expedicion_guia"){
-    input.type = "text";  
+  if(inputName==="fecha_expedicion_guia"){
+    input.type = "date";  
+  }else if(inputName==="capacidad_cargador"){
+      input.type = "number";
   }else{
-      input.type = "date";
+      input.type = "text";
   }
     
   input.name = inputName;
@@ -126,3 +130,5 @@ function agregarCampoEtiqueta(labelText, inputName, container) {
 }
 
 select.addEventListener("change", mostrarCampos);
+
+
