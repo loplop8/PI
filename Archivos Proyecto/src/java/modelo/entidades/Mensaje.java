@@ -7,6 +7,8 @@ import java.util.List;
 import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -28,6 +30,7 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Mensaje implements Serializable {
 
     @Id
+       @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_mensaje")
     private Long id_mensaje;
 

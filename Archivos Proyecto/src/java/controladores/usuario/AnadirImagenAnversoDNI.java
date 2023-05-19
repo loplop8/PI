@@ -23,7 +23,7 @@ import org.apache.tika.Tika;
 @WebServlet(name = "AnadirImagenAnversoDNI", urlPatterns = {"/usuario/AnadirImagenAnversoDNI"})
 @MultipartConfig(maxFileSize = 10000000, fileSizeThreshold = 10000000)  //Añadimos la configuracion Multipart 
 public class AnadirImagenAnversoDNI extends HttpServlet {
-    private static final String UPLOAD_DIR = "uploads/dni";
+    private static final String UPLOAD_DIR = "img/uploads/dni";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.

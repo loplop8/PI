@@ -4,13 +4,25 @@ fetch('../Rest/UsuarioPuedeUsarTipoArma')
   .then(data => {
     // Agregar cada provincia al select
     const select = document.getElementById('tipo_arma');
+    var listaTipos=new Array();
     data.forEach(tipoarma => {
+        
+        
       const option = document.createElement('option');
       option.text = tipoarma.tipo;
       option.value = tipoarma.id_tipo_arma;
-      select.add(option);
+      if(!listaTipos.includes(tipoarma.tipo)){
+          listaTipos.push(tipoarma.tipo);
+          select.add(option);
+      }    
     });
+ 
   });
+    
+    
+  
+  
+  
 
 
 var select = document.getElementById("tipo_arma");
@@ -28,8 +40,47 @@ function mostrarCampos() {
     formulario.insertBefore(container, formulario.lastElementChild);
   }
 
+    
+
+
   if (select.value >= 1 && select.value <= 8) {
-    // Agregar campos y etiquetas para opciones del 1 al 8
+    var div = document.createElement("div");
+    div.classList.add("row", "mt-3");
+    var labelCol = document.createElement("div");
+    labelCol.classList.add("col-md-12");
+    var label = document.createElement("label");
+    label.textContent = "Seleccione la licencia con la que tiene el arma vinculada";
+    labelCol.appendChild(label);
+    
+  var inputCol = document.createElement("div");
+  inputCol.classList.add("col-md-12");
+  var selectLicencia = document.createElement("select");
+  selectLicencia.name="licencia";
+  selectLicencia.id="licencia";
+  selectLicencia.classList.add("form-control");
+  inputCol.appendChild(selectLicencia);
+
+  div.appendChild(labelCol);
+  div.appendChild(inputCol);
+  container.appendChild(div);
+  
+  fetch(`../Rest/UsuarioVincualaLicenciaTipoArma/${select.value}`)
+  .then(response => response.json())
+  .then(data => {
+    // Agregar cada provincia al select
+    const selectLicencia = document.getElementById('licencia');
+    data.forEach(licencia => {
+      const option = document.createElement('option');
+      option.text = licencia.id_tipo_licencia.tipo;
+      option.value = licencia.id_licencia;
+      selectLicencia.add(option);
+    });
+  });
+  
+  
+  
+  
+  
     agregarCampoEtiqueta("Marca:", "marca", container);
     agregarCampoEtiqueta("Num. Guía:", "num_guia", container);
     agregarCampoEtiqueta("Calibre:", "calibre", container);
@@ -59,7 +110,12 @@ function agregarCampoEtiqueta(labelText, inputName, container) {
   var inputCol = document.createElement("div");
   inputCol.classList.add("col-md-12");
   var input = document.createElement("input");
-  input.type = "text";
+  if(inputName!=="fecha_expedicion_guia"){
+    input.type = "text";  
+  }else{
+      input.type = "date";
+  }
+    
   input.name = inputName;
   input.classList.add("form-control");
   inputCol.appendChild(input);

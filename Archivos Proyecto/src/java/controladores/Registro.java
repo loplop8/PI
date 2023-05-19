@@ -111,7 +111,7 @@ public class Registro extends HttpServlet {
             
             
                 EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife");
-                EntityManager em = emf.createEntityManager();
+               
                 
                 
             

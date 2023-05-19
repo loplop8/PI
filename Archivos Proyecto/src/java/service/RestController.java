@@ -18,6 +18,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import modelo.dao.LicenciaJpaController;
 import modelo.dao.MunicipioJpaController;
 import modelo.dao.ProvinciaJpaController;
 import modelo.dao.TipoArmaJpaController;
@@ -27,6 +28,7 @@ import modelo.dao.UsuarioJpaController;
 import modelo.entidades.Municipio;
 import modelo.entidades.Provincia;
 import modelo.dao.exceptions.*;
+import modelo.entidades.Licencia;
 import modelo.entidades.TipoArma;
 import modelo.entidades.TipoLicencia;
 import modelo.entidades.TipoLicenciaFacultaTipoArma;
@@ -131,8 +133,8 @@ public class RestController  {
     @Context
     private HttpServletRequest request;
     
-        @GET
-        @Path("UsuarioPuedeUsarTipoArma")
+     @GET
+     @Path("UsuarioPuedeUsarTipoArma")
      public List<TipoArma> getTiposArmaporLicencia(){
     
          Usuario usuario=(Usuario)request.getSession().getAttribute("usuario");
@@ -141,7 +143,6 @@ public class RestController  {
          
          List<TipoArma> lista= new ArrayList<>();
          EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife");
-         TipoLicenciaFacultaTipoArmaJpaController tjc= new TipoLicenciaFacultaTipoArmaJpaController(emf);
          
          TipoArmaJpaController tajc=new TipoArmaJpaController(emf);
          
@@ -151,6 +152,40 @@ public class RestController  {
          }catch(Exception e){
              System.out.println("El error es : "+e);
             }
+         return lista;
+         
+    
+          
+}
+     
+    @GET
+     @Path("UsuarioVincualaLicenciaTipoArma/{id}")
+     public List<Licencia> getLicenciasUsuarioFacultaTipoArma(@PathParam("id") Long idTipoArma ){
+    
+         Usuario usuario=(Usuario)request.getSession().getAttribute("usuario");
+         
+         Long idUsuario=usuario.getId_usuario();
+         
+         List<Long> listaId= new ArrayList<>();
+         List<Licencia>lista=new ArrayList<>();
+         
+         EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife");
+         
+         LicenciaJpaController ljc=new LicenciaJpaController(emf);
+         
+         
+         try{
+             listaId=ljc.getLicenciaUsuarioFacultanTipoArma(idUsuario,idTipoArma);
+             
+         }catch(Exception e){
+             System.out.println("El error es : "+e);
+            }
+         
+         for(Long l :listaId ){
+             Licencia lc=ljc.findLicencia(l);
+             lista.add(lc);
+         }
+         
          return lista;
          
     

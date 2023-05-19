@@ -2,6 +2,7 @@
  * Servlet Controlador MenuDepartamentos.
  */
 package controladores.usuario;
+
 /**
  *
  * @author Zatonio
@@ -12,8 +13,13 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.RollbackException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -21,17 +27,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
+import modelo.dao.LicenciaJpaController;
+import modelo.dao.TipoLicenciaJpaController;
 import modelo.dao.UsuarioJpaController;
+import modelo.entidades.Arma;
+import modelo.entidades.Licencia;
+import modelo.entidades.TipoLicencia;
 import modelo.entidades.Usuario;
 import org.apache.tika.Tika;
+
 /**
  *
  * @author Zatonio
  */
-@WebServlet(name = "EditarImagen", urlPatterns = {"/usuario/EditarImagen"})
+
 @MultipartConfig(maxFileSize = 10000000, fileSizeThreshold = 10000000)  //Añadimos la configuracion Multipart 
-public class EditarImagen extends HttpServlet {
-    private static final String UPLOAD_DIR = "/img/uploads/perfil";
+@WebServlet(name = "AnadirImagenAnversoGuia", urlPatterns = {"/usuario/AnadirImagenAnversoGuia"})
+public class AnadirImagenAnversoGuia extends HttpServlet {
+    private static final String UPLOAD_DIR = "/img/uploads/guia";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -42,24 +55,46 @@ public class EditarImagen extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-     Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+            throws ServletException, IOException, Exception {
         
-     String vista = "/usuario/errorCambiandoImagen.jsp";
-     String error="";   
-        // Obtiene el archivo de la solicitud
-        Part filePart = request.getPart("file");
+        String error="";
+        String vistaCrearReversoguia="/usuario/anadirImagenReversoGuia.jsp";
+        String siguienteControlador="/usuario/AnadirImagenGuiaReverso";
+        String vista="../error.jsp";
+
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+        request.setAttribute("usuario", usuario);
+
+        
+            String num_guia= (String)request.getSession().getAttribute("num_guia");
+            String calibre=  (String)request.getSession().getAttribute("calibre" );
+            Long idLicencia=(Long)(request.getSession().getAttribute("idLicencia"));
+            Date fecha_expedicion_guia= (Date) request.getSession().getAttribute("fecha_expedicion_guia" );
+            String num_identificacion=(String) request.getSession().getAttribute("num_identificacion");
+            
+            Arma a= (Arma) request.getSession().getAttribute("arma");
+            
+            request.getSession().setAttribute("arma", a); 
+            request.getSession().setAttribute("num_guia", num_guia);
+            request.getSession().setAttribute("calibre", calibre);
+            request.getSession().setAttribute("fecha_expedicion_guia", fecha_expedicion_guia);
+            request.getSession().setAttribute("num_identificacion", num_identificacion);
+            request.getSession().setAttribute("idLicencia", idLicencia);
+            
+            
+            
+       
+            Part filePart = request.getPart("file");
         
         // Obtiene el nombre del archivo del archivo de la solicitud
-        String filePath = Paths.get(filePart.getSubmittedFileName()).toString();
+       String filePath = Paths.get(filePart.getSubmittedFileName()).toString();
         String fileType = filePath.substring(filePath.lastIndexOf('.') + 1);
         String userId = "id" + usuario.getId_usuario();
 
-        String fileName = usuario.getNickname() + userId + "." + fileType;
+        String fileName = "anverso"+usuario.getNickname() + userId + "." + fileType;
         // Obtiene el stream de entrada del archivo de la solicitud
         InputStream fileContent = filePart.getInputStream();
-        
-        // Detecta el tipo MIME del archivo utilizando Apache Tika
+         // Detecta el tipo MIME del archivo utilizando Apache Tika
         Tika tika = new Tika();
         String mimeType = tika.detect(fileContent);
         
@@ -93,31 +128,16 @@ public class EditarImagen extends HttpServlet {
         String fileUrl = request.getContextPath() + "/" + UPLOAD_DIR + "/" + fileName;
         
         
-        
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife");
-        UsuarioJpaController ujc= new UsuarioJpaController(emf);
-        
-        usuario.setUrl_img_perfil(fileUrl);
+        request.getSession().setAttribute("anversoguia", fileUrl);
         
         
-        try {
-                    ujc.edit(usuario);
-                    
-                    
-                    response.sendRedirect("./EditarPerfil");
-                    return;
-                } catch (Exception e) {
-                    request.setAttribute("error", "Error editando la imagen de perfil");
-                    request.setAttribute("usuario", usuario);
-                    getServletContext().getRequestDispatcher(vista).forward(request, response);
-                    
+        getServletContext().getRequestDispatcher(siguienteControlador).forward(request, response);
+ 
             
-                }
-        
-        
-        // Redirige a la vista de edición de perfil
-        
-        response.sendRedirect("./EditarPerfil");
+            
+            
+      
+
     }
 
     /**
@@ -131,7 +151,11 @@ public class EditarImagen extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(AnadirImagenAnversoGuia.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -145,7 +169,11 @@ public class EditarImagen extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (Exception ex) {
+            Logger.getLogger(AnadirImagenAnversoGuia.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

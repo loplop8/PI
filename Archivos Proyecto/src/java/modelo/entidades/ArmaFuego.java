@@ -61,6 +61,30 @@ public class ArmaFuego implements Serializable {
     
     @Column(name="guia_validada")
     private Boolean guia_validada;
+    
+    @Column(name="url_img_guia_reverso")
+    private String url_img_guia_reverso;
+    
+    @Column(name="url_img_guia_anverso")
+    private String url_img_guia_anverso;
+
+    public String getUrl_img_guia_reverso() {
+        return url_img_guia_reverso;
+    }
+
+    public void setUrl_img_guia_reverso(String url_img_guia_reverso) {
+        this.url_img_guia_reverso = url_img_guia_reverso;
+    }
+
+    public String getUrl_img_guia_anverso() {
+        return url_img_guia_anverso;
+    }
+
+    public void setUrl_img_guia_anverso(String url_img_guia_anverso) {
+        this.url_img_guia_anverso = url_img_guia_anverso;
+    }
+    
+    
 
     public Licencia getId_licencia() {
         return id_licencia;
@@ -112,9 +136,10 @@ public class ArmaFuego implements Serializable {
 
     @Override
     public String toString() {
-        return "ArmaFuego{" + "id_arma=" + id_arma + ", id_licencia=" + id_licencia + ", num_guia=" + num_guia + ", calibre=" + calibre + ", num_identificacion=" + num_identificacion + ", fecha_expedicion_guia=" + fecha_expedicion_guia + ", guia_validada=" + guia_validada + '}';
+        return "ArmaFuego{" + "id_arma=" + id_arma + ", id_licencia=" + id_licencia + ", num_guia=" + num_guia + ", calibre=" + calibre + ", num_identificacion=" + num_identificacion + ", fecha_expedicion_guia=" + fecha_expedicion_guia + ", guia_validada=" + guia_validada + ", url_img_guia_reverso=" + url_img_guia_reverso + ", url_img_guia_anverso=" + url_img_guia_anverso + '}';
     }
 
+    
     
     
     

@@ -37,6 +37,7 @@ public class ArmaJpaController implements Serializable {
             em = getEntityManager();
             em.getTransaction().begin();
             em.persist(arma);
+           
             em.getTransaction().commit();
         } catch (Exception ex) {
             if (findArma(arma.getId_arma()) != null) {

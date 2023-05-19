@@ -251,7 +251,7 @@ function compruebaDireccion(inputDireccion) {
   if (!regexDireccion.test(inputDireccion.value)) {
     
     inputDireccion.classList.add('is-invalid');
-    alert("La dirección tiene que tener al menos 2 caracteres");
+    alert("La dirección tiene que tener al menos 2 caracteres, y los caracteres º,ª no estan permitidos");
         return false;
     } else {
     inputDireccion.classList.remove('is-invalid');
