@@ -60,9 +60,10 @@ public class AnadirImagenGuiaReverso extends HttpServlet {
             throws ServletException, IOException, Exception {
         
         String error="";
-        String siguienteControlador="/usuario/crearAnversoGuia";
+
         String vista="/usuario/anadirImagenReversoGuia.jsp";
         String vistaError="../error.jsp";
+         String vistaInformacionAnuncio="/usuario/informacionAnuncio.jsp";
 
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         request.setAttribute("usuario", usuario);
@@ -155,7 +156,7 @@ public class AnadirImagenGuiaReverso extends HttpServlet {
              request.getSession().removeAttribute("num_identificacion");
             request.getSession().removeAttribute("licencia");
             
-            getServletContext().getRequestDispatcher(siguienteControlador).forward(request, response);
+            getServletContext().getRequestDispatcher(vistaInformacionAnuncio).forward(request, response);
         }else{
                     getServletContext().getRequestDispatcher(vista).forward(request, response);
 

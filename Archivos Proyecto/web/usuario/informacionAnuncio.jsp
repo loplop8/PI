@@ -181,34 +181,50 @@
                                 <div class="form-items">
                                     <h3>Crear un nuevo anuncio</h3>
                                     <p>Inserte los datos del anuncio </p>
-                                    <form class="requires-validation" action="./InformacionAnuncio" method="post">
+                                    <form class="requires-validation" action="./InformacionAnuncio" method="post" enctype="multipart/form-data">
                                         <div class="row">
                                         
                                         <div class="col-md-12 mt-1">
                                             <label for="tipo_arma">Titulo</label>
-                                            <input type="text" name="titulo" id="titulo" required>
-                                        </div>    
+                                            <input type="text" name="titulo" id="titulo" required class="form-control">
+                                        </div>
+                                            </div>
+                                            <div class="row">   
                                         <div class="col-md-12 mt-1">
                                             <label for="descripcion">Descripcion del anuncio</label>
-                                            <textarea name="" placeholder="Detalle toda la infomación del arma"></textarea> 
+                                            <textarea name="descripcion" placeholder="Detalle toda la infomación del arma"></textarea> 
                                         </div>    
                                             
                                         
                                         
                                             </div>
                                         
-                                        <div class="row">
                                         
-                                            
-                                         
+                                        
+                                        <div class="row">
+                                            <div class="col-md-12 mt-1">
+                                            <label for="descripcion">Precio del Arma:</label>
+                                            <input type="number" name="precio" min="50" required class="form-control" />
+                                            </div>
+                                            </div>
+                                        
+                                        <div class="row">
+                                            <div class="row">
+                                                <div class="col-md-12 mt-1">
+                                                <label for="descripcion">Imagenes:</label>
+                                                <input type="file" name="images" id="imageInput" multiple required class="form-control">
+                                                </div>
+                                            </div>
                                         
                                     <div class="form-button mt-3">
-                                        <input id="submit" type="submit"  class="btn btn-primary" value="Ir a la vista previa ">
+                                        <input id="submit" type="submit"  class="btn btn-primary" value="Siguiente">
                                             
                                             
                                     </div>
                                     </form>
+                                    <div id="previewContainer">
                                         
+                                    </div>    
                                         
                                     
 

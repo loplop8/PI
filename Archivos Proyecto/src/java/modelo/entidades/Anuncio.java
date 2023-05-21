@@ -30,13 +30,13 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Anuncio implements Serializable {
 
     @Id
-       @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_anuncio")
     private Long id_anuncio;
 
     @OneToOne
     @JoinColumn(name="id_arma")
-    private Arma id_ununcio;
+    private Arma id_arma;
     
     @Temporal(TemporalType.DATE)
     private Date fecha_public;
@@ -64,12 +64,12 @@ public class Anuncio implements Serializable {
         this.id_anuncio = id_anuncio;
     }
 
-    public Arma getId_ununcio() {
-        return id_ununcio;
+    public Arma getId_arma() {
+        return id_arma;
     }
 
-    public void setId_ununcio(Arma id_ununcio) {
-        this.id_ununcio = id_ununcio;
+    public void setId_arma(Arma id_arma) {
+        this.id_arma = id_arma;
     }
 
     public Date getFecha_public() {
@@ -106,7 +106,7 @@ public class Anuncio implements Serializable {
 
     @Override
     public String toString() {
-        return "Anuncio{" + "id_anuncio=" + id_anuncio + ", id_ununcio=" + id_ununcio + ", fecha_public=" + fecha_public + ", descripcion=" + descripcion + ", titulo=" + titulo + ", precio=" + precio + '}';
+        return "Anuncio{" + "id_anuncio=" + id_anuncio + ", id_arma=" + id_arma + ", fecha_public=" + fecha_public + ", descripcion=" + descripcion + ", titulo=" + titulo + ", precio=" + precio + '}';
     }
    
     
