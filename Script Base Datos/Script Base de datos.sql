@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-05-2023 a las 19:01:46
+-- Tiempo de generación: 30-05-2023 a las 01:37:07
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -48,8 +48,16 @@ CREATE TABLE `anuncio` (
   `descripcion` varchar(255) NOT NULL,
   `titulo` varchar(255) NOT NULL,
   `precio` decimal(10,2) NOT NULL,
-  `id_arma` bigint(20) NOT NULL
+  `id_arma` bigint(20) NOT NULL,
+  `id_estado_anuncio` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `anuncio`
+--
+
+INSERT INTO `anuncio` (`id_anuncio`, `fecha_public`, `descripcion`, `titulo`, `precio`, `id_arma`, `id_estado_anuncio`) VALUES
+(59, '2023-05-28', 'ajknakcjnakjcsnacskjnc\r\nañkscnalkscnacs\r\n\r\n\r\nasñclmcñalmcañlc,s\r\n\r\n\r\nañsklmascñm', 'Carabina Molona', '150.00', 133, 2);
 
 -- --------------------------------------------------------
 
@@ -63,6 +71,129 @@ CREATE TABLE `arma` (
   `id_tipo_arma` bigint(20) NOT NULL,
   `id_usuario` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `arma`
+--
+
+INSERT INTO `arma` (`id_arma`, `marca`, `id_tipo_arma`, `id_usuario`) VALUES
+(19, '', 1, 32),
+(20, 'Breda', 1, 32),
+(21, '', 6, 32),
+(22, '', 6, 32),
+(23, '', 1, 32),
+(24, '', 6, 32),
+(25, '', 5, 32),
+(26, '', 6, 32),
+(27, '', 6, 32),
+(28, '', 6, 32),
+(29, '', 6, 32),
+(30, '', 6, 32),
+(31, '', 5, 32),
+(32, '', 6, 32),
+(33, '', 6, 32),
+(34, '', 6, 32),
+(35, '', 5, 32),
+(36, '', 6, 32),
+(37, '', 6, 32),
+(38, '', 6, 32),
+(39, '', 1, 32),
+(40, '', 5, 32),
+(41, 'ñklAMCSKLCMS', 14, 32),
+(42, 'Breda', 15, 32),
+(43, '', 6, 32),
+(44, '', 6, 32),
+(45, '', 6, 32),
+(46, '', 5, 32),
+(47, '', 6, 32),
+(48, '', 10, 32),
+(49, 'lkNLKN', 10, 32),
+(50, 'alksmc', 12, 32),
+(51, 'Juan', 9, 32),
+(52, '', 13, 32),
+(53, '.zkc', 17, 32),
+(54, '.zkc', 17, 32),
+(55, '.zkc', 17, 32),
+(56, '.zkc', 17, 32),
+(57, '.zkc', 17, 32),
+(58, '.zkc', 17, 32),
+(59, '.zkc', 17, 32),
+(60, '.zkc', 17, 32),
+(61, '.zkc', 17, 32),
+(62, '.zkc', 17, 32),
+(63, '.zkc', 17, 32),
+(64, '.zkc', 17, 32),
+(65, '.zkc', 17, 32),
+(66, '.zkc', 17, 32),
+(67, '.zkc', 17, 32),
+(68, '.zkc', 17, 32),
+(69, '.zkc', 17, 32),
+(70, '.zkc', 17, 32),
+(71, '.zkc', 17, 32),
+(72, '.zkc', 17, 32),
+(73, '.zkc', 17, 32),
+(74, '.zkc', 17, 32),
+(75, '.zkc', 17, 32),
+(76, '.zkc', 17, 32),
+(77, '.zkc', 17, 32),
+(78, '', 17, 32),
+(79, '', 17, 32),
+(80, '', 17, 32),
+(81, '', 17, 32),
+(82, '', 17, 32),
+(83, '', 17, 32),
+(84, '', 17, 32),
+(85, '', 17, 32),
+(86, '', 17, 32),
+(87, '', 17, 32),
+(88, '', 17, 32),
+(89, '', 17, 32),
+(90, '', 17, 32),
+(91, '', 17, 32),
+(92, '', 17, 32),
+(93, '', 17, 32),
+(94, '', 17, 32),
+(95, '', 17, 32),
+(96, '', 17, 32),
+(97, '', 17, 32),
+(98, '', 17, 32),
+(99, '', 17, 32),
+(100, '', 17, 32),
+(101, '', 17, 32),
+(102, '', 17, 32),
+(103, '', 17, 32),
+(104, '', 17, 32),
+(105, '', 17, 32),
+(106, '', 17, 32),
+(107, '', 17, 32),
+(108, '', 17, 32),
+(109, '', 17, 32),
+(110, '', 17, 32),
+(111, '', 17, 32),
+(112, '', 17, 32),
+(113, '', 17, 32),
+(114, '', 17, 32),
+(115, '', 17, 32),
+(116, '', 17, 32),
+(117, '', 17, 32),
+(118, '', 17, 32),
+(119, '', 17, 32),
+(120, '', 17, 32),
+(121, '', 17, 32),
+(122, '', 17, 32),
+(123, '', 17, 32),
+(124, '', 17, 32),
+(125, '', 6, 32),
+(126, 'ALKSCNM', 6, 32),
+(127, 'akscmn', 5, 32),
+(128, 'lknlnjkn', 6, 32),
+(129, 'KSC-5963', 9, 32),
+(130, 'Breda', 6, 32),
+(131, 'Breda', 5, 32),
+(132, 'ljNAKJCSN', 15, 32),
+(133, 'Winchester', 5, 32),
+(134, 'ljascnkjcsbn', 13, 32),
+(135, 'aoicnocsn', 5, 32);
 
 -- --------------------------------------------------------
 
@@ -82,6 +213,24 @@ CREATE TABLE `arma_fuego` (
   `url_img_guia_anverso` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `arma_fuego`
+--
+
+INSERT INTO `arma_fuego` (`id_arma`, `id_licencia`, `num_guia`, `calibre`, `num_identificacion`, `fecha_expedicion_guia`, `guia_validada`, `url_img_guia_reverso`, `url_img_guia_anverso`) VALUES
+(38, 34, '', '', '', '2023-05-31', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.jpg', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.jpg'),
+(39, 33, '', '', '', '2023-05-31', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.png', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.png'),
+(43, 34, '', '', '', '2023-05-19', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.jpeg', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.jpeg'),
+(44, 34, '', '', '', '2023-05-22', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.JPG', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.jpeg'),
+(45, 34, '', '', '', '2023-05-22', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.JPG', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.jpeg'),
+(46, 34, '', '', '', '2023-05-22', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.jpeg', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.jpeg'),
+(47, 34, '', '', '', '2023-05-22', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.png', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.png'),
+(128, 34, '123456789', '12', 'PORWE', '2023-05-22', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.jpeg', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.jpeg'),
+(130, 34, '123456789', '22', '123456789', '2023-05-23', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.jpeg', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.jpeg'),
+(131, 34, '123456489', '1231546', '123156', '2023-05-26', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.jpg', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.jpg'),
+(133, 34, '123456789A', '56', '123456789a', '2023-05-28', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.png', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.png'),
+(135, 34, 'poajcpascij', 'pijaciscj', 'sakjdclakscn', '2025-05-12', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.jpg', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -95,6 +244,93 @@ CREATE TABLE `arma_replica` (
   `piezas_canon` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `arma_replica`
+--
+
+INSERT INTO `arma_replica` (`id_arma`, `tipo_gas`, `capacidad_cargador`, `piezas_canon`) VALUES
+(42, 'RXH', 5, 'asc'),
+(48, '', 1, ''),
+(49, 'ÑKAMCÑKCM', 250, '15'),
+(50, 'lkmlkm', 4, 'lkmlkmn'),
+(51, 'Mania', 22, 'Silenciador y AKX 25'),
+(52, '', 14, ''),
+(53, 'ñklmac', 25, 'ljknlanc'),
+(54, 'ñklmac', 25, 'ljknlanc'),
+(55, 'ñklmac', 25, 'ljknlanc'),
+(56, 'ñklmac', 25, 'ljknlanc'),
+(57, 'ñklmac', 25, 'ljknlanc'),
+(58, 'ñklmac', 25, 'ljknlanc'),
+(59, 'ñklmac', 25, 'ljknlanc'),
+(60, 'ñklmac', 25, 'ljknlanc'),
+(61, 'ñklmac', 25, 'ljknlanc'),
+(62, 'ñklmac', 25, 'ljknlanc'),
+(63, 'ñklmac', 25, 'ljknlanc'),
+(64, 'ñklmac', 25, 'ljknlanc'),
+(65, 'ñklmac', 25, 'ljknlanc'),
+(66, 'ñklmac', 25, 'ljknlanc'),
+(67, 'ñklmac', 25, 'ljknlanc'),
+(68, 'ñklmac', 25, 'ljknlanc'),
+(69, 'ñklmac', 25, 'ljknlanc'),
+(70, 'ñklmac', 25, 'ljknlanc'),
+(71, 'ñklmac', 25, 'ljknlanc'),
+(72, 'ñklmac', 25, 'ljknlanc'),
+(73, 'ñklmac', 25, 'ljknlanc'),
+(74, 'ñklmac', 25, 'ljknlanc'),
+(75, 'ñklmac', 25, 'ljknlanc'),
+(76, 'ñklmac', 25, 'ljknlanc'),
+(77, 'ñklmac', 25, 'ljknlanc'),
+(78, '', 51, ''),
+(79, '', 51, ''),
+(80, '', 51, ''),
+(81, '', 51, ''),
+(82, '', 51, ''),
+(83, '', 51, ''),
+(84, '', 51, ''),
+(85, '', 51, ''),
+(86, '', 51, ''),
+(87, '', 51, ''),
+(88, '', 51, ''),
+(89, '', 51, ''),
+(90, '', 51, ''),
+(91, '', 51, ''),
+(92, '', 51, ''),
+(93, '', 51, ''),
+(94, '', 51, ''),
+(95, '', 51, ''),
+(96, '', 51, ''),
+(97, '', 51, ''),
+(98, '', 51, ''),
+(99, '', 51, ''),
+(100, '', 51, ''),
+(101, '', 51, ''),
+(102, '', 51, ''),
+(103, '', 51, ''),
+(104, '', 51, ''),
+(105, '', 51, ''),
+(106, '', 51, ''),
+(107, '', 51, ''),
+(108, '', 51, ''),
+(109, '', 51, ''),
+(110, '', 51, ''),
+(111, '', 51, ''),
+(112, '', 51, ''),
+(113, '', 51, ''),
+(114, '', 51, ''),
+(115, '', 51, ''),
+(116, '', 51, ''),
+(117, '', 51, ''),
+(118, '', 51, ''),
+(119, '', 51, ''),
+(120, '', 51, ''),
+(121, '', 51, ''),
+(122, '', 51, ''),
+(123, '', 51, ''),
+(124, '', 51, ''),
+(129, 'Mercuriano', 500, 'Ninguna'),
+(132, 'LAKSMCLC', 500, 'Silenciador y AKX 25'),
+(134, 'lknacsdlscna', 500, 'ljnascjcsn');
+
 -- --------------------------------------------------------
 
 --
@@ -106,6 +342,29 @@ CREATE TABLE `contrato_compra_venta` (
   `url_contrato_compra_venta` varchar(255) NOT NULL,
   `id_pedido` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `estado_anuncio`
+--
+
+CREATE TABLE `estado_anuncio` (
+  `id_estado_anuncio` bigint(20) NOT NULL,
+  `estado` varchar(255) NOT NULL,
+  `descripcion` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `estado_anuncio`
+--
+
+INSERT INTO `estado_anuncio` (`id_estado_anuncio`, `estado`, `descripcion`) VALUES
+(2, 'Pendiente', 'El anuncio ha sido creado pero aún no ha sido revisado o aprobado.'),
+(3, 'Aprobado', 'El anuncio ha sido revisado y aprobado, y ahora está disponible para los usuarios.'),
+(4, 'Rechazado', 'El anuncio ha sido revisado y no cumple con los criterios o políticas establecidas.'),
+(6, 'Destacado', 'El anuncio ha sido resaltado o promocionado para obtener mayor visibilidad.'),
+(8, 'Vendido', 'El producto anunciado ha sido vendido y ya no está disponible para su compra.');
 
 -- --------------------------------------------------------
 
@@ -175,6 +434,15 @@ CREATE TABLE `imagen` (
   `url_imagen` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `imagen`
+--
+
+INSERT INTO `imagen` (`id_imagen`, `id_anuncio`, `url_imagen`) VALUES
+(116, 59, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio590.png'),
+(117, 59, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio591.png'),
+(118, 59, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio592.png');
+
 -- --------------------------------------------------------
 
 --
@@ -200,9 +468,9 @@ CREATE TABLE `licencia` (
 --
 
 INSERT INTO `licencia` (`id_licencia`, `id_usuario`, `id_tipo_licencia`, `valida_hasta`, `valida_desde`, `fecha_expedicion`, `restricciones`, `observaciones`, `licencia_validada`, `url_img_licencia_anverso`, `url_img_licencia_reverso`) VALUES
-(14, 3, 5, '2023-09-13', '2018-09-13', '2018-09-15', '', '', 1, '/SecondWeaponLife/uploads/licencia/AnversoZatonio3WhatsApp Image 2023-05-10 at 20.14.02.jpeg', '/SecondWeaponLife/uploads/licencia/ReversoZatonio3WhatsApp Image 2023-05-10 at 20.14.19.jpeg'),
-(29, 31, 1, '3022-09-12', '2023-05-12', '2023-05-12', '', '', 1, '', ''),
-(30, 31, 2, '2023-07-13', '2002-12-12', '2002-12-13', '', '', 1, '/SecondWeaponLife/uploads/licencia/Anversoedulopmat31WhatsApp Image 2023-05-10 at 20.14.19.jpeg', '/SecondWeaponLife/uploads/licencia/Reversoedulopmat31Image0001.JPG');
+(32, 32, 1, '2123-05-15', '2023-05-15', '2023-05-15', '', '', 1, NULL, NULL),
+(33, 32, 2, '2023-05-16', '2023-04-15', '2023-04-16', '', '', 1, '/SecondWeaponLife//img/uploads/licencia/AnversoZatonio32WIN_20230215_23_09_35_Pro.jpg', '/SecondWeaponLife//img/uploads/licencia/ReversoZatonio32WIN_20230215_23_09_35_Pro.jpg'),
+(34, 32, 6, '2023-06-07', '2023-04-18', '2023-04-19', '', '', 1, '/SecondWeaponLife//img/uploads/licencia/AnversoZatonio32WIN_20230215_23_09_35_Pro.jpg', '/SecondWeaponLife//img/uploads/licencia/ReversoZatonio32WIN_20230215_23_09_35_Pro.jpg');
 
 -- --------------------------------------------------------
 
@@ -8589,12 +8857,9 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `id_municipio`, `nickname`, `nombre`, `rol`, `apellidos`, `email`, `contraseña`, `telefono`, `direccion`, `fecha_nacimiento`, `nif`, `url_img_perfil`, `esta_activo`, `dni_validado`, `url_img_dni_anverso`, `url_img_dni_reverso`) VALUES
-(1, 6090, 'admin', 'admin', 'admin', 'admin', 'admin@swl.es', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', ' ', 'admin', '1995-08-09', ' ', '/SecondWeaponLife/uploads/perfil/adminud1.JPG', 1, 1, '/SecondWeaponLife/uploads/dni/Anversoadmin1WhatsApp Image 2023-05-10 at 20.14.02.jpeg', '/SecondWeaponLife/uploads/dni/Reversoadmin1Image0001.JPG'),
+(1, 6090, 'admin', 'admin', 'admin', 'admin', 'admin@swl.es', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', ' ', 'admin', '1995-08-09', ' ', '', 1, 1, '', ''),
 (2, 6090, 'moderador', 'moderador', 'moderador', 'moderador', 'moderador@swl.es', 'ee8a8f8ec1e02b0461eace422a327ccb163c48838cbfc922b96778184ec1c73b', 'telefomod', 'C/Granada, 13', '1995-08-09', 'nifmod', NULL, 1, 1, '', ''),
-(3, 6090, 'Zatonio', 'José Antonio', 'normal', 'López López ', '19joseantonio95@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '607450598', 'Zatonio', '1995-08-09', '45811622S', '/SecondWeaponLife/uploads/perfil/Zatonio3WIN_20230215_23_09_35_Pro.jpg', 1, 1, '/SecondWeaponLife/uploads/dni/AnversoZatonio3Casos de Uso.png', '/SecondWeaponLife/uploads/dni/ReversoZatonio3ARBOL.png'),
-(4, 6172, 'Rosa23', 'Rosa Maria ', 'normal', 'López López ', 'rosmar@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '607892077', 'Rosa23', '1991-08-28', '45811621Z', NULL, 1, 1, NULL, NULL),
-(5, 6090, 'Rosmar64', 'Rosa Maria ', 'admin', 'López Marín', 'rosa64@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '607892343', 'Rosmar64', '1964-02-08', '28472682Q', '/SecondWeaponLife/uploads/WIN_20230215_23_09_35_Pro.jpg', 1, 1, NULL, NULL),
-(31, 6090, 'edulopmat', 'Eduardo ', 'normal', 'López Mateos', 'edulopmat@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '607450395', 'C/Granada, 13', '1960-02-27', '28675572T', NULL, 1, 1, NULL, NULL);
+(32, 6090, 'Zatonio', 'Jose Antonio', 'normal', 'López López ', '19joseantonio95@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '607450598', 'C/Granda, 13', '1995-08-09', '45811622S', '/SecondWeaponLife//img/uploads/perfil/Zatonioid32.png', 1, 1, '/SecondWeaponLife/img/uploads/dni/AnversoZatonio32WIN_20230215_23_09_35_Pro.jpg', '/SecondWeaponLife//img/uploads/dni/ReversoZatonio32WIN_20230215_23_09_35_Pro.jpg');
 
 --
 -- Disparadores `usuario`
@@ -8622,7 +8887,8 @@ DELIMITER ;
 --
 ALTER TABLE `anuncio`
   ADD PRIMARY KEY (`id_anuncio`),
-  ADD KEY `id_arma` (`id_arma`);
+  ADD KEY `id_arma` (`id_arma`),
+  ADD KEY `fk_estado_anuncio` (`id_estado_anuncio`);
 
 --
 -- Indices de la tabla `arma`
@@ -8651,6 +8917,12 @@ ALTER TABLE `arma_replica`
 ALTER TABLE `contrato_compra_venta`
   ADD PRIMARY KEY (`id_contrato_compra_venta`),
   ADD KEY `id_pedido` (`id_pedido`);
+
+--
+-- Indices de la tabla `estado_anuncio`
+--
+ALTER TABLE `estado_anuncio`
+  ADD PRIMARY KEY (`id_estado_anuncio`);
 
 --
 -- Indices de la tabla `estado_pedido`
@@ -8755,13 +9027,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `anuncio`
 --
 ALTER TABLE `anuncio`
-  MODIFY `id_anuncio` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_anuncio` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT de la tabla `arma`
 --
 ALTER TABLE `arma`
-  MODIFY `id_arma` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_arma` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
 
 --
 -- AUTO_INCREMENT de la tabla `contrato_compra_venta`
@@ -8791,13 +9063,13 @@ ALTER TABLE `hilo`
 -- AUTO_INCREMENT de la tabla `imagen`
 --
 ALTER TABLE `imagen`
-  MODIFY `id_imagen` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_imagen` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
 
 --
 -- AUTO_INCREMENT de la tabla `licencia`
 --
 ALTER TABLE `licencia`
-  MODIFY `id_licencia` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_licencia` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `mensaje`
@@ -8827,7 +9099,7 @@ ALTER TABLE `tipo_licencia`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_usuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- Restricciones para tablas volcadas
@@ -8837,7 +9109,8 @@ ALTER TABLE `usuario`
 -- Filtros para la tabla `anuncio`
 --
 ALTER TABLE `anuncio`
-  ADD CONSTRAINT `anuncio_ibfk_1` FOREIGN KEY (`id_arma`) REFERENCES `arma` (`id_arma`);
+  ADD CONSTRAINT `anuncio_ibfk_1` FOREIGN KEY (`id_arma`) REFERENCES `arma` (`id_arma`),
+  ADD CONSTRAINT `fk_estado_anuncio` FOREIGN KEY (`id_estado_anuncio`) REFERENCES `estado_anuncio` (`id_estado_anuncio`);
 
 --
 -- Filtros para la tabla `arma`
