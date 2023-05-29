@@ -1,0 +1,95 @@
+  
+html{
+    overflow-x: hidden;
+}
+
+body,.header,footer{
+        background-color:#212529;
+        color: white;
+        
+         
+        
+          
+    }
+/*Header y Footer*/
+    header{
+        position: static;
+        top: 3 px;
+        z-index: 3;
+        width: 100%;
+        margin: -2%;
+        padding: 0em 1em 0em 1em ;
+    }
+
+    #cabecera{
+        padding-top: 2em;
+        padding-left: 1em ;
+        
+    }
+
+    a{
+        color: white;
+        text-decoration: none;
+        transition: 0.7s ease !important;
+    }
+
+    a:hover{
+            color: #ffc107 !important;
+    }
+    #registro,#login{
+        transition: 0.7s ease !important;
+    }
+    #registro:hover,#login:hover{
+        color: white !important;
+    }
+
+
+    #puntoNegro{
+        color: #212529;  
+        
+        
+    }
+
+    .elementosResponsive{
+        display: none;
+    }
+
+    #modi{
+        margin-left: 55%;
+    }
+
+/*Cuerpo*/
+
+
+p{
+    color: white;
+}
+
+    @media screen and (max-width:992px){
+        /*Header */
+        header{
+            position: static;
+         }
+
+        .elementosNoResponsive{
+            display: none;
+        }
+        .elementosResponsive{
+            display: block;
+        }
+
+        #modi,#BOTON{
+            margin-left: 55%;
+        }
+        
+    input[type="search"]{
+        width: 42%;
+        margin-left: 28%;
+    }
+      /*Cuerpo */
+        
+    }
+
+
+
+

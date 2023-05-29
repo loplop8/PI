@@ -51,20 +51,6 @@ public class EditarAnuncio extends HttpServlet {
         Anuncio anuncio=ajc.findAnuncio(idAnuncio);
         request.setAttribute("anuncio",anuncio);
         
-        List<Imagen>imagenesAnuncio= new ArrayList<>();
-        
-        
-        ImagenJpaController ijc=new ImagenJpaController(emf);
-        
-        List<Imagen>imagenes= ijc.findImagenEntities();
-        
-        for(Imagen imagen: imagenes){
-            if(imagen.getId_anuncio().getId_anuncio().equals(anuncio.getId_anuncio())){
-                imagenesAnuncio.add(imagen);
-            }
-        }
-        
-        request.setAttribute("imagenes",imagenesAnuncio);
         
         
         
