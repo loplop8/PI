@@ -13,6 +13,7 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
@@ -31,6 +32,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import modelo.dao.AnuncioJpaController;
 import modelo.dao.ArmaFuegoJpaController;
+import modelo.dao.EstadoAnuncioJpaController;
 import modelo.dao.ImagenJpaController;
 import modelo.dao.LicenciaJpaController;
 import modelo.dao.TipoLicenciaJpaController;
@@ -38,6 +40,8 @@ import modelo.dao.UsuarioJpaController;
 import modelo.entidades.Anuncio;
 import modelo.entidades.Arma;
 import modelo.entidades.ArmaFuego;
+import modelo.entidades.ArmaReplica;
+import modelo.entidades.EstadoAnuncio;
 import modelo.entidades.Imagen;
 import modelo.entidades.Licencia;
 import modelo.entidades.TipoLicencia;
@@ -67,6 +71,7 @@ public class InformacionAnuncio extends HttpServlet {
         String error="";
         String vista="/usuario/anadirImagenReversoGuia.jsp";
         String vistaError="../error.jsp";
+        String siguienteControlador="/usuario/VerAnuncio";
         
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         request.setAttribute("usuario", usuario);
@@ -75,14 +80,15 @@ public class InformacionAnuncio extends HttpServlet {
             Arma a= (Arma) request.getSession().getAttribute("arma");
             
             if(request.getPart("images")!=null && request.getParameter("titulo")!=null && request.getParameter("descripcion")!=null && request.getParameter("precio")!=null ) { 
-        
+                List<Imagen> imagenes=new ArrayList<>();
                 String descipcion=request.getParameter("descripcion");
                 String titulo=request.getParameter("titulo");
                 Double precio=Double.parseDouble(request.getParameter("precio"));
                 
+                
                 Anuncio an=new Anuncio();
                 an.setId_arma(a);
-                an.setDescripcion(error);
+                an.setDescripcion(descipcion);
                 an.setTitulo(titulo);
                 an.setPrecio(precio);
                 Date d=new Date();
@@ -90,6 +96,12 @@ public class InformacionAnuncio extends HttpServlet {
                 
                 EntityManagerFactory emf=Persistence.createEntityManagerFactory("SecondWeaponLife");
                 AnuncioJpaController ajc=new AnuncioJpaController(emf);
+                EstadoAnuncioJpaController eajc=new EstadoAnuncioJpaController(emf);
+                EstadoAnuncio ea= eajc.findEstadoAnuncio(2L);
+                
+                an.setId_estado_anuncio(ea);
+                
+                
                 try{
                     ajc.create(an);
                 }catch(Exception e){
@@ -157,11 +169,21 @@ public class InformacionAnuncio extends HttpServlet {
         }catch(Exception e){
             
         }
-        
+        imagenes.add(i);
             }
+        request.getSession().setAttribute("anuncio", an);
+        request.getSession().setAttribute("imagenes", imagenes);
+        if(request.getSession().getAttribute("arma_fuego")!=null){
+            ArmaFuego af= (ArmaFuego)request.getSession().getAttribute("arma_fuego");
+            request.getSession().setAttribute("arma_fuego", af);
+        }else if(request.getSession().getAttribute("arma_replica")!=null){
+            
         
-            
-            
+                ArmaReplica ar= (ArmaReplica)request.getSession().getAttribute("arma_replica");
+                request.getSession().setAttribute("arma_replica", ar);
+        }
+        
+                getServletContext().getRequestDispatcher(siguienteControlador).forward(request, response);
         }else{
                     getServletContext().getRequestDispatcher(vista).forward(request, response);
 

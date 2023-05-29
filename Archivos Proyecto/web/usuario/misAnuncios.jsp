@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -174,7 +175,7 @@
             <div class="col-md-12">
                 <div class="card mt-3">
                     <div class="card-header bg-dark text-light">
-                        <h5 class="mb-0 text-center" >Usuarios</h5>
+                        <h5 class="mb-0 text-center" >Mis Anuncios</h5>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -182,84 +183,43 @@
                                 <thead>
                                     <tr>
                                         
-                                        <th class="text-center align-middle">Nombre Usuario</th>
-                                        <th class="text-center align-middle">Rol</th>
-                                        <th class="text-center align-middle">NIF</th>                                        
-                                        <th class="text-center align-middle">Nombre</th>
-                                        <th class="text-center align-middle">Apellidos</th>
-                                        <th class="text-center align-middle">Email</th>
-                                        <th class="text-center align-middle">Teléfono</th>
-                                        <th class="text-center align-middle">Anverso DNI</th>
-                                        <th class="text-center align-middle">Reverso DNI</th>
-                                        <th class="text-center align-middle">DNI Verificado</th>
-                                        <th class="text-center align-middle">Esta activo</th>
+                                        <th class="text-center">Titulo</th>
+                                        <th class="text-center">Fecha Publicación</th>
+                                        <th class="text-center">Precio</th>                                        
+                                        <th class="text-center">Marca Arma</th>
+                                        <th class="text-center">Estado del Anuncio</th>
                                         <th colspan="3" class="text-center">Acciones</th>
+                                        
                                         
                                     </tr>
                                 </thead>
                                 <tbody>
                                     
-                                    <c:forEach  items="${usuarios}" var="u">
+                                    <c:forEach  items="${anuncios}" var="a">
                                     <tr>
-                                        <td class="text-center align-middle"> ${u.nickname}</td>
-                                        <td class="text-center align-middle"> ${u.rol}</td>
-                                        <td class="text-center align-middle"> ${u.nif}</td>
-                                        <td class="text-center align-middle"> ${u.nombre}</td>
-                                        <td class="text-center align-middle"> ${u.apellidos}</td>
-                                        <td class="text-center align-middle"> ${u.email}</td>
-                                        <td class="text-center align-middle"> ${u.telefono}</td>
-                                        
-                                        <td class="text-center align-middle"> 
-                                            
-                                                                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#usuarioA${u.id_usuario}">
-                                                                        <img src="${u.url_img_dni_anverso}" width="50" alt="Anverso "/>
-                                                                    </button>
-                                                                </td>
-                                                                <td class="text-center align-middle">
-                                                                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#usuarioR${u.id_usuario}">
-                                                                        <img src="${u.url_img_dni_reverso}" width="50" alt="Reverso "/>
-                                                                    </button>
-                                                                </td>
-                                        <c:if test="${u.dni_validado}"><td class="text-center align-middle">Sí</td></c:if>
-                                        <c:if test="${!u.dni_validado}"><td class="text-center align-middle">No</td></c:if>   
-                                                                
-                                        <c:if test="${u.esta_activo}"><td class="text-center align-middle">Sí</td></c:if>
-                                        <c:if test="${!u.esta_activo}"><td class="text-center align-middle">No</td></c:if>   
-                                        
-                                        
+                                        <td class="text-center">${a.titulo}</td>
+                                        <td class="text-center"><fmt:formatDate value="${a.fecha_public}" pattern="dd-MM-yyyy"/></td>
+                                        <td class="text-center">${a.precio}</td>
+                                        <td class="text-center">${a.id_arma.marca}</td>
+                                        <td class="text-center">${a.id_estado_anuncio.estado}</td>
                                         <td class="text-center align-middle">
-                                            <form action="./EditarPerfilUsuario" method="post">
+                                            <form action="./EditarAnuncio" method="post">
                                             
-                                                <input type="hidden" name="usuarioEditar" value="${u.id_usuario}"/>
-                                            <input type="submit" class="btn btn-sm btn-primary" value="Editar"/>
+                                                <input type="hidden" name="usuarioEditar" value="${a.id_anuncio}"/>
+                                                         <input type="hidden" name="anuncioEditar" value="${a.id_anuncio}"/>
+                                                <input type="submit" class="btn btn-sm btn-primary" value="Editar"/>
+                                            
                                             </form>
                                         </td>
-                                        <td class="text-center align-middle">
-                                            <form action="./CambiarEstadoUsuario" method="post">
-                                                
-                                            
-                                            <input type="hidden" name="usuarioEditar" value="${u.id_usuario}"/>
-                                            <c:if test="${u.esta_activo}"><input type="submit" class="btn btn-sm btn-danger" value="Dar de Baja"/></c:if>
-                                            
-                                            <c:if test="${!u.esta_activo}"><input type="submit" class="btn btn-sm btn-success" value="Dar de Alta"/> </c:if>
-                                            
-                                            </form>
-                                            
                                         
-                                        </td>
                                         <td class="text-center align-middle">
-                                            <form action="./CambiarEstadoDNI" method="post">
-                                                
+                                            <form action="./BorrarAnuncio" method="post">
                                             
-                                            <input type="hidden" name="usuarioEditar" value="${u.id_usuario}"/>
-                                            <c:if test="${u.dni_validado}"><input type="submit" class="btn btn-sm btn-danger" value="Desvalidar DNI"/></c:if>
-                                            
-                                            <c:if test="${!u.dni_validado}"><input type="submit" class="btn btn-sm btn-success" value="Validar DNI"/> </c:if>
-                                            
+                                                <input type="hidden" name="anuncioBorrar" value="${a.id_anuncio}"/>
+                                            <input type="submit" class="btn btn-sm btn-danger" value="Borrar"/>
                                             </form>
-                                            
-                                        
                                         </td>
+                                        
                                     </tr>
                                     </c:forEach>
                                     
@@ -271,22 +231,6 @@
             </div>
         </div>
     </div>
-                        <c:forEach  items="${usuarios}" var="u">
-                            <div tabindex="-1 " aria-labelledby="usuarioA${u.id_usuario}" aria-hidden="true" class="modal fade" id="usuarioA${u.id_usuario}">
-                                <div class="modal-dialog modal-lg modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <img src="${u.url_img_dni_anverso}" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div tabindex="-1 " aria-labelledby="usuarioR${u.id_usuario}" aria-hidden="true" class="modal fade" id="usuarioR${u.id_usuario}">
-                                <div class="modal-dialog modal-lg modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <img src="${u.url_img_dni_reverso}" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                        </c:forEach>        
 </main>
         <footer
   class="text-center text-lg-start text-white"

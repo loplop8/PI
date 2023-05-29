@@ -188,7 +188,7 @@
               
               
               <div class="button mt-3 d-flex justify-content-center text-center">
-                <button class="btn btn-primary"><a href="VerAnuncios">Ver mis anuncios</a></button>
+                <button class="btn btn-primary"><a href="./MisAnuncios">Ver mis anuncios</a></button>
               </div>
               
               

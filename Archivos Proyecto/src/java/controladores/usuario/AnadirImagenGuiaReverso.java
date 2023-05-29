@@ -155,7 +155,7 @@ public class AnadirImagenGuiaReverso extends HttpServlet {
              request.getSession().removeAttribute("fecha_expedicion_guia" );
              request.getSession().removeAttribute("num_identificacion");
             request.getSession().removeAttribute("licencia");
-            
+            request.getSession().setAttribute("arma_fuego", af);
             getServletContext().getRequestDispatcher(vistaInformacionAnuncio).forward(request, response);
         }else{
                     getServletContext().getRequestDispatcher(vista).forward(request, response);

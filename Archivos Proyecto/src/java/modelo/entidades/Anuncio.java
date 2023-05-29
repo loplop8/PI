@@ -42,7 +42,17 @@ public class Anuncio implements Serializable {
     private Date fecha_public;
     
     
-    
+    @ManyToOne
+    @JoinColumn(name="id_estado_anuncio")
+    private EstadoAnuncio id_estado_anuncio;
+
+    public EstadoAnuncio getId_estado_anuncio() {
+        return id_estado_anuncio;
+    }
+
+    public void setId_estado_anuncio(EstadoAnuncio id_estado_anuncio) {
+        this.id_estado_anuncio = id_estado_anuncio;
+    }
     
     
     @Column(name="descripcion")
@@ -106,8 +116,10 @@ public class Anuncio implements Serializable {
 
     @Override
     public String toString() {
-        return "Anuncio{" + "id_anuncio=" + id_anuncio + ", id_arma=" + id_arma + ", fecha_public=" + fecha_public + ", descripcion=" + descripcion + ", titulo=" + titulo + ", precio=" + precio + '}';
+        return "Anuncio{" + "id_anuncio=" + id_anuncio + ", id_arma=" + id_arma + ", fecha_public=" + fecha_public + ", id_estado_anuncio=" + id_estado_anuncio + ", descripcion=" + descripcion + ", titulo=" + titulo + ", precio=" + precio + '}';
     }
+
+   
    
     
     

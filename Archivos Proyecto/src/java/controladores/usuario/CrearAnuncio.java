@@ -161,7 +161,7 @@ public class CrearAnuncio extends HttpServlet {
             }catch(Exception e){
                 
             }
-            
+            request.getSession().setAttribute("arma_replica",ar );
             request.getSession().setAttribute("arma", a);
             getServletContext().getRequestDispatcher(vistaInformacionAnuncio).forward(request, response);
         }else{

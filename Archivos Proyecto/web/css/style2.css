@@ -9,6 +9,10 @@
     
 }
 
+
+    
+
+
 html, body {
     height: 100%;
     background-color:#212529;
@@ -98,6 +102,9 @@ html{
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
     margin-top: 16px;
+}
+textarea{
+    color: black !important;
 }
 
 

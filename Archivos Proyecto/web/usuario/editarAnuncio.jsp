@@ -187,13 +187,13 @@
 
                                                         <div class="col-md-12 mt-1">
                                                             <label for="tipo_arma">Titulo</label>
-                                                            <input type="text" name="titulo" id="titulo" required class="form-control">
+                                                            <input type="text" name="titulo" id="titulo" required class="form-control" value="${anuncio.titulo}" >
                                                         </div>
                                                     </div>
                                                     <div class="row">   
                                                         <div class="col-md-12 mt-1">
                                                             <label for="descripcion">Descripcion del anuncio</label>
-                                                            <textarea name="descripcion" placeholder="Detalle toda la infomación del arma" class="form-control"></textarea> 
+                                                            <textarea name="descripcion" placeholder="Detalle toda la infomación del arma"  class="form-control">${anuncio.descripcion}"</textarea> 
                                                         </div>    
 
 
@@ -205,7 +205,7 @@
                                                     <div class="row">
                                                         <div class="col-md-12 mt-1">
                                                             <label for="descripcion">Precio del Arma:</label>
-                                                            <input type="number" name="precio" min="50" required class="form-control" />
+                                                            <input type="number" name="precio" min="50" required class="form-control" value="${anuncio.precio}" />
                                                         </div>
                                                     </div>
 
@@ -213,7 +213,7 @@
                                                         <div class="row">
                                                             <div class="col-md-12 mt-1">
                                                                 <label for="descripcion">Imagenes: (Total Maximo=100MB)</label>
-                                                                <input type="file" name="images" id="imageInput" multiple required class=" form-control-file form-control pe-md-5">
+                                                                <input type="file" name="images" id="imageInput" value="${imagenes}"  multiple required class="  form-control-file form-control pe-md-5">
                                                             </div>
                                                         </div>
                                                        
