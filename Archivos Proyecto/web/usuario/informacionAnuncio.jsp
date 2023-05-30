@@ -205,7 +205,7 @@
                                                     <div class="row">
                                                         <div class="col-md-12 mt-1">
                                                             <label for="descripcion">Precio del Arma:</label>
-                                                            <input type="number" name="precio" min="50" required class="form-control" />
+                                                            <input type="number" step="0.01" name="precio" min="1" required class="form-control" />
                                                         </div>
                                                     </div>
 

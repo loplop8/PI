@@ -179,17 +179,12 @@
               <p>Seleccione que desea administrar</p>
 
               <div class="button mt-3 d-flex justify-content-center text-center">
-                <button class="btn btn-primary"><a href="AdministrarUsuarios">Administrar Usuarios</a></button>
+                <button class="btn btn-primary"><a href="AdministrarAnunciosFuego">Anuncios Armas de Fuego</a></button>
               </div>
               <div class="button mt-3 d-flex justify-content-center text-center">
-                <button class="btn btn-primary"><a href="PanelAdministarAnuncios">Administrar Anuncios</a></button>
+                <button class="btn btn-primary"><a href="AdministrarAnunciosReplica">Anuncios de Armas de Replica</a></button>
               </div>
-              <div class="button mt-3 d-flex justify-content-center text-center">
-                <button class="btn btn-primary"><a href="AdministrarPedidos">Administrar Pedidos</a></button>
-              </div>
-              <div class="button mt-3 d-flex justify-content-center text-center">
-                <button class="btn btn-primary"><a href="AdministrarLicencias">Administrar Licencias</a></button>
-              </div>
+              
             </div>
           </div>
         </div>

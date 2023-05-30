@@ -182,7 +182,7 @@
                 <button class="btn btn-primary"><a href="AdministrarUsuarios">Administrar Usuarios</a></button>
               </div>
               <div class="button mt-3 d-flex justify-content-center text-center">
-                <button class="btn btn-primary"><a href="AdministrarAnuncios">Administrar Anuncios</a></button>
+                <button class="btn btn-primary"><a href="PanelAdministarAnuncios">Administrar Anuncios</a></button>
               </div>
               <div class="button mt-3 d-flex justify-content-center text-center">
                 <button class="btn btn-primary"><a href="AdministrarPedidos">Administrar Pedidos</a></button>

@@ -1,26 +1,23 @@
-
-
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html lang="en">
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<html>
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <link rel="stylesheet" href="../boostrap/bootstrap-5.0.2-dist/css/bootstrap.min.css">
 
         <script src="../boostrap/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>  
-        <link rel="stylesheet" href="../css/style2.css">
-        <script src="../js/informacionAnuncio.js" defer></script>
+        <link rel="stylesheet" href="./../css/style4.css">
 
-
-
-        <title>SWL</title>
     </head>
+
     <body>
+
+
+
         <header class=" text-white">
             <div>
 
@@ -173,86 +170,180 @@
                     </header>
 
                     <main>
-                        <div class="container">
-                            <div class="form-body">
-                                <div class="row">
-                                    <div class="form-holder">
-                                        <div class="form-content">
-                                            <div class="form-items">
-                                                <h3>Crear un nuevo anuncio</h3>
-                                                <p>Inserte los datos del anuncio </p>
-                                                <form class="requires-validation" action="./EditarAnuncio" method="post" enctype="multipart/form-data">
-                                                    
-                                                    <div class="row">
-
-                                                        <div class="col-md-12 mt-1">
-                                                            <label for="tipo_arma">Titulo</label>
-                                                            <input type="text" name="titulo" id="titulo" required class="form-control" value="${anuncio.titulo}" >
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">   
-                                                        <div class="col-md-12 mt-1">
-                                                            <label for="descripcion">Descripcion del anuncio</label>
-                                                            <textarea name="descripcion" placeholder="Detalle toda la infomación del arma"  class="form-control">${anuncio.descripcion}"</textarea> 
-                                                        </div>    
-
-
-
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-12 mt-1">
-                                                            <label for="descripcion">Precio del Arma:</label>
-                                                            <input type="number" name="precio" step="0.01" min="50" required class="form-control" value="${anuncio.precio}" />
-                                                        </div>
-                                                    </div>
-
-                                                    
-                                                        <div class="row">
-                                                            <div class="col-md-12 mt-1">
-                                                                <label for="descripcion">Seleccione las nuevas Imagenes : (Total Maximo=100MB)</label>
-                                                                <input type="file" name="images" id="imageInput"   multiple  class="  form-control-file form-control pe-md-5">
-                                                            </div>
-                                                        </div>
-                                                       
-                                                        <div class="form-button mt-3">
-                                                            <input id="submit" type="submit"  class="btn btn-primary" value="Siguiente">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card mt-3">
+                                        <div class="card-header bg-dark text-light">
+                                            <h5 class="mb-0 text-center" >Anuncios</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table  text-white">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-center">Usuario</th>
+                                                            <th class="text-center">Titulo</th>
+                                                            <th class="text-center">Fecha Publicación</th>
+                                                            <th class="text-center">Precio Neto</th>                                        
+                                                            <th class="text-center">Marca Arma</th>
+                                                            <th class="text-center">Numero Guia</th>
+                                                            <th class="text-center">Calibre</th>
+                                                            <th class="text-center">Numero identificacion del Arma</th>
+                                                            <th class="text-center">Fecha Expedicion Guia</th>
+                                                            <th class="text-center">Anverso Guia</th>
+                                                            <th class="text-center">Reverso Guia</th>
+                                                            <th class="text-center">Estado del Anuncio</th>
+                                                            
 
 
-                                                        </div>
+                                                        </tr>
+                                                        
+                                                    </thead>
+                                                    <tbody>
 
-                                                </form>
+                                                        <c:forEach items="${anuncios}" var="a">
+                                                            <tr>
+                                                                <td class="text-center align-middle">${a.id_arma.id_usuario.nickname}</td>
+                                                                <td class="text-center align-middle">${a.titulo}</td>
+                                                                <td class="text-center align-middle"><fmt:formatDate value="${a.fecha_public}" pattern="dd-MM-yyyy"/></td>
+                                                                <td class="text-center align-middle">${a.precio}</td>
+                                                                <td class="text-center align-middle">${a.id_arma.marca}</td>
+                                                                
+                                                                <td class="text-center align-middle">
+                                                                    <c:forEach items="${armas_fuego}" var="arma">
+                                                                        <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
+                                                                            ${arma.num_guia}
+                                                                        </c:if>
+                                                                    </c:forEach>
+                                                                <td class="text-center align-middle">
+                                                                    <c:forEach items="${armas_fuego}" var="arma">
+                                                                        <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
+                                                                            ${arma.calibre}
+                                                                        </c:if>
+                                                                    </c:forEach>
+                                                                </td>
+                                                                <td class="text-center align-middle">
+                                                                   <c:forEach items="${armas_fuego}" var="arma">
+                                                                        <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
+                                                                            ${arma.num_identificacion}
+                                                                        </c:if>
+                                                                    </c:forEach>
+                                                                </td>
+                                                                <td class="text-center align-middle">
+                                                                    <c:forEach items="${armas_fuego}" var="arma">
+                                                                        <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
+                                                                            <fmt:formatDate value="${arma.fecha_expedicion_guia}" pattern="dd-MM-yyyy"/>
+                                                                        </c:if>
+                                                                    </c:forEach>
+                                                                </td>
+                                                                <td class="text-center align-middle">
+                                                                    <c:forEach items="${armas_fuego}" var="arma">
+                                                                        <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
+                                                                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#guiaA${arma.id_arma.id_arma}">
+                                                                        <img src="${arma.url_img_guia_anverso}" width="75" alt="Reverso "/>
+                                                                    </button>
+                                                                        </c:if>
+                                                                    </c:forEach>
+                                                                </td>
+                                                                <td class="text-center align-middle">
+                                                                    <c:forEach items="${armas_fuego}" var="arma">
+                                                                       <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
+                                                                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#guiaR${arma.id_arma.id_arma}">
+                                                                        <img src="${arma.url_img_guia_reverso}" width="75" alt="Reverso "/>
+                                                                    </button>
+                                                                        </c:if>
+                                                                    </c:forEach>
+                                                                </td>
+                                                               
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                <td class="text-center align-middle">${a.id_estado_anuncio.estado}</td>
+                                                                
+                                                                
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="text-center align-middle">
+                                                                    <form action="./CambiarEstadoLicencia" method="post">
+                                                                        <input type="hidden" name="licenciaEditar" value="${l.id_licencia}"/>
+                                                                        <c:if test="${l.licencia_validada}">
+                                                                            <input type="submit" class="btn btn-sm btn-danger" value="Desvalidar Licencia"/>
+                                                                        </c:if>
+                                                                        <c:if test="${!l.licencia_validada}">
+                                                                            <input type="submit" class="btn btn-sm btn-success" value="Validar Licencia"/>
+                                                                        </c:if>
+                                                                    </form>
+                                                                </td>
+                                                                <td class="text-center align-middle">
+                                                                    <form action="./CambiarEstadoLicencia" method="post">
+                                                                        <input type="hidden" name="licenciaEditar" value="${l.id_licencia}"/>
+                                                                        <c:if test="${l.licencia_validada}">
+                                                                            <input type="submit" class="btn btn-sm btn-danger" value="Desvalidar Licencia"/>
+                                                                        </c:if>
+                                                                        <c:if test="${!l.licencia_validada}">
+                                                                            <input type="submit" class="btn btn-sm btn-success" value="Validar Licencia"/>
+                                                                        </c:if>
+                                                                    </form>
+                                                                </td>
+                                                            </tr>   
 
-                                                <div id="slider" class="carousel slide mt-4" data-bs-ride="carousel">
-                                                    <div class="carousel-inner">
-                                                    </div>
-                                                    <button class="carousel-control-prev" type="button" data-bs-target="#slider" data-bs-slide="prev" style="display:none">
-                                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                        <span class="visually-hidden">Previous</span>
-                                                    </button>
-                                                    <button class="carousel-control-next" type="button" data-bs-target="#slider" data-bs-slide="next" style="display:none">
-                                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                        <span class="visually-hidden">Next</span>
-                                                    </button>
-                                                </div>    
 
+                                                        </c:forEach>
 
-
+                                                    </tbody>
+                                                </table>
 
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
+                        </div>
+                        <c:forEach  items="${anuncios}" var="a">
+                            <c:forEach items="${armas_fuego}" var="arma">
+                                <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
+                            
+                            <div tabindex="-1 " aria-labelledby="guiaA${arma.id_arma.id_arma}" aria-hidden="true" class="modal fade" id="guiaA${arma.id_arma.id_arma}">
+                                <div class="modal-dialog modal-lg modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <img src="${arma.url_img_guia_anverso}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                                   
+
+                            <div tabindex="-1 " aria-labelledby="guiaR${arma.id_arma.id_arma}" aria-hidden="true" class="modal fade" id="guiaR${arma.id_arma.id_arma}">
+                                <div class="modal-dialog modal-lg modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <img src="${arma.url_img_guia_reverso}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                                    
+                          </c:if>        
+                        </c:forEach>
+                        </c:forEach>     
                     </main>
+
+
+
+
+
+
                     <footer
                         class="text-center text-lg-start text-white"
                         >
 
+
                         <div class="container p-4 pb-0">
                             <hr class="my-3">
+
                             <section class="">
+
                                 <div class="row">
+
                                     <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                                         <h6 class="text-uppercase mb-4 font-weight-bold">
                                             Second Weapaon Life
@@ -262,8 +353,8 @@
                                         </p>
                                     </div>
 
-
                                     <hr class="w-100 clearfix d-md-none" />
+
 
                                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                                         <h6 class="text-uppercase mb-4 font-weight-bold">Tipos de armas</h6>
@@ -281,7 +372,6 @@
                                         </p>
                                     </div>
 
-
                                     <hr class="w-100 clearfix d-md-none" />
 
                                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
@@ -298,35 +388,39 @@
                                             <a class="text-white">Anuncios</a>
                                         </p>
                                         <p>
-                                            <a class="text-white" href="sobreNosotros.html">Sobre nosotros</a>
+                                            <a class="text-white">Sobre nosotros</a>
                                         </p>
                                     </div>
 
-
                                     <hr class="w-100 clearfix d-md-none" />
+
                                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                                         <h6 class="text-uppercase mb-4 font-weight-bold">Contacto</h6>
                                         <p><i class="fas fa-home mr-3"></i>Bollullos de la Mitación, CP 41110 (Sevilla)</p>
                                         <p><i class="fas fa-envelope mr-3"></i> info@swl.es</p>
                                         <p><i class="fas fa-phone mr-3"></i><a class="text-white" href=tel:+34607450598>Llamanos </a> </p>
-                                        <p><i class="fas fa-print mr-3"></i> <a href="8VR5+GX Bollullos de la Mitaciï¿½n"></a></p>
+                                        <p><i class="fas fa-print mr-3"></i> <a href="8VR5+GX Bollullos de la Mitación"></a></p>
                                     </div>
 
                                 </div>
 
                             </section>
+
+
                             <hr class="my-3">
 
 
                             <section class="p-3 pt-0">
                                 <div class="row d-flex align-items-center">
-                                    <div class="col-md-7 col-lg-8 text-center text-md-start">
 
+                                    <div class="col-md-7 col-lg-8 text-center text-md-start">
                                         <div class="p-3">
-                                            José Antonio López López 
+                                            <a href="GestionCuenta.html"> © José Antonio López López </a>
 
                                         </div>
+
                                     </div>
+
 
                                     <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
                                         <a href="https://facebook.com"
@@ -347,6 +441,7 @@
                                                 </svg>  </i
                                             ></a>
 
+
                                         <a href="https://www.google.com/maps/place/C.+Granada,+13,+41110+Bollullos+de+la+Mitaci%C3%B3n,+Sevilla/@37.3413656,-6.142208,17z/data=!4m6!3m5!1s0xd121230798e25eb:0x59f66d5498776f7c!8m2!3d37.3413656!4d-6.1400193!16s%2Fg%2F11c227sx43"
                                            class="btn btn-outline-light btn-floating m-1"
                                            class="text-white"
@@ -363,6 +458,7 @@
                                             <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
                                             </svg>
                                         </a>
+
 
 
 
@@ -383,6 +479,9 @@
 
 
 
-                    </body>
 
+
+
+
+                    </body>
                     </html>

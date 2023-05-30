@@ -79,12 +79,7 @@ public class BorrarAnuncio extends HttpServlet {
             ijc.destroy(imagen.getId_imagen());
         }
         ajc.destroy(idAnuncio);
-        response.sendRedirect("./MisAnuncios");
-        
-        
-        
-        
-            
+        response.sendRedirect("./MisAnuncios");    
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

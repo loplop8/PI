@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-05-2023 a las 01:37:07
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.2.0
+-- Tiempo de generación: 30-05-2023 a las 15:47:44
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 7.4.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -25,7 +25,7 @@ DELIMITER $$
 --
 -- Procedimientos
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `borrarLicenciaCadudcada` ()   BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `borrarLicenciaCadudcada` ()  BEGIN
     DECLARE fecha_actual DATE;
     
     SET fecha_actual = CURDATE();
@@ -50,14 +50,15 @@ CREATE TABLE `anuncio` (
   `precio` decimal(10,2) NOT NULL,
   `id_arma` bigint(20) NOT NULL,
   `id_estado_anuncio` bigint(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `anuncio`
 --
 
 INSERT INTO `anuncio` (`id_anuncio`, `fecha_public`, `descripcion`, `titulo`, `precio`, `id_arma`, `id_estado_anuncio`) VALUES
-(59, '2023-05-28', 'ajknakcjnakjcsnacskjnc\r\nañkscnalkscnacs\r\n\r\n\r\nasñclmcñalmcañlc,s\r\n\r\n\r\nañsklmascñm', 'Carabina Molona', '150.00', 133, 2);
+(59, '2023-05-28', 'Editando el anuncio 5\r\n\r\n', 'Carabina del Montonazo', '202.00', 133, 2),
+(62, '2023-05-30', 'bdfbdf', 'fbfbgf', '1.00', 139, 2);
 
 -- --------------------------------------------------------
 
@@ -70,7 +71,7 @@ CREATE TABLE `arma` (
   `marca` varchar(255) NOT NULL,
   `id_tipo_arma` bigint(20) NOT NULL,
   `id_usuario` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `arma`
@@ -193,7 +194,11 @@ INSERT INTO `arma` (`id_arma`, `marca`, `id_tipo_arma`, `id_usuario`) VALUES
 (132, 'ljNAKJCSN', 15, 32),
 (133, 'Winchester', 5, 32),
 (134, 'ljascnkjcsbn', 13, 32),
-(135, 'aoicnocsn', 5, 32);
+(135, 'aoicnocsn', 5, 32),
+(136, 'dcfbdf', 6, 32),
+(137, 'xcvdv', 17, 32),
+(138, 'aaaa', 3, 32),
+(139, 'cnfg', 18, 32);
 
 -- --------------------------------------------------------
 
@@ -211,7 +216,7 @@ CREATE TABLE `arma_fuego` (
   `guia_validada` tinyint(1) NOT NULL,
   `url_img_guia_reverso` varchar(255) DEFAULT NULL,
   `url_img_guia_anverso` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `arma_fuego`
@@ -229,7 +234,8 @@ INSERT INTO `arma_fuego` (`id_arma`, `id_licencia`, `num_guia`, `calibre`, `num_
 (130, 34, '123456789', '22', '123456789', '2023-05-23', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.jpeg', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.jpeg'),
 (131, 34, '123456489', '1231546', '123156', '2023-05-26', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.jpg', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.jpg'),
 (133, 34, '123456789A', '56', '123456789a', '2023-05-28', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.png', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.png'),
-(135, 34, 'poajcpascij', 'pijaciscj', 'sakjdclakscn', '2025-05-12', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.jpg', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.jpg');
+(135, 34, 'poajcpascij', 'pijaciscj', 'sakjdclakscn', '2025-05-12', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.jpg', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.jpg'),
+(136, 34, 'dfdffb', 'dfbdfb', 'dfbdfbfb', '2023-06-01', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.png', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.png');
 
 -- --------------------------------------------------------
 
@@ -242,7 +248,7 @@ CREATE TABLE `arma_replica` (
   `tipo_gas` varchar(255) DEFAULT NULL,
   `capacidad_cargador` int(11) DEFAULT NULL,
   `piezas_canon` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `arma_replica`
@@ -329,7 +335,9 @@ INSERT INTO `arma_replica` (`id_arma`, `tipo_gas`, `capacidad_cargador`, `piezas
 (124, '', 51, ''),
 (129, 'Mercuriano', 500, 'Ninguna'),
 (132, 'LAKSMCLC', 500, 'Silenciador y AKX 25'),
-(134, 'lknacsdlscna', 500, 'ljnascjcsn');
+(134, 'lknacsdlscna', 500, 'ljnascjcsn'),
+(137, 'sdcsdc', 14, 'sxcdsxdc'),
+(139, 'fgnfnfn', 4, 'gfcfbn');
 
 -- --------------------------------------------------------
 
@@ -341,7 +349,7 @@ CREATE TABLE `contrato_compra_venta` (
   `id_contrato_compra_venta` bigint(20) NOT NULL,
   `url_contrato_compra_venta` varchar(255) NOT NULL,
   `id_pedido` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -353,7 +361,7 @@ CREATE TABLE `estado_anuncio` (
   `id_estado_anuncio` bigint(20) NOT NULL,
   `estado` varchar(255) NOT NULL,
   `descripcion` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `estado_anuncio`
@@ -376,7 +384,7 @@ CREATE TABLE `estado_pedido` (
   `id_estado_pedido` bigint(20) NOT NULL,
   `estado` varchar(255) DEFAULT NULL,
   `descripcion` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `estado_pedido`
@@ -406,7 +414,7 @@ CREATE TABLE `factura` (
   `base_imponible` decimal(10,2) NOT NULL,
   `importe_gastos` decimal(10,2) NOT NULL,
   `descripcion_gastos` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -420,7 +428,7 @@ CREATE TABLE `hilo` (
   `titulo_descriptivo` varchar(100) NOT NULL,
   `etiqueta_tema` varchar(50) NOT NULL,
   `fecha_creacion` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -432,16 +440,15 @@ CREATE TABLE `imagen` (
   `id_imagen` bigint(20) NOT NULL,
   `id_anuncio` bigint(20) NOT NULL,
   `url_imagen` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `imagen`
 --
 
 INSERT INTO `imagen` (`id_imagen`, `id_anuncio`, `url_imagen`) VALUES
-(116, 59, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio590.png'),
-(117, 59, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio591.png'),
-(118, 59, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio592.png');
+(123, 59, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio590.png'),
+(125, 62, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio620.png');
 
 -- --------------------------------------------------------
 
@@ -461,7 +468,7 @@ CREATE TABLE `licencia` (
   `licencia_validada` tinyint(4) NOT NULL,
   `url_img_licencia_anverso` varchar(255) DEFAULT NULL,
   `url_img_licencia_reverso` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `licencia`
@@ -484,7 +491,7 @@ CREATE TABLE `mensaje` (
   `fecha_publicacion` date NOT NULL,
   `id_hilo` bigint(20) NOT NULL,
   `id_usuario` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -496,7 +503,7 @@ CREATE TABLE `municipio` (
   `id_municipio` bigint(20) NOT NULL,
   `id_provincia` bigint(20) NOT NULL,
   `nombre` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `municipio`
@@ -8653,7 +8660,7 @@ CREATE TABLE `pedido` (
   `fecha_compra` date NOT NULL,
   `numero_pedido` bigint(20) NOT NULL,
   `id_estado_pedido` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -8664,7 +8671,7 @@ CREATE TABLE `pedido` (
 CREATE TABLE `provincia` (
   `id_provincia` bigint(20) NOT NULL,
   `nombre` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `provincia`
@@ -8734,7 +8741,7 @@ CREATE TABLE `tipo_arma` (
   `id_tipo_arma` bigint(20) NOT NULL,
   `tipo` varchar(255) NOT NULL,
   `descripcion` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `tipo_arma`
@@ -8770,7 +8777,7 @@ CREATE TABLE `tipo_licencia` (
   `id_tipo_licencia` bigint(20) NOT NULL,
   `tipo` varchar(255) NOT NULL,
   `descripcion` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `tipo_licencia`
@@ -8793,7 +8800,7 @@ INSERT INTO `tipo_licencia` (`id_tipo_licencia`, `tipo`, `descripcion`) VALUES
 CREATE TABLE `tipo_licencia_faculta_tipo_arma` (
   `id_tipo_licencia` bigint(20) NOT NULL,
   `id_tipo_arma` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `tipo_licencia_faculta_tipo_arma`
@@ -8850,7 +8857,7 @@ CREATE TABLE `usuario` (
   `dni_validado` tinyint(1) NOT NULL,
   `url_img_dni_anverso` varchar(255) DEFAULT NULL,
   `url_img_dni_reverso` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -9027,13 +9034,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `anuncio`
 --
 ALTER TABLE `anuncio`
-  MODIFY `id_anuncio` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id_anuncio` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT de la tabla `arma`
 --
 ALTER TABLE `arma`
-  MODIFY `id_arma` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
+  MODIFY `id_arma` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 
 --
 -- AUTO_INCREMENT de la tabla `contrato_compra_venta`
@@ -9063,7 +9070,7 @@ ALTER TABLE `hilo`
 -- AUTO_INCREMENT de la tabla `imagen`
 --
 ALTER TABLE `imagen`
-  MODIFY `id_imagen` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
+  MODIFY `id_imagen` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
 
 --
 -- AUTO_INCREMENT de la tabla `licencia`

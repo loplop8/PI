@@ -199,9 +199,6 @@
 
 
                                                     </div>
-
-
-
                                                     <div class="row">
                                                         <div class="col-md-12 mt-1">
                                                             <label for="descripcion">Precio del Arma:</label>
