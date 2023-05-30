@@ -181,7 +181,7 @@
                                             <div class="form-items">
                                                 <h3>Crear un nuevo anuncio</h3>
                                                 <p>Inserte los datos del anuncio </p>
-                                                <form class="requires-validation" action="./InformacionAnuncio" method="post" enctype="multipart/form-data">
+                                                <form class="requires-validation" action="./EditarAnuncio" method="post" enctype="multipart/form-data">
                                                     
                                                     <div class="row">
 
@@ -205,7 +205,7 @@
                                                     <div class="row">
                                                         <div class="col-md-12 mt-1">
                                                             <label for="descripcion">Precio del Arma:</label>
-                                                            <input type="number" name="precio" min="50" required class="form-control" value="${anuncio.precio}" />
+                                                            <input type="number" name="precio" step="0.01" min="50" required class="form-control" value="${anuncio.precio}" />
                                                         </div>
                                                     </div>
 
@@ -213,7 +213,7 @@
                                                         <div class="row">
                                                             <div class="col-md-12 mt-1">
                                                                 <label for="descripcion">Seleccione las nuevas Imagenes : (Total Maximo=100MB)</label>
-                                                                <input type="file" name="images" id="imageInput"   multiple required class="  form-control-file form-control pe-md-5">
+                                                                <input type="file" name="images" id="imageInput"   multiple  class="  form-control-file form-control pe-md-5">
                                                             </div>
                                                         </div>
                                                        

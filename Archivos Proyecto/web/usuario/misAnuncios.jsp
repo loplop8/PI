@@ -11,6 +11,7 @@
         <script src="../boostrap/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>  
         <link rel="stylesheet" href="./../css/style4.css">
+        <script src="../js/misAnuncios.js" defer></script>
 
     </head>
 
@@ -203,9 +204,19 @@
                                         <td class="text-center">${a.id_arma.marca}</td>
                                         <td class="text-center">${a.id_estado_anuncio.estado}</td>
                                         <td class="text-center align-middle">
+                                            <form action="./VerAnuncio" method="post">
+                                            
+                                                <input type="hidden" name="anuncioVer" value="${a.id_anuncio}"/>
+                                                    
+                                                <input type="submit" class="btn btn-sm btn-primary" value="Ver Anuncio"/>
+                                            
+                                            </form>
+                                        </td>
+                                        
+                                        <td class="text-center align-middle">
                                             <form action="./EditarAnuncio" method="post">
                                             
-                                                <input type="hidden" name="usuarioEditar" value="${a.id_anuncio}"/>
+                                               
                                                          <input type="hidden" name="anuncioEditar" value="${a.id_anuncio}"/>
                                                 <input type="submit" class="btn btn-sm btn-primary" value="Editar"/>
                                             
@@ -216,7 +227,7 @@
                                             <form action="./BorrarAnuncio" method="post">
                                             
                                                 <input type="hidden" name="anuncioBorrar" value="${a.id_anuncio}"/>
-                                            <input type="submit" class="btn btn-sm btn-danger" value="Borrar"/>
+                                            <input type="submit" id="anuncioBorrar" class="btn btn-sm btn-danger" value="Borrar"/>
                                             </form>
                                         </td>
                                         

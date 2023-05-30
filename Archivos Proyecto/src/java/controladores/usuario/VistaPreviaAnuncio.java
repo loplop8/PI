@@ -9,15 +9,15 @@ package controladores.usuario;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.dao.AnuncioJpaController;
 import modelo.entidades.Anuncio;
+import modelo.entidades.ArmaFuego;
+import modelo.entidades.ArmaReplica;
+import modelo.entidades.Imagen;
 import modelo.entidades.Usuario;
 
 
@@ -25,8 +25,8 @@ import modelo.entidades.Usuario;
  *
  * @author Zatonio
  */
-@WebServlet(name = "MisAnuncios", urlPatterns = {"/usuario/MisAnuncios"})
-public class MisAnuncios extends HttpServlet {
+@WebServlet(name = "VistaPreviaAnuncio", urlPatterns = {"/usuario/VistaPreviaAnuncio"})
+public class VistaPreviaAnuncio extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,24 +39,24 @@ public class MisAnuncios extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String vista="/usuario/misAnuncios.jsp";
+        String vista = "/usuario/verAnuncio.jsp";
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
-         request.setAttribute("usuario", usuario);
-         EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife");
-         AnuncioJpaController ajc=new AnuncioJpaController(emf);
-         List<Anuncio> anuncios= ajc.findAnuncioEntities();
-         List<Anuncio> anunciosUsuario=new ArrayList<>();
-         for (Anuncio anuncio: anuncios) {
-            if(anuncio.getId_arma().getId_usuario().getId_usuario().equals(usuario.getId_usuario())){
-                anunciosUsuario.add(anuncio);   
-        }
-         }
-         String siguiente="siguiente"; //Indicador para la vista
-         request.setAttribute("anuncios", anunciosUsuario);
-         request.setAttribute("siguiente", siguiente);
-            getServletContext().getRequestDispatcher(vista).forward(request, response);
-        }
-    
+        request.setAttribute("usuario", usuario);
+        List<Imagen>imagenes= new ArrayList<>();
+        imagenes=(List<Imagen>) request.getSession().getAttribute("imagenes");
+        Anuncio an=(Anuncio)request.getSession().getAttribute("anuncio");
+        if(request.getSession().getAttribute("arma_fuego")!=null){
+            ArmaFuego af= (ArmaFuego)request.getSession().getAttribute("arma_fuego");
+            request.getSession().setAttribute("arma_fuego", af);
+        }else if(request.getSession().getAttribute("arma_replica")!=null){
+            
+        
+                ArmaReplica ar= (ArmaReplica)request.getSession().getAttribute("arma_replica");
+                request.getSession().setAttribute("arma_replica", ar);
+        }       
+        
+        getServletContext().getRequestDispatcher(vista).forward(request, response);
+    }
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -91,6 +91,7 @@ public class MisAnuncios extends HttpServlet {
      *
      * @return a String containing servlet description
      */
+    
     @Override
     public String getServletInfo() {
         return "Short description";

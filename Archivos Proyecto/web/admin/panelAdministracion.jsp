@@ -188,7 +188,7 @@
                 <button class="btn btn-primary"><a href="AdministrarPedidos">Administrar Pedidos</a></button>
               </div>
               <div class="button mt-3 d-flex justify-content-center text-center">
-                <button class="btn btn-primary"><a href="MenuDocumentacion">Verificar Documentos</a></button>
+                <button class="btn btn-primary"><a href="AdministrarLicencias">Administrar Licencias</a></button>
               </div>
             </div>
           </div>

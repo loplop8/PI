@@ -71,7 +71,7 @@ public class InformacionAnuncio extends HttpServlet {
         String error="";
         String vista="/usuario/anadirImagenReversoGuia.jsp";
         String vistaError="../error.jsp";
-        String siguienteControlador="/usuario/VerAnuncio";
+        String siguienteControlador="/usuario/VistaPreviaAnuncio";
         
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         request.setAttribute("usuario", usuario);

@@ -230,9 +230,21 @@
                 <div class="fs-5">
                     <span>Total: ${(anuncio.precio*0.21)+(anuncio.precio*0.1)+(anuncio.precio*0.05)+anuncio.precio}&euro;</span>
                 </div>
-                <div class="d-flex">
+                    <c:if test="${siguiente!=null}">
+                    <div class="d-flex">
                     <button class="btn btn-primary" id="siguiente">Siguiente</button>
-                </div>
+                    </div>
+                    </c:if>
+                <c:if test="${comprar!=null}">
+                    <div class="d-flex">
+                        <form action="./Comprar" method="post" >
+                            <input type="hidden" name="anuncio" value="${anuncio.id_anuncio}"/>
+                            <button class="btn btn-success" type="submit" id="">Comprar</button>
+                        </form>   
+                    
+                    </div>
+                    </c:if>
+                
             </div>
         </div>
     </div>
