@@ -50,6 +50,9 @@ public class AdministrarAnunciosFuego extends HttpServlet {
         AnuncioJpaController ajc = new AnuncioJpaController(emf);
         List<Anuncio>anuncios=ajc.findAnuncioEntities();
         request.setAttribute("anuncios",anuncios);
+        
+        
+        
         ArmaFuegoJpaController afjc= new ArmaFuegoJpaController(emf);
         request.setAttribute("armas_fuego", afjc.findArmaFuegoEntities());
        

@@ -2,6 +2,17 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/src/java/controladores/admin/PanelAdministarAnuncios.java</file>
+            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/web/usuario/misAnuncios.jsp</file>
+            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/src/java/modelo/entidades/TipoLicenciaFacultaTipoArma.java</file>
+            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/src/java/modelo/dao/TipoLicenciaFacultaTipoArmaJpaController.java</file>
+            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/src/java/modelo/entidades/Anuncio.java</file>
+            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/web/admin/panelAdministracionAnuncios.jsp</file>
+            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/src/java/modelo/entidades/ArmaFuego.java</file>
+            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/src/java/controladores/admin/AdministrarAnunciosFuego.java</file>
+            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/src/java/modelo/entidades/TipoLicenciaFacultaTipoArmaId.java</file>
+            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/web/admin/panelAdministracion.jsp</file>
+        </group>
     </open-files>
 </project-private>
