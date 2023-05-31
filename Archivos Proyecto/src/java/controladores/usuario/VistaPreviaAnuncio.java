@@ -50,11 +50,13 @@ public class VistaPreviaAnuncio extends HttpServlet {
             request.getSession().setAttribute("arma_fuego", af);
         }else if(request.getSession().getAttribute("arma_replica")!=null){
             
-        
+                
                 ArmaReplica ar= (ArmaReplica)request.getSession().getAttribute("arma_replica");
                 request.getSession().setAttribute("arma_replica", ar);
+                
         }       
-        
+        String siguiente="siguiente";
+        request.setAttribute("siguiente", siguiente);
         getServletContext().getRequestDispatcher(vista).forward(request, response);
     }
 

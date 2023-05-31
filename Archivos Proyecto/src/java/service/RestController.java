@@ -158,7 +158,7 @@ public class RestController  {
           
 }
      
-    @GET
+     @GET
      @Path("UsuarioVincualaLicenciaTipoArma/{id}")
      public List<Licencia> getLicenciasUsuarioFacultaTipoArma(@PathParam("id") Long idTipoArma ){
     

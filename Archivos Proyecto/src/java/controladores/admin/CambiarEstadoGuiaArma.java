@@ -1,14 +1,11 @@
 
-package controladores.usuario;
+package controladores.admin;
 /**
  *
  * @author Zatonio
  */
 
-
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.servlet.ServletException;
@@ -16,14 +13,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.dao.AnuncioJpaController;
 import modelo.dao.ArmaFuegoJpaController;
-import modelo.dao.ArmaReplicaJpaController;
-import modelo.dao.ImagenJpaController;
-import modelo.entidades.Anuncio;
+import modelo.dao.UsuarioJpaController;
 import modelo.entidades.ArmaFuego;
-import modelo.entidades.ArmaReplica;
-import modelo.entidades.Imagen;
 import modelo.entidades.Usuario;
 
 
@@ -31,8 +23,8 @@ import modelo.entidades.Usuario;
  *
  * @author Zatonio
  */
-@WebServlet(name = "VerAnuncio", urlPatterns = {"/usuario/VerAnuncio"})
-public class VerAnuncio extends HttpServlet {
+@WebServlet(name = "CambiarEstadoGuiaArma", urlPatterns = {"/admin/CambiarEstadoGuiaArma"})
+public class CambiarEstadoGuiaArma extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -45,43 +37,57 @@ public class VerAnuncio extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String vista = "/usuario/verAnuncio.jsp";
-        
+        String vista = "/admin/error.jsp";
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         request.setAttribute("usuario", usuario);
-        List<Imagen>imagenes= new ArrayList<>();
-        Long idAnuncio= Long.parseLong(request.getParameter("anuncioVer"));
         
-         EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife");   
-        AnuncioJpaController ajc= new AnuncioJpaController(emf);
-        Anuncio anuncio=ajc.findAnuncio(idAnuncio);
-        request.setAttribute( "anuncio",anuncio);
-        ImagenJpaController ijc=new ImagenJpaController(emf);
-        List<Imagen> imagenesAnuncio=new ArrayList<>();
-        imagenes=ijc.findImagenEntities();
-        for(Imagen imagen:imagenes){
-            if(imagen.getId_anuncio().getId_anuncio().equals(idAnuncio)){
-                imagenesAnuncio.add(imagen);
-            }
-        }
-        request.setAttribute("imagenes", imagenesAnuncio);
-        ArmaFuegoJpaController afjc=new ArmaFuegoJpaController(emf);
-       
-        if( afjc.findArmaFuego(anuncio.getId_arma().getId_arma()) != null){
-            ArmaFuego af=afjc.findArmaFuego(anuncio.getId_arma().getId_arma());
-            request.setAttribute("arma_fuego", af);
+        String error="";
+        
+           
+        
+        if(request.getParameter("guiaEditar")!=null){
+           
+           EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife"); 
+            ArmaFuegoJpaController afjc=new ArmaFuegoJpaController(emf);
+        Long id = Long.valueOf(request.getParameter("guiaEditar"));
+        
+            ArmaFuego af=afjc.findArmaFuego(id);
+            
+         if(af.getGuia_validada()==true){
+             af.setGuia_validada(false);
+         }else{
+             af.setGuia_validada(true);
+         }
+         
+           
+        
+        try {
+                    afjc.edit(af);
+                    
+                    response.sendRedirect("./AdministrarAnunciosFuego");
+                    return;
+                } catch (Exception e) {
+                    request.setAttribute("error", "Error editando el usuario");
+                    request.setAttribute("usuario", usuario);
+                }
+            
+
+            
         }else{
-            ArmaReplicaJpaController arjc=new ArmaReplicaJpaController(emf);
-            ArmaReplica ar=arjc.findArmaReplica(anuncio.getId_arma().getId_arma());
-             request.setAttribute("arma_replica", ar);
+            error="Lo siento ha habido un fallo en la aplicacion";
+            request.setAttribute("error", error);
+            
         }
-          String comprar="comprar";
-          request.setAttribute("comprar", comprar);
-         getServletContext().getRequestDispatcher(vista).forward(request, response);
-    }       
+                 if (!error.isEmpty()) {
+                 getServletContext().getRequestDispatcher(vista).forward(request, response);
                 
-
-
+            }
+    }   
+            
+        
+        
+        
+        
         
     
 
@@ -118,7 +124,6 @@ public class VerAnuncio extends HttpServlet {
      *
      * @return a String containing servlet description
      */
-    
     @Override
     public String getServletInfo() {
         return "Short description";

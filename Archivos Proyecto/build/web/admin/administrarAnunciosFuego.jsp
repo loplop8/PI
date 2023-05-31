@@ -10,7 +10,7 @@
 
         <script src="../boostrap/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>  
-        <link rel="stylesheet" href="./../css/style4.css">
+        <link rel="stylesheet" href="./../css/style5.css">
 
     </head>
 
@@ -193,12 +193,14 @@
                                                             <th class="text-center">Fecha Expedicion Guia</th>
                                                             <th class="text-center">Anverso Guia</th>
                                                             <th class="text-center">Reverso Guia</th>
-                                                            <th class="text-center">Estado del Anuncio</th>
+                                                            <th class="text-center">Estado Guia</th>
                                                             
+                                                     
+
 
 
                                                         </tr>
-                                                        
+
                                                     </thead>
                                                     <tbody>
 
@@ -209,7 +211,7 @@
                                                                 <td class="text-center align-middle"><fmt:formatDate value="${a.fecha_public}" pattern="dd-MM-yyyy"/></td>
                                                                 <td class="text-center align-middle">${a.precio}</td>
                                                                 <td class="text-center align-middle">${a.id_arma.marca}</td>
-                                                                
+
                                                                 <td class="text-center align-middle">
                                                                     <c:forEach items="${armas_fuego}" var="arma">
                                                                         <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
@@ -224,7 +226,7 @@
                                                                     </c:forEach>
                                                                 </td>
                                                                 <td class="text-center align-middle">
-                                                                   <c:forEach items="${armas_fuego}" var="arma">
+                                                                    <c:forEach items="${armas_fuego}" var="arma">
                                                                         <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
                                                                             ${arma.num_identificacion}
                                                                         </c:if>
@@ -241,50 +243,118 @@
                                                                     <c:forEach items="${armas_fuego}" var="arma">
                                                                         <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
                                                                             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#guiaA${arma.id_arma.id_arma}">
-                                                                        <img src="${arma.url_img_guia_anverso}" width="75" alt="Reverso "/>
-                                                                    </button>
+                                                                                <img src="${arma.url_img_guia_anverso}" width="75" alt="Reverso "/>
+                                                                            </button>
                                                                         </c:if>
                                                                     </c:forEach>
                                                                 </td>
                                                                 <td class="text-center align-middle">
                                                                     <c:forEach items="${armas_fuego}" var="arma">
-                                                                       <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
+                                                                        <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
                                                                             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#guiaR${arma.id_arma.id_arma}">
-                                                                        <img src="${arma.url_img_guia_reverso}" width="75" alt="Reverso "/>
-                                                                    </button>
+                                                                                <img src="${arma.url_img_guia_reverso}" width="75" alt="Reverso "/>
+                                                                            </button>
                                                                         </c:if>
                                                                     </c:forEach>
                                                                 </td>
-                                                               
+
+
+
+
+                                                                <td class="text-center align-middle">
+                                                                    
+                                                                    <c:forEach items="${armas_fuego}" var="arma">
+                                                                        <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
+                                                                          
+                                                                            <c:if test="${arma.guia_validada==true}">
+                                                                                Validada
+                                                                            </c:if>
+                                                                            <c:if test="${arma.guia_validada==false}">
+                                                                                No Validada
+                                                                            </c:if>
+                                                                        </c:if>
+                                                                    </c:forEach>
                                                                 
                                                                 
+                                                                </td>
+
                                                                 
-                                                                
-                                                                <td class="text-center align-middle">${a.id_estado_anuncio.estado}</td>
-                                                                
-                                                                
+
+
                                                             </tr>
                                                             <tr>
-                                                                <td class="text-center align-middle">
-                                                                    <form action="./CambiarEstadoLicencia" method="post">
-                                                                        <input type="hidden" name="licenciaEditar" value="${l.id_licencia}"/>
-                                                                        <c:if test="${l.licencia_validada}">
-                                                                            <input type="submit" class="btn btn-sm btn-danger" value="Desvalidar Licencia"/>
-                                                                        </c:if>
-                                                                        <c:if test="${!l.licencia_validada}">
-                                                                            <input type="submit" class="btn btn-sm btn-success" value="Validar Licencia"/>
-                                                                        </c:if>
-                                                                    </form>
+                                                                
+                                                                <td class="text-center align-middle font-weight-bold" colspan="2">
+                                                                    Estado del anuncio: ${a.id_estado_anuncio.estado} </td>
+                                                                <td class="text-center align-middle" colspan="2">
+                                                                    <form action="../VerAnuncio" method="post">
+                                            
+                                                <input type="hidden" name="anuncioVer" value="${a.id_anuncio}"/>
+                                                    
+                                                <input type="submit" class="btn btn-sm btn-primary" value="Ver Anuncio"/>
+                                            
+                                            </form>
+                                                                    
+                                                                    
+                                                                    
                                                                 </td>
-                                                                <td class="text-center align-middle">
-                                                                    <form action="./CambiarEstadoLicencia" method="post">
-                                                                        <input type="hidden" name="licenciaEditar" value="${l.id_licencia}"/>
-                                                                        <c:if test="${l.licencia_validada}">
-                                                                            <input type="submit" class="btn btn-sm btn-danger" value="Desvalidar Licencia"/>
+                                                                <td class="text-center align-middle" colspan="2">
+                                                                   <form action="./AdminEditarAnuncio" method="post">
+                                            
+                                               
+                                                         <input type="hidden" name="anuncioEditar" value="${a.id_anuncio}"/>
+                                                <input type="submit" class="btn btn-sm btn-primary" value="Editar Anuncio"/>
+                                            
+                                            </form>
+                                                                </td>
+
+
+                                                                <td class="text-center align-middle" colspan="2">
+                                                                    <form action="./AdminBorrarAnuncio" method="post">
+                                            
+                                               
+                                                         <input type="hidden" name="anuncioBorrar" value="${a.id_anuncio}"/>
+                                                <input type="submit" class="btn btn-sm btn-danger" value="Borrar Anuncio"/>
+                                            
+                                            </form>
+                                                                </td>
+
+                                                                <td class="text-center align-middle" colspan="2">
+                                                                    <form action="./CambiarEstadoGuiaArma" method="post">
+                                                                    <c:forEach items="${armas_fuego}" var="arma">
+                                                                        <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
+                                                                          <input type="hidden" name="guiaEditar" value="${arma.id_arma.id_arma}"/>
                                                                         </c:if>
-                                                                        <c:if test="${!l.licencia_validada}">
-                                                                            <input type="submit" class="btn btn-sm btn-success" value="Validar Licencia"/>
+                                                                  
+                                                                        
+                                                                         <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">   
+                                                                    <c:if test="${arma.guia_validada}">
+                                                                        <input type="submit" class="btn btn-sm btn-danger" value="Desvalidar Guia"/>
+                                                                    </c:if>
                                                                         </c:if>
+                                                                        
+                                                                    
+                                                                         <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">      
+                                                                    <c:if test="${!arma.guia_validada}">
+                                                                        <input type="submit" class="btn btn-sm btn-success" value="Validar Guia"/>
+                                                                    </c:if>
+                                                                         </c:if>
+                                                                    </c:forEach>
+                                                                        
+                                                                       
+                                                                    </form>
+                                                                   
+                                                                </td>
+
+                                                                <td class="text-center align-middle" colspan="3">
+                                                                    <form action="./CambiarEstadoAnuncio" method="post">
+                                                                    <input type="hidden" name="anuncioEditar" value="${a.id_anuncio}"/>
+                                                                    <c:if test="${a.id_estado_anuncio.id_estado_anuncio==3}">
+                                                                        <input type="submit" class="btn btn-sm btn-danger" value="Desvalidar Anuncio"/>
+                                                                    </c:if>
+                                                                    <c:if test="${a.id_estado_anuncio.id_estado_anuncio==2}">
+                                                                        <input type="submit" class="btn btn-sm btn-success" value="Validar Anuncio"/>
+                                                                    </c:if>
                                                                     </form>
                                                                 </td>
                                                             </tr>   
@@ -304,26 +374,26 @@
                         <c:forEach  items="${anuncios}" var="a">
                             <c:forEach items="${armas_fuego}" var="arma">
                                 <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
-                            
-                            <div tabindex="-1 " aria-labelledby="guiaA${arma.id_arma.id_arma}" aria-hidden="true" class="modal fade" id="guiaA${arma.id_arma.id_arma}">
-                                <div class="modal-dialog modal-lg modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <img src="${arma.url_img_guia_anverso}" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                                   
 
-                            <div tabindex="-1 " aria-labelledby="guiaR${arma.id_arma.id_arma}" aria-hidden="true" class="modal fade" id="guiaR${arma.id_arma.id_arma}">
-                                <div class="modal-dialog modal-lg modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <img src="${arma.url_img_guia_reverso}" alt="">
+                                    <div tabindex="-1 " aria-labelledby="guiaA${arma.id_arma.id_arma}" aria-hidden="true" class="modal fade" id="guiaA${arma.id_arma.id_arma}">
+                                        <div class="modal-dialog modal-lg modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <img src="${arma.url_img_guia_anverso}" alt="">
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                                    
-                          </c:if>        
-                        </c:forEach>
+
+
+                                    <div tabindex="-1 " aria-labelledby="guiaR${arma.id_arma.id_arma}" aria-hidden="true" class="modal fade" id="guiaR${arma.id_arma.id_arma}">
+                                        <div class="modal-dialog modal-lg modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <img src="${arma.url_img_guia_reverso}" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </c:if>        
+                            </c:forEach>
                         </c:forEach>     
                     </main>
 

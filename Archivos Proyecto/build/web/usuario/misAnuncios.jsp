@@ -204,7 +204,7 @@
                                         <td class="text-center">${a.id_arma.marca}</td>
                                         <td class="text-center">${a.id_estado_anuncio.estado}</td>
                                         <td class="text-center align-middle">
-                                            <form action="./VerAnuncio" method="post">
+                                            <form action="../VerAnuncio" method="post">
                                             
                                                 <input type="hidden" name="anuncioVer" value="${a.id_anuncio}"/>
                                                     
@@ -227,7 +227,7 @@
                                             <form action="./BorrarAnuncio" method="post">
                                             
                                                 <input type="hidden" name="anuncioBorrar" value="${a.id_anuncio}"/>
-                                            <input type="submit" id="anuncioBorrar" class="btn btn-sm btn-danger" value="Borrar"/>
+                                            <input type="submit" id="" class="btn btn-sm btn-danger anuncioBorrar" value="Borrar"/>
                                             </form>
                                         </td>
                                         

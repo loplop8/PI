@@ -40,7 +40,7 @@
                 <li><a href="../ComoTrabajamos" class="nav-link px-2 text-white mt-2 elementosNoResponsive">Como
                         Trabajamos</a></li>
                 <li><a href="../Foro" class="nav-link px-2 text-white mt-2 elementosNoResponsive">Foro</a></li>
-                <li><a href="../Encuentranos"
+                <li><a href="./Encuentranos"
                         class="nav-link px-2 text-white mt-2 elementosNoResponsive">Encuentranos</a></li>
             </ul>
 

@@ -48,7 +48,7 @@ public class AdministrarAnunciosFuego extends HttpServlet {
         request.setAttribute("usuario", usuario);
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife"); 
         AnuncioJpaController ajc = new AnuncioJpaController(emf);
-        List<Anuncio>anuncios=ajc.findAnuncioEntities();
+        List<Anuncio>anuncios=ajc.obtenerListaAnunciosArmasFuego();
         request.setAttribute("anuncios",anuncios);
         
         
