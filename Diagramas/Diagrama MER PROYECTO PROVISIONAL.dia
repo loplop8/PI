@@ -2680,13 +2680,13 @@
     </dia:object>
     <dia:object type="ER - Attribute" version="0" id="O79">
       <dia:attribute name="obj_pos">
-        <dia:point val="46.8257,14.4148"/>
+        <dia:point val="44.6859,13.4422"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="46.7757,14.3648;52.7257,16.2648"/>
+        <dia:rectangle val="44.6359,13.3922;50.5859,15.2922"/>
       </dia:attribute>
       <dia:attribute name="elem_corner">
-        <dia:point val="46.8257,14.4148"/>
+        <dia:point val="44.6859,13.4422"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
         <dia:real val="5.8499999999999996"/>
@@ -2727,14 +2727,14 @@
     </dia:object>
     <dia:object type="Standard - Line" version="0" id="O80">
       <dia:attribute name="obj_pos">
-        <dia:point val="50.9034,14.4602"/>
+        <dia:point val="49.1686,13.5492"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="50.8334,9.61466;57.4144,14.5301"/>
+        <dia:rectangle val="49.1013,9.61626;56.8292,13.6164"/>
       </dia:attribute>
       <dia:attribute name="conn_endpoints">
-        <dia:point val="50.9034,14.4602"/>
-        <dia:point val="57.3444,9.6846"/>
+        <dia:point val="49.1686,13.5492"/>
+        <dia:point val="56.7619,9.6835"/>
       </dia:attribute>
       <dia:attribute name="numcp">
         <dia:int val="1"/>
@@ -2746,13 +2746,13 @@
     </dia:object>
     <dia:object type="ER - Attribute" version="0" id="O81">
       <dia:attribute name="obj_pos">
-        <dia:point val="53.5183,15.3128"/>
+        <dia:point val="47.488,15.8964"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="53.4683,15.2628;60.1883,17.1628"/>
+        <dia:rectangle val="47.438,15.8464;54.158,17.7464"/>
       </dia:attribute>
       <dia:attribute name="elem_corner">
-        <dia:point val="53.5183,15.3128"/>
+        <dia:point val="47.488,15.8964"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
         <dia:real val="6.6200000000000001"/>
@@ -2793,14 +2793,14 @@
     </dia:object>
     <dia:object type="Standard - Line" version="0" id="O82">
       <dia:attribute name="obj_pos">
-        <dia:point val="58.3972,9.6846"/>
+        <dia:point val="57.7034,9.68443"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="56.9955,9.6243;58.4575,15.3265"/>
+        <dia:rectangle val="51.6068,9.61372;57.7741,15.9612"/>
       </dia:attribute>
       <dia:attribute name="conn_endpoints">
-        <dia:point val="58.3972,9.6846"/>
-        <dia:point val="57.0558,15.2662"/>
+        <dia:point val="57.7034,9.68443"/>
+        <dia:point val="51.6775,15.8905"/>
       </dia:attribute>
       <dia:attribute name="numcp">
         <dia:int val="1"/>
@@ -2812,13 +2812,13 @@
     </dia:object>
     <dia:object type="ER - Attribute" version="0" id="O83">
       <dia:attribute name="obj_pos">
-        <dia:point val="60.5588,15.5065"/>
+        <dia:point val="53.8152,17.3221"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="60.5088,15.4565;66.8438,17.3565"/>
+        <dia:rectangle val="53.7652,17.2721;60.1002,19.1721"/>
       </dia:attribute>
       <dia:attribute name="elem_corner">
-        <dia:point val="60.5588,15.5065"/>
+        <dia:point val="53.8152,17.3221"/>
       </dia:attribute>
       <dia:attribute name="elem_width">
         <dia:real val="6.2350000000000003"/>
@@ -3447,14 +3447,14 @@
     </dia:object>
     <dia:object type="Standard - Line" version="0" id="O102">
       <dia:attribute name="obj_pos">
-        <dia:point val="59.251,9.68486"/>
+        <dia:point val="58.456,9.68502"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
-        <dia:rectangle val="59.1817,9.6156;63.1361,15.55"/>
+        <dia:rectangle val="57.0439,9.62702;58.514,17.3322"/>
       </dia:attribute>
       <dia:attribute name="conn_endpoints">
-        <dia:point val="59.251,9.68486"/>
-        <dia:point val="63.0668,15.4808"/>
+        <dia:point val="58.456,9.68502"/>
+        <dia:point val="57.1019,17.2742"/>
       </dia:attribute>
       <dia:attribute name="numcp">
         <dia:int val="1"/>
@@ -7797,13 +7797,13 @@
     </dia:object>
     <dia:object type="Standard - Line" version="0" id="O238">
       <dia:attribute name="obj_pos">
-        <dia:point val="-33.051,29.7612"/>
+        <dia:point val="-33.051,29.7611"/>
       </dia:attribute>
       <dia:attribute name="obj_bb">
         <dia:rectangle val="-33.1111,23.4435;-6.35153,29.8213"/>
       </dia:attribute>
       <dia:attribute name="conn_endpoints">
-        <dia:point val="-33.051,29.7612"/>
+        <dia:point val="-33.051,29.7611"/>
         <dia:point val="-6.41164,23.5036"/>
       </dia:attribute>
       <dia:attribute name="numcp">
@@ -7878,6 +7878,330 @@
       <dia:connections>
         <dia:connection handle="0" to="O239" connection="8"/>
         <dia:connection handle="1" to="O44" connection="8"/>
+      </dia:connections>
+    </dia:object>
+    <dia:object type="ER - Entity" version="0" id="O241">
+      <dia:attribute name="obj_pos">
+        <dia:point val="68.9721,20.0695"/>
+      </dia:attribute>
+      <dia:attribute name="obj_bb">
+        <dia:rectangle val="68.9221,20.0195;75.8121,21.9195"/>
+      </dia:attribute>
+      <dia:attribute name="elem_corner">
+        <dia:point val="68.9721,20.0695"/>
+      </dia:attribute>
+      <dia:attribute name="elem_width">
+        <dia:real val="6.7899999999999991"/>
+      </dia:attribute>
+      <dia:attribute name="elem_height">
+        <dia:real val="1.8"/>
+      </dia:attribute>
+      <dia:attribute name="border_width">
+        <dia:real val="0.10000000000000001"/>
+      </dia:attribute>
+      <dia:attribute name="border_color">
+        <dia:color val="#000000"/>
+      </dia:attribute>
+      <dia:attribute name="inner_color">
+        <dia:color val="#ffffff"/>
+      </dia:attribute>
+      <dia:attribute name="name">
+        <dia:string>#estado_anuncio#</dia:string>
+      </dia:attribute>
+      <dia:attribute name="weak">
+        <dia:boolean val="false"/>
+      </dia:attribute>
+      <dia:attribute name="associative">
+        <dia:boolean val="false"/>
+      </dia:attribute>
+      <dia:attribute name="font">
+        <dia:font family="monospace" style="0" name="Courier"/>
+      </dia:attribute>
+      <dia:attribute name="font_height">
+        <dia:real val="0.80000000000000004"/>
+      </dia:attribute>
+    </dia:object>
+    <dia:object type="ER - Attribute" version="0" id="O242">
+      <dia:attribute name="obj_pos">
+        <dia:point val="64.6277,26.2295"/>
+      </dia:attribute>
+      <dia:attribute name="obj_bb">
+        <dia:rectangle val="64.5777,26.1795;73.2227,28.0795"/>
+      </dia:attribute>
+      <dia:attribute name="elem_corner">
+        <dia:point val="64.6277,26.2295"/>
+      </dia:attribute>
+      <dia:attribute name="elem_width">
+        <dia:real val="8.5449999999999999"/>
+      </dia:attribute>
+      <dia:attribute name="elem_height">
+        <dia:real val="1.8"/>
+      </dia:attribute>
+      <dia:attribute name="border_width">
+        <dia:real val="0.10000000000000001"/>
+      </dia:attribute>
+      <dia:attribute name="border_color">
+        <dia:color val="#000000"/>
+      </dia:attribute>
+      <dia:attribute name="inner_color">
+        <dia:color val="#ffffff"/>
+      </dia:attribute>
+      <dia:attribute name="name">
+        <dia:string>#id_estado_anuncio#</dia:string>
+      </dia:attribute>
+      <dia:attribute name="key">
+        <dia:boolean val="true"/>
+      </dia:attribute>
+      <dia:attribute name="weak_key">
+        <dia:boolean val="false"/>
+      </dia:attribute>
+      <dia:attribute name="derived">
+        <dia:boolean val="false"/>
+      </dia:attribute>
+      <dia:attribute name="multivalued">
+        <dia:boolean val="false"/>
+      </dia:attribute>
+      <dia:attribute name="font">
+        <dia:font family="monospace" style="0" name="Courier"/>
+      </dia:attribute>
+      <dia:attribute name="font_height">
+        <dia:real val="0.80000000000000004"/>
+      </dia:attribute>
+    </dia:object>
+    <dia:object type="Standard - Line" version="0" id="O243">
+      <dia:attribute name="obj_pos">
+        <dia:point val="71.8355,21.914"/>
+      </dia:attribute>
+      <dia:attribute name="obj_bb">
+        <dia:rectangle val="69.3596,21.8459;71.9036,26.2603"/>
+      </dia:attribute>
+      <dia:attribute name="conn_endpoints">
+        <dia:point val="71.8355,21.914"/>
+        <dia:point val="69.4277,26.1922"/>
+      </dia:attribute>
+      <dia:attribute name="numcp">
+        <dia:int val="1"/>
+      </dia:attribute>
+      <dia:connections>
+        <dia:connection handle="0" to="O241" connection="8"/>
+        <dia:connection handle="1" to="O242" connection="8"/>
+      </dia:connections>
+    </dia:object>
+    <dia:object type="ER - Attribute" version="0" id="O244">
+      <dia:attribute name="obj_pos">
+        <dia:point val="75.0024,26.4016"/>
+      </dia:attribute>
+      <dia:attribute name="obj_bb">
+        <dia:rectangle val="74.9524,26.3516;79.3624,28.2516"/>
+      </dia:attribute>
+      <dia:attribute name="elem_corner">
+        <dia:point val="75.0024,26.4016"/>
+      </dia:attribute>
+      <dia:attribute name="elem_width">
+        <dia:real val="4.3100000000000005"/>
+      </dia:attribute>
+      <dia:attribute name="elem_height">
+        <dia:real val="1.8"/>
+      </dia:attribute>
+      <dia:attribute name="border_width">
+        <dia:real val="0.10000000000000001"/>
+      </dia:attribute>
+      <dia:attribute name="border_color">
+        <dia:color val="#000000"/>
+      </dia:attribute>
+      <dia:attribute name="inner_color">
+        <dia:color val="#ffffff"/>
+      </dia:attribute>
+      <dia:attribute name="name">
+        <dia:string>#estado#</dia:string>
+      </dia:attribute>
+      <dia:attribute name="key">
+        <dia:boolean val="false"/>
+      </dia:attribute>
+      <dia:attribute name="weak_key">
+        <dia:boolean val="false"/>
+      </dia:attribute>
+      <dia:attribute name="derived">
+        <dia:boolean val="false"/>
+      </dia:attribute>
+      <dia:attribute name="multivalued">
+        <dia:boolean val="false"/>
+      </dia:attribute>
+      <dia:attribute name="font">
+        <dia:font family="monospace" style="0" name="Courier"/>
+      </dia:attribute>
+      <dia:attribute name="font_height">
+        <dia:real val="0.80000000000000004"/>
+      </dia:attribute>
+    </dia:object>
+    <dia:object type="Standard - Line" version="0" id="O245">
+      <dia:attribute name="obj_pos">
+        <dia:point val="73.0858,21.9195"/>
+      </dia:attribute>
+      <dia:attribute name="obj_bb">
+        <dia:rectangle val="73.0157,21.8494;76.5485,26.4742"/>
+      </dia:attribute>
+      <dia:attribute name="conn_endpoints">
+        <dia:point val="73.0858,21.9195"/>
+        <dia:point val="76.4785,26.4042"/>
+      </dia:attribute>
+      <dia:attribute name="numcp">
+        <dia:int val="1"/>
+      </dia:attribute>
+      <dia:connections>
+        <dia:connection handle="0" to="O241" connection="8"/>
+        <dia:connection handle="1" to="O244" connection="8"/>
+      </dia:connections>
+    </dia:object>
+    <dia:object type="ER - Relationship" version="0" id="O246">
+      <dia:attribute name="obj_pos">
+        <dia:point val="62.719,13.109"/>
+      </dia:attribute>
+      <dia:attribute name="obj_bb">
+        <dia:rectangle val="62.669,11.959;66.694,16.614"/>
+      </dia:attribute>
+      <dia:attribute name="elem_corner">
+        <dia:point val="62.719,13.109"/>
+      </dia:attribute>
+      <dia:attribute name="elem_width">
+        <dia:real val="3.9249999999999998"/>
+      </dia:attribute>
+      <dia:attribute name="elem_height">
+        <dia:real val="2.355"/>
+      </dia:attribute>
+      <dia:attribute name="border_width">
+        <dia:real val="0.10000000000000001"/>
+      </dia:attribute>
+      <dia:attribute name="border_color">
+        <dia:color val="#000000"/>
+      </dia:attribute>
+      <dia:attribute name="inner_color">
+        <dia:color val="#ffffff"/>
+      </dia:attribute>
+      <dia:attribute name="name">
+        <dia:string>#tiene#</dia:string>
+      </dia:attribute>
+      <dia:attribute name="left_card">
+        <dia:string>#1#</dia:string>
+      </dia:attribute>
+      <dia:attribute name="right_card">
+        <dia:string>#n#</dia:string>
+      </dia:attribute>
+      <dia:attribute name="identifying">
+        <dia:boolean val="false"/>
+      </dia:attribute>
+      <dia:attribute name="rotated">
+        <dia:boolean val="true"/>
+      </dia:attribute>
+      <dia:attribute name="font">
+        <dia:font family="monospace" style="0" name="Courier"/>
+      </dia:attribute>
+      <dia:attribute name="font_height">
+        <dia:real val="0.80000000000000004"/>
+      </dia:attribute>
+    </dia:object>
+    <dia:object type="Standard - Line" version="0" id="O247">
+      <dia:attribute name="obj_pos">
+        <dia:point val="71.0414,20.0199"/>
+      </dia:attribute>
+      <dia:attribute name="obj_bb">
+        <dia:rectangle val="64.6117,15.3942;71.1112,20.0896"/>
+      </dia:attribute>
+      <dia:attribute name="conn_endpoints">
+        <dia:point val="71.0414,20.0199"/>
+        <dia:point val="64.6815,15.464"/>
+      </dia:attribute>
+      <dia:attribute name="numcp">
+        <dia:int val="1"/>
+      </dia:attribute>
+      <dia:connections>
+        <dia:connection handle="0" to="O241" connection="8"/>
+        <dia:connection handle="1" to="O246" connection="6"/>
+      </dia:connections>
+    </dia:object>
+    <dia:object type="Standard - Line" version="0" id="O248">
+      <dia:attribute name="obj_pos">
+        <dia:point val="64.6815,13.109"/>
+      </dia:attribute>
+      <dia:attribute name="obj_bb">
+        <dia:rectangle val="59.8701,9.61436;64.7513,13.1788"/>
+      </dia:attribute>
+      <dia:attribute name="conn_endpoints">
+        <dia:point val="64.6815,13.109"/>
+        <dia:point val="59.9399,9.68417"/>
+      </dia:attribute>
+      <dia:attribute name="numcp">
+        <dia:int val="1"/>
+      </dia:attribute>
+      <dia:connections>
+        <dia:connection handle="0" to="O246" connection="2"/>
+        <dia:connection handle="1" to="O75" connection="8"/>
+      </dia:connections>
+    </dia:object>
+    <dia:object type="ER - Attribute" version="0" id="O249">
+      <dia:attribute name="obj_pos">
+        <dia:point val="82.0053,26.3944"/>
+      </dia:attribute>
+      <dia:attribute name="obj_bb">
+        <dia:rectangle val="81.9553,26.3444;88.2903,28.2444"/>
+      </dia:attribute>
+      <dia:attribute name="elem_corner">
+        <dia:point val="82.0053,26.3944"/>
+      </dia:attribute>
+      <dia:attribute name="elem_width">
+        <dia:real val="6.2350000000000003"/>
+      </dia:attribute>
+      <dia:attribute name="elem_height">
+        <dia:real val="1.8"/>
+      </dia:attribute>
+      <dia:attribute name="border_width">
+        <dia:real val="0.10000000000000001"/>
+      </dia:attribute>
+      <dia:attribute name="border_color">
+        <dia:color val="#000000"/>
+      </dia:attribute>
+      <dia:attribute name="inner_color">
+        <dia:color val="#ffffff"/>
+      </dia:attribute>
+      <dia:attribute name="name">
+        <dia:string>#descripcion#</dia:string>
+      </dia:attribute>
+      <dia:attribute name="key">
+        <dia:boolean val="false"/>
+      </dia:attribute>
+      <dia:attribute name="weak_key">
+        <dia:boolean val="false"/>
+      </dia:attribute>
+      <dia:attribute name="derived">
+        <dia:boolean val="false"/>
+      </dia:attribute>
+      <dia:attribute name="multivalued">
+        <dia:boolean val="false"/>
+      </dia:attribute>
+      <dia:attribute name="font">
+        <dia:font family="monospace" style="0" name="Courier"/>
+      </dia:attribute>
+      <dia:attribute name="font_height">
+        <dia:real val="0.80000000000000004"/>
+      </dia:attribute>
+    </dia:object>
+    <dia:object type="Standard - Line" version="0" id="O250">
+      <dia:attribute name="obj_pos">
+        <dia:point val="74.2831,21.9196"/>
+      </dia:attribute>
+      <dia:attribute name="obj_bb">
+        <dia:rectangle val="74.2161,21.8525;83.5763,26.5614"/>
+      </dia:attribute>
+      <dia:attribute name="conn_endpoints">
+        <dia:point val="74.2831,21.9196"/>
+        <dia:point val="83.5093,26.4944"/>
+      </dia:attribute>
+      <dia:attribute name="numcp">
+        <dia:int val="1"/>
+      </dia:attribute>
+      <dia:connections>
+        <dia:connection handle="0" to="O241" connection="8"/>
+        <dia:connection handle="1" to="O249" connection="8"/>
       </dia:connections>
     </dia:object>
   </dia:layer>
