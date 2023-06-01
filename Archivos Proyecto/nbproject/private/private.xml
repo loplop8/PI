@@ -3,32 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/src/java/controladores/admin/PanelAdministarAnuncios.java</file>
-            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/web/usuario/misAnuncios.jsp</file>
-            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/src/java/modelo/entidades/Anuncio.java</file>
-            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/src/java/modelo/dao/FacturaJpaController.java</file>
-            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/web/verAnuncio.jsp</file>
-            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/src/java/controladores/admin/CambiarEstadoAnuncio.java</file>
-            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/src/java/controladores/Inicio.java</file>
-            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/src/java/modelo/dao/HiloJpaController.java</file>
-            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/src/java/controladores/usuario/CrearAnuncio.java</file>
-            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/nbproject/private/private.xml</file>
-            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/src/java/controladores/VerAnuncio.java</file>
-            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/src/java/modelo/dao/ArmaReplicaJpaController.java</file>
-            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/web/inicio.jsp</file>
-            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/src/java/modelo/dao/ArmaJpaController.java</file>
-            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/src/java/modelo/dao/ContratoCompraVentaJpaController.java</file>
-            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/src/java/modelo/entidades/ArmaFuego.java</file>
-            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/web/admin/administrarAnunciosReplica.jsp</file>
-            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/web/admin/panelAdministracion.jsp</file>
-            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/src/java/modelo/dao/EstadoPedidoJpaController.java</file>
-            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/web/usuario/verAnuncio.jsp</file>
-            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/web/admin/administrarAnunciosFuego.jsp</file>
-            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/src/java/controladores/admin/AdministrarAnunciosReplica.java</file>
-            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/src/java/modelo/dao/ImagenJpaController.java</file>
-            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/src/java/modelo/dao/LicenciaJpaController.java</file>
-            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/src/java/modelo/dao/AnuncioJpaController.java</file>
-            <file>file:/C:/Users/Jose%20Antonio%20López/Desktop/Proyecto%20Integrdo/PI/Archivos%20Proyecto/src/java/modelo/dao/EstadoAnuncioJpaController.java</file>
+            <file>file:/C:/Users/Zatonio/Downloads/PI-54a5bcebb5e10bc4dfc9f6d18866a4f66419f5ac/PI-54a5bcebb5e10bc4dfc9f6d18866a4f66419f5ac/Archivos%20Proyecto/src/java/controladores/Inicio.java</file>
+            <file>file:/C:/Users/Zatonio/Downloads/PI-54a5bcebb5e10bc4dfc9f6d18866a4f66419f5ac/PI-54a5bcebb5e10bc4dfc9f6d18866a4f66419f5ac/Archivos%20Proyecto/web/css/style3.css</file>
         </group>
     </open-files>
 </project-private>

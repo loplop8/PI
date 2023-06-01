@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -11,7 +12,7 @@
         <script src="boostrap/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>  
         <link rel="stylesheet" href="css/style.css">
-
+        <script src="js/irInicio.js"></script>
 
         <title>Second Weapon Life </title>
     </head>
@@ -185,6 +186,7 @@
                             <div class="container">
 
                                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                                    <c:forEach items="${anuncios}" var="a">
                                     <div class="col">
                                         <div class="card shadow-sm">
                                             <div >
@@ -193,23 +195,28 @@
                                             <div class="card-body">
                                                 <p class="card-text">
                                                 <div class="card" id="NombreAnuncio">
-                                                    <p>Nombre anuncio</p>
+                                                    <p>Titulo: ${a.titulo}</p>
                                                 </div>
                                                 <div class="card" id="CuerpoAnuncio">
-                                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim laborum molestiae dolor, qui dignissimos officiis officia in omnis fuga quia expedita, vitae rerum fugit necessitatibus impedit animi quidem excepturi incidunt.</p>
+                                                    <p>Descripción: ${a.descripcion}</p>
                                                 </div>
                                                 </p>
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <div class="btn-group">
                                                         <button type="button" class="btn btn-outline-warning  me-2 "data-bs-toggle="modal" data-bs-target="#modalImage1" > Ver el producto </button>
-                                                        <button type="button" class="btn btn-outline-warning  me-2">Ir al anuncio</button>
+                                                        <form method="post" action="./VerAnuncio">
+                                                            <input type="hidden" name="anuncioVer" value=${a.id_anuncio}> 
+                                                            <button  type="submit" class="btn btn-outline-warning  me-2">Ir al anuncio</button>
+                                                        </form>
+                                                        
                                                     </div>
                                                     <small class="text-muted">9 mins</small>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col">
+                                    </c:forEach>
+                                     <div class="col">
                                         <div class="card shadow-sm">
                                             <div >
                                                 <img src="img/Carabinas/355044-scaled.jpg" alt="" width="100%" height="225">
@@ -401,7 +408,9 @@
                                                     <small class="text-muted">9 mins</small>
                                                 </div>
                                             </div>
-                                        </div>
+                                        
+                                      </div>
+                                      
                                     </div>
                                 </div>
                             </div>
