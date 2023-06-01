@@ -212,23 +212,23 @@
                         Calibre: ${arma_fuego.calibre}<br/>
                     </c:if>
                     <c:if test="${arma_replica!=null}">
-                        Calibre: ${arma_replica.capacidad_cargador}
+                        Capacidad Cargador: ${arma_replica.capacidad_cargador}<br/>
                     </c:if>
                 </p>
                 <div class="fs-5">
-                    <span>Precio: ${anuncio.precio}&euro;</span>
+                    <span> Precio:  <fmt:formatNumber value="${anuncio.precio }" pattern="#,##0.00" />&euro;</span>
                 </div>
                 <div class="fs-5">
-                    <span>Transporte: ${(anuncio.precio*0.05)}&euro;</span>
+                    <span>Transporte: <fmt:formatNumber value="${(anuncio.precio*0.05) }" pattern="#,##0.00" />&euro;</span>
                 </div>
                 <div class="fs-5">
-                    <span>Gastos de Gestión: ${(anuncio.precio*0.1)}&euro;</span>
+                    <span>Gastos de Gestión: <fmt:formatNumber value="${(anuncio.precio*0.1)}" pattern="#,##0.00" />   &euro;</span>
                 </div>
                 <div class="fs-5">
                     <span>IVA: 21%</span>
                 </div>
                 <div class="fs-5">
-                    <span>Total: ${(anuncio.precio*0.21)+(anuncio.precio*0.1)+(anuncio.precio*0.05)+anuncio.precio}&euro;</span>
+                    <span>Total:  <fmt:formatNumber value="${(anuncio.precio*0.21)+(anuncio.precio*0.1)+(anuncio.precio*0.05)+anuncio.precio}" pattern="#,##0.00" />&euro;</span>
                 </div>
                     <c:if test="${siguiente!=null}">
                     <div class="d-flex">

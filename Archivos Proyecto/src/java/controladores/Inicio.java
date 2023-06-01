@@ -5,6 +5,7 @@ package controladores;
  * @author Zatonio
  */
 import java.io.IOException;
+import java.util.List;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.servlet.ServletException;
@@ -12,6 +13,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.dao.AnuncioJpaController;
+import modelo.entidades.Anuncio;
 
 import modelo.entidades.Usuario;
 
@@ -19,7 +22,7 @@ import modelo.entidades.Usuario;
  *
  * @author Zatonio
  */
-@WebServlet(name = "Inicio", urlPatterns = {"/Inicio"}  )
+@WebServlet(name = "/Inicio", urlPatterns = {"/Inicio"}  )
 public class Inicio extends HttpServlet {
     
         /**
@@ -33,11 +36,15 @@ public class Inicio extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String vista = "/index.jsp";
-           
+        
+        String vista = "/inicio.jsp";
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         request.setAttribute("usuario", usuario);
-            getServletContext().getRequestDispatcher(vista).forward(request, response);
+         EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife");
+        AnuncioJpaController ajc= new AnuncioJpaController(emf);
+       List<Anuncio> anuncios=ajc.obtenerListaAnunciosValidados();
+       request.setAttribute("anuncios", anuncios);
+       getServletContext().getRequestDispatcher(vista).forward(request, response);      
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -45,14 +45,14 @@ public class VistaPreviaAnuncio extends HttpServlet {
         List<Imagen>imagenes= new ArrayList<>();
         imagenes=(List<Imagen>) request.getSession().getAttribute("imagenes");
         Anuncio an=(Anuncio)request.getSession().getAttribute("anuncio");
-        if(request.getSession().getAttribute("arma_fuego")!=null){
-            ArmaFuego af= (ArmaFuego)request.getSession().getAttribute("arma_fuego");
-            request.getSession().setAttribute("arma_fuego", af);
-        }else if(request.getSession().getAttribute("arma_replica")!=null){
+        if(request.getAttribute("arma_fuego")!=null){
+            ArmaFuego af= (ArmaFuego)request.getAttribute("arma_fuego");
+            request.setAttribute("arma_fuego", af);
+        }else if(request.getAttribute("arma_replica")!=null){
             
                 
-                ArmaReplica ar= (ArmaReplica)request.getSession().getAttribute("arma_replica");
-                request.getSession().setAttribute("arma_replica", ar);
+                ArmaReplica ar= (ArmaReplica)request.getAttribute("arma_replica");
+                request.setAttribute("arma_replica", ar);
                 
         }       
         String siguiente="siguiente";

@@ -19,7 +19,7 @@ import modelo.dao.exceptions.NonexistentEntityException;
 import modelo.entidades.Anuncio;
 import modelo.entidades.Arma;
 import modelo.entidades.EstadoAnuncio;
-import modelo.entidades.TipoArma;
+
 /**
  *
  * @author Zatonio
@@ -169,7 +169,7 @@ public class AnuncioJpaController implements Serializable {
         TypedQuery<Object[]> query = em.createQuery(queryString, Object[].class);
                 
 
-        List<Anuncio> anunciosArmasFuego = new ArrayList<>();
+        List<Anuncio> anunciosArmasReplica = new ArrayList<>();
     List<Object[]> results = query.getResultList();
     for (Object[] result : results) {
         Anuncio anuncio = new Anuncio();
@@ -180,10 +180,57 @@ public class AnuncioJpaController implements Serializable {
         anuncio.setPrecio((Double)result[4]);
         anuncio.setId_arma((Arma)result[5]);
         anuncio.setId_estado_anuncio((EstadoAnuncio)result[6]);
-        anunciosArmasFuego.add(anuncio);
+        anunciosArmasReplica.add(anuncio);
     }
-    return anunciosArmasFuego;
+    return anunciosArmasReplica;
     }
+     
+    public Boolean esAnuncioArmasReplica(Long idAnuncio) {
+        Boolean esAnuncioArmasReplica=false;
+        EntityManager em = getEntityManager();
+          String queryString ="select a.id_anuncio, a.fecha_public, a.descripcion, a.titulo, a.precio, a.id_arma, a.id_estado_anuncio "
+                  + " from Anuncio a, Arma ar, ArmaReplica are where a.id_arma.id_arma=ar.id_arma AND ar.id_arma=are.id_arma.id_arma AND a.id_anuncio=:id";
+
+        TypedQuery<Object[]> query = em.createQuery(queryString, Object[].class).setParameter("id", idAnuncio);
+                
+
+        List<Anuncio> anunciosArmasReplica = new ArrayList<>();
+    List<Object[]> results = query.getResultList();
+    if( !results.isEmpty()){
+        esAnuncioArmasReplica=true;
+    }
+    return esAnuncioArmasReplica;
+    } 
+     
+     
+     
+      public List<Anuncio> obtenerListaAnunciosValidados() {
+        EntityManager em = getEntityManager();
+          String queryString =" select a.id_anuncio, a.fecha_public, a.descripcion, a.titulo, a.precio, a.id_arma, a.id_estado_anuncio"
+                  + " from Anuncio a  where a.id_estado_anuncio.id_estado_anuncio=3";
+          
+        TypedQuery<Object[]> query = em.createQuery(queryString, Object[].class);
+        List<Anuncio> anunciosArmasReplica = new ArrayList<>();
+    List<Object[]> results = query.getResultList();
+    for (Object[] result : results) {
+        Anuncio anuncio = new Anuncio();
+        anuncio.setId_anuncio((Long)result[0]);
+        anuncio.setFecha_public((Date)result[1]);
+        anuncio.setDescripcion((String)result[2]);
+        anuncio.setTitulo((String)result[3]);
+        anuncio.setPrecio((Double)result[4]);
+        anuncio.setId_arma((Arma)result[5]);
+        anuncio.setId_estado_anuncio((EstadoAnuncio)result[6]);
+        anunciosArmasReplica.add(anuncio);
+    }
+    return anunciosArmasReplica;
+    }
+      
+      
+
+      
+      
+      
     
     
 }

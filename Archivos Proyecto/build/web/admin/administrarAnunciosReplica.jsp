@@ -12,7 +12,7 @@
         <script src="../boostrap/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>  
         <link rel="stylesheet" href="./../css/style5.css">
-
+        <script src="../js/misAnuncios.js" defer></script>
     </head>
 
     <body>
@@ -263,11 +263,11 @@
 
 
                                                                         <input type="hidden" name="anuncioBorrar" value="${a.id_anuncio}"/>
-                                                                        <input type="submit" class="btn btn-sm btn-danger" value="Borrar Anuncio"/>
+                                                                        <input type="submit" class="btn btn-sm btn-danger anuncioBorrar" value="Borrar Anuncio"/>
 
                                                                     </form>
                                                                 </td>
-
+ 
                                                                 <td class="text-center align-middle" >
                                                                     <form action="./CambiarEstadoAnuncio" method="post">
                                                                         <input type="hidden" name="anuncioEditar" value="${a.id_anuncio}"/>

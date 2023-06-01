@@ -68,7 +68,7 @@ public class VerAnuncio extends HttpServlet {
         request.setAttribute("imagenes", imagenesAnuncio);
         ArmaFuegoJpaController afjc=new ArmaFuegoJpaController(emf);
        
-        if( afjc.findArmaFuego(anuncio.getId_arma().getId_arma()) != null){
+        if(afjc.findArmaFuego(anuncio.getId_arma().getId_arma()) != null){
             ArmaFuego af=afjc.findArmaFuego(anuncio.getId_arma().getId_arma());
             request.setAttribute("arma_fuego", af);
         }else{

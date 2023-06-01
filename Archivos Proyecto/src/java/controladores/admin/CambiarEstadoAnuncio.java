@@ -67,8 +67,12 @@ public class CambiarEstadoAnuncio extends HttpServlet {
         
         try {
                     ajc.edit(anuncio);
-                    
-                    response.sendRedirect("./AdministrarAnunciosFuego");
+                    if(ajc.esAnuncioArmasReplica(id)){
+                        response.sendRedirect("./AdministrarAnunciosReplica");
+                    }else{
+                       response.sendRedirect("./AdministrarAnunciosFuego");
+                    }
+                  
                     return;
                 } catch (Exception e) {
                     request.setAttribute("error", "Error editando el usuario");

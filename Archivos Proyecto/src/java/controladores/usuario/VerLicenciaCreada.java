@@ -18,8 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.entidades.Licencia;
 import modelo.entidades.Usuario;
-
-
 /**
  *
  * @author Zatonio

@@ -175,12 +175,14 @@ public class InformacionAnuncio extends HttpServlet {
         request.getSession().setAttribute("imagenes", imagenes);
         if(request.getSession().getAttribute("arma_fuego")!=null){
             ArmaFuego af= (ArmaFuego)request.getSession().getAttribute("arma_fuego");
-            request.getSession().setAttribute("arma_fuego", af);
+            request.setAttribute("arma_fuego", af);
+             request.getSession().removeAttribute("arma_fuego");
         }else if(request.getSession().getAttribute("arma_replica")!=null){
             
         
                 ArmaReplica ar= (ArmaReplica)request.getSession().getAttribute("arma_replica");
-                request.getSession().setAttribute("arma_replica", ar);
+                request.setAttribute("arma_replica", ar);
+                request.getSession().removeAttribute("arma_replica");
         }
         
                 getServletContext().getRequestDispatcher(siguienteControlador).forward(request, response);
