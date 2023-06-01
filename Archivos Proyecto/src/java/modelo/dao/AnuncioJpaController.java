@@ -207,7 +207,7 @@ public class AnuncioJpaController implements Serializable {
       public List<Anuncio> obtenerListaAnunciosValidados() {
         EntityManager em = getEntityManager();
           String queryString =" select a.id_anuncio, a.fecha_public, a.descripcion, a.titulo, a.precio, a.id_arma, a.id_estado_anuncio"
-                  + " from Anuncio a  where a.id_estado_anuncio.id_estado_anuncio=3";
+                  + " from Anuncio a   where a.id_estado_anuncio.id_estado_anuncio=3";
           
         TypedQuery<Object[]> query = em.createQuery(queryString, Object[].class);
         List<Anuncio> anunciosArmasReplica = new ArrayList<>();

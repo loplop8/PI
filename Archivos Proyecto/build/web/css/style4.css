@@ -20,7 +20,9 @@ body,div,footer{
 
 
 
-
+    table{
+        overflow-x: auto;
+    }
 
 
     

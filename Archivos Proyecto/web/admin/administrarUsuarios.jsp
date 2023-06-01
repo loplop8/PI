@@ -4,13 +4,17 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <link rel="stylesheet" href="../boostrap/bootstrap-5.0.2-dist/css/bootstrap.min.css">
-
-        <script src="../boostrap/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>  
-        <link rel="stylesheet" href="./../css/style4.css">
-
+      
+     <link rel="stylesheet" href="../boostrap/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+   <link href="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="./../css/style4.css">
+    <script src="../boostrap/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.js"></script>
+    <script src="../js/tablaUsuario.js" defer></script> 
+    
+    
+    
     </head>
 
     <body>
@@ -178,7 +182,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table  text-white">
+                            <table id="UsersTable" class="table text-white" >
                                 <thead>
                                     <tr>
                                         
@@ -438,6 +442,7 @@
 
 
 
-
+                        
                     </body>
+                    
                     </html>

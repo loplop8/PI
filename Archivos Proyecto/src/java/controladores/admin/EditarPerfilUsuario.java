@@ -155,7 +155,7 @@ public class EditarPerfilUsuario extends HttpServlet {
                     
                     ujc.edit(editar);
                     
-                    getServletContext().getRequestDispatcher(vista).forward(request, response);
+                    response.sendRedirect("./AdministrarUsuarios");
                     return;
                 } catch (Exception e) {
                     request.setAttribute("error", "Error editando el usuario");

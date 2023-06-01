@@ -291,6 +291,7 @@
                                             
                                                 <input type="hidden" name="anuncioVer" value="${a.id_anuncio}"/>
                                                     
+                                                
                                                 <input type="submit" class="btn btn-sm btn-primary" value="Ver Anuncio"/>
                                             
                                             </form>
@@ -352,7 +353,22 @@
                                                                         <input type="submit" class="btn btn-sm btn-danger" value="Desvalidar Anuncio"/>
                                                                     </c:if>
                                                                     <c:if test="${a.id_estado_anuncio.id_estado_anuncio==2}">
-                                                                        <input type="submit" class="btn btn-sm btn-success" value="Validar Anuncio"/>
+                                                                        
+                                                                        
+                                                                        
+                                                <c:forEach items="${armas_fuego}" var="arma">
+                                                  <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
+                                                                          
+                                                                            
+                                                                     
+                                     <input type="submit" class="btn btn-sm btn-success" <c:if test="${arma.guia_validada==false}"> disabled </c:if> value="Validar Anuncio"/>
+                                                                       
+                                                                        </c:if>
+                                                </c:forEach>
+                                                                        
+                                                                        
+                                                                        
+                                                                        
                                                                     </c:if>
                                                                     </form>
                                                                 </td>
