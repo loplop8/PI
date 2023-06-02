@@ -10,6 +10,10 @@
 
         <script src="../boostrap/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>  
+        <link href="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.css" rel="stylesheet"/>
+         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.js"></script>
+        <script src="../js/tablaLicencias.js" defer></script> 
         <link rel="stylesheet" href="./../css/style4.css">
 
     </head>
@@ -179,7 +183,7 @@
                                         </div>
                                         <div class="card-body">
                                             <div class="table-responsive">
-                                                <table class="table  text-white">
+                                                <table id="LicenciasTable" class="table  text-white">
                                                     <thead>
                                                         <tr>
                                                             <th class="text-center">Nickname Usuario</th>
@@ -189,7 +193,6 @@
                                                             <th class="text-center">Válida Hasta</th>
                                                             <th class="text-center">Observaciones</th>
                                                             <th class="text-center">Restricciones</th>
-
                                                             <th class="text-center">Imagen Anverso</th>
                                                             <th class="text-center">Imagen Reverso</th>
                                                             <th class="text-center">Validada Admin</th>

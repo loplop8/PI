@@ -10,8 +10,13 @@
 
         <script src="../boostrap/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>  
+        <link href="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.css" rel="stylesheet"/>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.datatables.net/v/bs5/dt-1.13.4/datatables.min.js"></script> 
         <link rel="stylesheet" href="./../css/style5.css">
         <script src="../js/misAnuncios.js" defer></script>
+        <script src="../js/tablaAnunciosFuego.js" defer></script>
+
     </head>
 
     <body>
@@ -179,13 +184,13 @@
                                         </div>
                                         <div class="card-body">
                                             <div class="table-responsive">
-                                                <table class="table  text-white">
+                                                <table id="AnunciosFuego" class="table text-white">
                                                     <thead>
                                                         <tr>
                                                             <th class="text-center">Usuario</th>
                                                             <th class="text-center">Titulo</th>
                                                             <th class="text-center">Fecha Publicación</th>
-                                                            <th class="text-center">Precio Neto</th>                                        
+                                                            <th class="text-center">Precio Neto</th>
                                                             <th class="text-center">Marca Arma</th>
                                                             <th class="text-center">Numero Guia</th>
                                                             <th class="text-center">Calibre</th>
@@ -194,16 +199,11 @@
                                                             <th class="text-center">Anverso Guia</th>
                                                             <th class="text-center">Reverso Guia</th>
                                                             <th class="text-center">Estado Guia</th>
-                                                            
-                                                     
-
-
-
+                                                            <th class="text-center">Estado Anuncio</th>
+                                                            <th class="text-center" colspan="5">Acciones</th>
                                                         </tr>
-
                                                     </thead>
                                                     <tbody>
-
                                                         <c:forEach items="${anuncios}" var="a">
                                                             <tr>
                                                                 <td class="text-center align-middle">${a.id_arma.id_usuario.nickname}</td>
@@ -211,13 +211,13 @@
                                                                 <td class="text-center align-middle"><fmt:formatDate value="${a.fecha_public}" pattern="dd-MM-yyyy"/></td>
                                                                 <td class="text-center align-middle">${a.precio}</td>
                                                                 <td class="text-center align-middle">${a.id_arma.marca}</td>
-
                                                                 <td class="text-center align-middle">
                                                                     <c:forEach items="${armas_fuego}" var="arma">
                                                                         <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
                                                                             ${arma.num_guia}
                                                                         </c:if>
                                                                     </c:forEach>
+                                                                </td>
                                                                 <td class="text-center align-middle">
                                                                     <c:forEach items="${armas_fuego}" var="arma">
                                                                         <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
@@ -243,7 +243,7 @@
                                                                     <c:forEach items="${armas_fuego}" var="arma">
                                                                         <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
                                                                             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#guiaA${arma.id_arma.id_arma}">
-                                                                                <img src="${arma.url_img_guia_anverso}" width="75" alt="Reverso "/>
+                                                                                <img src="${arma.url_img_guia_anverso}" width="75" alt="Reverso"/>
                                                                             </button>
                                                                         </c:if>
                                                                     </c:forEach>
@@ -252,133 +252,96 @@
                                                                     <c:forEach items="${armas_fuego}" var="arma">
                                                                         <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
                                                                             <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#guiaR${arma.id_arma.id_arma}">
-                                                                                <img src="${arma.url_img_guia_reverso}" width="75" alt="Reverso "/>
+                                                                                <img src="${arma.url_img_guia_reverso}" width="75" alt="Reverso"/>
                                                                             </button>
                                                                         </c:if>
                                                                     </c:forEach>
                                                                 </td>
-
-
-
-
                                                                 <td class="text-center align-middle">
-                                                                    
                                                                     <c:forEach items="${armas_fuego}" var="arma">
                                                                         <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
-                                                                          
-                                                                            <c:if test="${arma.guia_validada==true}">
+                                                                            <c:if test="${arma.guia_validada}">
                                                                                 Validada
                                                                             </c:if>
-                                                                            <c:if test="${arma.guia_validada==false}">
+                                                                            <c:if test="${!arma.guia_validada}">
                                                                                 No Validada
                                                                             </c:if>
                                                                         </c:if>
                                                                     </c:forEach>
-                                                                
-                                                                
                                                                 </td>
-
                                                                 
-
-
-                                                            </tr>
-                                                            <tr>
+                                                                <td class="text-center align-middle font-weight-bold" >
+                                                                    ${a.id_estado_anuncio.estado}
+                                                                </td>
                                                                 
-                                                                <td class="text-center align-middle font-weight-bold" colspan="2">
-                                                                    Estado del anuncio: ${a.id_estado_anuncio.estado} </td>
-                                                                <td class="text-center align-middle" colspan="2">
+                                                                <td class="text-center align-middle" >
                                                                     <form action="../VerAnuncio" method="post">
-                                            
-                                                <input type="hidden" name="anuncioVer" value="${a.id_anuncio}"/>
-                                                    
-                                                
-                                                <input type="submit" class="btn btn-sm btn-primary" value="Ver Anuncio"/>
-                                            
-                                            </form>
-                                                                    
-                                                                    
-                                                                    
+                                                                        <input type="hidden" name="anuncioVer" value="${a.id_anuncio}"/>
+                                                                        <input type="submit" class="btn btn-sm btn-primary" value="Ver Anuncio"/>
+                                                                    </form>
                                                                 </td>
-                                                                <td class="text-center align-middle" colspan="2">
-                                                                   <form action="./AdminEditarAnuncio" method="post">
-                                            
-                                               
-                                                         <input type="hidden" name="anuncioEditar" value="${a.id_anuncio}"/>
-                                                <input type="submit" class="btn btn-sm btn-primary" value="Editar Anuncio"/>
-                                            
-                                            </form>
+                                                                
+                                                                <td class="text-center align-middle" >
+                                                                    <form action="./AdminEditarAnuncio" method="post">
+                                                                        <input type="hidden" name="anuncioEditar" value="${a.id_anuncio}"/>
+                                                                        <input type="submit" class="btn btn-sm btn-primary" value="Editar Anuncio"/>
+                                                                    </form>
                                                                 </td>
-
-
-                                                                <td class="text-center align-middle" colspan="2">
+                                                                
+                                                                <td class="text-center align-middle" >
                                                                     <form action="./AdminBorrarAnuncio" method="post">
-                                            
-                                               
-                                                         <input type="hidden" name="anuncioBorrar" value="${a.id_anuncio}"/>
-                                                <input type="submit" class="btn btn-sm btn-danger anuncioBorrar" value="Borrar Anuncio"/>
-                                            
-                                            </form>
+                                                                        <input type="hidden" name="anuncioBorrar" value="${a.id_anuncio}"/>
+                                                                        <input type="submit" class="btn btn-sm btn-danger anuncioBorrar" value="Borrar Anuncio"/>
+                                                                    </form>
                                                                 </td>
+                                                                
+                                                                <td class="text-center align-middle" >
+                                                                    <form action="./CambiarEstadoGuiaArma" method="post">
+                                                                        <c:forEach items="${armas_fuego}" var="arma">
+                                                                            <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
+                                                                                <input type="hidden" name="guiaEditar" value="${arma.id_arma.id_arma}"/>
+                                                                            </c:if>
+                                                                            <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
+                                                                                <c:if test="${arma.guia_validada}">
+                                                                                    <input type="submit" class="btn btn-sm btn-danger" value="Desvalidar Guia"/>
+                                                                                </c:if>
+                                                                            </c:if>
+                                                                            <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
+                                                                                <c:if test="${!arma.guia_validada}">
+                                                                                    <input type="submit" class="btn btn-sm btn-success" value="Validar Guia"/>
+                                                                                </c:if>
+                                                                            </c:if>
+                                                                        </c:forEach>
+                                                                    </form>
+                                                                </td>
+                                                                
+
 
                                                                 <td class="text-center align-middle" colspan="2">
-                                                                    <form action="./CambiarEstadoGuiaArma" method="post">
-                                                                    <c:forEach items="${armas_fuego}" var="arma">
-                                                                        <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
-                                                                          <input type="hidden" name="guiaEditar" value="${arma.id_arma.id_arma}"/>
-                                                                        </c:if>
-                                                                          
-                                                                         <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">   
-                                                                    <c:if test="${arma.guia_validada}">
-                                                                        <input type="submit" class="btn btn-sm btn-danger" value="Desvalidar Guia"/>
-                                                                    </c:if>
-                                                                        </c:if>
-                                                                        
-                                                                    
-                                                                         <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">      
-                                                                    <c:if test="${!arma.guia_validada}">
-                                                                        <input type="submit" class="btn btn-sm btn-success" value="Validar Guia"/>
-                                                                    </c:if>
-                                                                         </c:if>
-                                                                    </c:forEach>
-                                                                        
-                                                                       
-                                                                    </form>
-                                                                   
-                                                                </td>
 
-                                                                <td class="text-center align-middle" colspan="3">
                                                                     <form action="./CambiarEstadoAnuncio" method="post">
-                                                                    <input type="hidden" name="anuncioEditar" value="${a.id_anuncio}"/>
-                                                                    <c:if test="${a.id_estado_anuncio.id_estado_anuncio==3}">
-                                                                        <input type="submit" class="btn btn-sm btn-danger" value="Desvalidar Anuncio"/>
-                                                                    </c:if>
-                                                                    <c:if test="${a.id_estado_anuncio.id_estado_anuncio==2}">
-                                                                        
-                                                                        
-                                                                        
-                                                <c:forEach items="${armas_fuego}" var="arma">
-                                                  <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
-                                                                          
-                                                                            
-                                                                     
-                                     <input type="submit" class="btn btn-sm btn-success" <c:if test="${arma.guia_validada==false}"> disabled </c:if> value="Validar Anuncio"/>
-                                                                       
+                                                                        <input type="hidden" name="anuncioEditar" value="${a.id_anuncio}"/>
+                                                                        <c:if test="${a.id_estado_anuncio.id_estado_anuncio==3}">
+                                                                            <input type="submit" class="btn btn-sm btn-danger" value="Desvalidar Anuncio"/>
                                                                         </c:if>
-                                                </c:forEach>
-                                                                        
-                                                                        
-                                                                        
-                                                                        
-                                                                    </c:if>
+                                                                        <c:if test="${a.id_estado_anuncio.id_estado_anuncio==2}">
+                                                                            <c:forEach items="${armas_fuego}" var="arma">
+                                                                                <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
+                                                                                    <input type="submit" class="btn btn-sm btn-success" <c:if
+                                                                                               test="${arma.guia_validada==false}"> disabled </c:if> value="Validar Anuncio"/>
+                                                                                </c:if>
+                                                                            </c:forEach>
+                                                                        </c:if>
                                                                     </form>
                                                                 </td>
-                                                            </tr>   
-
-
+                                                                
+                                                            </tr>
+                                                            
                                                         </c:forEach>
-
                                                     </tbody>
                                                 </table>
+
+
 
                                             </div>
                                         </div>

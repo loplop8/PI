@@ -66,9 +66,6 @@ body,div,footer{
 
 
 
-  table tbody tr:nth-child(odd) td {
-    border-style:none !important;
-}
 
     @media screen and (max-width:992px){
         header{
