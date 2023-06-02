@@ -5,15 +5,21 @@
 package modelo.dao;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import modelo.dao.exceptions.NonexistentEntityException;
 import modelo.dao.exceptions.PreexistingEntityException;
+import modelo.entidades.Anuncio;
+import modelo.entidades.Arma;
+import modelo.entidades.EstadoAnuncio;
 import modelo.entidades.Imagen;
 
 /**
@@ -140,4 +146,11 @@ public class ImagenJpaController implements Serializable {
         }
     }
     
+    /*TODO:
+    public List<Imagenes> obtenerListaImagenesAnunciosValidados() {
+       List<Anuncio>anuncios
+    }
+    return anunciosArmasReplica;
+    }
+*/    
 }
