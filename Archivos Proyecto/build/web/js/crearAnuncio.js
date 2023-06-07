@@ -75,7 +75,7 @@ function mostrarCampos() {
     // Agregar campos y etiquetas para opciones del 9 al 18
     agregarCampoEtiqueta("Marca:", "marca", container);
     agregarCampoEtiqueta("Tipo de Gas:", "tipo_gas", container);
-    agregarCampoEtiqueta("Piezas de Cañón:", "piezas_canon", container);
+    agregarCampoEtiqueta("Piezas Adicionales del Cañón:", "piezas_canon", container);
     agregarCampoEtiqueta("Capacidad del cargador","capacidad_cargador",container);
   }
 
@@ -111,6 +111,9 @@ function agregarCampoEtiqueta(labelText, inputName, container) {
     } else {
       input.classList.remove("is-invalid");
     }
+    if(input.name==="piezas_canon"){
+        input.classList.remove("is-invalid");
+    }
   });
 
   inputCol.appendChild(input);
@@ -130,9 +133,16 @@ submitButton.addEventListener("click", function(event) {
     if (input.value.trim() === "") {
       input.classList.add("is-invalid");
       formValid = false;
+      
     } else {
+        
       input.classList.remove("is-invalid");
     }
+    if(input.name==="piezas_canon"){ //No es un campo requerido asi que aunque este vacio lo damos por valido
+        input.classList.remove("is-invalid");
+        formValid=true;
+        }
+    
   });
 
   

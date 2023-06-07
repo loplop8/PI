@@ -4,11 +4,17 @@ fetch('./Rest/Provincias')
   .then(data => {
     // Agregar cada provincia al select
     const selectProvincias = document.getElementById('provincias');
+    const selectProvinciasn =document.getElementById('provinciasn');
     data.forEach(provincia => {
       const option = document.createElement('option');
+      const optionn= document.createElement('option');
       option.text = provincia.nombre;
+      optionn.text = provincia.nombre;
+      
       option.value = provincia.id_provincia;
+      optionn.value = provincia.id_provincia;
       selectProvincias.add(option);
+      selectProvinciasn.add(optionn);
     });
   });
 
@@ -36,6 +42,31 @@ document.getElementById('provincias').addEventListener('change', () => {
     });
 });
 
+// Obtener municipios de la provincia seleccionada
+document.getElementById('provinciasn').addEventListener('change', () => {
+  const provincia = document.getElementById('provinciasn').value;
+  fetch(`./Rest/Municipios/${provincia}`)
+    .then(response => response.json())
+    .then(data => {
+      // Limpiar select de municipios y agregar el predeterminado
+      const selectMunicipios = document.getElementById('municipiosn');
+      selectMunicipios.innerHTML="";
+      const optionPred= document.createElement('option');
+      optionPred.text="Seleccione un municipio";
+      optionPred.value="";
+      selectMunicipios.add(optionPred);
+      
+        // Agregar cada municipio al select
+      data.forEach(municipio => {
+        const option = document.createElement('option');
+        option.text = municipio.nombre;
+        option.value = municipio.nombre;
+        selectMunicipios.add(option);
+      });
+    });
+});
+
+
 
 var usuarios = [];
 
@@ -55,7 +86,8 @@ fetch('./Rest/Usuarios')
 
 
 
-const municipio=document.getElementById("municipios");
+
+
 const form = document.querySelector('.requires-validation');
 const nombre = form.elements.nombre;
 const apellidos = form.elements.apellidos;
@@ -69,6 +101,8 @@ const contraseña = form.elements.contraseña;
 const contraseña_rep = form.elements.contraseña_rep;
 const politica_privacidad = form.elements.privacidad;
 const verifica_son_datosDni=form.elements.verifica_dni;
+const nombre_padre=form.elements.nombre_padre;
+const nombre_madre=form.elements.nombre_madre;
 const submit =document.getElementById("submit");
 
 // Expresiones regulares para validación de campos con patrón
@@ -123,6 +157,38 @@ function compruebaApellidos(inputApellidos) {
     return true;
       }
 }
+
+function compruebaNPadre(inputPadre) {
+  if (!regexProvinciaLocalidadNombreApellidos.test(inputPadre.value)) {
+    
+    inputPadre.classList.add('is-invalid');
+    alert("El nombre del padre debe tener al menos 2 caracteres y solo pueden ser letras");
+    return false;
+    
+  } else {
+    inputPadre.classList.remove('is-invalid');
+    return true;
+      }
+}
+
+nombre_padre.addEventListener('change', () => {
+    compruebaNPadre(nombre_padre);
+});
+function compruebaNMadre(inputNMadre) {
+  if (!regexProvinciaLocalidadNombreApellidos.test(inputNMadre.value)) {
+    
+    inputNMadre.classList.add('is-invalid');
+    alert("El nombre del padre debe tener al menos 2 caracteres y solo pueden ser letras");
+    return false;
+    
+  } else {
+    inputNMadre.classList.remove('is-invalid');
+    return true;
+      }
+}
+nombre_madre.addEventListener('change', () => {
+    compruebaNPadre(nombre_madre);
+});
 
 apellidos.addEventListener('change', () => {
   compruebaApellidos(apellidos);
@@ -363,6 +429,15 @@ function validarFormulario(event) {
   
   // Validamos el campo "email"
   if (!compruebaEmail(email)) {
+    event.preventDefault();
+        return;
+  }
+  if (!compruebaNMadre()(nombre_madre)) {
+    event.preventDefault();
+        return;
+  }
+  
+  if (!compruebaNPadre()(nombre_padre)) {
     event.preventDefault();
         return;
   }

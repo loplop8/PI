@@ -25,8 +25,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.dao.MunicipioJpaController;
+import modelo.dao.ProvinciaJpaController;
 import modelo.dao.UsuarioJpaController;
 import modelo.entidades.Municipio;
+import modelo.entidades.Provincia;
 import modelo.entidades.Usuario;
 
 /**
@@ -65,7 +67,11 @@ public class Registro extends HttpServlet {
         String rol = "normal";
         String contraseña = "";
         Long id_municipio=0L;
+        String nombre_padre="";
         
+        String nombre_madre="";
+        String municipion="";
+        Long provinciasn=0L;
         
         if (request.getParameter("nombre") != null 
                 && request.getParameter("apellidos") != null
@@ -80,6 +86,10 @@ public class Registro extends HttpServlet {
                 && request.getParameter("privacidad") != null
                 && request.getParameter("municipios") != null
                 && request.getParameter("fecha_nacimiento") !=null
+                && request.getParameter("municipiosn") !=null
+                && request.getParameter("provinciasn") !=null
+                && request.getParameter("nombre_padre") !=null
+                && request.getParameter("nombre_madre") !=null
                 ) { //Si los campos no son null 
 
                 
@@ -107,8 +117,10 @@ public class Registro extends HttpServlet {
             request.setAttribute("contrasaeña", contraseña);
             id_municipio=Long.valueOf(request.getParameter("municipios"));            
             request.setAttribute("municipios",(id_municipio));            
-            
-            
+            nombre_madre=request.getParameter("nombre_madre");
+            nombre_padre=request.getParameter("nombre_padre");
+            municipion=request.getParameter("municipiosn");
+            provinciasn=Long.valueOf(request.getParameter("provinciasn"));
             
                 EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife");
                
@@ -171,9 +183,11 @@ public class Registro extends HttpServlet {
                 error = "El nif no puede estar vacio";
                 //TODO:ACABAR LOS ELSE IF CON TODOS LOS CAMPOS
             } else {
-
+                MunicipioJpaController mjc=new MunicipioJpaController(emf);
+                ProvinciaJpaController pjc=new ProvinciaJpaController(emf);
+                
                 Usuario u = new Usuario();
-
+                
                 u.setNombre(nombre);
                 u.setApellidos(apellidos);
                 u.setEmail(email);
@@ -185,7 +199,11 @@ public class Registro extends HttpServlet {
                 u.setNickname(nickname);
                 u.setContraseña(contraseña);
                 u.setDireccion(direccion);
-                MunicipioJpaController mjc=new MunicipioJpaController(emf);
+                u.setNombre_madre(nombre_madre);
+                u.setNombre_padre(nombre_padre);
+                u.setNacido_en(municipion);
+                Provincia p=pjc.findProvincia(provinciasn);
+                u.setProvincia_nacimiento(p.getNombre());
                 u.setId_municipio(mjc.findMunicipio(id_municipio));
                 u.setUrl_img_perfil(null);
                 u.setUrl_img_dni_anverso(null);

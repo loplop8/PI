@@ -280,40 +280,43 @@
                                                                         <input type="submit" class="btn btn-sm btn-primary" value="Ver Anuncio"/>
                                                                     </form>
                                                                 </td>
-                                                                
+                                                               
                                                                 <td class="text-center align-middle" >
                                                                     <form action="./AdminEditarAnuncio" method="post">
                                                                         <input type="hidden" name="anuncioEditar" value="${a.id_anuncio}"/>
-                                                                        <input type="submit" class="btn btn-sm btn-primary" value="Editar Anuncio"/>
+                                                                        <input type="submit"  <c:if test="${a.id_estado_anuncio.id_estado_anuncio==8}"> disabled </c:if> class="btn btn-sm btn-primary" value="Editar Anuncio"/>
                                                                     </form>
                                                                 </td>
+                                                                
                                                                 
                                                                 <td class="text-center align-middle" >
                                                                     <form action="./AdminBorrarAnuncio" method="post">
                                                                         <input type="hidden" name="anuncioBorrar" value="${a.id_anuncio}"/>
-                                                                        <input type="submit" class="btn btn-sm btn-danger anuncioBorrar" value="Borrar Anuncio"/>
+                                                                        <input type="submit" <c:if test="${a.id_estado_anuncio.id_estado_anuncio==8}"> disabled </c:if> class="btn btn-sm btn-danger anuncioBorrar" value="Borrar Anuncio"/>
                                                                     </form>
                                                                 </td>
+                                                                
                                                                 
                                                                 <td class="text-center align-middle" >
                                                                     <form action="./CambiarEstadoGuiaArma" method="post">
                                                                         <c:forEach items="${armas_fuego}" var="arma">
                                                                             <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
-                                                                                <input type="hidden" name="guiaEditar" value="${arma.id_arma.id_arma}"/>
+                                                                                <input    type="hidden" name="guiaEditar" value="${arma.id_arma.id_arma}"/>
                                                                             </c:if>
                                                                             <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
                                                                                 <c:if test="${arma.guia_validada}">
-                                                                                    <input type="submit" class="btn btn-sm btn-danger" value="Desvalidar Guia"/>
+                                                                                    <input <c:if test="${a.id_estado_anuncio.id_estado_anuncio==8}"> disabled </c:if> type="submit" class="btn btn-sm btn-danger" value="Desvalidar Guia"/>
                                                                                 </c:if>
                                                                             </c:if>
                                                                             <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
                                                                                 <c:if test="${!arma.guia_validada}">
-                                                                                    <input type="submit" class="btn btn-sm btn-success" value="Validar Guia"/>
+                                                                                    <input type="submit"  <c:if test="${a.id_estado_anuncio.id_estado_anuncio==8}"> disabled </c:if>  class="btn btn-sm btn-success" value="Validar Guia"/>
                                                                                 </c:if>
                                                                             </c:if>
                                                                         </c:forEach>
                                                                     </form>
                                                                 </td>
+                                                               
                                                                 
 
 
@@ -324,6 +327,12 @@
                                                                         <c:if test="${a.id_estado_anuncio.id_estado_anuncio==3}">
                                                                             <input type="submit" class="btn btn-sm btn-danger" value="Desvalidar Anuncio"/>
                                                                         </c:if>
+                                                                        
+                                                                            
+                                                                        <c:if test="${a.id_estado_anuncio.id_estado_anuncio==8}">
+                                                                            <input type="submit" disabled class="btn btn-sm btn-danger" value="Desvalidar Anuncio"/>
+                                                                        </c:if>    
+                                                                            
                                                                         <c:if test="${a.id_estado_anuncio.id_estado_anuncio==2}">
                                                                             <c:forEach items="${armas_fuego}" var="arma">
                                                                                 <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
@@ -332,6 +341,8 @@
                                                                                 </c:if>
                                                                             </c:forEach>
                                                                         </c:if>
+                                                                                    
+                                                                                    
                                                                     </form>
                                                                 </td>
                                                                 

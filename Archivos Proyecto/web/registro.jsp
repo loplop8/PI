@@ -142,7 +142,7 @@
                                         <div class="row">
                                         <div class="col-md-6 mt-1">
                                             <label for="nombre">Nombre:</label>
-                                            <input class="form-control " type="text" name="nombre" id="nombre" placeholder="Nombre Completo " pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$" <c:if test="${nombre != 'null'}"> value="${nombre}" </c:if> required/>
+                                            <input class="form-control " type="text" name="nombre" id="nombre" placeholder="Nombre Completo" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$" <c:if test="${nombre != 'null'}"> value="${nombre}" </c:if> required/>
                                         </div>
                                         <div class="col-md-6 mt-1">
                                             <label for="apellidos">Apellidos:</label>
@@ -159,6 +159,30 @@
                                             <input class="form-control " type="email" name="email" id="email"  placeholder="Ejemplo: info@swl.es" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" <c:if test="${email != 'null'}"> value="${email}" </c:if> required />
                                         </div>
                                             </div>
+                                        <div class="row">
+                                        <div class="col-md-6 mt-1">
+                                            <label for="nombre_padre">Nombre del Padre:</label>
+                                            <input class="form-control " type="text" name="nombre_padre" id="nombre_padre" placeholder="Nombre del padre:" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$" <c:if test="${nombre_padre != 'null'}"> value="${nombre_padre}" </c:if> required />
+                                        </div>
+                                        <div class="col-md-6 mt-1">
+                                            <label for="nombre_madre">Nombre de la Madre:</label>
+                                            <input class="form-control " type="text" name="nombre_madre" id="nombre_madre"  placeholder="Nombre de la madre:" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]{2,}$" <c:if test="${nombre_madre != 'null'}"> value="${nombre_madre}" </c:if> required />
+                                        </div>
+                                            </div>
+                                        <div class="row">
+                                        <div class="col-md-6 mt-1">
+                                            <label for="provincian">Provincia de Nacimiento:</label>
+                                            <select class="form-select " id="provinciasn"  name="provinciasn">
+                                                <option> Seleccione una provincia</option> 
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 mt-1">
+                                            <label for="Municipio">Municipio de Nacimiento:</label>
+                                            <select class="form-select " id="municipiosn" name="municipiosn">
+                                                <option>Seleccione un municipio</option>
+                                            </select>
+                                        </div>
+                                        </div>
                                         <div class="row">
                                         <div class="col-md-6  mt-1">
                                             <label for="telefono">Teléfono:</label>

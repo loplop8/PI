@@ -228,14 +228,15 @@
                     <span>IVA: 21%</span>
                 </div>
                 <div class="fs-5">
-                    <span>Total:  <fmt:formatNumber value="${(anuncio.precio*0.21)+(anuncio.precio*0.1)+(anuncio.precio*0.05)+anuncio.precio}" pattern="#,##0.00" />&euro;</span>
+                   <span>Total: <fmt:formatNumber value="${((anuncio.precio*0.125)+(anuncio.precio*0.05)+anuncio.precio)*0.21+((anuncio.precio*0.125)+(anuncio.precio*0.05)+anuncio.precio)}" pattern="#,##0.00" />&euro;</span>
                 </div>
                     <c:if test="${siguiente!=null}">
                     <div class="d-flex">
                     <button class="btn btn-primary" id="siguiente">Siguiente</button>
                     </div>
                     </c:if>
-                <c:if test="${comprar!=null}">
+                
+                    <c:if test="${comprar!=null}">
                     <div class="d-flex">
                         <form action="./Comprar" method="post" >
                             <input type="hidden" name="anuncio" value="${anuncio.id_anuncio}"/>

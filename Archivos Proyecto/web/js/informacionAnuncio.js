@@ -83,9 +83,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 var image = document.createElement('img');
                 image.src = URL.createObjectURL(imagenes[i]);
-                image.className = 'd-block w-25 mx-auto'; // Tamaño más pequeño: w-50 y centrado: mx-auto
+                image.width="250";
+                image.height="200";
+                image.className = 'd-block  mx-auto'; // Tamaño más pequeño: w-50 y centrado: mx-auto
                 slide.appendChild(image);
-
                 slides.appendChild(slide);
             }
             slider.appendChild(slides);

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-05-2023 a las 15:47:44
--- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 7.4.23
+-- Tiempo de generación: 05-06-2023 a las 11:16:51
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -25,7 +25,7 @@ DELIMITER $$
 --
 -- Procedimientos
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `borrarLicenciaCadudcada` ()  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `borrarLicenciaCadudcada` ()   BEGIN
     DECLARE fecha_actual DATE;
     
     SET fecha_actual = CURDATE();
@@ -49,16 +49,22 @@ CREATE TABLE `anuncio` (
   `titulo` varchar(255) NOT NULL,
   `precio` decimal(10,2) NOT NULL,
   `id_arma` bigint(20) NOT NULL,
-  `id_estado_anuncio` bigint(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id_estado_anuncio` bigint(20) DEFAULT NULL,
+  `url_img_principal` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `anuncio`
 --
 
-INSERT INTO `anuncio` (`id_anuncio`, `fecha_public`, `descripcion`, `titulo`, `precio`, `id_arma`, `id_estado_anuncio`) VALUES
-(59, '2023-05-28', 'Editando el anuncio 5\r\n\r\n', 'Carabina del Montonazo', '202.00', 133, 2),
-(62, '2023-05-30', 'bdfbdf', 'fbfbgf', '1.00', 139, 2);
+INSERT INTO `anuncio` (`id_anuncio`, `fecha_public`, `descripcion`, `titulo`, `precio`, `id_arma`, `id_estado_anuncio`, `url_img_principal`) VALUES
+(59, '2023-05-28', 'Editando el anuncio 5\r\n\r\n', 'Carabina del Montonazo', '202.00', 133, 3, NULL),
+(62, '2023-05-30', 'bdfbdf', 'fbfbgf', '1.00', 139, 8, NULL),
+(63, '2023-06-01', 'njasjkcnascjn', 'Pistola TO WAPA', '1.50', 140, 3, NULL),
+(64, '2023-06-02', 'En el pinar criando hierba', 'Juanito Manos verdes', '12.00', 141, 8, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio640.jpg'),
+(65, '2023-06-02', 'Descripción: La legendaria AK-47, conocida también como Kalashnikov, es un arma de fuego de origen ruso que se ha convertido en un símbolo de poder y resistencia. Este rifle de asalto ha sido utilizado en innumerables conflictos alrededor del mundo debido', 'AK-47 DE GUERRA', '150.00', 143, 8, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio650.jpg'),
+(66, '2023-06-04', 'alkñscmlakwscm', 'wdkmaqwkmn', '150.00', 146, 8, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio660.jpeg'),
+(67, '2023-06-04', 'alkñscmlakwscm', 'wdkmaqwkmn', '150.00', 146, 8, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio670.jpeg');
 
 -- --------------------------------------------------------
 
@@ -71,7 +77,7 @@ CREATE TABLE `arma` (
   `marca` varchar(255) NOT NULL,
   `id_tipo_arma` bigint(20) NOT NULL,
   `id_usuario` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `arma`
@@ -198,7 +204,14 @@ INSERT INTO `arma` (`id_arma`, `marca`, `id_tipo_arma`, `id_usuario`) VALUES
 (136, 'dcfbdf', 6, 32),
 (137, 'xcvdv', 17, 32),
 (138, 'aaaa', 3, 32),
-(139, 'cnfg', 18, 32);
+(139, 'cnfg', 18, 32),
+(140, 'lkasmclcksn', 5, 32),
+(141, 'lkcnlckn', 17, 32),
+(142, 'Breda', 9, 32),
+(143, 'AK-47', 12, 32),
+(144, 'Breda', 16, 32),
+(145, 'Breda', 16, 32),
+(146, 'Breda', 16, 32);
 
 -- --------------------------------------------------------
 
@@ -216,7 +229,7 @@ CREATE TABLE `arma_fuego` (
   `guia_validada` tinyint(1) NOT NULL,
   `url_img_guia_reverso` varchar(255) DEFAULT NULL,
   `url_img_guia_anverso` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `arma_fuego`
@@ -233,9 +246,10 @@ INSERT INTO `arma_fuego` (`id_arma`, `id_licencia`, `num_guia`, `calibre`, `num_
 (128, 34, '123456789', '12', 'PORWE', '2023-05-22', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.jpeg', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.jpeg'),
 (130, 34, '123456789', '22', '123456789', '2023-05-23', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.jpeg', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.jpeg'),
 (131, 34, '123456489', '1231546', '123156', '2023-05-26', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.jpg', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.jpg'),
-(133, 34, '123456789A', '56', '123456789a', '2023-05-28', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.png', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.png'),
+(133, 34, '123456789A', '56', '123456789a', '2023-05-28', 1, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.png', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.png'),
 (135, 34, 'poajcpascij', 'pijaciscj', 'sakjdclakscn', '2025-05-12', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.jpg', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.jpg'),
-(136, 34, 'dfdffb', 'dfbdfb', 'dfbdfbfb', '2023-06-01', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.png', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.png');
+(136, 34, 'dfdffb', 'dfbdfb', 'dfbdfbfb', '2023-06-01', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.png', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.png'),
+(140, 34, 'ñlmvdslkmscdvlkn', 'lknlknljkn', 'lknljnjknkjn', '2023-06-01', 1, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.png', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.png');
 
 -- --------------------------------------------------------
 
@@ -248,7 +262,7 @@ CREATE TABLE `arma_replica` (
   `tipo_gas` varchar(255) DEFAULT NULL,
   `capacidad_cargador` int(11) DEFAULT NULL,
   `piezas_canon` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `arma_replica`
@@ -337,7 +351,13 @@ INSERT INTO `arma_replica` (`id_arma`, `tipo_gas`, `capacidad_cargador`, `piezas
 (132, 'LAKSMCLC', 500, 'Silenciador y AKX 25'),
 (134, 'lknacsdlscna', 500, 'ljnascjcsn'),
 (137, 'sdcsdc', 14, 'sxcdsxdc'),
-(139, 'fgnfnfn', 4, 'gfcfbn');
+(139, 'fgnfnfn', 4, 'gfcfbn'),
+(141, 'ksdmclksdcm', 12, 'lkmdlkcmsldkm'),
+(142, 'ñklmac', 15, '15'),
+(143, 'kjsnackjscn', 57, '123456'),
+(144, 'lkamclkscm', 32, 'lksmdvskmvl'),
+(145, 'lkamclkscm', 32, 'lksmdvskmvl'),
+(146, 'lkamclkscm', 32, 'lksmdvskmvl');
 
 -- --------------------------------------------------------
 
@@ -348,8 +368,8 @@ INSERT INTO `arma_replica` (`id_arma`, `tipo_gas`, `capacidad_cargador`, `piezas
 CREATE TABLE `contrato_compra_venta` (
   `id_contrato_compra_venta` bigint(20) NOT NULL,
   `url_contrato_compra_venta` varchar(255) NOT NULL,
-  `id_pedido` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id_factura` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -361,7 +381,7 @@ CREATE TABLE `estado_anuncio` (
   `id_estado_anuncio` bigint(20) NOT NULL,
   `estado` varchar(255) NOT NULL,
   `descripcion` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `estado_anuncio`
@@ -384,7 +404,7 @@ CREATE TABLE `estado_pedido` (
   `id_estado_pedido` bigint(20) NOT NULL,
   `estado` varchar(255) DEFAULT NULL,
   `descripcion` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `estado_pedido`
@@ -404,8 +424,8 @@ INSERT INTO `estado_pedido` (`id_estado_pedido`, `estado`, `descripcion`) VALUES
 
 CREATE TABLE `factura` (
   `id_factura` bigint(20) NOT NULL,
-  `id_contrato_compra_venta` bigint(20) NOT NULL,
-  `num_factura` int(11) NOT NULL,
+  `id_pedido` bigint(20) NOT NULL,
+  `num_factura` bigint(20) NOT NULL,
   `descripcion_descuento` varchar(255) DEFAULT NULL,
   `importe_bruto` decimal(10,2) NOT NULL,
   `importe_descuento` decimal(10,2) NOT NULL,
@@ -414,7 +434,18 @@ CREATE TABLE `factura` (
   `base_imponible` decimal(10,2) NOT NULL,
   `importe_gastos` decimal(10,2) NOT NULL,
   `descripcion_gastos` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `factura`
+--
+
+INSERT INTO `factura` (`id_factura`, `id_pedido`, `num_factura`, `descripcion_descuento`, `importe_bruto`, `importe_descuento`, `url_factura`, `precio_total_factura`, `base_imponible`, `importe_gastos`, `descripcion_gastos`) VALUES
+(1, 16, 1, '', '150.00', '0.00', 'C:\\Users\\Zatonio\\Desktop\\Instituto DAW\\2º DAW\\PI\\Proyecto\\PI\\Archivos Proyecto\\build\\web\\/pdfs/Factura nªnull.pdf', '213.26', '176.25', '26.25', 'De gestion: 12.5%, Transporte 5%'),
+(2, 17, 2, '', '150.00', '0.00', 'C:\\Users\\Zatonio\\Desktop\\Instituto DAW\\2º DAW\\PI\\Proyecto\\PI\\Archivos Proyecto\\build\\web\\/pdfs/Factura nªnull.pdf', '213.26', '176.25', '26.25', 'De gestion: 12.5%, Transporte 5%'),
+(3, 18, 3, '', '150.00', '0.00', 'C:\\Users\\Zatonio\\Desktop\\Instituto DAW\\2º DAW\\PI\\Proyecto\\PI\\Archivos Proyecto\\build\\web\\/pdfs/Factura nªnull.pdf', '213.26', '176.25', '26.25', 'De gestion: 12.5%, Transporte 5%'),
+(4, 19, 4, '', '150.00', '0.00', 'C:\\Users\\Zatonio\\Desktop\\Instituto DAW\\2º DAW\\PI\\Proyecto\\PI\\Archivos Proyecto\\build\\web\\/pdfs/Factura nªnull.pdf', '213.26', '176.25', '26.25', 'De gestion: 12.5%, Transporte 5%'),
+(5, 20, 5, '', '150.00', '0.00', 'C:\\Users\\Zatonio\\Desktop\\Instituto DAW\\2º DAW\\PI\\Proyecto\\PI\\Archivos Proyecto\\build\\web\\/pdfs/Factura nªnull.pdf', '213.26', '176.25', '26.25', 'De gestion: 12.5%, Transporte 5%');
 
 -- --------------------------------------------------------
 
@@ -428,7 +459,7 @@ CREATE TABLE `hilo` (
   `titulo_descriptivo` varchar(100) NOT NULL,
   `etiqueta_tema` varchar(50) NOT NULL,
   `fecha_creacion` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -440,7 +471,7 @@ CREATE TABLE `imagen` (
   `id_imagen` bigint(20) NOT NULL,
   `id_anuncio` bigint(20) NOT NULL,
   `url_imagen` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `imagen`
@@ -448,7 +479,20 @@ CREATE TABLE `imagen` (
 
 INSERT INTO `imagen` (`id_imagen`, `id_anuncio`, `url_imagen`) VALUES
 (123, 59, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio590.png'),
-(125, 62, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio620.png');
+(125, 62, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio620.png'),
+(126, 63, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio630.png'),
+(127, 63, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio631.png'),
+(128, 63, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio632.png'),
+(129, 64, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio640.jpg'),
+(130, 64, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio641.jpeg'),
+(131, 64, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio642.jpeg'),
+(132, 64, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio643.JPG'),
+(133, 65, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio650.jpg'),
+(134, 65, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio651.jfif'),
+(135, 67, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio670.jpeg'),
+(136, 66, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio660.jpeg'),
+(137, 67, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio671.jpeg'),
+(138, 66, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio661.jpeg');
 
 -- --------------------------------------------------------
 
@@ -468,7 +512,7 @@ CREATE TABLE `licencia` (
   `licencia_validada` tinyint(4) NOT NULL,
   `url_img_licencia_anverso` varchar(255) DEFAULT NULL,
   `url_img_licencia_reverso` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `licencia`
@@ -477,7 +521,9 @@ CREATE TABLE `licencia` (
 INSERT INTO `licencia` (`id_licencia`, `id_usuario`, `id_tipo_licencia`, `valida_hasta`, `valida_desde`, `fecha_expedicion`, `restricciones`, `observaciones`, `licencia_validada`, `url_img_licencia_anverso`, `url_img_licencia_reverso`) VALUES
 (32, 32, 1, '2123-05-15', '2023-05-15', '2023-05-15', '', '', 1, NULL, NULL),
 (33, 32, 2, '2023-05-16', '2023-04-15', '2023-04-16', '', '', 1, '/SecondWeaponLife//img/uploads/licencia/AnversoZatonio32WIN_20230215_23_09_35_Pro.jpg', '/SecondWeaponLife//img/uploads/licencia/ReversoZatonio32WIN_20230215_23_09_35_Pro.jpg'),
-(34, 32, 6, '2023-06-07', '2023-04-18', '2023-04-19', '', '', 1, '/SecondWeaponLife//img/uploads/licencia/AnversoZatonio32WIN_20230215_23_09_35_Pro.jpg', '/SecondWeaponLife//img/uploads/licencia/ReversoZatonio32WIN_20230215_23_09_35_Pro.jpg');
+(34, 32, 6, '2023-06-07', '2023-04-18', '2023-04-19', '', '', 1, '/SecondWeaponLife//img/uploads/licencia/AnversoZatonio32WIN_20230215_23_09_35_Pro.jpg', '/SecondWeaponLife//img/uploads/licencia/ReversoZatonio32WIN_20230215_23_09_35_Pro.jpg'),
+(35, 33, 1, '2123-06-03', '2023-06-03', '2023-06-03', '', '', 1, NULL, NULL),
+(36, 34, 1, '2123-06-04', '2023-06-04', '2023-06-04', '', '', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -491,7 +537,7 @@ CREATE TABLE `mensaje` (
   `fecha_publicacion` date NOT NULL,
   `id_hilo` bigint(20) NOT NULL,
   `id_usuario` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -503,7 +549,7 @@ CREATE TABLE `municipio` (
   `id_municipio` bigint(20) NOT NULL,
   `id_provincia` bigint(20) NOT NULL,
   `nombre` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `municipio`
@@ -8660,7 +8706,33 @@ CREATE TABLE `pedido` (
   `fecha_compra` date NOT NULL,
   `numero_pedido` bigint(20) NOT NULL,
   `id_estado_pedido` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `pedido`
+--
+
+INSERT INTO `pedido` (`id_pedido`, `id_usuario`, `id_arma`, `fecha_entrega`, `fecha_compra`, `numero_pedido`, `id_estado_pedido`) VALUES
+(1, 33, 143, NULL, '2023-06-04', 1, 1),
+(2, 33, 143, NULL, '2023-06-04', 2, 1),
+(3, 33, 143, NULL, '2023-06-04', 3, 1),
+(4, 33, 141, NULL, '2023-06-04', 4, 1),
+(5, 33, 141, NULL, '2023-06-04', 5, 1),
+(6, 33, 141, NULL, '2023-06-04', 6, 1),
+(7, 33, 141, NULL, '2023-06-04', 7, 1),
+(8, 33, 141, NULL, '2023-06-04', 8, 1),
+(9, 33, 141, NULL, '2023-06-04', 9, 1),
+(10, 33, 141, NULL, '2023-06-04', 10, 1),
+(11, 33, 141, NULL, '2023-06-04', 11, 1),
+(12, 33, 141, NULL, '2023-06-04', 12, 1),
+(13, 33, 139, NULL, '2023-06-05', 13, 1),
+(14, 33, 139, NULL, '2023-06-05', 14, 1),
+(15, 33, 139, NULL, '2023-06-05', 15, 1),
+(16, 33, 146, NULL, '2023-06-05', 16, 1),
+(17, 33, 146, NULL, '2023-06-05', 17, 1),
+(18, 33, 146, NULL, '2023-06-05', 18, 1),
+(19, 33, 146, NULL, '2023-06-05', 19, 1),
+(20, 33, 146, NULL, '2023-06-05', 20, 1);
 
 -- --------------------------------------------------------
 
@@ -8671,7 +8743,7 @@ CREATE TABLE `pedido` (
 CREATE TABLE `provincia` (
   `id_provincia` bigint(20) NOT NULL,
   `nombre` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `provincia`
@@ -8741,7 +8813,7 @@ CREATE TABLE `tipo_arma` (
   `id_tipo_arma` bigint(20) NOT NULL,
   `tipo` varchar(255) NOT NULL,
   `descripcion` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `tipo_arma`
@@ -8777,7 +8849,7 @@ CREATE TABLE `tipo_licencia` (
   `id_tipo_licencia` bigint(20) NOT NULL,
   `tipo` varchar(255) NOT NULL,
   `descripcion` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `tipo_licencia`
@@ -8800,7 +8872,7 @@ INSERT INTO `tipo_licencia` (`id_tipo_licencia`, `tipo`, `descripcion`) VALUES
 CREATE TABLE `tipo_licencia_faculta_tipo_arma` (
   `id_tipo_licencia` bigint(20) NOT NULL,
   `id_tipo_arma` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `tipo_licencia_faculta_tipo_arma`
@@ -8856,17 +8928,23 @@ CREATE TABLE `usuario` (
   `esta_activo` tinyint(1) NOT NULL,
   `dni_validado` tinyint(1) NOT NULL,
   `url_img_dni_anverso` varchar(255) DEFAULT NULL,
-  `url_img_dni_reverso` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `url_img_dni_reverso` varchar(255) DEFAULT NULL,
+  `nombre_padre` varchar(255) NOT NULL,
+  `nombre_madre` varchar(255) NOT NULL,
+  `nacido_en` varchar(255) NOT NULL,
+  `provincia_nacimiento` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id_usuario`, `id_municipio`, `nickname`, `nombre`, `rol`, `apellidos`, `email`, `contraseña`, `telefono`, `direccion`, `fecha_nacimiento`, `nif`, `url_img_perfil`, `esta_activo`, `dni_validado`, `url_img_dni_anverso`, `url_img_dni_reverso`) VALUES
-(1, 6090, 'admin', 'admin', 'admin', 'admin', 'admin@swl.es', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', ' ', 'admin', '1995-08-09', ' ', '', 1, 1, '', ''),
-(2, 6090, 'moderador', 'moderador', 'moderador', 'moderador', 'moderador@swl.es', 'ee8a8f8ec1e02b0461eace422a327ccb163c48838cbfc922b96778184ec1c73b', 'telefomod', 'C/Granada, 13', '1995-08-09', 'nifmod', NULL, 1, 1, '', ''),
-(32, 6090, 'Zatonio', 'Jose Antonio', 'normal', 'López López ', '19joseantonio95@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '607450598', 'C/Granda, 13', '1995-08-09', '45811622S', '/SecondWeaponLife//img/uploads/perfil/Zatonioid32.png', 1, 1, '/SecondWeaponLife/img/uploads/dni/AnversoZatonio32WIN_20230215_23_09_35_Pro.jpg', '/SecondWeaponLife//img/uploads/dni/ReversoZatonio32WIN_20230215_23_09_35_Pro.jpg');
+INSERT INTO `usuario` (`id_usuario`, `id_municipio`, `nickname`, `nombre`, `rol`, `apellidos`, `email`, `contraseña`, `telefono`, `direccion`, `fecha_nacimiento`, `nif`, `url_img_perfil`, `esta_activo`, `dni_validado`, `url_img_dni_anverso`, `url_img_dni_reverso`, `nombre_padre`, `nombre_madre`, `nacido_en`, `provincia_nacimiento`) VALUES
+(1, 6090, 'admin', 'admin', 'admin', 'admin', 'admin@swl.es', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', ' ', 'admin', '1995-08-09', ' ', '', 1, 1, '', '', 'admin', 'admin', 'admin', 'admin'),
+(2, 6090, 'moderador', 'moderador', 'moderador', 'moderador', 'moderador@swl.es', 'ee8a8f8ec1e02b0461eace422a327ccb163c48838cbfc922b96778184ec1c73b', 'telefomod', 'C/Granada, 13', '1995-08-09', 'nifmod', NULL, 1, 1, '', '', 'madreMod', 'padreMod', 'Cuenca', 'Cuena'),
+(32, 6090, 'Zatonio', 'Jose Antonio', 'normal', 'López López ', '19joseantonio95@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '607450598', 'C/Granda, 13', '1995-08-09', '45811622S', '/SecondWeaponLife//img/uploads/perfil/Zatonioid32.png', 1, 1, '/SecondWeaponLife/img/uploads/dni/AnversoZatonio32WIN_20230215_23_09_35_Pro.jpg', '/SecondWeaponLife//img/uploads/dni/ReversoZatonio32WIN_20230215_23_09_35_Pro.jpg', 'Eduardo', 'Rosa María', 'Bollullos de la Mitación', 'Sevilla'),
+(33, 6090, 'Prueba', 'Prueba', 'normal', 'Prueba', 'jose@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '611111111', 'Prueba', '1991-01-03', '45811621Z', NULL, 1, 1, '/SecondWeaponLife/img/uploads/dni/AnversoPrueba33Diagrama1.png', '/SecondWeaponLife//img/uploads/dni/ReversoPrueba33Casos de Uso.png', 'prueba', 'prueba', 'prueba', 'prueba'),
+(34, 2239, 'helenio', 'Helenio', 'normal', 'Gonzale', 'helenio@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '612347896', 'Plaza del Arenal, 12', '1984-11-17', '28472682Q', NULL, 1, 0, NULL, NULL, 'Helenio', 'Rossana', 'Almarcha, La', 'Cuenca');
 
 --
 -- Disparadores `usuario`
@@ -8923,7 +9001,7 @@ ALTER TABLE `arma_replica`
 --
 ALTER TABLE `contrato_compra_venta`
   ADD PRIMARY KEY (`id_contrato_compra_venta`),
-  ADD KEY `id_pedido` (`id_pedido`);
+  ADD KEY `id_factura` (`id_factura`);
 
 --
 -- Indices de la tabla `estado_anuncio`
@@ -8942,7 +9020,7 @@ ALTER TABLE `estado_pedido`
 --
 ALTER TABLE `factura`
   ADD PRIMARY KEY (`id_factura`),
-  ADD KEY `id_contrato_compra_venta` (`id_contrato_compra_venta`);
+  ADD KEY `id_pedido` (`id_pedido`);
 
 --
 -- Indices de la tabla `hilo`
@@ -9034,13 +9112,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `anuncio`
 --
 ALTER TABLE `anuncio`
-  MODIFY `id_anuncio` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id_anuncio` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT de la tabla `arma`
 --
 ALTER TABLE `arma`
-  MODIFY `id_arma` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
+  MODIFY `id_arma` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=147;
 
 --
 -- AUTO_INCREMENT de la tabla `contrato_compra_venta`
@@ -9058,7 +9136,7 @@ ALTER TABLE `estado_pedido`
 -- AUTO_INCREMENT de la tabla `factura`
 --
 ALTER TABLE `factura`
-  MODIFY `id_factura` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_factura` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `hilo`
@@ -9070,13 +9148,13 @@ ALTER TABLE `hilo`
 -- AUTO_INCREMENT de la tabla `imagen`
 --
 ALTER TABLE `imagen`
-  MODIFY `id_imagen` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
+  MODIFY `id_imagen` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
 
 --
 -- AUTO_INCREMENT de la tabla `licencia`
 --
 ALTER TABLE `licencia`
-  MODIFY `id_licencia` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id_licencia` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de la tabla `mensaje`
@@ -9088,7 +9166,7 @@ ALTER TABLE `mensaje`
 -- AUTO_INCREMENT de la tabla `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `id_pedido` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pedido` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_arma`
@@ -9106,7 +9184,7 @@ ALTER TABLE `tipo_licencia`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_usuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- Restricciones para tablas volcadas
@@ -9143,13 +9221,13 @@ ALTER TABLE `arma_replica`
 -- Filtros para la tabla `contrato_compra_venta`
 --
 ALTER TABLE `contrato_compra_venta`
-  ADD CONSTRAINT `contrato_compra_venta_ibfk_1` FOREIGN KEY (`id_pedido`) REFERENCES `pedido` (`id_pedido`);
+  ADD CONSTRAINT `contrato_compra_venta_ibfk_1` FOREIGN KEY (`id_factura`) REFERENCES `factura` (`id_factura`);
 
 --
 -- Filtros para la tabla `factura`
 --
 ALTER TABLE `factura`
-  ADD CONSTRAINT `factura_ibfk_1` FOREIGN KEY (`id_contrato_compra_venta`) REFERENCES `contrato_compra_venta` (`id_contrato_compra_venta`);
+  ADD CONSTRAINT `factura_ibfk_1` FOREIGN KEY (`id_pedido`) REFERENCES `pedido` (`id_pedido`);
 
 --
 -- Filtros para la tabla `hilo`

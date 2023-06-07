@@ -10,14 +10,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./boostrap/bootstrap-5.0.2-dist/css/bootstrap.min.css">
-        
         <script src="./boostrap/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>  
         <link rel="stylesheet" href="./css/style2.css">
-        <script src="../js/veranuncio.js" defer></script>
-       
-        
-        
+        <script src="js/permitirCompra.js" defer></script>
         
         <title>SWL</title>
     </head>
@@ -182,12 +178,12 @@
                         <c:forEach items="${imagenes}" varStatus="status" var="i">
                             <c:if test="${status.getIndex()==0}">
                                 <div class="carousel-item active">
-                                    <img class="card-img-top" src="${i.getUrl_imagen()}" alt="Image ${status.getIndex() + 1}" />
+                                    <img class="card-img-top" width="250" height="200" src="${i.getUrl_imagen()}" alt="Image ${status.getIndex() + 1}" />
                                 </div>
                             </c:if>
                             <c:if test="${status.getIndex()!=0}">
                                 <div class="carousel-item">
-                                    <img class="card-img-top" src="${i.getUrl_imagen()}" alt="Image ${status.getIndex() + 1}" />
+                                    <img class="card-img-top" width="250" height="200" src="${i.getUrl_imagen()}" alt="Image ${status.getIndex() + 1}" />
                                 </div>
                             </c:if>    
                         </c:forEach>
@@ -216,35 +212,55 @@
                     </c:if>
                 </p>
                 <div class="fs-5">
-                    <span>Precio: <fmt:formatNumber value="${anuncio.precio }" pattern="#,##0.00" />&euro;</span>
+                    <span>Precio Neto: <fmt:formatNumber value="${anuncio.precio }" pattern="#,##0.00" />&euro;</span>
                 </div>
                 <div class="fs-5">
                     <span>Transporte: <fmt:formatNumber value="${anuncio.precio * 0.05}" pattern="#,##0.00" />&euro;</span>
                 </div>
                 <div class="fs-5">
-                    <span>Gastos de Gestión: <fmt:formatNumber value="${(anuncio.precio*0.1)}" pattern="#,##0.00" />&euro;</span>
+                    <span>Gastos de Gestión: <fmt:formatNumber value="${(anuncio.precio*0.125)}" pattern="#,##0.00" />&euro;</span>
                 </div>
                 <div class="fs-5">
                     <span>IVA: 21%</span>
                 </div>
                 <div class="fs-5">
-                    <span>Total: <fmt:formatNumber value="${(anuncio.precio*0.21)+(anuncio.precio*0.1)+(anuncio.precio*0.05)+anuncio.precio}" pattern="#,##0.00" />&euro;</span>
+                    <span>Total: <fmt:formatNumber value="${((anuncio.precio*0.125)+(anuncio.precio*0.05)+anuncio.precio)*0.21+((anuncio.precio*0.125)+(anuncio.precio*0.05)+anuncio.precio)}" pattern="#,##0.00" />&euro;</span>
                 </div>
+                
                     <c:if test="${siguiente!=null}">
                     <div class="d-flex">
                     <button class="btn btn-primary" id="siguiente">Siguiente</button>
                     </div>
                     </c:if>
-                <c:if test="${comprar!=null}">
+                
+                    <c:if test="${comprar!=null}">
+                        
+                        <c:if test="${anuncio.id_arma.id_usuario.id_usuario!=usuario.id_usuario}">
+                            <c:if test="${usuario.dni_validado==true}">
                     <div class="d-flex">
-                        <form action="./Comprar" method="post" >
-                            <input type="hidden" name="anuncio" value="${anuncio.id_anuncio}"/>
-                            <button class="btn btn-success" type="submit" id="">Comprar</button>
+                        <form id="formulario" action="./usuario/Comprar" method="post" >
+                            <input type="hidden" name="anuncio" id="anuncio" value="${anuncio.id_anuncio}"/>
+                            <button class="btn btn-success" type="submit" id="comprar">Comprar</button>
                         </form>   
                     
                     </div>
+                         </c:if>   
+                        </c:if>
+                        <c:if test="${anuncio.id_arma.id_usuario.id_usuario==usuario.id_usuario}">
+                        <div class="d-flex">
+                        <form id="formulario" action="./usuario/ComprarDestacado" method="post" >
+                            <input type="hidden" name="anuncio" id="anuncio" value="${anuncio.id_anuncio}"/>
+                            <button class="btn btn-outline-warning" type="submit" id="HacerAnuncioDestacado">Hacer mi anuncio destacado</button>
+                        </form>   
+                    
+                    </div>
+                    
+                                    
                     </c:if>
-                
+                    
+                    
+                    </c:if>
+                    
             </div>
         </div>
     </div>

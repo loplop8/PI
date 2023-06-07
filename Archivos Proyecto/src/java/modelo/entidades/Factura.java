@@ -30,19 +30,18 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Factura implements Serializable {
 
     @Id
-       @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_factura")
     private Long id_factura;
 
-    
     @OneToOne
-    @JoinColumn(name="id_contrato_compra_venta")
-    private ContratoCompraVenta id_contrato_compra_venta;
+    @JoinColumn(name="id_pedido")
+    private Pedido id_pedido;
     
     
     
     @Column(name="num_factura")
-    private Integer num_factura;
+    private Long num_factura;
 
     @Column(name="descripcion_descuento")
     private String descripcion_descuento;
@@ -59,11 +58,11 @@ public class Factura implements Serializable {
     @Column(name="precio_total_factura")
     private Double precio_total_factura;
     
-    @Column(name="base_impobible")
+    @Column(name="base_imponible")
     private Double base_imponible;
    
     @Column(name="url_factura")
-    private Double url_factura;
+    private String url_factura;
     
     
     @Column(name="descripcion_gastos")
@@ -77,19 +76,21 @@ public class Factura implements Serializable {
         this.id_factura = id_factura;
     }
 
-    public ContratoCompraVenta getId_contrato_compra_venta() {
-        return id_contrato_compra_venta;
+    public Pedido getId_pedido() {
+        return id_pedido;
     }
 
-    public void setId_contrato_compra_venta(ContratoCompraVenta id_contrato_compra_venta) {
-        this.id_contrato_compra_venta = id_contrato_compra_venta;
+    public void setId_pedido(Pedido id_pedido) {
+        this.id_pedido = id_pedido;
     }
 
-    public Integer getNum_factura() {
+    
+
+    public Long getNum_factura() {
         return num_factura;
     }
 
-    public void setNum_factura(Integer num_factura) {
+    public void setNum_factura(Long num_factura) {
         this.num_factura = num_factura;
     }
 
@@ -141,11 +142,11 @@ public class Factura implements Serializable {
         this.base_imponible = base_imponible;
     }
 
-    public Double getUrl_factura() {
+    public String getUrl_factura() {
         return url_factura;
     }
 
-    public void setUrl_factura(Double url_factura) {
+    public void setUrl_factura(String url_factura) {
         this.url_factura = url_factura;
     }
 
@@ -159,8 +160,10 @@ public class Factura implements Serializable {
 
     @Override
     public String toString() {
-        return "Factura{" + "id_factura=" + id_factura + ", id_contrato_compra_venta=" + id_contrato_compra_venta + ", num_factura=" + num_factura + ", descripcion_descuento=" + descripcion_descuento + ", importe_descuento=" + importe_descuento + ", importe_bruto=" + importe_bruto + ", importe_gastos=" + importe_gastos + ", precio_total_factura=" + precio_total_factura + ", base_imponible=" + base_imponible + ", url_factura=" + url_factura + ", descripcion_gastos=" + descripcion_gastos + '}';
+        return "Factura{" + "id_factura=" + id_factura + ", id_pedido=" + id_pedido + ", num_factura=" + num_factura + ", descripcion_descuento=" + descripcion_descuento + ", importe_descuento=" + importe_descuento + ", importe_bruto=" + importe_bruto + ", importe_gastos=" + importe_gastos + ", precio_total_factura=" + precio_total_factura + ", base_imponible=" + base_imponible + ", url_factura=" + url_factura + ", descripcion_gastos=" + descripcion_gastos + '}';
     }
+
+    
     
     
     

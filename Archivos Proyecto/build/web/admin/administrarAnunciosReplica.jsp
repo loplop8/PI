@@ -258,7 +258,9 @@
 
 
                                                                         <input type="hidden" name="anuncioEditar" value="${a.id_anuncio}"/>
-                                                                        <input type="submit" class="btn btn-sm btn-primary" value="Editar Anuncio"/>
+                                                                        <input type="submit" <c:if test="${a.id_estado_anuncio.id_estado_anuncio==8}">
+                                                                               disabled
+                                                                            </c:if>   class="btn btn-sm btn-primary" value="Editar Anuncio"/>
 
                                                                     </form>
                                                                 </td>
@@ -267,7 +269,9 @@
 
 
                                                                         <input type="hidden" name="anuncioBorrar" value="${a.id_anuncio}"/>
-                                                                        <input type="submit" class="btn btn-sm btn-danger anuncioBorrar" value="Borrar Anuncio"/>
+                                                                        <input type="submit" <c:if test="${a.id_estado_anuncio.id_estado_anuncio==8}">
+                                                                               disabled
+                                                                            </c:if> class="btn btn-sm btn-danger anuncioBorrar" value="Borrar Anuncio"/>
 
                                                                     </form>
                                                                 </td>
@@ -278,6 +282,10 @@
                                                                         <c:if test="${a.id_estado_anuncio.id_estado_anuncio==3}">
                                                                             <input type="submit" class="btn btn-sm btn-danger" value="Desvalidar Anuncio"/>
                                                                         </c:if>
+                                                                        <c:if test="${a.id_estado_anuncio.id_estado_anuncio==8}">
+                                                                            <input type="submit" disabled class="btn btn-sm btn-danger" value="Desvalidar Anuncio"/>
+                                                                        </c:if>
+                                                                            
                                                                         <c:if test="${a.id_estado_anuncio.id_estado_anuncio==2}">
                                                                             <input type="submit" class="btn btn-sm btn-success" value="Validar Anuncio"/>
                                                                         </c:if>

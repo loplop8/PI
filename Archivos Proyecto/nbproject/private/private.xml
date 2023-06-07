@@ -3,8 +3,65 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Zatonio/Downloads/PI-54a5bcebb5e10bc4dfc9f6d18866a4f66419f5ac/PI-54a5bcebb5e10bc4dfc9f6d18866a4f66419f5ac/Archivos%20Proyecto/src/java/controladores/Inicio.java</file>
-            <file>file:/C:/Users/Zatonio/Downloads/PI-54a5bcebb5e10bc4dfc9f6d18866a4f66419f5ac/PI-54a5bcebb5e10bc4dfc9f6d18866a4f66419f5ac/Archivos%20Proyecto/web/css/style3.css</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/web/js/irInicio.js</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/modelo/entidades/EstadoAnuncio.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/controladores/usuario/AnadirImagenAnversoGuia.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/controladores/VerAnuncio.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/web/js/crearAnuncio.js</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/web/error.jsp</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/controladores/usuario/AnadirImagenGuiaReverso.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/controladores/Registro.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/controladores/Inicio.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/web/js/addLicencia.js</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/web/usuario/verAnuncio.jsp</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/web/js/login.js</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/filtros/FiltroSesion.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/web/js/tablaLicenciasUsuario.js</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/controladores/usuario/AnadirImagenDNI.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/controladores/usuario/AnadirImagenAnversoLicencia.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/controladores/usuario/CompraCompletada.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/controladores/usuario/AnadirImagenLicencia.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/controladores/usuario/VistaPreviaAnuncio.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/web/js/editarPerfil.js</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/web/js/misAnuncios.js</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/web/js/veranuncio.js</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/web/registro.jsp</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/web/js/editarPerfilUsuario.js</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/web/verAnuncio.jsp</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/modelo/entidades/Usuario.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/modelo/dao/FacturaJpaController.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/web/admin/administrarAnunciosFuego.jsp</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/controladores/usuario/MisAnuncios.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/web/js/informacionAnuncio.js</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/web/usuario/editarPerfil.jsp</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/web/js/tablaAnuncioReplica.js</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/controladores/usuario/Comprar.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/controladores/usuario/InformacionAnuncio.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/web/inicio.jsp</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/service/RestController.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/controladores/usuario/AnadirImagenReversoDNI.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/modelo/entidades/Arma.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/web/js/tablaAnunciosUsuario.js</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/web/js/permitirCompra.js</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/web/usuario/compraCompletada.jsp</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/controladores/usuario/AnadirImagenAnversoDNI.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/modelo/entidades/ContratoCompraVenta.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/modelo/dao/AnuncioJpaController.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/modelo/dao/PedidoJpaController.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/modelo/entidades/Factura.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/controladores/admin/AdminBorrarAnuncio.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/modelo/entidades/Anuncio.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/controladores/usuario/EditarAnuncio.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/controladores/usuario/CrearAnuncio.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/web/js/tablaLicencias.js</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/controladores/admin/CambiarEstadoAnuncio.java</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/web/js/registro.js</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/web/js/tablaAnunciosFuego.js</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/web/js/tablaUsuario.js</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/web/usuario/informacionAnuncio.jsp</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/conf/persistence.xml</file>
+            <file>file:/C:/Users/Zatonio/Desktop/Instituto%20DAW/2º%20DAW/PI/Proyecto/PI/Archivos%20Proyecto/src/java/modelo/entidades/Pedido.java</file>
         </group>
     </open-files>
 </project-private>

@@ -183,9 +183,12 @@
               </div>
               
               <div class="button mt-3 d-flex justify-content-center text-center">
-                <button class="btn btn-primary"><a href="VerPedidos">Ver mis pedidos</a></button>
+                <button class="btn btn-primary"><a href="./Compras">Ver mis compras</a></button>
               </div>
               
+              <div class="button mt-3 d-flex justify-content-center text-center">
+                <button class="btn btn-primary"><a href="./Ventas">Ver mis ventas</a></button>
+              </div>
               
               <div class="button mt-3 d-flex justify-content-center text-center">
                 <button class="btn btn-primary"><a href="./MisAnuncios">Ver mis anuncios</a></button>

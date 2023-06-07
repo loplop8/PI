@@ -193,19 +193,13 @@
                                                     <div class="row">   
                                                         <div class="col-md-12 mt-1">
                                                             <label for="descripcion">Descripcion del anuncio</label>
-                                                            <textarea name="descripcion" placeholder="Detalle toda la infomación del arma" class="form-control"></textarea> 
+                                                            <textarea maxlength="255" name="descripcion" placeholder="Detalle toda la infomación del arma" class="form-control"></textarea> 
                                                         </div>    
-
-
-
                                                     </div>
-
-
-
                                                     <div class="row">
                                                         <div class="col-md-12 mt-1">
                                                             <label for="descripcion">Precio del Arma:</label>
-                                                            <input type="number" step="0.01" name="precio" min="1" required class="form-control" />
+                                                            <input type="number" step="0.01" name="precio" min="50" required class="form-control" />
                                                         </div>
                                                     </div>
 

@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -187,36 +188,36 @@
 
                                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                                     <c:forEach items="${anuncios}" var="a">
-                                    <div class="col">
-                                        <div class="card shadow-sm">
-                                            <div >
-                                                <img src="img/Escopetas/815983.jpg" alt="" width="100%" height="225">
-                                            </div>
-                                            <div class="card-body">
-                                                <p class="card-text">
-                                                <div class="card" id="NombreAnuncio">
-                                                    <p>Titulo: ${a.titulo}</p>
+                                        <div class="col">
+                                            <div class="card shadow-sm">
+                                                <div>
+                                                    <img src="${a.url_img_principal}" alt="" width="100%" height="225">
                                                 </div>
-                                                <div class="card" id="CuerpoAnuncio">
-                                                    <p>Descripción: ${a.descripcion}</p>
-                                                </div>
-                                                </p>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-outline-warning  me-2 "data-bs-toggle="modal" data-bs-target="#modalImage1" > Ver el producto </button>
-                                                        <form method="post" action="./VerAnuncio">
-                                                            <input type="hidden" name="anuncioVer" value=${a.id_anuncio}> 
-                                                            <button  type="submit" class="btn btn-outline-warning  me-2">Ir al anuncio</button>
-                                                        </form>
-                                                        
+                                                <div class="card-body">
+                                                    <p class="card-text">
+                                                    <div class="card" id="NombreAnuncio">
+                                                        <p>Titulo: ${a.titulo}</p>
                                                     </div>
-                                                    <small class="text-muted">9 mins</small>
+                                                    <div class="card" id="CuerpoAnuncio">
+                                                        <p>Descripción: ${fn:substring(a.descripcion, 0, 250)}${fn:length(a.descripcion) > 250 ? '...' : ''}</p>
+                                                    </div>
+                                                    </p>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div class="btn-group">
+                                                            <button type="button" class="btn btn-outline-warning me-2" data-bs-toggle="modal"
+                                                                    data-bs-target="#modalImage1">Ver el producto</button>
+                                                            <form method="post" action="./VerAnuncio">
+                                                                <input type="hidden" name="anuncioVer" value="${a.id_anuncio}">
+                                                                <button type="submit" class="btn btn-outline-warning me-2">Ir al anuncio</button>
+                                                            </form>
+                                                        </div>
+                                                        <small class="text-muted">9 mins</small>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
                                     </c:forEach>
-                                     <div class="col">
+                                    <div class="col">
                                         <div class="card shadow-sm">
                                             <div >
                                                 <img src="img/Carabinas/355044-scaled.jpg" alt="" width="100%" height="225">
@@ -408,9 +409,9 @@
                                                     <small class="text-muted">9 mins</small>
                                                 </div>
                                             </div>
-                                        
-                                      </div>
-                                      
+
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>

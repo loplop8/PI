@@ -62,7 +62,7 @@ public class AdminBorrarAnuncio extends HttpServlet {
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         request.setAttribute("usuario", usuario);
         Long idAnuncio=0L;
-       idAnuncio= Long.valueOf(request.getParameter("anuncioBorrar"));
+        idAnuncio= Long.valueOf(request.getParameter("anuncioBorrar"));
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife");   
         AnuncioJpaController ajc=new AnuncioJpaController(emf);
         Anuncio anuncio=ajc.findAnuncio(idAnuncio);

@@ -36,8 +36,8 @@ public class ContratoCompraVenta implements Serializable {
 
     
     @OneToOne
-    @JoinColumn(name="id_pedido")
-    private Pedido id_pedido;
+    @JoinColumn(name="id_factura")
+    private Factura id_factura;
     
     
     
@@ -52,13 +52,15 @@ public class ContratoCompraVenta implements Serializable {
         this.id_contrato_compra_venta = id_contrato_compra_venta;
     }
 
-    public Pedido getId_pedido() {
-        return id_pedido;
+    public Factura getId_factura() {
+        return id_factura;
     }
 
-    public void setId_pedido(Pedido id_pedido) {
-        this.id_pedido = id_pedido;
+    public void setId_factura(Factura id_factura) {
+        this.id_factura = id_factura;
     }
+
+    
 
     public String getUrl_contrato_compra_venta() {
         return url_contrato_compra_venta;
@@ -70,8 +72,10 @@ public class ContratoCompraVenta implements Serializable {
 
     @Override
     public String toString() {
-        return "ContratoCompraVenta{" + "id_contrato_compra_venta=" + id_contrato_compra_venta + ", id_pedido=" + id_pedido + ", url_contrato_compra_venta=" + url_contrato_compra_venta + '}';
+        return "ContratoCompraVenta{" + "id_contrato_compra_venta=" + id_contrato_compra_venta + ", id_factura=" + id_factura + ", url_contrato_compra_venta=" + url_contrato_compra_venta + '}';
     }
+
+    
    
      
 

@@ -67,7 +67,10 @@ public class AnadirImagenAnversoDNI extends HttpServlet {
         
         // Crea el directorio de subida si no existe
         String applicationPath = request.getServletContext().getRealPath("");
+        System.out.println(applicationPath);
         String uploadPath = applicationPath + File.separator + UPLOAD_DIR;
+        
+        
         File uploadDir = new File(uploadPath);
         if (!uploadDir.exists()) {
             uploadDir.mkdir();
@@ -75,6 +78,7 @@ public class AnadirImagenAnversoDNI extends HttpServlet {
         
         // Guarda el archivo en el servidor
         File file = new File(uploadPath + File.separator + fileName);
+        
         try (InputStream input = fileContent) {
             Files.copy(input, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
         }
@@ -84,6 +88,7 @@ public class AnadirImagenAnversoDNI extends HttpServlet {
         
         // Ponemos la url para guardar la url en la base de datos
         String fileUrl = request.getContextPath() + "/" + UPLOAD_DIR + "/" + fileName;
+       
         
         
         request.getSession().setAttribute("anversodni", fileUrl);

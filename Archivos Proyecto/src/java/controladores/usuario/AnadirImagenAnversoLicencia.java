@@ -80,6 +80,7 @@ public class AnadirImagenAnversoLicencia extends HttpServlet {
         // Crea el directorio de subida si no existe
         String applicationPath = request.getServletContext().getRealPath("");
         String uploadPath = applicationPath + File.separator + UPLOAD_DIR;
+         System.out.println(uploadPath);
         File uploadDir = new File(uploadPath);
         if (!uploadDir.exists()) {
             uploadDir.mkdir();
@@ -96,6 +97,7 @@ public class AnadirImagenAnversoLicencia extends HttpServlet {
         
         // Ponemos la url para guardar la url en la base de datos
         String fileUrl = request.getContextPath() + "/" + UPLOAD_DIR + "/" + fileName;
+        
         
         
         request.getSession().setAttribute("anversoLicencia", fileUrl);

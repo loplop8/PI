@@ -209,6 +209,7 @@
                                         <td class="text-center">${a.id_arma.marca}</td>
                                         <td class="text-center">${a.id_estado_anuncio.estado}</td>
                                         <td class="text-center align-middle">
+                                            
                                             <form action="../VerAnuncio" method="post">
                                             
                                                 <input type="hidden" name="anuncioVer" value="${a.id_anuncio}"/>
@@ -219,11 +220,11 @@
                                         </td>
                                         
                                         <td class="text-center align-middle">
-                                            <form action="./EditarAnuncio" method="post">
+                                            <form action="./EditarAnuncio"  method="post">
                                             
                                                
-                                                         <input type="hidden" name="anuncioEditar" value="${a.id_anuncio}"/>
-                                                <input type="submit" class="btn btn-sm btn-primary" value="Editar"/>
+                                                <input type="hidden"   name="anuncioEditar" value="${a.id_anuncio}"/>
+                                                <input type="submit" <c:if test="${a.id_estado_anuncio.id_estado_anuncio==8}"> disabled </c:if> class="btn btn-sm btn-primary" value="Editar"/>
                                             
                                             </form>
                                         </td>
@@ -232,7 +233,7 @@
                                             <form action="./BorrarAnuncio" method="post">
                                             
                                                 <input type="hidden" name="anuncioBorrar" value="${a.id_anuncio}"/>
-                                            <input type="submit" id="" class="btn btn-sm btn-danger anuncioBorrar" value="Borrar"/>
+                                            <input type="submit" id=""<c:if test="${a.id_estado_anuncio.id_estado_anuncio==8}"> disabled </c:if>  class="btn btn-sm btn-danger anuncioBorrar" value="Borrar"/>
                                             </form>
                                         </td>
                                         

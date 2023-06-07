@@ -137,7 +137,7 @@ public class AnuncioJpaController implements Serializable {
     
      public List<Anuncio> obtenerListaAnunciosArmasFuego() {
         EntityManager em = getEntityManager();
-          String queryString ="select a.id_anuncio, a.fecha_public, a.descripcion, a.titulo, a.precio, a.id_arma, a.id_estado_anuncio "
+          String queryString ="select a.id_anuncio, a.fecha_public, a.descripcion, a.titulo, a.precio, a.id_arma, a.id_estado_anuncio, a.url_img_principal "
                   + " from Anuncio a, Arma ar, ArmaFuego af where a.id_arma.id_arma=ar.id_arma AND ar.id_arma=af.id_arma.id_arma";
 
         TypedQuery<Object[]> query = em.createQuery(queryString, Object[].class);
@@ -154,6 +154,7 @@ public class AnuncioJpaController implements Serializable {
         anuncio.setPrecio((Double)result[4]);
         anuncio.setId_arma((Arma)result[5]);
         anuncio.setId_estado_anuncio((EstadoAnuncio)result[6]);
+        anuncio.setUrl_img_principal((String)result[7]);
         anunciosArmasFuego.add(anuncio);
     }
     return anunciosArmasFuego;
@@ -163,7 +164,7 @@ public class AnuncioJpaController implements Serializable {
      
      public List<Anuncio> obtenerListaAnunciosArmasReplica() {
         EntityManager em = getEntityManager();
-          String queryString ="select a.id_anuncio, a.fecha_public, a.descripcion, a.titulo, a.precio, a.id_arma, a.id_estado_anuncio "
+          String queryString ="select a.id_anuncio, a.fecha_public, a.descripcion, a.titulo, a.precio, a.id_arma, a.id_estado_anuncio, a.url_img_principal "
                   + " from Anuncio a, Arma ar, ArmaReplica are where a.id_arma.id_arma=ar.id_arma AND ar.id_arma=are.id_arma.id_arma";
 
         TypedQuery<Object[]> query = em.createQuery(queryString, Object[].class);
@@ -180,6 +181,7 @@ public class AnuncioJpaController implements Serializable {
         anuncio.setPrecio((Double)result[4]);
         anuncio.setId_arma((Arma)result[5]);
         anuncio.setId_estado_anuncio((EstadoAnuncio)result[6]);
+        anuncio.setUrl_img_principal((String)result[7]);
         anunciosArmasReplica.add(anuncio);
     }
     return anunciosArmasReplica;
@@ -188,7 +190,7 @@ public class AnuncioJpaController implements Serializable {
     public Boolean esAnuncioArmasReplica(Long idAnuncio) {
         Boolean esAnuncioArmasReplica=false;
         EntityManager em = getEntityManager();
-          String queryString ="select a.id_anuncio, a.fecha_public, a.descripcion, a.titulo, a.precio, a.id_arma, a.id_estado_anuncio "
+          String queryString ="select a.id_anuncio, a.fecha_public, a.descripcion, a.titulo, a.precio, a.id_arma, a.id_estado_anuncio, a.url_img_principal "
                   + " from Anuncio a, Arma ar, ArmaReplica are where a.id_arma.id_arma=ar.id_arma AND ar.id_arma=are.id_arma.id_arma AND a.id_anuncio=:id";
 
         TypedQuery<Object[]> query = em.createQuery(queryString, Object[].class).setParameter("id", idAnuncio);
@@ -206,7 +208,7 @@ public class AnuncioJpaController implements Serializable {
      
       public List<Anuncio> obtenerListaAnunciosValidados() {
         EntityManager em = getEntityManager();
-          String queryString =" select a.id_anuncio, a.fecha_public, a.descripcion, a.titulo, a.precio, a.id_arma, a.id_estado_anuncio"
+          String queryString =" select a.id_anuncio, a.fecha_public, a.descripcion, a.titulo, a.precio, a.id_arma, a.id_estado_anuncio, a.url_img_principal"
                   + " from Anuncio a   where a.id_estado_anuncio.id_estado_anuncio=3";
           
         TypedQuery<Object[]> query = em.createQuery(queryString, Object[].class);
@@ -221,6 +223,7 @@ public class AnuncioJpaController implements Serializable {
         anuncio.setPrecio((Double)result[4]);
         anuncio.setId_arma((Arma)result[5]);
         anuncio.setId_estado_anuncio((EstadoAnuncio)result[6]);
+        anuncio.setUrl_img_principal((String)result[7]);
         anunciosArmasReplica.add(anuncio);
     }
     return anunciosArmasReplica;

@@ -62,7 +62,17 @@ public class Anuncio implements Serializable {
     @Column(name="titulo")
     private String titulo;
    
-    
+    @Column(name="url_img_principal")
+    private String url_img_principal;
+
+    public String getUrl_img_principal() {
+        return url_img_principal;
+    }
+
+    public void setUrl_img_principal(String url_img_principal) {
+        this.url_img_principal = url_img_principal;
+    }
+  
     @Column(name="precio")
     private Double precio;
 

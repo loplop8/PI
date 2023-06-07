@@ -43,7 +43,10 @@ public class Inicio extends HttpServlet {
         AnuncioJpaController ajc= new AnuncioJpaController(emf);
        List<Anuncio> anuncios=ajc.obtenerListaAnunciosValidados();
        request.setAttribute("anuncios", anuncios);
-       getServletContext().getRequestDispatcher(vista).forward(request, response);      
+       getServletContext().getRequestDispatcher(vista).forward(request, response);
+      
+       
+       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

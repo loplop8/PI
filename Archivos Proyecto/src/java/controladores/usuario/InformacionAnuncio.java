@@ -80,12 +80,12 @@ public class InformacionAnuncio extends HttpServlet {
             Arma a= (Arma) request.getSession().getAttribute("arma");
             
             if(request.getPart("images")!=null && request.getParameter("titulo")!=null && request.getParameter("descripcion")!=null && request.getParameter("precio")!=null ) { 
+                
+                
                 List<Imagen> imagenes=new ArrayList<>();
                 String descipcion=request.getParameter("descripcion");
                 String titulo=request.getParameter("titulo");
                 Double precio=Double.parseDouble(request.getParameter("precio"));
-                
-                
                 Anuncio an=new Anuncio();
                 an.setId_arma(a);
                 an.setDescripcion(descipcion);
@@ -100,7 +100,7 @@ public class InformacionAnuncio extends HttpServlet {
                 EstadoAnuncio ea= eajc.findEstadoAnuncio(2L);
                 
                 an.setId_estado_anuncio(ea);
-                
+                an.setUrl_img_principal(null);
                 
                 try{
                     ajc.create(an);
@@ -113,17 +113,17 @@ public class InformacionAnuncio extends HttpServlet {
             .filter(part -> "images".equals(part.getName()))
             .collect(Collectors.toList());
 
-            for (Part filePart : fileParts){
+            for (int it=0; it< fileParts.size() ; it++){
         // Obtiene el nombre del archivo del archivo de la solicitud
         
         
-        String filePath = Paths.get(filePart.getSubmittedFileName()).toString();
+        String filePath = Paths.get(fileParts.get(it).getSubmittedFileName()).toString();
         String fileType = filePath.substring(filePath.lastIndexOf('.') + 1);
         
 
-        String fileName = "anuncio"+usuario.getNickname() + an.getId_anuncio()+fileParts.indexOf(filePart) + "." + fileType;
+        String fileName = "anuncio"+usuario.getNickname() + an.getId_anuncio()+fileParts.indexOf(fileParts.get(it)) + "." + fileType;
         // Obtiene el stream de entrada del archivo de la solicitud
-        InputStream fileContent = filePart.getInputStream();
+        InputStream fileContent = fileParts.get(it).getInputStream();
          // Detecta el tipo MIME del archivo utilizando Apache Tika
         Tika tika = new Tika();
         String mimeType = tika.detect(fileContent);
@@ -158,7 +158,14 @@ public class InformacionAnuncio extends HttpServlet {
         String fileUrl = request.getContextPath() + "/" + UPLOAD_DIR + "/" + fileName;
             
         //Insertamos las imagenes en la tabla de imagenes
-        
+        if(it==0){
+            try{
+                an.setUrl_img_principal(fileUrl);
+                ajc.edit(an);
+            }catch(Exception e){
+                
+            }
+        }
         Imagen i=new Imagen();
         i.setId_anuncio(an);
         i.setUrl_imagen(fileUrl);

@@ -54,6 +54,17 @@ public class Usuario implements Serializable {
     @Column(name="rol")
     private String rol;
 
+    @Column(name="nombre_padre")
+    private String nombre_padre;
+    
+    @Column(name="nombre_madre")
+    private String nombre_madre;
+    
+    @Column(name="nacido_en")
+    private String nacido_en;
+    
+    @Column(name="provincia_nacimiento")
+    private String provincia_nacimiento;
     
     
     @Column(name="telefono")
@@ -235,10 +246,43 @@ public class Usuario implements Serializable {
         this.esta_activo = esta_activo;
     }
 
-    @Override
-    public String toString() {
-        return "Usuario{" + "id_usuario=" + id_usuario + ", nickname=" + nickname + ", nombre=" + nombre + ", apellidos=" + apellidos + ", email=" + email + ", contrase\u00f1a=" + contraseña + ", rol=" + rol + ", telefono=" + telefono + ", id_municipio=" + id_municipio + ", direccion=" + direccion + ", fecha_nacimiento=" + fecha_nacimiento + ", nif=" + nif + ", url_img_perfil=" + url_img_perfil + ", esta_activo=" + esta_activo + ", dni_validado=" + dni_validado + ", url_img_dni_anverso=" + url_img_dni_anverso + ", url_img_dni_reverso=" + url_img_dni_reverso + '}';
+    public String getNombre_padre() {
+        return nombre_padre;
     }
+
+    public void setNombre_padre(String nombre_padre) {
+        this.nombre_padre = nombre_padre;
+    }
+
+    public String getNombre_madre() {
+        return nombre_madre;
+    }
+
+    public void setNombre_madre(String nombre_madre) {
+        this.nombre_madre = nombre_madre;
+    }
+
+    public String getNacido_en() {
+        return nacido_en;
+    }
+
+    public void setNacido_en(String nacido_en) {
+        this.nacido_en = nacido_en;
+    }
+
+    public String getProvincia_nacimiento() {
+        return provincia_nacimiento;
+    }
+
+    public void setProvincia_nacimiento(String provincia_nacimiento) {
+        this.provincia_nacimiento = provincia_nacimiento;
+    }
+     @Override
+    public String toString() {
+        return "Usuario{" + "id_usuario=" + id_usuario + ", nickname=" + nickname + ", nombre=" + nombre + ", apellidos=" + apellidos + ", email=" + email + ", contrase\u00f1a=" + contraseña + ", rol=" + rol + ", nombre_padre=" + nombre_padre + ", nombre_madre=" + nombre_madre + ", nacido_en=" + nacido_en + ", provincia_nacimiento=" + provincia_nacimiento + ", telefono=" + telefono + ", id_municipio=" + id_municipio + ", direccion=" + direccion + ", fecha_nacimiento=" + fecha_nacimiento + ", nif=" + nif + ", url_img_perfil=" + url_img_perfil + ", esta_activo=" + esta_activo + ", dni_validado=" + dni_validado + ", url_img_dni_anverso=" + url_img_dni_anverso + ", url_img_dni_reverso=" + url_img_dni_reverso + '}';
+    }
+
+  
 
    
     

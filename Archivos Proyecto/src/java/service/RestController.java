@@ -18,6 +18,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import modelo.dao.AnuncioJpaController;
 import modelo.dao.LicenciaJpaController;
 import modelo.dao.MunicipioJpaController;
 import modelo.dao.ProvinciaJpaController;
@@ -28,6 +29,7 @@ import modelo.dao.UsuarioJpaController;
 import modelo.entidades.Municipio;
 import modelo.entidades.Provincia;
 import modelo.dao.exceptions.*;
+import modelo.entidades.Anuncio;
 import modelo.entidades.Licencia;
 import modelo.entidades.TipoArma;
 import modelo.entidades.TipoLicencia;
@@ -42,7 +44,9 @@ import modelo.entidades.Usuario;
 public class RestController  {
 
     
-
+    @Context
+    private HttpServletRequest request;
+    
      
      @GET     
      @Path("Provincias")
@@ -130,8 +134,6 @@ public class RestController  {
            
       }
          
-    @Context
-    private HttpServletRequest request;
     
      @GET
      @Path("UsuarioPuedeUsarTipoArma")
@@ -192,6 +194,32 @@ public class RestController  {
           
 }
 
+     
+     
+     @GET
+     @Path("permitirCompraAnuncioUsuario/{idAnuncio}")
+     public boolean permitirCompraUsuario(@PathParam("idAnuncio") Long idAnuncio ){
+         
+         boolean permitir=false;
+         
+         EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife");
+         
+         AnuncioJpaController ajc= new AnuncioJpaController(emf);
+         Anuncio a=ajc.findAnuncio(idAnuncio);
+         
+         if(a!=null){
+
+       List<Licencia> licencias=getLicenciasUsuarioFacultaTipoArma(a.getId_arma().getId_tipo_arma().getId_tipo_arma());
+         
+         if(!licencias.isEmpty()){
+             permitir=true;
+         }
+         
+         }
+         return permitir;
+         
+}
+     
 }   
       
       
