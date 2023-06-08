@@ -47,8 +47,8 @@ public class Hilo implements Serializable {
         this.id_usuario = id_usuario;
     }
 
-    @Column(name="titutlo_descriptivo")
-    private String titutlo_descriptivo;
+    @Column(name="titulo_descriptivo")
+        private String titutlo_descriptivo;
    
     
     @Column(name="etiqueta_tema")

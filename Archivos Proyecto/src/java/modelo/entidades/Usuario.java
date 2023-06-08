@@ -118,6 +118,18 @@ public class Usuario implements Serializable {
     @Column(name="url_img_dni_reverso")
     private String url_img_dni_reverso;
 
+    @Column(name="puntuacion_foro")
+    private Integer puntuacion_foro;
+
+    public Integer getPuntuacion_foro() {
+        return puntuacion_foro;
+    }
+
+    public void setPuntuacion_foro(Integer puntuacion_foro) {
+        this.puntuacion_foro = puntuacion_foro;
+    }
+   
+    
     public Boolean getDni_validado() {
         return dni_validado;
     }
@@ -277,11 +289,12 @@ public class Usuario implements Serializable {
     public void setProvincia_nacimiento(String provincia_nacimiento) {
         this.provincia_nacimiento = provincia_nacimiento;
     }
-     @Override
-    public String toString() {
-        return "Usuario{" + "id_usuario=" + id_usuario + ", nickname=" + nickname + ", nombre=" + nombre + ", apellidos=" + apellidos + ", email=" + email + ", contrase\u00f1a=" + contraseña + ", rol=" + rol + ", nombre_padre=" + nombre_padre + ", nombre_madre=" + nombre_madre + ", nacido_en=" + nacido_en + ", provincia_nacimiento=" + provincia_nacimiento + ", telefono=" + telefono + ", id_municipio=" + id_municipio + ", direccion=" + direccion + ", fecha_nacimiento=" + fecha_nacimiento + ", nif=" + nif + ", url_img_perfil=" + url_img_perfil + ", esta_activo=" + esta_activo + ", dni_validado=" + dni_validado + ", url_img_dni_anverso=" + url_img_dni_anverso + ", url_img_dni_reverso=" + url_img_dni_reverso + '}';
-    }
 
+    @Override
+    public String toString() {
+        return "Usuario{" + "id_usuario=" + id_usuario + ", nickname=" + nickname + ", nombre=" + nombre + ", apellidos=" + apellidos + ", email=" + email + ", contrase\u00f1a=" + contraseña + ", rol=" + rol + ", nombre_padre=" + nombre_padre + ", nombre_madre=" + nombre_madre + ", nacido_en=" + nacido_en + ", provincia_nacimiento=" + provincia_nacimiento + ", telefono=" + telefono + ", id_municipio=" + id_municipio + ", direccion=" + direccion + ", fecha_nacimiento=" + fecha_nacimiento + ", nif=" + nif + ", url_img_perfil=" + url_img_perfil + ", esta_activo=" + esta_activo + ", dni_validado=" + dni_validado + ", url_img_dni_anverso=" + url_img_dni_anverso + ", url_img_dni_reverso=" + url_img_dni_reverso + ", puntuacion_foro=" + puntuacion_foro + '}';
+    }
+    
   
 
    

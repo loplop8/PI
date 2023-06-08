@@ -38,11 +38,9 @@
                                                                                           width="100px" height="40px"></a></li>
                         <li><a href="../SobreNosotros" class="nav-link px-2 text-white mt-2 elementosNoResponsive">Sobre
                                 Nosotros</a></li>
-                        <li><a href="../ComoTrabajamos" class="nav-link px-2 text-white mt-2 elementosNoResponsive">Como
-                                Trabajamos</a></li>
+                        
                         <li><a href="../Foro" class="nav-link px-2 text-white mt-2 elementosNoResponsive">Foro</a></li>
-                        <li><a href="../Encuentranos"
-                               class="nav-link px-2 text-white mt-2 elementosNoResponsive">Encuentranos</a></li>
+                        
                     </ul>
 
                     <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-5 elementosNoResponsive">
@@ -67,14 +65,12 @@
                                         <a href="../SobreNosotros"
                                            class="nav-link px-2 text-white mt-2 elementosResponsive">Sobre Nosotros</a>
 
-                                        <a href="../ComoTrabajamos"
-                                           class="nav-link px-2 text-white mt-2 elementosResponsive">Como Trabajamos</a>
+                                        
                                         <a href="../Foro" class="nav-link px-2 text-white mt-2 elementosResponsive">Foro</a>
-                                        </a>
+                                        
 
-                                        <a href="../Encuentranos"
-                                           class="nav-link px-2 text-white mt-2 elementosResponsive">Encuentranos</a>
-                                        </a>
+                                       
+                                        
                                         <c:if test="${usuario.id_usuario==null}">
 
                                             <a href="#" class="nav-link px-2 text-white mt-2 elementosResponsive"><button
@@ -102,7 +98,7 @@
                                                 aria-labelledby="navbarDarkDropdownMenuLink ">
 
                                                 <c:if test="${usuario.rol=='admin'}">
-                                                    <li><a class="dropdown-item" href="admin/PanelAdministracion"> <svg
+                                                    <li><a class="dropdown-item" href="./PanelAdministracion"> <svg
                                                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                                 fill="currentColor" class="bi bi-pc-display-horizontal"
                                                                 viewBox="0 0 16 16">
@@ -395,14 +391,14 @@
                         class="text-center text-lg-start text-white"
                         >
 
-
+                        <!-- Grid container -->
                         <div class="container p-4 pb-0">
                             <hr class="my-3">
-
+                            <!-- Section: Links -->
                             <section class="">
-
+                                <!--Grid row-->
                                 <div class="row">
-
+                                    <!-- Grid column -->
                                     <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                                         <h6 class="text-uppercase mb-4 font-weight-bold">
                                             Second Weapaon Life
@@ -411,10 +407,11 @@
                                             Somos una plataforma, dedicada a facilitar la venta de armas de segunda mano entre propietarios.
                                         </p>
                                     </div>
+                                    <!-- Grid column -->
 
                                     <hr class="w-100 clearfix d-md-none" />
 
-
+                                    <!-- Grid column -->
                                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                                         <h6 class="text-uppercase mb-4 font-weight-bold">Tipos de armas</h6>
                                         <p>
@@ -430,29 +427,33 @@
                                             <a class="text-white">Pistolas</a>
                                         </p>
                                     </div>
+                                    <!-- Grid column -->
 
                                     <hr class="w-100 clearfix d-md-none" />
 
+                                    <!-- Grid column -->
                                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
                                         <h6 class="text-uppercase mb-4 font-weight-bold">
                                             Enlaces de Interes
                                         </h6>
                                         <p>
-                                            <a class="text-white" href="GestionCuenta.html">Ir a tu cuenta</a>
+                                            <a class="text-white" >Ir a tu cuenta</a>
                                         </p>
                                         <p>
-                                            <a class="text-white" href="registro">Registrate</a>
+                                            <a class="text-white" >Registrate</a>
                                         </p>
                                         <p>
                                             <a class="text-white">Anuncios</a>
                                         </p>
                                         <p>
-                                            <a class="text-white">Sobre nosotros</a>
+                                            <a class="text-white" href="sobreNosotros.html">Sobre nosotros</a>
                                         </p>
                                     </div>
 
+                                    <!-- Grid column -->
                                     <hr class="w-100 clearfix d-md-none" />
 
+                                    <!-- Grid column -->
                                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                                         <h6 class="text-uppercase mb-4 font-weight-bold">Contacto</h6>
                                         <p><i class="fas fa-home mr-3"></i>Bollullos de la Mitación, CP 41110 (Sevilla)</p>
@@ -460,24 +461,25 @@
                                         <p><i class="fas fa-phone mr-3"></i><a class="text-white" href=tel:+34607450598>Llamanos </a> </p>
                                         <p><i class="fas fa-print mr-3"></i> <a href="8VR5+GX Bollullos de la Mitación"></a></p>
                                     </div>
-
+                                    <!-- Grid column -->
                                 </div>
-
+                                <!--Grid row-->
                             </section>
-
+                            <!-- Section: Links -->
 
                             <hr class="my-3">
 
-
+                            <!-- Section: Copyright -->
                             <section class="p-3 pt-0">
                                 <div class="row d-flex align-items-center">
-
+                                    <!-- Grid column -->
                                     <div class="col-md-7 col-lg-8 text-center text-md-start">
+                                        <!-- Copyright -->
                                         <div class="p-3">
-                                            <a href="GestionCuenta.html"> © José Antonio López López </a>
+                                            © José Antonio López López 
 
                                         </div>
-
+                                        <!-- Copyright -->
                                     </div>
 
 

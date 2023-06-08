@@ -41,7 +41,7 @@ public class Mensaje implements Serializable {
    
     @ManyToOne
     @JoinColumn(name="id_hilo")
-    private Usuario id_hilo;
+    private Hilo id_hilo;
 
     public Usuario getId_usuario() {
         return id_usuario;
@@ -67,11 +67,11 @@ public class Mensaje implements Serializable {
         this.id_mensaje = id_mensaje;
     }
 
-    public Usuario getId_hilo() {
+    public Hilo getId_hilo() {
         return id_hilo;
     }
 
-    public void setId_hilo(Usuario id_hilo) {
+    public void setId_hilo(Hilo id_hilo) {
         this.id_hilo = id_hilo;
     }
 

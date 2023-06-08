@@ -163,26 +163,21 @@ body,div,footer{
 }
 
 header{
-    position: static;
-    top: 3 px;
-    z-index: 3;
-    width: 103%;
-    margin: -2%;
-    padding: 0em 1em 0em 1em ;
-}
-
-#cabecera{
-    padding-top: 2em;
-    padding-left: 1em ;
-    
-}
+        position: static;
+        z-index: 3;
+        width: 98%;
+        margin-bottom: 2%;
+        margin-right: 5%;
+        padding: 0em 1em 0em 1em ;
+    }
+    #cabecera{
+        padding-top: 2em;
+        padding-left: 1em ;        
+    }
 main{
     margin-top: 3%;
 }
 
-#img-usr {
-  border-radius: 50%;
-}
 
 
 
@@ -234,9 +229,6 @@ a:hover{
 .elementosResponsive{
     display: none;
 }
- .dropdown-menu{
-        left: -81% !important;
-    }
 
 
 

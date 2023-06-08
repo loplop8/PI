@@ -116,7 +116,7 @@ public class CrearAnuncio extends HttpServlet {
             
             getServletContext().getRequestDispatcher(vistaImagenAnversoGuia).forward(request, response);
             
-        }else if(request.getParameter("tipo_arma")!=null && request.getParameter("tipo_gas")!=null&& request.getParameter("capacidad_cargador")!=null && request.getParameter("piezas_canon")!=null){
+        }else if(request.getParameter("tipo_arma")!=null && request.getParameter("tipo_gas")!=null&& request.getParameter("capacidad_cargador")!=null ){
             
             String marca=request.getParameter("marca");
             String tipo_gas=request.getParameter("tipo_gas");

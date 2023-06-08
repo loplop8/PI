@@ -140,7 +140,26 @@ public class CompraCompletada extends HttpServlet {
 
         try (PDDocument document = PDDocument.load(new File(rutaPdfFactura))) {
             PDAcroForm acroForm = document.getDocumentCatalog().getAcroForm();
+            
+            
+            if (acroForm != null) {
+                    for (PDField field : acroForm.getFieldTree()) {
+                        if (field instanceof PDNonTerminalField) {
+                            System.out.println("Subformulario encontrado: " + field.getFullyQualifiedName());
 
+                            for (PDField child : ((PDNonTerminalField) field).getChildren()) {
+                                System.out.println("Campo: " + child.getFullyQualifiedName());
+                                System.out.println("Valor: " + child.getValueAsString());
+                            }
+                        } else {
+                            System.out.println("Campo: " + field.getFullyQualifiedName());
+                            System.out.println("Valor: " + field.getValueAsString());
+                        }
+                    }
+
+                }
+            
+            
             DecimalFormat decimalFormat = new DecimalFormat("0.00");
 
             PDField campo = acroForm.getField("Text1");
@@ -151,28 +170,28 @@ public class CompraCompletada extends HttpServlet {
             campo.setValue(dateFormat.format(p.getFecha_compra()));
 
             campo = acroForm.getField("Text3");
-            campo.setValue(usuario.getId_municipio().getNombre());
+            campo.setValue(normalizar(usuario.getId_municipio().getNombre()));
 
             campo = acroForm.getField("Text4");
-            campo.setValue(usuario.getId_usuario().toString());
+            campo.setValue(normalizar(usuario.getId_usuario().toString()));
 
             campo = acroForm.getField("Text5");
-            campo.setValue(usuario.getNombre() + " " + usuario.getApellidos());
+            campo.setValue(normalizar(usuario.getNombre() + " " + usuario.getApellidos()));
 
             campo = acroForm.getField("Text6");
-            campo.setValue("DNI: " + usuario.getNif());
+            campo.setValue(normalizar("DNI: " + usuario.getNif()));
 
             campo = acroForm.getField("Text7");
-            campo.setValue(usuario.getDireccion());
+            campo.setValue(normalizar(usuario.getDireccion()));
 
             campo = acroForm.getField("Text8");
-            campo.setValue(usuario.getId_municipio().getProvincia().getNombre());
+            campo.setValue(normalizar(usuario.getId_municipio().getProvincia().getNombre()));
 
             campo = acroForm.getField("Text9");
-            campo.setValue("ARM" + a.getId_arma().getId_arma());
+            campo.setValue(normalizar("ARM" + a.getId_arma().getId_arma()));
 
             campo = acroForm.getField("Text10");
-            campo.setValue(a.getId_arma().getMarca() + "-" + a.getId_arma().getId_arma());
+            campo.setValue(normalizar(a.getId_arma().getMarca() + "-" + a.getId_arma().getId_arma()));
 
             campo = acroForm.getField("Text11");
             campo.setValue("1");
@@ -187,13 +206,13 @@ public class CompraCompletada extends HttpServlet {
             campo.setValue(decimalFormat.format(a.getPrecio()));
 
             campo = acroForm.getField("Text15");
-            campo.setValue(String.valueOf(f.getDescripcion_descuento()));
+            campo.setValue(normalizar(f.getDescripcion_descuento()));
 
             campo = acroForm.getField("Text16");
             campo.setValue(decimalFormat.format(f.getImporte_descuento()));
 
             campo = acroForm.getField("Text17");
-            campo.setValue(String.valueOf(f.getDescripcion_gastos()));
+            campo.setValue(normalizar(f.getDescripcion_gastos()));
 
             campo = acroForm.getField("Text18");
             campo.setValue(decimalFormat.format(f.getImporte_gastos()));
@@ -245,7 +264,7 @@ public class CompraCompletada extends HttpServlet {
                 }
 
                 PDField campo2 = acroForm2.getField("F[0].P1[0].NOMBRE_FIRMA[0]");
-                campo2.setValue(String.valueOf(a.getId_arma().getId_usuario().getNombre() + " " + a.getId_arma().getId_usuario().getApellidos()));
+                campo2.setValue(normalizar(a.getId_arma().getId_usuario().getNombre() + " " + a.getId_arma().getId_usuario().getApellidos()));
 
                 // Obtener el día, mes y año
                 Instant instant = fechaActual.toInstant();
@@ -276,51 +295,51 @@ public class CompraCompletada extends HttpServlet {
                 campo2.setValue(a.getId_arma().getId_tipo_arma().getTipo());
 
                 campo2 = acroForm2.getField("F[0].P1[0].MARCA_ARMA[0]");
-                campo2.setValue(String.valueOf(a.getId_arma().getMarca()));
+                campo2.setValue(normalizar(a.getId_arma().getMarca()));
 
                 campo2 = acroForm2.getField("F[0].P1[0].CALIBRE_ARMA[0]");
-                campo2.setValue(String.valueOf(af.getCalibre()));
+                campo2.setValue(normalizar(af.getCalibre()));
                 campo2 = acroForm2.getField("F[0].P1[0].NUMERO_ARMA[0]");
-                campo2.setValue(String.valueOf(af.getNum_identificacion()));
+                campo2.setValue(normalizar(af.getNum_identificacion()));
 
                 campo2 = acroForm2.getField("F[0].P1[0].domicilio_COMPRADOR[0]");
-                campo2.setValue(String.valueOf(usuario.getDireccion()));
+                campo2.setValue(normalizar(usuario.getDireccion()));
 
                 campo2 = acroForm2.getField("F[0].P1[0].localidad_COMPRADOR[0]");
-                campo2.setValue(String.valueOf(usuario.getId_municipio().getNombre()));
+                campo2.setValue(normalizar(usuario.getId_municipio().getNombre()));
 
                 campo2 = acroForm2.getField("F[0].P1[0].EMAIL_COMPRADOR[0]");
-                campo2.setValue(String.valueOf(usuario.getEmail()));
+                campo2.setValue(normalizar(usuario.getEmail()));
 
                 campo2 = acroForm2.getField("F[0].P1[0].MOVIL_COMPRADOR[0]");
-                campo2.setValue(String.valueOf(usuario.getTelefono()));
+                campo2.setValue(normalizar(usuario.getTelefono()));
 
                 campo2 = acroForm2.getField("F[0].P1[0].telefono_COMPRADOR[0]");
-                campo2.setValue(String.valueOf(usuario.getTelefono()));
+                campo2.setValue(normalizar(usuario.getTelefono()));
 
                 campo2 = acroForm2.getField("F[0].P1[0].provincia_COMPRADOR[0]");
-                campo2.setValue(String.valueOf(usuario.getId_municipio().getProvincia().getNombre()));
+                campo2.setValue(normalizar(usuario.getId_municipio().getProvincia().getNombre()));
 
                 campo2 = acroForm2.getField("F[0].P1[0].calle_COMPRADOR[0]");
-                campo2.setValue(String.valueOf("VIA"));
+                campo2.setValue(normalizar("VIA"));
 
                 campo2 = acroForm2.getField("F[0].P1[0].NOMBRE_FIRMA[1]");
-                campo2.setValue(String.valueOf(usuario.getNombre() + " " + usuario.getApellidos()));
+                campo2.setValue(normalizar(usuario.getNombre() + " " + usuario.getApellidos()));
 
                 campo2 = acroForm2.getField("F[0].P1[0].NOMBRE_FIRMA[1]");
-                campo2.setValue(String.valueOf(usuario.getNombre() + " " + usuario.getApellidos()));
+                campo2.setValue(normalizar(usuario.getNombre() + " " + usuario.getApellidos()));
 
                 campo2 = acroForm2.getField("F[0].P1[0].DNI_COMPRADOR[0]");
-                campo2.setValue(String.valueOf(usuario.getNif()));
+                campo2.setValue(normalizar(usuario.getNif()));
 
                 campo2 = acroForm2.getField("F[0].P1[0].NOMBRE_COMPRADOR[0]");
-                campo2.setValue(String.valueOf(usuario.getNombre() + " " + usuario.getApellidos()));
+                campo2.setValue(normalizar(usuario.getNombre() + " " + usuario.getApellidos()));
 
                 campo2 = acroForm2.getField("F[0].P1[0].PADRE_COMPRDOR[0]");
-                campo2.setValue(String.valueOf(usuario.getNombre_padre()));
+                campo2.setValue(normalizar(usuario.getNombre_padre()));
 
                 campo2 = acroForm2.getField("F[0].P1[0].MADRE_COMPRADOR[0]");
-                campo2.setValue(String.valueOf(usuario.getNombre_madre()));
+                campo2.setValue(normalizar(usuario.getNombre_madre()));
 
                 instant = usuario.getFecha_nacimiento().toInstant();
                 fechaLocalDate = instant.atZone(ZoneId.systemDefault()).toLocalDate();
@@ -333,13 +352,13 @@ public class CompraCompletada extends HttpServlet {
                 campo2.setValue(String.valueOf(dia));
 
                 campo2 = acroForm2.getField("F[0].P1[0].MADRE_COMPRADOR[0]");
-                campo2.setValue(String.valueOf(usuario.getNombre_madre()));
+                campo2.setValue(normalizar(usuario.getNombre_madre()));
 
                 campo2 = acroForm2.getField("F[0].P1[0].LUGAR_NACIMIENTO_COMPRADOR[0]");
-                campo2.setValue(String.valueOf(usuario.getNacido_en()));
+                campo2.setValue(normalizar(usuario.getNacido_en()));
 
                 campo2 = acroForm2.getField("F[0].P1[0].PROVINCIA_COMPRADOR[0]");
-                campo2.setValue(String.valueOf(usuario.getProvincia_nacimiento()));
+                campo2.setValue(normalizar(usuario.getProvincia_nacimiento()));
 
                 campo2 = acroForm2.getField("F[0].P1[0].F_NAC_2_COMPRADOR[0]");
                 campo2.setValue(String.valueOf(mes));
@@ -355,7 +374,7 @@ public class CompraCompletada extends HttpServlet {
                 anio = fechaLocalDate.getYear();
 
                 campo2 = acroForm2.getField("F[0].P1[0].GUIA_ARMA[0]");
-                campo2.setValue(String.valueOf(af.getNum_guia()));
+                campo2.setValue(normalizar(af.getNum_guia()));
 
                 campo2 = acroForm2.getField("F[0].P1[0].F_EXP_GUIA_DIA[0]");
                 campo2.setValue(String.valueOf(dia));
@@ -367,19 +386,19 @@ public class CompraCompletada extends HttpServlet {
                 campo2.setValue(String.valueOf(anio));
 
                 campo2 = acroForm2.getField("F[0].P1[0].INTER_EXPEDICION[0]");
-                campo2.setValue(String.valueOf(af.getId_arma().getId_usuario().getId_municipio().getProvincia().getNombre()));
+                campo2.setValue(normalizar(af.getId_arma().getId_usuario().getId_municipio().getProvincia().getNombre()));
 
                 campo2 = acroForm2.getField("F[0].P1[0].DNI_SOLICIT[0]");
-                campo2.setValue(String.valueOf(af.getId_arma().getId_usuario().getNif()));
+                campo2.setValue(normalizar(af.getId_arma().getId_usuario().getNif()));
 
                 campo2 = acroForm2.getField("F[0].P1[0].NOMBRE_SOLICIT[0]");
-                campo2.setValue(String.valueOf(af.getId_arma().getId_usuario().getNombre() + " " + af.getId_arma().getId_usuario().getApellidos()));
+                campo2.setValue(normalizar(af.getId_arma().getId_usuario().getNombre() + " " + af.getId_arma().getId_usuario().getApellidos()));
 
                 campo2 = acroForm2.getField("F[0].P1[0].PADRE_SOLICIT[0]");
-                campo2.setValue(String.valueOf(af.getId_arma().getId_usuario().getNombre_padre()));
+                campo2.setValue(normalizar(af.getId_arma().getId_usuario().getNombre_padre()));
 
                 campo2 = acroForm2.getField("F[0].P1[0].MADRE_SOLICIT[0]");
-                campo2.setValue(String.valueOf(af.getId_arma().getId_usuario().getNombre_madre()));
+                campo2.setValue(normalizar(af.getId_arma().getId_usuario().getNombre_madre()));
 
                 instant = af.getId_arma().getId_usuario().getFecha_nacimiento().toInstant();
                 fechaLocalDate = instant.atZone(ZoneId.systemDefault()).toLocalDate();
@@ -395,10 +414,10 @@ public class CompraCompletada extends HttpServlet {
                 campo2.setValue(String.valueOf(dia));
 
                 campo2 = acroForm2.getField("F[0].P1[0].LUGAR_NACIMIENTO_SOLICIT[0]");
-                campo2.setValue(String.valueOf(af.getId_arma().getId_usuario().getNacido_en()));
+                campo2.setValue(normalizar(af.getId_arma().getId_usuario().getNacido_en()));
 
                 campo2 = acroForm2.getField("F[0].P1[0].PROVINCIA_SOLICIT[0]");
-                campo2.setValue(String.valueOf(af.getId_arma().getId_usuario().getProvincia_nacimiento()));
+                campo2.setValue(normalizar(af.getId_arma().getId_usuario().getProvincia_nacimiento()));
 
                 campo2 = acroForm2.getField("F[0].P1[0].F_NAC_2_SOLICIT[0]");
                 campo2.setValue(String.valueOf(mes));
@@ -407,29 +426,29 @@ public class CompraCompletada extends HttpServlet {
                 campo2.setValue(String.valueOf(anio));
 
                 campo2 = acroForm2.getField("F[0].P1[0].domicilio_habitual[0]");
-                campo2.setValue(String.valueOf(af.getId_arma().getId_usuario().getDireccion()));
+                campo2.setValue(normalizar(af.getId_arma().getId_usuario().getDireccion()));
 
                 campo2 = acroForm2.getField("F[0].P1[0].localidad_habitual[0]");
-                campo2.setValue(String.valueOf(af.getId_arma().getId_usuario().getId_municipio().getNombre()));
+                campo2.setValue(normalizar(af.getId_arma().getId_usuario().getId_municipio().getNombre()));
 
                 campo2 = acroForm2.getField("F[0].P1[0].telefono_habitual[0]");
-                campo2.setValue(String.valueOf(af.getId_arma().getId_usuario().getTelefono()));
+                campo2.setValue(normalizar(af.getId_arma().getId_usuario().getTelefono()));
 
                 campo2 = acroForm2.getField("F[0].P1[0].MOVIL_habitual[0]");
-                campo2.setValue(String.valueOf(af.getId_arma().getId_usuario().getTelefono()));
+                campo2.setValue(normalizar(af.getId_arma().getId_usuario().getTelefono()));
 
                 campo2 = acroForm2.getField("F[0].P1[0].EMAIL_habitual[0]");
-                campo2.setValue(String.valueOf(af.getId_arma().getId_usuario().getEmail()));
+                campo2.setValue(normalizar(af.getId_arma().getId_usuario().getEmail()));
 
                 campo2 = acroForm2.getField("F[0].P1[0].provincia_habitual[0]");
-                campo2.setValue(String.valueOf(af.getId_arma().getId_usuario().getId_municipio().getProvincia().getNombre()));
+                campo2.setValue(normalizar(af.getId_arma().getId_usuario().getId_municipio().getProvincia().getNombre()));
 
                 campo2 = acroForm2.getField("F[0].P1[0].calle_habitual[0]");
-                campo2.setValue(String.valueOf(af.getId_arma().getId_usuario().getId_municipio().getProvincia().getNombre()));
+                campo2.setValue(normalizar(af.getId_arma().getId_usuario().getId_municipio().getProvincia().getNombre()));
 
                 //PAG 2 
                 campo2 = acroForm2.getField("F[0].#subform[1].NOMBRE_FIRMA[0]");
-                campo2.setValue(String.valueOf(a.getId_arma().getId_usuario().getNombre() + " " + a.getId_arma().getId_usuario().getApellidos()));
+                campo2.setValue(normalizar(a.getId_arma().getId_usuario().getNombre() + " " + a.getId_arma().getId_usuario().getApellidos()));
 
                 // Obtener el día, mes y año
                 instant = fechaActual.toInstant();
@@ -460,51 +479,51 @@ public class CompraCompletada extends HttpServlet {
                 campo2.setValue(a.getId_arma().getId_tipo_arma().getTipo());
 
                 campo2 = acroForm2.getField("F[0].#subform[1].MARCA_ARMA[0]");
-                campo2.setValue(String.valueOf(a.getId_arma().getMarca()));
+                campo2.setValue(normalizar(a.getId_arma().getMarca()));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].CALIBRE_ARMA[0]");
-                campo2.setValue(String.valueOf(af.getCalibre()));
+                campo2.setValue(normalizar(af.getCalibre()));
                 campo2 = acroForm2.getField("F[0].#subform[1].NUMERO_ARMA[0]");
-                campo2.setValue(String.valueOf(af.getNum_identificacion()));
+                campo2.setValue(normalizar(af.getNum_identificacion()));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].domicilio_COMPRADOR[0]");
-                campo2.setValue(String.valueOf(usuario.getDireccion()));
+                campo2.setValue(normalizar(usuario.getDireccion()));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].localidad_COMPRADOR[0]");
-                campo2.setValue(String.valueOf(usuario.getId_municipio().getNombre()));
+                campo2.setValue(normalizar(usuario.getId_municipio().getNombre()));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].EMAIL_COMPRADOR[0]");
-                campo2.setValue(String.valueOf(usuario.getEmail()));
+                campo2.setValue(normalizar(usuario.getEmail()));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].MOVIL_COMPRADOR[0]");
-                campo2.setValue(String.valueOf(usuario.getTelefono()));
+                campo2.setValue(normalizar(usuario.getTelefono()));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].telefono_COMPRADOR[0]");
-                campo2.setValue(String.valueOf(usuario.getTelefono()));
+                campo2.setValue(normalizar(usuario.getTelefono()));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].provincia_COMPRADOR[0]");
-                campo2.setValue(String.valueOf(usuario.getId_municipio().getProvincia().getNombre()));
+                campo2.setValue(normalizar(usuario.getId_municipio().getProvincia().getNombre()));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].calle_COMPRADOR[0]");
-                campo2.setValue(String.valueOf("VIA"));
+                campo2.setValue(normalizar("VIA"));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].NOMBRE_FIRMA[1]");
-                campo2.setValue(String.valueOf(usuario.getNombre() + " " + usuario.getApellidos()));
+                campo2.setValue(normalizar(usuario.getNombre() + " " + usuario.getApellidos()));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].NOMBRE_FIRMA[1]");
-                campo2.setValue(String.valueOf(usuario.getNombre() + " " + usuario.getApellidos()));
+                campo2.setValue(normalizar(usuario.getNombre() + " " + usuario.getApellidos()));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].DNI_COMPRADOR[0]");
-                campo2.setValue(String.valueOf(usuario.getNif()));
+                campo2.setValue(normalizar(usuario.getNif()));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].NOMBRE_COMPRADOR[0]");
-                campo2.setValue(String.valueOf(usuario.getNombre() + " " + usuario.getApellidos()));
+                campo2.setValue(normalizar(usuario.getNombre() + " " + usuario.getApellidos()));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].PADRE_COMPRDOR[0]");
-                campo2.setValue(String.valueOf(usuario.getNombre_padre()));
+                campo2.setValue(normalizar(usuario.getNombre_padre()));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].MADRE_COMPRADOR[0]");
-                campo2.setValue(String.valueOf(usuario.getNombre_madre()));
+                campo2.setValue(normalizar(usuario.getNombre_madre()));
 
                 instant = usuario.getFecha_nacimiento().toInstant();
                 fechaLocalDate = instant.atZone(ZoneId.systemDefault()).toLocalDate();
@@ -517,13 +536,13 @@ public class CompraCompletada extends HttpServlet {
                 campo2.setValue(String.valueOf(dia));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].MADRE_COMPRADOR[0]");
-                campo2.setValue(String.valueOf(usuario.getNombre_madre()));
+                campo2.setValue(normalizar(usuario.getNombre_madre()));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].LUGAR_NACIMIENTO_COMPRADOR[0]");
-                campo2.setValue(String.valueOf(usuario.getNacido_en()));
+                campo2.setValue(normalizar(usuario.getNacido_en()));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].PROVINCIA_COMPRADOR[0]");
-                campo2.setValue(String.valueOf(usuario.getProvincia_nacimiento()));
+                campo2.setValue(normalizar(usuario.getProvincia_nacimiento()));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].F_NAC_2_COMPRADOR[0]");
                 campo2.setValue(String.valueOf(mes));
@@ -539,7 +558,7 @@ public class CompraCompletada extends HttpServlet {
                 anio = fechaLocalDate.getYear();
 
                 campo2 = acroForm2.getField("F[0].#subform[1].GUIA_ARMA[0]");
-                campo2.setValue(String.valueOf(af.getNum_guia()));
+                campo2.setValue(normalizar(af.getNum_guia()));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].F_EXP_GUIA_DIA[0]");
                 campo2.setValue(String.valueOf(dia));
@@ -551,19 +570,19 @@ public class CompraCompletada extends HttpServlet {
                 campo2.setValue(String.valueOf(anio));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].INTER_EXPEDICION[0]");
-                campo2.setValue(String.valueOf(af.getId_arma().getId_usuario().getId_municipio().getProvincia().getNombre()));
+                campo2.setValue(normalizar(af.getId_arma().getId_usuario().getId_municipio().getProvincia().getNombre()));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].DNI_SOLICIT[0]");
-                campo2.setValue(String.valueOf(af.getId_arma().getId_usuario().getNif()));
+                campo2.setValue(normalizar(af.getId_arma().getId_usuario().getNif()));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].NOMBRE_SOLICIT[0]");
-                campo2.setValue(String.valueOf(af.getId_arma().getId_usuario().getNombre() + " " + af.getId_arma().getId_usuario().getApellidos()));
+                campo2.setValue(normalizar(af.getId_arma().getId_usuario().getNombre() + " " + af.getId_arma().getId_usuario().getApellidos()));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].PADRE_SOLICIT[0]");
-                campo2.setValue(String.valueOf(af.getId_arma().getId_usuario().getNombre_padre()));
+                campo2.setValue(normalizar(af.getId_arma().getId_usuario().getNombre_padre()));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].MADRE_SOLICIT[0]");
-                campo2.setValue(String.valueOf(af.getId_arma().getId_usuario().getNombre_madre()));
+                campo2.setValue(normalizar(af.getId_arma().getId_usuario().getNombre_madre()));
 
                 instant = af.getId_arma().getId_usuario().getFecha_nacimiento().toInstant();
                 fechaLocalDate = instant.atZone(ZoneId.systemDefault()).toLocalDate();
@@ -579,10 +598,10 @@ public class CompraCompletada extends HttpServlet {
                 campo2.setValue(String.valueOf(dia));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].LUGAR_NACIMIENTO_SOLICIT[0]");
-                campo2.setValue(String.valueOf(af.getId_arma().getId_usuario().getNacido_en()));
+                campo2.setValue(normalizar(af.getId_arma().getId_usuario().getNacido_en()));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].PROVINCIA_SOLICIT[0]");
-                campo2.setValue(String.valueOf(af.getId_arma().getId_usuario().getProvincia_nacimiento()));
+                campo2.setValue(normalizar(af.getId_arma().getId_usuario().getProvincia_nacimiento()));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].F_NAC_2_SOLICIT[0]");
                 campo2.setValue(String.valueOf(mes));
@@ -591,25 +610,25 @@ public class CompraCompletada extends HttpServlet {
                 campo2.setValue(String.valueOf(anio));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].domicilio_habitual[0]");
-                campo2.setValue(String.valueOf(af.getId_arma().getId_usuario().getDireccion()));
+                campo2.setValue(normalizar(af.getId_arma().getId_usuario().getDireccion()));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].localidad_habitual[0]");
-                campo2.setValue(String.valueOf(af.getId_arma().getId_usuario().getId_municipio().getNombre()));
+                campo2.setValue(normalizar(af.getId_arma().getId_usuario().getId_municipio().getNombre()));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].telefono_habitual[0]");
-                campo2.setValue(String.valueOf(af.getId_arma().getId_usuario().getTelefono()));
+                campo2.setValue(normalizar(af.getId_arma().getId_usuario().getTelefono()));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].MOVIL_habitual[0]");
-                campo2.setValue(String.valueOf(af.getId_arma().getId_usuario().getTelefono()));
+                campo2.setValue(normalizar(af.getId_arma().getId_usuario().getTelefono()));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].EMAIL_habitual[0]");
-                campo2.setValue(String.valueOf(af.getId_arma().getId_usuario().getEmail()));
+                campo2.setValue(normalizar(af.getId_arma().getId_usuario().getEmail()));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].provincia_habitual[0]");
-                campo2.setValue(String.valueOf(af.getId_arma().getId_usuario().getId_municipio().getProvincia().getNombre()));
+                campo2.setValue(normalizar(af.getId_arma().getId_usuario().getId_municipio().getProvincia().getNombre()));
 
                 campo2 = acroForm2.getField("F[0].#subform[1].calle_habitual[0]");
-                campo2.setValue(String.valueOf(af.getId_arma().getId_usuario().getId_municipio().getProvincia().getNombre()));
+                campo2.setValue(normalizar(af.getId_arma().getId_usuario().getId_municipio().getProvincia().getNombre()));
 
                 File destino = new File(rutaNuevoPdf);
                 destino.getParentFile().mkdirs();
@@ -636,6 +655,12 @@ public class CompraCompletada extends HttpServlet {
         }
 
         getServletContext().getRequestDispatcher(vista).forward(request, response);
+    }
+    
+    static String normalizar(String texto){
+        
+        texto=Normalizer.normalize(texto,Normalizer.Form.NFD).replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
+        return texto;
     }
 
     /**

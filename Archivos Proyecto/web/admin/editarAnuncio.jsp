@@ -13,7 +13,7 @@
 
         <script src="../boostrap/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>  
-        <link rel="stylesheet" href="../css/style2.css">
+        <link rel="stylesheet" href="./../css/style2.css">
         <script src="../js/informacionAnuncio.js" defer></script>
 
 
@@ -36,11 +36,9 @@
                                                                                           width="100px" height="40px"></a></li>
                         <li><a href="../SobreNosotros" class="nav-link px-2 text-white mt-2 elementosNoResponsive">Sobre
                                 Nosotros</a></li>
-                        <li><a href="../ComoTrabajamos" class="nav-link px-2 text-white mt-2 elementosNoResponsive">Como
-                                Trabajamos</a></li>
+                        
                         <li><a href="../Foro" class="nav-link px-2 text-white mt-2 elementosNoResponsive">Foro</a></li>
-                        <li><a href="../Encuentranos"
-                               class="nav-link px-2 text-white mt-2 elementosNoResponsive">Encuentranos</a></li>
+                        
                     </ul>
 
                     <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-5 elementosNoResponsive">
@@ -65,14 +63,12 @@
                                         <a href="../SobreNosotros"
                                            class="nav-link px-2 text-white mt-2 elementosResponsive">Sobre Nosotros</a>
 
-                                        <a href="../ComoTrabajamos"
-                                           class="nav-link px-2 text-white mt-2 elementosResponsive">Como Trabajamos</a>
+                                        
                                         <a href="../Foro" class="nav-link px-2 text-white mt-2 elementosResponsive">Foro</a>
-                                        </a>
+                                        
 
-                                        <a href="../Encuentranos"
-                                           class="nav-link px-2 text-white mt-2 elementosResponsive">Encuentranos</a>
-                                        </a>
+                                       
+                                        
                                         <c:if test="${usuario.id_usuario==null}">
 
                                             <a href="#" class="nav-link px-2 text-white mt-2 elementosResponsive"><button
@@ -100,7 +96,7 @@
                                                 aria-labelledby="navbarDarkDropdownMenuLink ">
 
                                                 <c:if test="${usuario.rol=='admin'}">
-                                                    <li><a class="dropdown-item" href="admin/PanelAdministracion"> <svg
+                                                    <li><a class="dropdown-item" href="./PanelAdministracion"> <svg
                                                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                                 fill="currentColor" class="bi bi-pc-display-horizontal"
                                                                 viewBox="0 0 16 16">
@@ -249,10 +245,14 @@
                         class="text-center text-lg-start text-white"
                         >
 
+                        <!-- Grid container -->
                         <div class="container p-4 pb-0">
                             <hr class="my-3">
+                            <!-- Section: Links -->
                             <section class="">
+                                <!--Grid row-->
                                 <div class="row">
+                                    <!-- Grid column -->
                                     <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                                         <h6 class="text-uppercase mb-4 font-weight-bold">
                                             Second Weapaon Life
@@ -261,10 +261,11 @@
                                             Somos una plataforma, dedicada a facilitar la venta de armas de segunda mano entre propietarios.
                                         </p>
                                     </div>
-
+                                    <!-- Grid column -->
 
                                     <hr class="w-100 clearfix d-md-none" />
 
+                                    <!-- Grid column -->
                                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                                         <h6 class="text-uppercase mb-4 font-weight-bold">Tipos de armas</h6>
                                         <p>
@@ -280,19 +281,20 @@
                                             <a class="text-white">Pistolas</a>
                                         </p>
                                     </div>
-
+                                    <!-- Grid column -->
 
                                     <hr class="w-100 clearfix d-md-none" />
 
+                                    <!-- Grid column -->
                                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
                                         <h6 class="text-uppercase mb-4 font-weight-bold">
                                             Enlaces de Interes
                                         </h6>
                                         <p>
-                                            <a class="text-white" href="GestionCuenta.html">Ir a tu cuenta</a>
+                                            <a class="text-white" >Ir a tu cuenta</a>
                                         </p>
                                         <p>
-                                            <a class="text-white" href="registro">Registrate</a>
+                                            <a class="text-white" >Registrate</a>
                                         </p>
                                         <p>
                                             <a class="text-white">Anuncios</a>
@@ -302,31 +304,38 @@
                                         </p>
                                     </div>
 
-
+                                    <!-- Grid column -->
                                     <hr class="w-100 clearfix d-md-none" />
+
+                                    <!-- Grid column -->
                                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                                         <h6 class="text-uppercase mb-4 font-weight-bold">Contacto</h6>
                                         <p><i class="fas fa-home mr-3"></i>Bollullos de la Mitación, CP 41110 (Sevilla)</p>
                                         <p><i class="fas fa-envelope mr-3"></i> info@swl.es</p>
                                         <p><i class="fas fa-phone mr-3"></i><a class="text-white" href=tel:+34607450598>Llamanos </a> </p>
-                                        <p><i class="fas fa-print mr-3"></i> <a href="8VR5+GX Bollullos de la Mitaciï¿½n"></a></p>
+                                        <p><i class="fas fa-print mr-3"></i> <a href="8VR5+GX Bollullos de la Mitación"></a></p>
                                     </div>
-
+                                    <!-- Grid column -->
                                 </div>
-
+                                <!--Grid row-->
                             </section>
+                            <!-- Section: Links -->
+
                             <hr class="my-3">
 
-
+                            <!-- Section: Copyright -->
                             <section class="p-3 pt-0">
                                 <div class="row d-flex align-items-center">
+                                    <!-- Grid column -->
                                     <div class="col-md-7 col-lg-8 text-center text-md-start">
-
+                                        <!-- Copyright -->
                                         <div class="p-3">
-                                            José Antonio López López 
+                                            © José Antonio López López 
 
                                         </div>
+                                        <!-- Copyright -->
                                     </div>
+
 
                                     <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
                                         <a href="https://facebook.com"
@@ -347,6 +356,7 @@
                                                 </svg>  </i
                                             ></a>
 
+
                                         <a href="https://www.google.com/maps/place/C.+Granada,+13,+41110+Bollullos+de+la+Mitaci%C3%B3n,+Sevilla/@37.3413656,-6.142208,17z/data=!4m6!3m5!1s0xd121230798e25eb:0x59f66d5498776f7c!8m2!3d37.3413656!4d-6.1400193!16s%2Fg%2F11c227sx43"
                                            class="btn btn-outline-light btn-floating m-1"
                                            class="text-white"
@@ -363,6 +373,7 @@
                                             <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
                                             </svg>
                                         </a>
+
 
 
 

@@ -18,155 +18,151 @@
 
 
         <header class=" text-white">
-    <div>
+            <div>
 
 
 
 
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start w-100 "
-            id="cabecera" id="cabecera">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start w-100 "
+                     id="cabecera" id="cabecera">
 
 
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li><a href="../Inicio" class="nav-link px-2 text-secondary"><img src="../img/LogoSWL.png" alt="LogoSWL"
-                            width="100px" height="40px"></a></li>
-                <li><a href="../SobreNosotros" class="nav-link px-2 text-white mt-2 elementosNoResponsive">Sobre
-                        Nosotros</a></li>
-                <li><a href="../ComoTrabajamos" class="nav-link px-2 text-white mt-2 elementosNoResponsive">Como
-                        Trabajamos</a></li>
-                <li><a href="../Foro" class="nav-link px-2 text-white mt-2 elementosNoResponsive">Foro</a></li>
-                <li><a href="../Encuentranos"
-                        class="nav-link px-2 text-white mt-2 elementosNoResponsive">Encuentranos</a></li>
-            </ul>
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                        <li><a href="../Inicio" class="nav-link px-2 text-secondary"><img src="../img/LogoSWL.png" alt="LogoSWL"
+                                                                                          width="100px" height="40px"></a></li>
+                        <li><a href="../SobreNosotros" class="nav-link px-2 text-white mt-2 elementosNoResponsive">Sobre
+                                Nosotros</a></li>
+                        
+                        <li><a href="../Foro" class="nav-link px-2 text-white mt-2 elementosNoResponsive">Foro</a></li>
+                        
+                    </ul>
 
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-5 elementosNoResponsive">
-                <input type="search" class="form-control form-control-dark" placeholder="Buscar..." aria-label="Search">
-            </form>
+                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-5 elementosNoResponsive">
+                        <input type="search" class="form-control form-control-dark" placeholder="Buscar..." aria-label="Search">
+                    </form>
 
-            <div class="text-end me-5">
+                    <div class="text-end me-5">
 
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <div class="container-fluid" id="Usuario">
+                        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                            <div class="container-fluid" id="Usuario">
 
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                                        aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
 
-                        <div class="collapse navbar-collapse" id="navbarNav">
-                            <li class="nav-item dropdown " id="puntoNegro">
+                                <div class="collapse navbar-collapse" id="navbarNav">
+                                    <li class="nav-item dropdown " id="puntoNegro">
 
 
-                                <a href="../SobreNosotros"
-                                    class="nav-link px-2 text-white mt-2 elementosResponsive">Sobre Nosotros</a>
+                                        <a href="../SobreNosotros"
+                                           class="nav-link px-2 text-white mt-2 elementosResponsive">Sobre Nosotros</a>
 
-                                <a href="../ComoTrabajamos"
-                                    class="nav-link px-2 text-white mt-2 elementosResponsive">Como Trabajamos</a>
-                                <a href="../Foro" class="nav-link px-2 text-white mt-2 elementosResponsive">Foro</a>
-                                </a>
+                                        
+                                        <a href="../Foro" class="nav-link px-2 text-white mt-2 elementosResponsive">Foro</a>
+                                        
 
-                                <a href="../Encuentranos"
-                                    class="nav-link px-2 text-white mt-2 elementosResponsive">Encuentranos</a>
-                                </a>
-                                <c:if test="${usuario.id_usuario==null}">
+                                       
+                                        
+                                        <c:if test="${usuario.id_usuario==null}">
 
-                                    <a href="#" class="nav-link px-2 text-white mt-2 elementosResponsive"><button
-                                            type="button" class="btn btn-outline-warning  me-2"><a href="./Login"
-                                                id="login"> Iniciar sesión</a></button></a>
+                                            <a href="#" class="nav-link px-2 text-white mt-2 elementosResponsive"><button
+                                                    type="button" class="btn btn-outline-warning  me-2"><a href="./Login"
+                                                                                                       id="login"> Iniciar sesión</a></button></a>
 
-                                    </a>
+                                            </a>
 
-                                    <a href="#" class="nav-link px-2 text-white mt-2 elementosResponsive"><button
-                                            type="button" class="btn btn-outline-warning me-2"> <a href="./Registro"
-                                                id="login"> Registrate</a></button>
-                                    </a>
+                                            <a href="#" class="nav-link px-2 text-white mt-2 elementosResponsive"><button
+                                                    type="button" class="btn btn-outline-warning me-2"> <a href="./Registro"
+                                                                                                       id="login"> Registrate</a></button>
+                                            </a>
 
-                                    </a>
-                                </c:if>
-                                <c:if test="${usuario.id_usuario!=null}">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink"
-                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src="${usuario.url_img_perfil}" alt="Imagen de Perfil" width="50" /> ${usuario.nickname}
-                                    </a>
-
-
-
-                                    <ul class="dropdown-menu-dark  dropdown-menu  "
-                                        aria-labelledby="navbarDarkDropdownMenuLink ">
-
-                                        <c:if test="${usuario.rol=='admin'}">
-                                            <li><a class="dropdown-item" href="admin/PanelAdministracion"> <svg
-                                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                        fill="currentColor" class="bi bi-pc-display-horizontal"
-                                                        viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M1.5 0A1.5 1.5 0 0 0 0 1.5v7A1.5 1.5 0 0 0 1.5 10H6v1H1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5v-1h4.5A1.5 1.5 0 0 0 16 8.5v-7A1.5 1.5 0 0 0 14.5 0h-13Zm0 1h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5ZM12 12.5a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0Zm2 0a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0ZM1.5 12h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1ZM1 14.25a.25.25 0 0 1 .25-.25h5.5a.25.25 0 1 1 0 .5h-5.5a.25.25 0 0 1-.25-.25Z" />
-                                                    </svg> Panel de Administración</a></li>
+                                            </a>
                                         </c:if>
+                                        <c:if test="${usuario.id_usuario!=null}">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink"
+                                               role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <img src="${usuario.url_img_perfil}" alt="Imagen de Perfil" width="50" /> ${usuario.nickname}
+                                            </a>
 
-                                        <c:if test="${usuario.rol=='moderador'}">
-                                            <li><a class="dropdown-item" href="moderador/PanelModeracion"> <svg
-                                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                        fill="currentColor" class="bi bi-pc-display-horizontal"
-                                                        viewBox="0 0 16 16">
+
+
+                                            <ul class="dropdown-menu-dark  dropdown-menu  "
+                                                aria-labelledby="navbarDarkDropdownMenuLink ">
+
+                                                <c:if test="${usuario.rol=='admin'}">
+                                                    <li><a class="dropdown-item" href="./PanelAdministracion"> <svg
+                                                                xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                                fill="currentColor" class="bi bi-pc-display-horizontal"
+                                                                viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M1.5 0A1.5 1.5 0 0 0 0 1.5v7A1.5 1.5 0 0 0 1.5 10H6v1H1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5v-1h4.5A1.5 1.5 0 0 0 16 8.5v-7A1.5 1.5 0 0 0 14.5 0h-13Zm0 1h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5ZM12 12.5a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0Zm2 0a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0ZM1.5 12h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1ZM1 14.25a.25.25 0 0 1 .25-.25h5.5a.25.25 0 1 1 0 .5h-5.5a.25.25 0 0 1-.25-.25Z" />
+                                                            </svg> Panel de Administración</a></li>
+                                                        </c:if>
+
+                                                <c:if test="${usuario.rol=='moderador'}">
+                                                    <li><a class="dropdown-item" href="moderador/PanelModeracion"> <svg
+                                                                xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                                fill="currentColor" class="bi bi-pc-display-horizontal"
+                                                                viewBox="0 0 16 16">
+                                                            <path
+                                                                d="M1.5 0A1.5 1.5 0 0 0 0 1.5v7A1.5 1.5 0 0 0 1.5 10H6v1H1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5v-1h4.5A1.5 1.5 0 0 0 16 8.5v-7A1.5 1.5 0 0 0 14.5 0h-13Zm0 1h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5ZM12 12.5a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0Zm2 0a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0ZM1.5 12h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1ZM1 14.25a.25.25 0 0 1 .25-.25h5.5a.25.25 0 1 1 0 .5h-5.5a.25.25 0 0 1-.25-.25Z" />
+                                                            </svg> Panel de Moderación</a></li>
+                                                        </c:if>
+
+                                                <li><a class="dropdown-item" href="../usuario/CrearAnuncio"> <svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                            fill="currentColor" class="bi bi-newspaper" viewBox="0 0 16 16">
                                                         <path
-                                                            d="M1.5 0A1.5 1.5 0 0 0 0 1.5v7A1.5 1.5 0 0 0 1.5 10H6v1H1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5v-1h4.5A1.5 1.5 0 0 0 16 8.5v-7A1.5 1.5 0 0 0 14.5 0h-13Zm0 1h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5ZM12 12.5a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0Zm2 0a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0ZM1.5 12h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1ZM1 14.25a.25.25 0 0 1 .25-.25h5.5a.25.25 0 1 1 0 .5h-5.5a.25.25 0 0 1-.25-.25Z" />
-                                                    </svg> Panel de Moderación</a></li>
+                                                            d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z" />
+                                                        <path
+                                                            d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z" />
+                                                        </svg> Crear Anuncio</a></li>
+
+                                                <li><a class="dropdown-item" href="../usuario/Compras"> <svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                            fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z" />
+                                                        </svg> Compras</a></li>
+                                                <li><a class="dropdown-item" href="../usuario/Ventas"><svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                            fill="currentColor" class="bi bi-box-seam-fill" viewBox="0 0 16 16">
+                                                        <path fill-rule="evenodd"
+                                                              d="M15.528 2.973a.75.75 0 0 1 .472.696v8.662a.75.75 0 0 1-.472.696l-7.25 2.9a.75.75 0 0 1-.557 0l-7.25-2.9A.75.75 0 0 1 0 12.331V3.669a.75.75 0 0 1 .471-.696L7.443.184l.01-.003.268-.108a.75.75 0 0 1 .558 0l.269.108.01.003 6.97 2.789ZM10.404 2 4.25 4.461 1.846 3.5 1 3.839v.4l6.5 2.6v7.922l.5.2.5-.2V6.84l6.5-2.6v-.4l-.846-.339L8 5.961 5.596 5l6.154-2.461L10.404 2Z" />
+                                                        </svg> Ventas</a></li>
+
+                                                <li><a class="dropdown-item" href="../usuario/MisAnuncios"><svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                            fill="currentColor" class="bi bi-calendar4" viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1H2zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5z" />
+                                                        </svg> Mis anuncios</a></li>
+
+                                                <li><a class="dropdown-item" href="../usuario/GestionarPerfil"><svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                            fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                                                        <path fill-rule="evenodd"
+                                                              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                                                        </svg> Gestionar Perfil</a></li>
+                                                <li><a class="dropdown-item" href="../CerrarSesion"><svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                            fill="currentColor" class="bi bi-box-arrow-in-right"
+                                                            viewBox="0 0 16 16">
+                                                        <path fill-rule="evenodd"
+                                                              d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z" />
+                                                        <path fill-rule="evenodd"
+                                                              d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                                                        </svg> Cerrar Sesión </a></li>
+                                            </ul>
+
                                         </c:if>
-
-                                        <li><a class="dropdown-item" href="../usuario/CrearAnuncio"> <svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    fill="currentColor" class="bi bi-newspaper" viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z" />
-                                                    <path
-                                                        d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z" />
-                                                </svg> Crear Anuncio</a></li>
-
-                                        <li><a class="dropdown-item" href="../usuario/Compras"> <svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z" />
-                                                </svg> Compras</a></li>
-                                        <li><a class="dropdown-item" href="../usuario/Ventas"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    fill="currentColor" class="bi bi-box-seam-fill" viewBox="0 0 16 16">
-                                                    <path fill-rule="evenodd"
-                                                        d="M15.528 2.973a.75.75 0 0 1 .472.696v8.662a.75.75 0 0 1-.472.696l-7.25 2.9a.75.75 0 0 1-.557 0l-7.25-2.9A.75.75 0 0 1 0 12.331V3.669a.75.75 0 0 1 .471-.696L7.443.184l.01-.003.268-.108a.75.75 0 0 1 .558 0l.269.108.01.003 6.97 2.789ZM10.404 2 4.25 4.461 1.846 3.5 1 3.839v.4l6.5 2.6v7.922l.5.2.5-.2V6.84l6.5-2.6v-.4l-.846-.339L8 5.961 5.596 5l6.154-2.461L10.404 2Z" />
-                                                </svg> Ventas</a></li>
-
-                                        <li><a class="dropdown-item" href="../usuario/MisAnuncios"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    fill="currentColor" class="bi bi-calendar4" viewBox="0 0 16 16">
-                                                    <path
-                                                        d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1H2zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5z" />
-                                                </svg> Mis anuncios</a></li>
-
-                                        <li><a class="dropdown-item" href="../usuario/GestionarPerfil"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                                                    <path fill-rule="evenodd"
-                                                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-                                                </svg> Gestionar Perfil</a></li>
-                                        <li><a class="dropdown-item" href="../CerrarSesion"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                    fill="currentColor" class="bi bi-box-arrow-in-right"
-                                                    viewBox="0 0 16 16">
-                                                    <path fill-rule="evenodd"
-                                                        d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z" />
-                                                    <path fill-rule="evenodd"
-                                                        d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
-                                                </svg> Cerrar Sesión </a></li>
-                                    </ul>
-
-                                </c:if>
-                        </div>
+                                </div>
+                            </div>
                     </div>
-            </div>
-</header>
+                    </header>
 
                     <main>
   <div class="container">
@@ -242,10 +238,10 @@
                                             Enlaces de Interes
                                         </h6>
                                         <p>
-                                            <a class="text-white" href="GestionCuenta.html">Ir a tu cuenta</a>
+                                            <a class="text-white" >Ir a tu cuenta</a>
                                         </p>
                                         <p>
-                                            <a class="text-white" href="registro">Registrate</a>
+                                            <a class="text-white" >Registrate</a>
                                         </p>
                                         <p>
                                             <a class="text-white">Anuncios</a>
@@ -261,10 +257,10 @@
                                     <!-- Grid column -->
                                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                                         <h6 class="text-uppercase mb-4 font-weight-bold">Contacto</h6>
-                                        <p><i class="fas fa-home mr-3"></i>Bollullos de la Mitaciï¿½n, CP 41110 (Sevilla)</p>
+                                        <p><i class="fas fa-home mr-3"></i>Bollullos de la Mitación, CP 41110 (Sevilla)</p>
                                         <p><i class="fas fa-envelope mr-3"></i> info@swl.es</p>
                                         <p><i class="fas fa-phone mr-3"></i><a class="text-white" href=tel:+34607450598>Llamanos </a> </p>
-                                        <p><i class="fas fa-print mr-3"></i> <a href="8VR5+GX Bollullos de la Mitaciï¿½n"></a></p>
+                                        <p><i class="fas fa-print mr-3"></i> <a href="8VR5+GX Bollullos de la Mitación"></a></p>
                                     </div>
                                     <!-- Grid column -->
                                 </div>
@@ -281,16 +277,14 @@
                                     <div class="col-md-7 col-lg-8 text-center text-md-start">
                                         <!-- Copyright -->
                                         <div class="p-3">
-                                            José Antonio López López 
+                                            © José Antonio López López 
 
                                         </div>
                                         <!-- Copyright -->
                                     </div>
-                                    <!-- Grid column -->
 
-                                    <!-- Grid column -->
+
                                     <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
-                                        <!-- Facebook -->
                                         <a href="https://facebook.com"
                                            class="btn btn-outline-light btn-floating m-1"
                                            class="text-white"
@@ -300,7 +294,6 @@
                                                 </svg></i
                                             ></a>
 
-                                        <!-- Twitter -->
                                         <a href="https://twitter.com"
                                            class="btn btn-outline-light btn-floating m-1"
                                            class="text-white"
@@ -310,7 +303,7 @@
                                                 </svg>  </i
                                             ></a>
 
-                                        <!-- Google -->
+
                                         <a href="https://www.google.com/maps/place/C.+Granada,+13,+41110+Bollullos+de+la+Mitaci%C3%B3n,+Sevilla/@37.3413656,-6.142208,17z/data=!4m6!3m5!1s0xd121230798e25eb:0x59f66d5498776f7c!8m2!3d37.3413656!4d-6.1400193!16s%2Fg%2F11c227sx43"
                                            class="btn btn-outline-light btn-floating m-1"
                                            class="text-white"
@@ -330,7 +323,7 @@
 
 
 
-                                        <!-- Instagram -->
+
                                         <a href="https://Instagram.com"
                                            class="btn btn-outline-light btn-floating m-1"
                                            class="text-white"
@@ -339,12 +332,10 @@
                                             <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
                                             </svg></a>
                                     </div>
-                                    <!-- Grid column -->
+
                                 </div>
                             </section>
-                            <!-- Section: Copyright -->
                         </div>
-                        <!-- Grid container -->
                     </footer>
 
 

@@ -26,20 +26,17 @@
 
 
 
-                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start w-100 "id="cabecera" id="cabecera" >
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start w-100 "id="cabecera"  >
 
 
                     <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                         <li><a href="./Inicio" class="nav-link px-2 text-secondary"><img src="img/LogoSWL.png" alt="LogoSWL" width="100px" height="40px" ></a></li>
                         <li><a href="./SobreNosotros" class="nav-link px-2 text-white mt-2 elementosNoResponsive">Sobre Nosotros</a></li>
-                        <li><a href="./ComoTrabajamos" class="nav-link px-2 text-white mt-2 elementosNoResponsive" >Como Trabajamos</a></li>
                         <li><a href="./Foro" class="nav-link px-2 text-white mt-2 elementosNoResponsive">Foro</a></li>
-                        <li><a href="./Encuentranos" class="nav-link px-2 text-white mt-2 elementosNoResponsive" >Encuentranos</a></li>
+
                     </ul>
 
-                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-5 elementosNoResponsive" >
-                        <input type="search" class="form-control form-control-dark" placeholder="Buscar..." aria-label="Search">
-                    </form>
+                    
 
                     <div class="text-end me-5">
 
@@ -56,22 +53,17 @@
 
                                         <a href="./SobreNosotros" class="nav-link px-2 text-white mt-2 elementosResponsive">Sobre Nosotros</a>
 
-                                        <a href="./ComoTrabajamos" class="nav-link px-2 text-white mt-2 elementosResponsive" >Como Trabajamos</a>
                                         <a href="./Foro" class="nav-link px-2 text-white mt-2 elementosResponsive">Foro</a>
                                         </a>
 
-                                        <a href="./Encuentranos" class="nav-link px-2 text-white mt-2 elementosResponsive">Encuentranos</a>
-                                        </a>
                                         <c:if test="${usuario.id_usuario==null}">
 
                                             <a href="#" class="nav-link px-2 text-white mt-2 elementosResponsive"><button type="button" class="btn btn-outline-warning  me-2"><a href="./Login" id="login"> Iniciar sesión</a></button></a>
 
-                                            </a>
-
+ 
                                             <a href="#" class="nav-link px-2 text-white mt-2 elementosResponsive"><button type="button" class="btn btn-outline-warning me-2" > <a href="./Registro" id="login"> Registrate</a></button>
-                                            </a>
-
-                                            </a>
+ 
+                                            
                                         </c:if>
                                         <c:if test="${usuario.id_usuario!=null}">
                                             <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -81,7 +73,7 @@
 
 
 
-                                            <ul class="dropdown-menu-dark  dropdown-menu  "  aria-labelledby="navbarDarkDropdownMenuLink " >
+                                            <ul class="dropdown-menu-dark  dropdown-menu"  aria-labelledby="navbarDarkDropdownMenuLink " >
 
                                                 <c:if test="${usuario.rol=='admin'}">
                                                     <li><a class="dropdown-item" href="admin/PanelAdministracion"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pc-display-horizontal" viewBox="0 0 16 16">
@@ -205,211 +197,19 @@
                                                     <div class="d-flex justify-content-between align-items-center">
                                                         <div class="btn-group">
                                                             <button type="button" class="btn btn-outline-warning me-2" data-bs-toggle="modal"
-                                                                    data-bs-target="#modalImage1">Ver el producto</button>
+                                                                    data-bs-target="#modalImage${a.id_anuncio}">Ver el producto</button>
                                                             <form method="post" action="./VerAnuncio">
                                                                 <input type="hidden" name="anuncioVer" value="${a.id_anuncio}">
                                                                 <button type="submit" class="btn btn-outline-warning me-2">Ir al anuncio</button>
                                                             </form>
                                                         </div>
-                                                        <small class="text-muted">9 mins</small>
+                                                        <small ><fmt:formatNumber value="${((a.precio*0.125)+(a.precio*0.05)+a.precio)*0.21+((a.precio*0.125)+(a.precio*0.05)+a.precio)}" pattern="#,##0.00" />&euro;</small>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </c:forEach>
-                                    <div class="col">
-                                        <div class="card shadow-sm">
-                                            <div >
-                                                <img src="img/Carabinas/355044-scaled.jpg" alt="" width="100%" height="225">
-                                            </div>
-                                            <div class="card-body">
-                                                <p class="card-text">
-                                                <div class="card" id="NombreAnuncio">
-                                                    <p>Nombre anuncio</p>
-                                                </div>
-                                                <div class="card" id="CuerpoAnuncio">
-                                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim laborum molestiae dolor, qui dignissimos officiis officia in omnis fuga quia expedita, vitae rerum fugit necessitatibus impedit animi quidem excepturi incidunt.</p>
-                                                </div>
-                                                </p>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-outline-warning  me-2 "data-bs-toggle="modal" data-bs-target="#modalImage2" > Ver el producto </button>
-                                                        <button type="button" class="btn btn-outline-warning  me-2">Ir al anuncio</button>
-                                                    </div>
-                                                    <small class="text-muted">9 mins</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="card shadow-sm">
-                                            <div >
-                                                <img src="img/Pistolas/558885-scaled.jpg" alt="" width="100%" height="225">
-                                            </div>
-                                            <div class="card-body">
-                                                <p class="card-text">
-                                                <div class="card" id="NombreAnuncio">
-                                                    <p>Nombre anuncio</p>
-                                                </div>
-                                                <div class="card" id="CuerpoAnuncio">
-                                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim laborum molestiae dolor, qui dignissimos officiis officia in omnis fuga quia expedita, vitae rerum fugit necessitatibus impedit animi quidem excepturi incidunt.</p>
-                                                </div>
-                                                </p>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-outline-warning  me-2 "data-bs-toggle="modal" data-bs-target="#modalImage3" > Ver el producto </button>
-                                                        <button type="button" class="btn btn-outline-warning  me-2">Ir al anuncio</button>
-                                                    </div>
-                                                    <small class="text-muted">9 mins</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col">
-                                        <div class="card shadow-sm">
-                                            <div >
-                                                <img src="img/Carabinas/777199-scaled.jpg" alt="" width="100%" height="225">
-                                            </div>
-                                            <div class="card-body">
-                                                <p class="card-text">
-                                                <div class="card" id="NombreAnuncio">
-                                                    <p>Nombre anuncio</p>
-                                                </div>
-                                                <div class="card" id="CuerpoAnuncio">
-                                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim laborum molestiae dolor, qui dignissimos officiis officia in omnis fuga quia expedita, vitae rerum fugit necessitatibus impedit animi quidem excepturi incidunt.</p>
-                                                </div>
-                                                </p>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-outline-warning  me-2 "data-bs-toggle="modal" data-bs-target="#modalImage4" > Ver el producto </button>
-                                                        <button type="button" class="btn btn-outline-warning  me-2">Ir al anuncio</button>
-                                                    </div>
-                                                    <small class="text-muted">9 mins</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="card shadow-sm">
-                                            <div >
-                                                <img src="img/Escopetas/969786.jpg" alt="" width="100%" height="225">
-                                            </div>
-                                            <div class="card-body">
-                                                <p class="card-text">
-                                                <div class="card" id="NombreAnuncio">
-                                                    <p>Nombre anuncio</p>
-                                                </div>
-                                                <div class="card" id="CuerpoAnuncio">
-                                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim laborum molestiae dolor, qui dignissimos officiis officia in omnis fuga quia expedita, vitae rerum fugit necessitatibus impedit animi quidem excepturi incidunt.</p>
-                                                </div>
-                                                </p>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-outline-warning  me-2 "data-bs-toggle="modal" data-bs-target="#modalImage5" > Ver el producto </button>
-                                                        <button type="button" class="btn btn-outline-warning  me-2">Ir al anuncio</button>
-                                                    </div>
-                                                    <small class="text-muted">9 mins</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="card shadow-sm">
-                                            <div >
-                                                <img src="img/Carabinas/294978.jpeg"  alt="sac" width="100%" height="225">
-                                            </div>
-                                            <div class="card-body">
-                                                <p class="card-text">
-                                                <div class="card" id="NombreAnuncio">
-                                                    <p>Nombre anuncio</p>
-                                                </div>
-                                                <div class="card" id="CuerpoAnuncio">
-                                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim laborum molestiae dolor, qui dignissimos officiis officia in omnis fuga quia expedita, vitae rerum fugit necessitatibus impedit animi quidem excepturi incidunt.</p>
-                                                </div>
-                                                </p>  
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-outline-warning  me-2 "data-bs-toggle="modal" data-bs-target="#modalImage6" > Ver el producto </button>
-                                                        <button type="button" class="btn btn-outline-warning  me-2">Ir al anuncio</button>
-                                                    </div>
-                                                    <small class="text-muted">9 mins</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col">
-                                        <div class="card shadow-sm">
-                                            <div >
-                                                <img src="img/Pistolas/621321-scaled.jpg" alt="" width="100%" height="225">
-                                            </div>
-                                            <div class="card-body">
-                                                <p class="card-text">
-                                                <div class="card" id="NombreAnuncio">
-                                                    <p>Nombre anuncio</p>
-                                                </div>
-                                                <div class="card" id="CuerpoAnuncio">
-                                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim laborum molestiae dolor, qui dignissimos officiis officia in omnis fuga quia expedita, vitae rerum fugit necessitatibus impedit animi quidem excepturi incidunt.</p>
-                                                </div>
-                                                </p>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-outline-warning  me-2 "data-bs-toggle="modal" data-bs-target="#modalImage7" > Ver el producto </button>
-                                                        <button type="button" class="btn btn-outline-warning  me-2">Ir al anuncio</button>
-                                                    </div>
-                                                    <small class="text-muted">9 mins</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="card shadow-sm">
-                                            <div >
-                                                <img src="img/Aire comprimido/pistolas-aire-comprimido-gamo-p-23-combat.jpg" alt="" width="100%" height="225">
-                                            </div>
-                                            <div class="card-body">
-                                                <p class="card-text">
-                                                <div class="card" id="NombreAnuncio">
-                                                    <p>Nombre anuncio</p>
-                                                </div>
-                                                <div class="card" id="CuerpoAnuncio">
-                                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim laborum molestiae dolor, qui dignissimos officiis officia in omnis fuga quia expedita, vitae rerum fugit necessitatibus impedit animi quidem excepturi incidunt.</p>
-                                                </div>
-                                                </p>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-outline-warning  me-2 "data-bs-toggle="modal" data-bs-target="#modalImage8" > Ver el producto </button>
-                                                        <button type="button" class="btn btn-outline-warning  me-2">Ir al anuncio</button>
-                                                    </div>
-                                                    <small class="text-muted">9 mins</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="card shadow-sm">
-                                            <div >
-                                                <img src="img/Pistolas/uberti-colt-army-1860.jpg" alt="" width="100%" height="225">
-                                            </div>
-                                            <div class="card-body">
-                                                <p class="card-text">
-                                                <div class="card" id="NombreAnuncio">
-                                                    <p>Nombre anuncio</p>
-                                                </div>
-                                                <div class="card" id="CuerpoAnuncio">
-                                                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim laborum molestiae dolor, qui dignissimos officiis officia in omnis fuga quia expedita, vitae rerum fugit necessitatibus impedit animi quidem excepturi incidunt.</p>
-                                                </div>
-                                                </p>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-outline-warning  me-2 "data-bs-toggle="modal" data-bs-target="#modalImage9" > Ver el producto </button>
-                                                        <button type="button" class="btn btn-outline-warning  me-2">Ir al anuncio</button>
-                                                    </div>
-                                                    <small class="text-muted">9 mins</small>
-                                                </div>
-                                            </div>
-
+                                                
                                         </div>
 
                                     </div>
@@ -418,107 +218,19 @@
                         </div>
 
                         <!--Ventana modal-->
+                        <c:forEach items="${anuncios}" var="a">
+                        <div tabindex="-1 " aria-labelledby="modalImage${a.id_anuncio}" aria-hidden="true"
 
-                        <div tabindex="-1 " aria-labelledby="modalImage9" aria-hidden="true"
-
-                             class="modal fade" id="modalImage9">
+                             class="modal fade" id="modalImage${a.id_anuncio}">
                             <div class="modal-dialog modal-lg modal-dialog-centered">
                                 <div class="modal-content">
-                                    <img src="img/Pistolas/uberti-colt-army-1860.jpg" alt="">
+                                    <img src="${a.url_img_principal}" alt="${a.titulo}">
                                 </div>
                             </div>
 
                         </div>
+                        </c:forEach>     
 
-
-
-                        <div tabindex="-1 " aria-labelledby="modalImage1" aria-hidden="true"
-
-                             class="modal fade" id="modalImage1">
-                            <div class="modal-dialog modal-lg modal-dialog-centered">
-                                <div class="modal-content">
-                                    <img src="img/Escopetas/815983.jpg" alt="">
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div tabindex="-1 " aria-labelledby="modalImage2" aria-hidden="true"
-
-                             class="modal fade" id="modalImage2">
-                            <div class="modal-dialog modal-lg modal-dialog-centered">
-                                <div class="modal-content">
-                                    <img src="img/Carabinas/355044-scaled.jpg" alt="">
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div tabindex="-1 " aria-labelledby="modalImage3" aria-hidden="true"
-
-                             class="modal fade" id="modalImage3">
-                            <div class="modal-dialog modal-lg modal-dialog-centered">
-                                <div class="modal-content">
-                                    <img src="img/Pistolas/558885-scaled.jpg" alt="">
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div tabindex="-1 " aria-labelledby="modalImage4" aria-hidden="true"
-
-                             class="modal fade" id="modalImage4">
-                            <div class="modal-dialog modal-lg modal-dialog-centered">
-                                <div class="modal-content">
-                                    <img src="img/Carabinas/777199-scaled.jpg" alt="">
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div tabindex="-1 " aria-labelledby="modalImage5" aria-hidden="true"
-
-                             class="modal fade" id="modalImage5">
-                            <div class="modal-dialog modal-lg modal-dialog-centered">
-                                <div class="modal-content">
-                                    <img src="img/Escopetas/969786.jpg" alt="">
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div tabindex="-1 " aria-labelledby="modalImage6" aria-hidden="true"
-
-                             class="modal fade" id="modalImage6">
-                            <div class="modal-dialog modal-lg modal-dialog-centered">
-                                <div class="modal-content">
-                                    <img src="img/Carabinas/294978.jpeg" alt="">
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div tabindex="-1 " aria-labelledby="modalImage7" aria-hidden="true"
-
-                             class="modal fade" id="modalImage7">
-                            <div class="modal-dialog modal-lg modal-dialog-centered">
-                                <div class="modal-content">
-                                    <img src="img/Pistolas/621321-scaled.jpg" alt="">
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div tabindex="-1 " aria-labelledby="modalImage8" aria-hidden="true"
-
-                             class="modal fade" id="modalImage8">
-                            <div class="modal-dialog modal-lg modal-dialog-centered">
-                                <div class="modal-content">
-                                    <img src="img/Aire comprimido/pistolas-aire-comprimido-gamo-p-23-combat.jpg" alt="">
-                                </div>
-                            </div>
-
-                        </div>
 
 
 
@@ -581,10 +293,10 @@
                                             Enlaces de Interes
                                         </h6>
                                         <p>
-                                            <a class="text-white" href="GestionCuenta.html">Ir a tu cuenta</a>
+                                            <a class="text-white" >Ir a tu cuenta</a>
                                         </p>
                                         <p>
-                                            <a class="text-white" href="registro">Registrate</a>
+                                            <a class="text-white" >Registrate</a>
                                         </p>
                                         <p>
                                             <a class="text-white">Anuncios</a>

@@ -209,6 +209,7 @@ public class Registro extends HttpServlet {
                 u.setUrl_img_dni_anverso(null);
                 u.setUrl_img_dni_reverso(null);
                 u.setDni_validado(Boolean.FALSE);
+                u.setPuntuacion_foro(0);
                
                 UsuarioJpaController ujc = new UsuarioJpaController(emf); //Llamamos controlador JPA USUARIO
                 try { //Persistimos los datos en la base de datos
