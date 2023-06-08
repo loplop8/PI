@@ -69,8 +69,8 @@ Payment payment = new Payment();
 payment.setIntent("sale");
 
 RedirectUrls redirectUrls = new RedirectUrls();
-redirectUrls.setReturnUrl("http://localhost:8080/SecondWeaponLife/usuario/CompraCompletada");
-redirectUrls.setCancelUrl("http://localhost:8080/SecondWeaponLife/Inicio");
+redirectUrls.setReturnUrl("http://loplopproyects.live/SecondWeaponLife/usuario/CompraCompletada");
+redirectUrls.setCancelUrl("http://loplopproyects.live/SecondWeaponLife/Inicio");
 payment.setRedirectUrls(redirectUrls);
 
 payment.setPayer(payer);

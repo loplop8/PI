@@ -22,7 +22,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Zatonio
  */
 @Entity
-@Table(name = "arma_Replica")
+@Table(name = "arma_replica")
 @Cacheable(false)
 @XmlRootElement
 public class ArmaReplica implements Serializable {
