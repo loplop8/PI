@@ -42,7 +42,7 @@
             </ul>
 
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-5 elementosNoResponsive">
-                <input type="search" class="form-control form-control-dark" placeholder="Buscar..." aria-label="Search">
+            
             </form>
 
             <div class="text-end me-5">
@@ -183,7 +183,7 @@
                                     <tr>
                                         <th class="text-center align-middle">Número del Pedido</th>
                                         <th class="text-center align-middle">Vendedor</th>
-                                        <th class="text-center align-middle">Arma Comprada</th>                                        
+                                        <th class="text-center align-middle">Articulo Comprado</th>                                        
                                         <th class="text-center align-middle">Fecha Compra</th>
                                         <th class="text-center align-middle">Fecha Entrega</th>
                                         <th class="text-center align-middle">Estado del Pedido</th>
@@ -196,9 +196,10 @@
                                     
                                     <c:forEach  items="${pedidos}" var="p">
                                     <tr>
+                                        
                                         <td class="text-center align-middle"> ${p.numero_pedido}</td>
-                                        <td class="text-center align-middle"> ${p.id_arma.id_usuario.nickname}</td>
-                                        <td class="text-center align-middle"> ${p.id_arma.id_tipo_arma.tipo} ${p.id_arma.marca}</td>
+                                        <td class="text-center align-middle"> <c:if test="${p.id_estado_pedido.id_estado_pedido==2}">SWL</c:if><c:if test="${p.id_estado_pedido.id_estado_pedido!=2}">${p.id_arma.id_usuario.nickname}</c:if> </td>
+                                        <td class="text-center align-middle"> <c:if test="${p.id_estado_pedido.id_estado_pedido==2}">Anuncio destacado de: </c:if>         ${p.id_arma.id_tipo_arma.tipo} ${p.id_arma.marca}</td>
                                         <td class="text-center align-middle"> <fmt:formatDate value="${p.fecha_compra}" pattern="dd-MM-yyyy"/></td>
                                         <td class="text-center align-middle"> <c:if test="${p.fecha_entrega==null}">Pendiente de entrega </c:if> <c:if test="${p.fecha_entrega!=null}"> <fmt:formatDate value="${p.fecha_entrega}" pattern="dd-MM-yyyy"/> </c:if>  </td>
                                                 <td class="text-center align-middle"> ${p.id_estado_pedido.estado}</td>

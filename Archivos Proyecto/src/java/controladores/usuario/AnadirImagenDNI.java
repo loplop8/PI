@@ -28,9 +28,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import modelo.dao.LicenciaJpaController;
+import modelo.dao.NotificacionJpaController;
 import modelo.dao.TipoLicenciaJpaController;
 import modelo.dao.UsuarioJpaController;
 import modelo.entidades.Licencia;
+import modelo.entidades.Notificacion;
 import modelo.entidades.TipoLicencia;
 import modelo.entidades.Usuario;
 import org.apache.tika.Tika;
@@ -69,14 +71,23 @@ public class AnadirImagenDNI extends HttpServlet {
             
          EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife");
             UsuarioJpaController ujc=new UsuarioJpaController(emf);
-            
+            NotificacionJpaController njc= new NotificacionJpaController(emf);
+            Notificacion n=new Notificacion();
+            n.setMensaje("El ususario "+usuario.getNickname()+" ha añadido las fotos de su DNI, compruebe las fotos");
             
             usuario.setUrl_img_dni_anverso(anverso);
             usuario.setUrl_img_dni_reverso(reverso);
             
             try{
                 ujc.edit(usuario);
+                 for(Usuario user :ujc.findUsuarioEntities()  ){
+                     if(user.getRol().equals("admin")){
+                        n.setId_usuario(user);
+                        njc.create(n);
+                     }
+                 }   
                  request.getSession().setAttribute("usuario", usuario);
+                 
                     response.sendRedirect("./VerImagenesDNI");
             }catch (RollbackException e) {
                     System.out.println(e);

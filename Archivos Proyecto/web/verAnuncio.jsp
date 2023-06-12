@@ -66,7 +66,7 @@
                                         <c:if test="${usuario.id_usuario!=null}">
                                             <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
-                                                <img src="${usuario.url_img_perfil}" width="50">   ${usuario.nickname}
+                                                <img src="${usuario.url_img_perfil}" width="50" alt="Imagen de Perfil">   ${usuario.nickname}
                                             </a>
 
 
@@ -198,11 +198,12 @@
                         </c:if>
                         <c:if test="${anuncio.id_arma.id_usuario.id_usuario==usuario.id_usuario}">
                         <div class="d-flex">
-                       <!-- <form id="formulario" action="./usuario/ComprarDestacado" method="post" > Por hacer
+                            <c:if test="${anuncio.id_estado_anuncio.id_estado_anuncio!=6}">
+                            <form id="formulario" action="./usuario/ComprarDestacado" method="post" > 
                             <input type="hidden" name="anuncio" id="anuncio" value="${anuncio.id_anuncio}"/>
                             <button class="btn btn-outline-warning" type="submit" id="HacerAnuncioDestacado">Hacer mi anuncio destacado</button>
-                        </form>-->   
-                    
+                        </form   
+                            </c:if>
                     </div>
                     
                                     

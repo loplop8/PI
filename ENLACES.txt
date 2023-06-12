@@ -1,0 +1,32 @@
+ENLACE AL PROYECTO DESPLEGADO---->http://loplopproyects.live/SecondWeaponLife/Inicio
+
+USUARIOS:
+
+ADMINISTRADOR
+CORREO:admin@swl.es
+CONTRASEÑA:admin	
+
+MODERADOR
+CORRERO:moderador@swl.es
+CONTRASEÑA:moderador
+
+Usuario Normal 1
+CORREO:19joseantonio95@gmail.com
+CONTRASEÑA:@ITachi12
+
+
+Usuario Normal 2
+Correo:jose@gmail.com
+CONTRASEÑA:@ITachi12
+
+
+Usuario Normal 3
+Correo: helenio@gmail.com
+CONTRASEÑA:@ITachi12
+
+
+
+ENLACE A GITHUB----->https://github.com/loplop8/PI.git
+
+
+

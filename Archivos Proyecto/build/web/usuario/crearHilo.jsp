@@ -40,7 +40,7 @@
             </ul>
 
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-5 elementosNoResponsive">
-                <input type="search" class="form-control form-control-dark" placeholder="Buscar..." aria-label="Search">
+            
             </form>
 
             <div class="text-end me-5">

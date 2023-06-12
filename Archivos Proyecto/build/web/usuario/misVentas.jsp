@@ -42,7 +42,7 @@
             </ul>
 
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-5 elementosNoResponsive">
-                <input type="search" class="form-control form-control-dark" placeholder="Buscar..." aria-label="Search">
+            
             </form>
 
             <div class="text-end me-5">
@@ -195,7 +195,8 @@
                                 <tbody>
                                     
                                     <c:forEach  items="${pedidos}" var="p">
-                                    <tr>
+                                        <c:if test="${p.id_estado_pedido.id_estado_pedido!=2}">
+                                        <tr>
                                         <td class="text-center align-middle"> ${p.numero_pedido}</td>
                                         <td class="text-center align-middle"> ${p.id_usuario.nickname}</td>
                                         <td class="text-center align-middle"> ${p.id_arma.id_tipo_arma.tipo} ${p.id_arma.marca}</td>
@@ -230,6 +231,7 @@
                                         
                                         
                                     </tr>
+                                    </c:if>
                                     </c:forEach>
                                     
                                 </tbody>

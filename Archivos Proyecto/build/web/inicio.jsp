@@ -68,7 +68,7 @@
                                         <c:if test="${usuario.id_usuario!=null}">
                                             <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
-                                                <img src="${usuario.url_img_perfil}" width="50">   ${usuario.nickname}
+                                                <img src="${usuario.url_img_perfil}" width="50" alt="Imagen de Perfil">   ${usuario.nickname}
                                             </a>
 
 
@@ -127,40 +127,36 @@
 
 
                     <main>
-
+                        
+                            
+                        
                         <section class="py-1 text-center container-fluid mt-5" id="slider">
-
+                            
                             <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-indicators">
                                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active " aria-current="true" aria-label="Slide 1"></button>
                                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
                                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
                                 </div>
+                                
+                                    
                                 <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <a href="">
-                                            <img src="img/slider/descarga.jpg" class="d-block w-100" alt="...">
-                                        </a>
+                                    <c:forEach items="${anuncios}" var="a" step="1" varStatus="status">
+                                        <c:if test="${a.id_estado_anuncio.id_estado_anuncio==6}">
+                                            <div class="carousel-item <c:if test="${status.first}"> active </c:if>">
+                                        <form method="post" action="./VerAnuncio">
+                                                                <input type="hidden" name="anuncioVer" value="${a.id_anuncio}">
+                                        <button type="submit" class="w-100 " ><img src="${a.url_img_principal}" width="100%" height="400" alt="..."></button>
+                                                            </form>
+                                            
+                                        
                                         <div class="carousel-caption d-none d-md-block">
 
                                         </div>
                                     </div>
-                                    <div class="carousel-item">
-                                        <a href="">
-                                            <img src="img/slider/images (1).jpg" class="d-block w-100" alt="...">
-                                        </a>
-                                        <div class="carousel-caption d-none d-md-block">
-
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <a href="">
-                                            <img src="img/slider/tipos-de-escopetas-3.jpg" class="d-block w-100" alt="...">
-                                        </a>
-                                        <div class="carousel-caption d-none d-md-block">
-
-                                        </div>
-                                    </div>
+                                       </c:if>
+                                    </c:forEach>
+                                    
                                 </div>
                                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

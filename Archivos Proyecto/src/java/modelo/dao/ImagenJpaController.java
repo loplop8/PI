@@ -146,11 +146,5 @@ public class ImagenJpaController implements Serializable {
         }
     }
     
-    /*TODO:
-    public List<Imagenes> obtenerListaImagenesAnunciosValidados() {
-       List<Anuncio>anuncios
-    }
-    return anunciosArmasReplica;
-    }
-*/    
+      
 }

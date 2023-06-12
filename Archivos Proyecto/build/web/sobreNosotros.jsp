@@ -64,7 +64,7 @@
                                         <c:if test="${usuario.id_usuario!=null}">
                                             <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
-                                                <img src="${usuario.url_img_perfil}" width="50">   ${usuario.nickname}
+                                                <img src="${usuario.url_img_perfil}" width="50" alt="Imagen de Perfil">   ${usuario.nickname}
                                             </a>
 
 

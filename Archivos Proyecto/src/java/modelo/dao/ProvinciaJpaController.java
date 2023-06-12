@@ -129,17 +129,6 @@ public class ProvinciaJpaController implements Serializable {
         }
     }
 
-    /*public int getLigaCount() {
-        EntityManager em = getEntityManager();
-        try {
-            CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<Liga> rt = cq.from(Liga.class);
-            cq.select(em.getCriteriaBuilder().count(rt));
-            Query q = em.createQuery(cq);
-            return ((Long) q.getSingleResult()).intValue();
-        } finally {
-            em.close();
-        }
-    }*/
+    
     
 }
