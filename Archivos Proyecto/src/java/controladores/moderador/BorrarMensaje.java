@@ -16,9 +16,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.dao.MensajeJpaController;
+import modelo.dao.NotificacionJpaController;
 
 import modelo.dao.UsuarioJpaController;
 import modelo.entidades.Mensaje;
+import modelo.entidades.Notificacion;
 
 import modelo.entidades.Usuario;
 
@@ -54,10 +56,14 @@ public class BorrarMensaje extends HttpServlet {
             Long idHilo= (Long.parseLong(request.getParameter("hilo")));
             Long idMensaje=(Long.parseLong(request.getParameter("mensaje")));
             MensajeJpaController mjc=new MensajeJpaController(emf);
-            
-            
+            Mensaje m=mjc.findMensaje(idMensaje);
+            Notificacion n= new Notificacion();
+            NotificacionJpaController njc= new NotificacionJpaController(emf);
             try{
                 mjc.destroy(idMensaje);
+                n.setMensaje("Se ha eliminado un mensaje por el moderador por contenido inadecuado");
+                n.setId_usuario(m.getId_usuario());
+                njc.create(n);
             }catch(Exception e){
                 
             }

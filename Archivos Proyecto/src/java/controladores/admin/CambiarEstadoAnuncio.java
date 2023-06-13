@@ -15,9 +15,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.dao.AnuncioJpaController;
 import modelo.dao.EstadoAnuncioJpaController;
+import modelo.dao.NotificacionJpaController;
 import modelo.dao.UsuarioJpaController;
 import modelo.entidades.Anuncio;
 import modelo.entidades.EstadoAnuncio;
+import modelo.entidades.Notificacion;
 import modelo.entidades.Usuario;
 
 
@@ -59,8 +61,20 @@ public class CambiarEstadoAnuncio extends HttpServlet {
             
          if(ea.getId_estado_anuncio()==2){
              ea.setId_estado_anuncio(3L);
+             Notificacion n= new Notificacion();
+            n.setMensaje("El administrador "+usuario.getNickname()+" ha cambiado el estado del anuncio con titulo"+anuncio.getTitulo()+" a "+ea.getDescripcion());
+            UsuarioJpaController ujc=new UsuarioJpaController(emf);
+            NotificacionJpaController njc=new NotificacionJpaController(emf);
+                        n.setId_usuario(anuncio.getId_arma().getId_usuario());
+                        njc.create(n);
          }else{
              ea.setId_estado_anuncio(2L);
+             Notificacion n= new Notificacion();
+            n.setMensaje("El administrador  ha cambiado el estado del anuncio con titulo"+anuncio.getTitulo()+" a "+ea.getDescripcion());
+            UsuarioJpaController ujc=new UsuarioJpaController(emf);
+            NotificacionJpaController njc=new NotificacionJpaController(emf);
+                        n.setId_usuario(anuncio.getId_arma().getId_usuario());
+                        njc.create(n);
          }
          anuncio.setId_estado_anuncio(ea);
            

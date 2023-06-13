@@ -14,7 +14,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.dao.AnuncioJpaController;
+import modelo.dao.NotificacionJpaController;
 import modelo.entidades.Anuncio;
+import modelo.entidades.Notificacion;
 
 import modelo.entidades.Usuario;
 
@@ -43,8 +45,10 @@ public class Inicio extends HttpServlet {
         AnuncioJpaController ajc= new AnuncioJpaController(emf);
        List<Anuncio> anuncios=ajc.obtenerListaAnunciosValidados();
        request.setAttribute("anuncios", anuncios);
+       
+        
        getServletContext().getRequestDispatcher(vista).forward(request, response);
-      
+     
        
        
     }

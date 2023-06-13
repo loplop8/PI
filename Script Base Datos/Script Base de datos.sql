@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-06-2023 a las 11:16:51
+-- Tiempo de generación: 13-06-2023 a las 04:39:37
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -58,13 +58,17 @@ CREATE TABLE `anuncio` (
 --
 
 INSERT INTO `anuncio` (`id_anuncio`, `fecha_public`, `descripcion`, `titulo`, `precio`, `id_arma`, `id_estado_anuncio`, `url_img_principal`) VALUES
-(59, '2023-05-28', 'Editando el anuncio 5\r\n\r\n', 'Carabina del Montonazo', '202.00', 133, 3, NULL),
-(62, '2023-05-30', 'bdfbdf', 'fbfbgf', '1.00', 139, 8, NULL),
-(63, '2023-06-01', 'njasjkcnascjn', 'Pistola TO WAPA', '1.50', 140, 3, NULL),
-(64, '2023-06-02', 'En el pinar criando hierba', 'Juanito Manos verdes', '12.00', 141, 8, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio640.jpg'),
-(65, '2023-06-02', 'Descripción: La legendaria AK-47, conocida también como Kalashnikov, es un arma de fuego de origen ruso que se ha convertido en un símbolo de poder y resistencia. Este rifle de asalto ha sido utilizado en innumerables conflictos alrededor del mundo debido', 'AK-47 DE GUERRA', '150.00', 143, 8, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio650.jpg'),
-(66, '2023-06-04', 'alkñscmlakwscm', 'wdkmaqwkmn', '150.00', 146, 8, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio660.jpeg'),
-(67, '2023-06-04', 'alkñscmlakwscm', 'wdkmaqwkmn', '150.00', 146, 8, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio670.jpeg');
+(103, '2023-06-08', 'AKJCNCLJN', 'Juanito Manos verdes', '150.00', 161, 2, NULL),
+(104, '2023-06-08', 'AKJCNCLJN', 'Juanito Manos verdes', '150.00', 161, 2, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio1040.jpg'),
+(105, '2023-06-08', 'Esto es la prueba de que funcionan bien los anuncios', 'Escopeta Colora', '150.00', 162, 8, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio1050.jpg'),
+(106, '2023-06-08', 'ASKCMALSKCMSAC', 'Rifle Airsoft Ultra Potente ', '150.00', 163, 8, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio1060.png'),
+(107, '2023-06-08', 'Sin descripcion', 'Rifle svarosky', '200.19', 164, 3, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio1070.png'),
+(108, '2023-06-08', 'ksmvdlkdvm', 'sñadlmcsdñclkm', '1523.00', 165, 8, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio1080.JPG'),
+(109, '2023-06-08', 'Prueba', 'Prueba', '150.00', 166, 8, '/SecondWeaponLife//img/uploads/anuncio/anuncioPrueba1090.JPG'),
+(110, '2023-06-12', 'lkmansclkcnln\"', 'z ckjs ', '250.00', 167, 8, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio1100.JPG'),
+(111, '2023-06-13', 'lkansclksnc', 'Rifle Airsoft Ultra Potente ', '150.00', 168, 6, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio1110.webp'),
+(112, '2023-06-13', 'kamclksdcm', 'añlkscmlsckm', '200.00', 169, 6, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio1120.jfif'),
+(113, '2023-06-13', 'ALSKCMNLCKSN', 'Carabina Molona', '152.00', 170, 6, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio1130.jpeg');
 
 -- --------------------------------------------------------
 
@@ -84,134 +88,16 @@ CREATE TABLE `arma` (
 --
 
 INSERT INTO `arma` (`id_arma`, `marca`, `id_tipo_arma`, `id_usuario`) VALUES
-(19, '', 1, 32),
-(20, 'Breda', 1, 32),
-(21, '', 6, 32),
-(22, '', 6, 32),
-(23, '', 1, 32),
-(24, '', 6, 32),
-(25, '', 5, 32),
-(26, '', 6, 32),
-(27, '', 6, 32),
-(28, '', 6, 32),
-(29, '', 6, 32),
-(30, '', 6, 32),
-(31, '', 5, 32),
-(32, '', 6, 32),
-(33, '', 6, 32),
-(34, '', 6, 32),
-(35, '', 5, 32),
-(36, '', 6, 32),
-(37, '', 6, 32),
-(38, '', 6, 32),
-(39, '', 1, 32),
-(40, '', 5, 32),
-(41, 'ñklAMCSKLCMS', 14, 32),
-(42, 'Breda', 15, 32),
-(43, '', 6, 32),
-(44, '', 6, 32),
-(45, '', 6, 32),
-(46, '', 5, 32),
-(47, '', 6, 32),
-(48, '', 10, 32),
-(49, 'lkNLKN', 10, 32),
-(50, 'alksmc', 12, 32),
-(51, 'Juan', 9, 32),
-(52, '', 13, 32),
-(53, '.zkc', 17, 32),
-(54, '.zkc', 17, 32),
-(55, '.zkc', 17, 32),
-(56, '.zkc', 17, 32),
-(57, '.zkc', 17, 32),
-(58, '.zkc', 17, 32),
-(59, '.zkc', 17, 32),
-(60, '.zkc', 17, 32),
-(61, '.zkc', 17, 32),
-(62, '.zkc', 17, 32),
-(63, '.zkc', 17, 32),
-(64, '.zkc', 17, 32),
-(65, '.zkc', 17, 32),
-(66, '.zkc', 17, 32),
-(67, '.zkc', 17, 32),
-(68, '.zkc', 17, 32),
-(69, '.zkc', 17, 32),
-(70, '.zkc', 17, 32),
-(71, '.zkc', 17, 32),
-(72, '.zkc', 17, 32),
-(73, '.zkc', 17, 32),
-(74, '.zkc', 17, 32),
-(75, '.zkc', 17, 32),
-(76, '.zkc', 17, 32),
-(77, '.zkc', 17, 32),
-(78, '', 17, 32),
-(79, '', 17, 32),
-(80, '', 17, 32),
-(81, '', 17, 32),
-(82, '', 17, 32),
-(83, '', 17, 32),
-(84, '', 17, 32),
-(85, '', 17, 32),
-(86, '', 17, 32),
-(87, '', 17, 32),
-(88, '', 17, 32),
-(89, '', 17, 32),
-(90, '', 17, 32),
-(91, '', 17, 32),
-(92, '', 17, 32),
-(93, '', 17, 32),
-(94, '', 17, 32),
-(95, '', 17, 32),
-(96, '', 17, 32),
-(97, '', 17, 32),
-(98, '', 17, 32),
-(99, '', 17, 32),
-(100, '', 17, 32),
-(101, '', 17, 32),
-(102, '', 17, 32),
-(103, '', 17, 32),
-(104, '', 17, 32),
-(105, '', 17, 32),
-(106, '', 17, 32),
-(107, '', 17, 32),
-(108, '', 17, 32),
-(109, '', 17, 32),
-(110, '', 17, 32),
-(111, '', 17, 32),
-(112, '', 17, 32),
-(113, '', 17, 32),
-(114, '', 17, 32),
-(115, '', 17, 32),
-(116, '', 17, 32),
-(117, '', 17, 32),
-(118, '', 17, 32),
-(119, '', 17, 32),
-(120, '', 17, 32),
-(121, '', 17, 32),
-(122, '', 17, 32),
-(123, '', 17, 32),
-(124, '', 17, 32),
-(125, '', 6, 32),
-(126, 'ALKSCNM', 6, 32),
-(127, 'akscmn', 5, 32),
-(128, 'lknlnjkn', 6, 32),
-(129, 'KSC-5963', 9, 32),
-(130, 'Breda', 6, 32),
-(131, 'Breda', 5, 32),
-(132, 'ljNAKJCSN', 15, 32),
-(133, 'Winchester', 5, 32),
-(134, 'ljascnkjcsbn', 13, 32),
-(135, 'aoicnocsn', 5, 32),
-(136, 'dcfbdf', 6, 32),
-(137, 'xcvdv', 17, 32),
-(138, 'aaaa', 3, 32),
-(139, 'cnfg', 18, 32),
-(140, 'lkasmclcksn', 5, 32),
-(141, 'lkcnlckn', 17, 32),
-(142, 'Breda', 9, 32),
-(143, 'AK-47', 12, 32),
-(144, 'Breda', 16, 32),
-(145, 'Breda', 16, 32),
-(146, 'Breda', 16, 32);
+(161, 'Breda', 14, 32),
+(162, 'Beretta', 6, 32),
+(163, 'Rifle Paintball', 16, 32),
+(164, 'Svarosky', 3, 32),
+(165, 'lka<csnclaskn', 12, 32),
+(166, 'laksmclacskn', 13, 33),
+(167, 'alkscnlsckn', 18, 32),
+(168, 'lakscnlkscn', 12, 32),
+(169, ',zmnca,zscn ', 17, 32),
+(170, 'Svarosky', 6, 32);
 
 -- --------------------------------------------------------
 
@@ -236,20 +122,9 @@ CREATE TABLE `arma_fuego` (
 --
 
 INSERT INTO `arma_fuego` (`id_arma`, `id_licencia`, `num_guia`, `calibre`, `num_identificacion`, `fecha_expedicion_guia`, `guia_validada`, `url_img_guia_reverso`, `url_img_guia_anverso`) VALUES
-(38, 34, '', '', '', '2023-05-31', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.jpg', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.jpg'),
-(39, 33, '', '', '', '2023-05-31', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.png', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.png'),
-(43, 34, '', '', '', '2023-05-19', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.jpeg', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.jpeg'),
-(44, 34, '', '', '', '2023-05-22', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.JPG', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.jpeg'),
-(45, 34, '', '', '', '2023-05-22', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.JPG', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.jpeg'),
-(46, 34, '', '', '', '2023-05-22', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.jpeg', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.jpeg'),
-(47, 34, '', '', '', '2023-05-22', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.png', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.png'),
-(128, 34, '123456789', '12', 'PORWE', '2023-05-22', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.jpeg', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.jpeg'),
-(130, 34, '123456789', '22', '123456789', '2023-05-23', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.jpeg', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.jpeg'),
-(131, 34, '123456489', '1231546', '123156', '2023-05-26', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.jpg', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.jpg'),
-(133, 34, '123456789A', '56', '123456789a', '2023-05-28', 1, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.png', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.png'),
-(135, 34, 'poajcpascij', 'pijaciscj', 'sakjdclakscn', '2025-05-12', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.jpg', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.jpg'),
-(136, 34, 'dfdffb', 'dfbdfb', 'dfbdfbfb', '2023-06-01', 0, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.png', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.png'),
-(140, 34, 'ñlmvdslkmscdvlkn', 'lknlknljkn', 'lknljnjknkjn', '2023-06-01', 1, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.png', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.png');
+(162, 34, '12345678a', '12mm', '12345678', '2023-06-02', 1, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.png', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.png'),
+(164, 34, '12345678A', '22m', '12346789A', '2023-04-06', 1, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.png', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.png'),
+(170, 34, '123456789A', '256', '12345678A', '2023-06-13', 1, '/SecondWeaponLife//img/uploads/guia/reversoZatonioid32.jpeg', '/SecondWeaponLife//img/uploads/guia/anversoZatonioid32.jpg');
 
 -- --------------------------------------------------------
 
@@ -269,95 +144,13 @@ CREATE TABLE `arma_replica` (
 --
 
 INSERT INTO `arma_replica` (`id_arma`, `tipo_gas`, `capacidad_cargador`, `piezas_canon`) VALUES
-(42, 'RXH', 5, 'asc'),
-(48, '', 1, ''),
-(49, 'ÑKAMCÑKCM', 250, '15'),
-(50, 'lkmlkm', 4, 'lkmlkmn'),
-(51, 'Mania', 22, 'Silenciador y AKX 25'),
-(52, '', 14, ''),
-(53, 'ñklmac', 25, 'ljknlanc'),
-(54, 'ñklmac', 25, 'ljknlanc'),
-(55, 'ñklmac', 25, 'ljknlanc'),
-(56, 'ñklmac', 25, 'ljknlanc'),
-(57, 'ñklmac', 25, 'ljknlanc'),
-(58, 'ñklmac', 25, 'ljknlanc'),
-(59, 'ñklmac', 25, 'ljknlanc'),
-(60, 'ñklmac', 25, 'ljknlanc'),
-(61, 'ñklmac', 25, 'ljknlanc'),
-(62, 'ñklmac', 25, 'ljknlanc'),
-(63, 'ñklmac', 25, 'ljknlanc'),
-(64, 'ñklmac', 25, 'ljknlanc'),
-(65, 'ñklmac', 25, 'ljknlanc'),
-(66, 'ñklmac', 25, 'ljknlanc'),
-(67, 'ñklmac', 25, 'ljknlanc'),
-(68, 'ñklmac', 25, 'ljknlanc'),
-(69, 'ñklmac', 25, 'ljknlanc'),
-(70, 'ñklmac', 25, 'ljknlanc'),
-(71, 'ñklmac', 25, 'ljknlanc'),
-(72, 'ñklmac', 25, 'ljknlanc'),
-(73, 'ñklmac', 25, 'ljknlanc'),
-(74, 'ñklmac', 25, 'ljknlanc'),
-(75, 'ñklmac', 25, 'ljknlanc'),
-(76, 'ñklmac', 25, 'ljknlanc'),
-(77, 'ñklmac', 25, 'ljknlanc'),
-(78, '', 51, ''),
-(79, '', 51, ''),
-(80, '', 51, ''),
-(81, '', 51, ''),
-(82, '', 51, ''),
-(83, '', 51, ''),
-(84, '', 51, ''),
-(85, '', 51, ''),
-(86, '', 51, ''),
-(87, '', 51, ''),
-(88, '', 51, ''),
-(89, '', 51, ''),
-(90, '', 51, ''),
-(91, '', 51, ''),
-(92, '', 51, ''),
-(93, '', 51, ''),
-(94, '', 51, ''),
-(95, '', 51, ''),
-(96, '', 51, ''),
-(97, '', 51, ''),
-(98, '', 51, ''),
-(99, '', 51, ''),
-(100, '', 51, ''),
-(101, '', 51, ''),
-(102, '', 51, ''),
-(103, '', 51, ''),
-(104, '', 51, ''),
-(105, '', 51, ''),
-(106, '', 51, ''),
-(107, '', 51, ''),
-(108, '', 51, ''),
-(109, '', 51, ''),
-(110, '', 51, ''),
-(111, '', 51, ''),
-(112, '', 51, ''),
-(113, '', 51, ''),
-(114, '', 51, ''),
-(115, '', 51, ''),
-(116, '', 51, ''),
-(117, '', 51, ''),
-(118, '', 51, ''),
-(119, '', 51, ''),
-(120, '', 51, ''),
-(121, '', 51, ''),
-(122, '', 51, ''),
-(123, '', 51, ''),
-(124, '', 51, ''),
-(129, 'Mercuriano', 500, 'Ninguna'),
-(132, 'LAKSMCLC', 500, 'Silenciador y AKX 25'),
-(134, 'lknacsdlscna', 500, 'ljnascjcsn'),
-(137, 'sdcsdc', 14, 'sxcdsxdc'),
-(139, 'fgnfnfn', 4, 'gfcfbn'),
-(141, 'ksdmclksdcm', 12, 'lkmdlkcmsldkm'),
-(142, 'ñklmac', 15, '15'),
-(143, 'kjsnackjscn', 57, '123456'),
-(144, 'lkamclkscm', 32, 'lksmdvskmvl'),
-(145, 'lkamclkscm', 32, 'lksmdvskmvl'),
-(146, 'lkamclkscm', 32, 'lksmdvskmvl');
+(161, 'PRUEBA', 150, ''),
+(163, 'XSR', 150, ''),
+(165, 'lksamclsacdkn', 150, 'lksdnmlsdkvn'),
+(166, 'lkacmlacsk ', 150, 'laksclaskc '),
+(167, 'lkdnsmalksndvc', 150, 'lknmdsaclknvd'),
+(168, 'ñalcmañclm', 200, '150'),
+(169, 'lkmndcslknvd', 150, 'lknaflknvdlkn');
 
 -- --------------------------------------------------------
 
@@ -370,6 +163,13 @@ CREATE TABLE `contrato_compra_venta` (
   `url_contrato_compra_venta` varchar(255) NOT NULL,
   `id_factura` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `contrato_compra_venta`
+--
+
+INSERT INTO `contrato_compra_venta` (`id_contrato_compra_venta`, `url_contrato_compra_venta`, `id_factura`) VALUES
+(3, '/SecondWeaponLife/pdfs/TransferenciaArma32162.pdf', 73);
 
 -- --------------------------------------------------------
 
@@ -412,9 +212,10 @@ CREATE TABLE `estado_pedido` (
 
 INSERT INTO `estado_pedido` (`id_estado_pedido`, `estado`, `descripcion`) VALUES
 (1, 'Pendiente', 'El pedido se ha realizado, pero aún no se ha procesado.'),
-(2, 'Procesando', 'El pedido se ha realizado, y el vendedor aun no ha realizado el envio.'),
+(2, 'Puesto en destacados', 'El pedido del anuncio destacado se ha realizado y es puesto en la seccion de destacados'),
 (3, 'Enviado', 'El pedido se ha realizado, y el vendedor ya ha realizado el envio'),
-(4, 'Entregado', 'El pedido ha llegado a su destino y ha sido entregado al cliente satisfactoriamente.');
+(4, 'Entregado', 'El pedido ha llegado a su destino y ha sido entregado al cliente satisfactoriamente.'),
+(5, 'Pagado vendedor', 'El pedido se ha entregado al comprador y se le ha pagado su parte al vendedor');
 
 -- --------------------------------------------------------
 
@@ -441,11 +242,26 @@ CREATE TABLE `factura` (
 --
 
 INSERT INTO `factura` (`id_factura`, `id_pedido`, `num_factura`, `descripcion_descuento`, `importe_bruto`, `importe_descuento`, `url_factura`, `precio_total_factura`, `base_imponible`, `importe_gastos`, `descripcion_gastos`) VALUES
-(1, 16, 1, '', '150.00', '0.00', 'C:\\Users\\Zatonio\\Desktop\\Instituto DAW\\2º DAW\\PI\\Proyecto\\PI\\Archivos Proyecto\\build\\web\\/pdfs/Factura nªnull.pdf', '213.26', '176.25', '26.25', 'De gestion: 12.5%, Transporte 5%'),
-(2, 17, 2, '', '150.00', '0.00', 'C:\\Users\\Zatonio\\Desktop\\Instituto DAW\\2º DAW\\PI\\Proyecto\\PI\\Archivos Proyecto\\build\\web\\/pdfs/Factura nªnull.pdf', '213.26', '176.25', '26.25', 'De gestion: 12.5%, Transporte 5%'),
-(3, 18, 3, '', '150.00', '0.00', 'C:\\Users\\Zatonio\\Desktop\\Instituto DAW\\2º DAW\\PI\\Proyecto\\PI\\Archivos Proyecto\\build\\web\\/pdfs/Factura nªnull.pdf', '213.26', '176.25', '26.25', 'De gestion: 12.5%, Transporte 5%'),
-(4, 19, 4, '', '150.00', '0.00', 'C:\\Users\\Zatonio\\Desktop\\Instituto DAW\\2º DAW\\PI\\Proyecto\\PI\\Archivos Proyecto\\build\\web\\/pdfs/Factura nªnull.pdf', '213.26', '176.25', '26.25', 'De gestion: 12.5%, Transporte 5%'),
-(5, 20, 5, '', '150.00', '0.00', 'C:\\Users\\Zatonio\\Desktop\\Instituto DAW\\2º DAW\\PI\\Proyecto\\PI\\Archivos Proyecto\\build\\web\\/pdfs/Factura nªnull.pdf', '213.26', '176.25', '26.25', 'De gestion: 12.5%, Transporte 5%');
+(73, 88, 1, '', '150.00', '0.00', '/SecondWeaponLife/pdfs/Factura nº1.pdf', '213.26', '176.25', '26.25', 'De gestion: 12.5%, Transporte: 7.5'),
+(74, 89, 2, '', '150.00', '0.00', '/SecondWeaponLife/pdfs/Factura nº2.pdf', '213.26', '176.25', '26.25', 'De gestion: 12.5%, Transporte: 7.5'),
+(75, 90, 3, '', '1523.00', '0.00', '/SecondWeaponLife/pdfs/Factura nº3.pdf', '2165.33', '1789.53', '266.53', 'De gestion: 12.5%, Transporte: 76.15'),
+(76, 91, 4, '', '1523.00', '0.00', '/SecondWeaponLife/pdfs/Factura nº4.pdf', '2165.33', '1789.53', '266.53', 'De gestion: 12.5%, Transporte: 76.15'),
+(77, 92, 5, '', '1523.00', '0.00', '/SecondWeaponLife/pdfs/Factura nº5.pdf', '2165.33', '1789.53', '266.53', 'De gestion: 12.5%, Transporte: 76.15'),
+(78, 93, 6, '', '1523.00', '0.00', '/SecondWeaponLife/pdfs/Factura nº6.pdf', '2165.33', '1789.53', '266.53', 'De gestion: 12.5%, Transporte: 76.15'),
+(79, 94, 7, '', '1523.00', '0.00', '/SecondWeaponLife/pdfs/Factura nº7.pdf', '2165.33', '1789.53', '266.53', 'De gestion: 12.5%, Transporte: 76.15'),
+(80, 95, 8, '', '1523.00', '0.00', '/SecondWeaponLife/pdfs/Factura nº8.pdf', '2165.33', '1789.53', '266.53', 'De gestion: 12.5%, Transporte: 76.15'),
+(81, 96, 9, '', '1523.00', '0.00', '/SecondWeaponLife/pdfs/Factura nº9.pdf', '2165.33', '1789.53', '266.53', 'De gestion: 12.5%, Transporte: 76.15'),
+(82, 97, 10, '', '1523.00', '0.00', '/SecondWeaponLife/pdfs/Factura nº10.pdf', '2165.33', '1789.53', '266.53', 'De gestion: 12.5%, Transporte: 76.15'),
+(83, 98, 11, '', '150.00', '0.00', '/SecondWeaponLife/pdfs/Factura nº11.pdf', '213.26', '176.25', '26.25', 'De gestion: 12.5%, Transporte: 7.5'),
+(84, 99, 12, '', '150.00', '0.00', '/SecondWeaponLife/pdfs/Factura nº12.pdf', '213.26', '176.25', '26.25', 'De gestion: 12.5%, Transporte: 7.5'),
+(85, 100, 13, '', '10.00', '0.00', '/SecondWeaponLife/pdfs/Factura nº13.pdf', '12.10', '10.00', '0.00', ''),
+(86, 101, 14, '', '10.00', '0.00', '/SecondWeaponLife/pdfs/Factura nº14.pdf', '12.10', '10.00', '0.00', ''),
+(87, 102, 15, '', '10.00', '0.00', '/SecondWeaponLife/pdfs/Factura nº15.pdf', '12.10', '10.00', '0.00', ''),
+(88, 103, 16, '', '10.00', '0.00', '/SecondWeaponLife/pdfs/Factura nº16.pdf', '12.10', '10.00', '0.00', ''),
+(89, 104, 17, '', '250.00', '0.00', '/SecondWeaponLife/pdfs/Factura nº17.pdf', '355.44', '293.75', '43.75', 'De gestion: 12.5%, Transporte: 12.5'),
+(90, 105, 18, '', '10.00', '0.00', '/SecondWeaponLife/pdfs/Factura nº18.pdf', '12.10', '10.00', '0.00', ''),
+(91, 106, 19, '', '10.00', '0.00', '/SecondWeaponLife/pdfs/Factura nº19.pdf', '12.10', '10.00', '0.00', ''),
+(92, 107, 20, '', '10.00', '0.00', '/SecondWeaponLife/pdfs/Factura nº20.pdf', '12.10', '10.00', '0.00', '');
 
 -- --------------------------------------------------------
 
@@ -460,6 +276,15 @@ CREATE TABLE `hilo` (
   `etiqueta_tema` varchar(50) NOT NULL,
   `fecha_creacion` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `hilo`
+--
+
+INSERT INTO `hilo` (`id_hilo`, `id_usuario`, `titulo_descriptivo`, `etiqueta_tema`, `fecha_creacion`) VALUES
+(2, 33, 'La caza del conejo', 'Caza', '2023-06-08'),
+(3, 1, 'La liebre comun', 'Caza', '2023-06-12'),
+(4, 1, 'La liebre comun', 'Caza', '2023-06-12');
 
 -- --------------------------------------------------------
 
@@ -478,21 +303,21 @@ CREATE TABLE `imagen` (
 --
 
 INSERT INTO `imagen` (`id_imagen`, `id_anuncio`, `url_imagen`) VALUES
-(123, 59, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio590.png'),
-(125, 62, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio620.png'),
-(126, 63, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio630.png'),
-(127, 63, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio631.png'),
-(128, 63, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio632.png'),
-(129, 64, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio640.jpg'),
-(130, 64, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio641.jpeg'),
-(131, 64, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio642.jpeg'),
-(132, 64, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio643.JPG'),
-(133, 65, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio650.jpg'),
-(134, 65, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio651.jfif'),
-(135, 67, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio670.jpeg'),
-(136, 66, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio660.jpeg'),
-(137, 67, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio671.jpeg'),
-(138, 66, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio661.jpeg');
+(195, 104, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio1040.jpg'),
+(196, 105, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio1050.jpg'),
+(197, 105, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio1051.jfif'),
+(198, 106, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio1060.png'),
+(199, 106, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio1061.png'),
+(200, 107, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio1070.png'),
+(201, 107, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio1071.png'),
+(202, 107, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio1072.png'),
+(203, 108, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio1080.JPG'),
+(204, 109, '/SecondWeaponLife//img/uploads/anuncio/anuncioPrueba1090.JPG'),
+(206, 110, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio1100.JPG'),
+(207, 111, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio1110.webp'),
+(208, 112, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio1120.jfif'),
+(209, 113, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio1130.jpeg'),
+(210, 113, '/SecondWeaponLife//img/uploads/anuncio/anuncioZatonio1131.jpeg');
 
 -- --------------------------------------------------------
 
@@ -523,7 +348,12 @@ INSERT INTO `licencia` (`id_licencia`, `id_usuario`, `id_tipo_licencia`, `valida
 (33, 32, 2, '2023-05-16', '2023-04-15', '2023-04-16', '', '', 1, '/SecondWeaponLife//img/uploads/licencia/AnversoZatonio32WIN_20230215_23_09_35_Pro.jpg', '/SecondWeaponLife//img/uploads/licencia/ReversoZatonio32WIN_20230215_23_09_35_Pro.jpg'),
 (34, 32, 6, '2023-06-07', '2023-04-18', '2023-04-19', '', '', 1, '/SecondWeaponLife//img/uploads/licencia/AnversoZatonio32WIN_20230215_23_09_35_Pro.jpg', '/SecondWeaponLife//img/uploads/licencia/ReversoZatonio32WIN_20230215_23_09_35_Pro.jpg'),
 (35, 33, 1, '2123-06-03', '2023-06-03', '2023-06-03', '', '', 1, NULL, NULL),
-(36, 34, 1, '2123-06-04', '2023-06-04', '2023-06-04', '', '', 1, NULL, NULL);
+(36, 34, 1, '2123-06-04', '2023-06-04', '2023-06-04', '', '', 1, NULL, NULL),
+(37, 35, 1, '2123-06-06', '2023-06-06', '2023-06-06', '', '', 1, NULL, NULL),
+(38, 34, 5, '2023-06-30', '2023-03-02', '2023-03-02', '', '', 1, '/SecondWeaponLife//img/uploads/licencia/Anversohelenio34WhatsApp Image 2023-05-10 at 20.14.19.jpeg', '/SecondWeaponLife//img/uploads/licencia/Reversohelenio34WhatsApp Image 2023-05-10 at 20.14.02.jpeg'),
+(39, 36, 1, '2123-06-09', '2023-06-09', '2023-06-09', '', '', 1, NULL, NULL),
+(40, 37, 1, '2123-06-12', '2023-06-12', '2023-06-12', '', '', 1, NULL, NULL),
+(41, 38, 1, '2123-06-12', '2023-06-12', '2023-06-12', '', '', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -538,6 +368,15 @@ CREATE TABLE `mensaje` (
   `id_hilo` bigint(20) NOT NULL,
   `id_usuario` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `mensaje`
+--
+
+INSERT INTO `mensaje` (`id_mensaje`, `contenido`, `fecha_publicacion`, `id_hilo`, `id_usuario`) VALUES
+(10, 'Aqui se va a hablar sobre conejos de campo y de ciudad ', '2023-06-08', 2, 33),
+(11, 'Al que no le guste que la chupe', '2023-06-08', 2, 33),
+(12, 'Quiero pedir un poquito de porfavor', '2023-06-12', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -8695,6 +8534,25 @@ INSERT INTO `municipio` (`id_municipio`, `id_provincia`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `notificacion`
+--
+
+CREATE TABLE `notificacion` (
+  `id_notificacion` bigint(25) NOT NULL,
+  `mensaje` varchar(255) NOT NULL,
+  `id_usuario` bigint(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `notificacion`
+--
+
+INSERT INTO `notificacion` (`id_notificacion`, `mensaje`, `id_usuario`) VALUES
+(11, 'El ususario admin ha creado un nuevo hilo, reviselo', 2);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `pedido`
 --
 
@@ -8713,26 +8571,26 @@ CREATE TABLE `pedido` (
 --
 
 INSERT INTO `pedido` (`id_pedido`, `id_usuario`, `id_arma`, `fecha_entrega`, `fecha_compra`, `numero_pedido`, `id_estado_pedido`) VALUES
-(1, 33, 143, NULL, '2023-06-04', 1, 1),
-(2, 33, 143, NULL, '2023-06-04', 2, 1),
-(3, 33, 143, NULL, '2023-06-04', 3, 1),
-(4, 33, 141, NULL, '2023-06-04', 4, 1),
-(5, 33, 141, NULL, '2023-06-04', 5, 1),
-(6, 33, 141, NULL, '2023-06-04', 6, 1),
-(7, 33, 141, NULL, '2023-06-04', 7, 1),
-(8, 33, 141, NULL, '2023-06-04', 8, 1),
-(9, 33, 141, NULL, '2023-06-04', 9, 1),
-(10, 33, 141, NULL, '2023-06-04', 10, 1),
-(11, 33, 141, NULL, '2023-06-04', 11, 1),
-(12, 33, 141, NULL, '2023-06-04', 12, 1),
-(13, 33, 139, NULL, '2023-06-05', 13, 1),
-(14, 33, 139, NULL, '2023-06-05', 14, 1),
-(15, 33, 139, NULL, '2023-06-05', 15, 1),
-(16, 33, 146, NULL, '2023-06-05', 16, 1),
-(17, 33, 146, NULL, '2023-06-05', 17, 1),
-(18, 33, 146, NULL, '2023-06-05', 18, 1),
-(19, 33, 146, NULL, '2023-06-05', 19, 1),
-(20, 33, 146, NULL, '2023-06-05', 20, 1);
+(88, 34, 162, '2023-06-08', '2023-06-08', 1, 5),
+(89, 34, 163, NULL, '2023-06-08', 2, 1),
+(90, 33, 165, NULL, '2023-06-08', 3, 1),
+(91, 33, 165, NULL, '2023-06-08', 4, 1),
+(92, 33, 165, NULL, '2023-06-08', 5, 1),
+(93, 33, 165, NULL, '2023-06-08', 6, 1),
+(94, 33, 165, NULL, '2023-06-08', 7, 1),
+(95, 33, 165, NULL, '2023-06-08', 8, 1),
+(96, 33, 165, NULL, '2023-06-08', 9, 1),
+(97, 33, 165, NULL, '2023-06-08', 10, 1),
+(98, 32, 166, NULL, '2023-06-08', 11, 1),
+(99, 32, 166, NULL, '2023-06-08', 12, 1),
+(100, 32, 164, '2023-06-12', '2023-06-12', 13, 4),
+(101, 32, 164, '2023-06-12', '2023-06-12', 14, 4),
+(102, 32, 164, '2023-06-12', '2023-06-12', 15, 2),
+(103, 32, 167, '2023-06-12', '2023-06-12', 16, 2),
+(104, 38, 167, NULL, '2023-06-12', 17, 1),
+(105, 32, 168, '2023-06-13', '2023-06-13', 18, 2),
+(106, 32, 169, '2023-06-13', '2023-06-13', 19, 2),
+(107, 32, 170, '2023-06-13', '2023-06-13', 20, 2);
 
 -- --------------------------------------------------------
 
@@ -8932,28 +8790,32 @@ CREATE TABLE `usuario` (
   `nombre_padre` varchar(255) NOT NULL,
   `nombre_madre` varchar(255) NOT NULL,
   `nacido_en` varchar(255) NOT NULL,
-  `provincia_nacimiento` varchar(255) NOT NULL
+  `provincia_nacimiento` varchar(255) NOT NULL,
+  `puntuacion_foro` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id_usuario`, `id_municipio`, `nickname`, `nombre`, `rol`, `apellidos`, `email`, `contraseña`, `telefono`, `direccion`, `fecha_nacimiento`, `nif`, `url_img_perfil`, `esta_activo`, `dni_validado`, `url_img_dni_anverso`, `url_img_dni_reverso`, `nombre_padre`, `nombre_madre`, `nacido_en`, `provincia_nacimiento`) VALUES
-(1, 6090, 'admin', 'admin', 'admin', 'admin', 'admin@swl.es', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', ' ', 'admin', '1995-08-09', ' ', '', 1, 1, '', '', 'admin', 'admin', 'admin', 'admin'),
-(2, 6090, 'moderador', 'moderador', 'moderador', 'moderador', 'moderador@swl.es', 'ee8a8f8ec1e02b0461eace422a327ccb163c48838cbfc922b96778184ec1c73b', 'telefomod', 'C/Granada, 13', '1995-08-09', 'nifmod', NULL, 1, 1, '', '', 'madreMod', 'padreMod', 'Cuenca', 'Cuena'),
-(32, 6090, 'Zatonio', 'Jose Antonio', 'normal', 'López López ', '19joseantonio95@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '607450598', 'C/Granda, 13', '1995-08-09', '45811622S', '/SecondWeaponLife//img/uploads/perfil/Zatonioid32.png', 1, 1, '/SecondWeaponLife/img/uploads/dni/AnversoZatonio32WIN_20230215_23_09_35_Pro.jpg', '/SecondWeaponLife//img/uploads/dni/ReversoZatonio32WIN_20230215_23_09_35_Pro.jpg', 'Eduardo', 'Rosa María', 'Bollullos de la Mitación', 'Sevilla'),
-(33, 6090, 'Prueba', 'Prueba', 'normal', 'Prueba', 'jose@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '611111111', 'Prueba', '1991-01-03', '45811621Z', NULL, 1, 1, '/SecondWeaponLife/img/uploads/dni/AnversoPrueba33Diagrama1.png', '/SecondWeaponLife//img/uploads/dni/ReversoPrueba33Casos de Uso.png', 'prueba', 'prueba', 'prueba', 'prueba'),
-(34, 2239, 'helenio', 'Helenio', 'normal', 'Gonzale', 'helenio@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '612347896', 'Plaza del Arenal, 12', '1984-11-17', '28472682Q', NULL, 1, 0, NULL, NULL, 'Helenio', 'Rossana', 'Almarcha, La', 'Cuenca');
+INSERT INTO `usuario` (`id_usuario`, `id_municipio`, `nickname`, `nombre`, `rol`, `apellidos`, `email`, `contraseña`, `telefono`, `direccion`, `fecha_nacimiento`, `nif`, `url_img_perfil`, `esta_activo`, `dni_validado`, `url_img_dni_anverso`, `url_img_dni_reverso`, `nombre_padre`, `nombre_madre`, `nacido_en`, `provincia_nacimiento`, `puntuacion_foro`) VALUES
+(1, 6090, 'admin', 'admin', 'admin', 'admin', 'admin@swl.es', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', ' ', 'admin', '1995-08-09', ' ', '', 1, 1, '', '', 'admin', 'admin', 'admin', 'admin', -1),
+(2, 6090, 'moderador', 'moderador', 'moderador', 'moderador', 'moderador@swl.es', 'ee8a8f8ec1e02b0461eace422a327ccb163c48838cbfc922b96778184ec1c73b', 'telefomod', 'C/Granada, 13', '1995-08-09', 'nifmod', NULL, 1, 1, '', '', 'madreMod', 'padreMod', 'Cuenca', 'Cuena', 0),
+(32, 6090, 'Zatonio', 'Jose Antonio', 'admin', 'López López ', '19joseantonio95@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '607450598', 'C/Granda, 13', '1995-08-09', '45811622S', '/SecondWeaponLife//img/uploads/perfil/Zatonioid32.png', 1, 1, '/SecondWeaponLife/img/uploads/dni/AnversoZatonio32WIN_20230215_23_09_35_Pro.jpg', '/SecondWeaponLife//img/uploads/dni/ReversoZatonio32WIN_20230215_23_09_35_Pro.jpg', 'Eduardo', 'Rosa María', 'Bollullos de la Mitación', 'Sevilla', -5),
+(33, 6090, 'Prueba', 'Prueba', 'normal', 'Prueba', 'jose@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '611111111', 'Prueba', '1991-01-03', '45811621Z', NULL, 1, 1, '/SecondWeaponLife/img/uploads/dni/AnversoPrueba33Diagrama1.png', '/SecondWeaponLife//img/uploads/dni/ReversoPrueba33Casos de Uso.png', 'prueba', 'prueba', 'prueba', 'prueba', -10),
+(34, 2239, 'helenio', 'Helenio', 'normal', 'Gonzale', 'helenio@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '612347896', 'Plaza del Arenal, 12', '1984-11-17', '28472682Q', '/SecondWeaponLife//img/uploads/perfil/helenioid34.jpg', 1, 1, '/SecondWeaponLife/img/uploads/dni/Anversohelenio34WhatsApp Image 2023-05-10 at 20.14.02.jpeg', '/SecondWeaponLife//img/uploads/dni/Reversohelenio34WhatsApp Image 2023-05-10 at 20.14.19.jpeg', 'Helenio', 'Rossana', 'Almarcha, La', 'Cuenca', 0),
+(35, 6090, 'marisu', 'Maria Jesus', 'normal', 'Garcia Nuñez', 'marisu@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '605789631', 'Onubenses, 162', '1987-03-02', '67677028B', NULL, 1, 1, '/SecondWeaponLife/img/uploads/dni/Anversomarisu35Entrega tarea final DOM (Organigrama de la Tarea)_JoséAntonioLópezLópez.png', '/SecondWeaponLife//img/uploads/dni/Reversomarisu35WIN_20230215_23_09_35_Pro.jpg', 'Miguel', 'Pepa', 'Bollullos de la Mitación', 'Sevilla', 0),
+(36, 5735, 'lopez', 'José Antonio', 'normal', 'López López ', 'edulopmat@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '611111123', 'C/Granada, 13', '1993-06-30', '28675572T', NULL, 1, 0, NULL, NULL, 'Jose ', 'Antonio', 'Saelices el Chico', 'Salamanca', 0),
+(37, 6169, 'AlexAnd', 'Alejandro', 'normal', 'Andrade Rufo', 'ale@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '623478963', 'Granada, 13', '2000-01-12', '64020462P', NULL, 1, 0, '/SecondWeaponLife/img/uploads/dni/AnversoAlexAnd37Casos de Uso.png', '/SecondWeaponLife//img/uploads/dni/ReversoAlexAnd37Diagrama1.png', 'Ale', 'Male', 'Sevilla', 'Sevilla', 0),
+(38, 6163, 'Nicko', 'jnb', 'normal', 'Prueba', 'nose@gmail.com', '20a41e601bfa1d1ed0f8bbc8ea0994a55a8186521d5dd26c83ace9ed0e909cf9', '697412364', 'Granada , 13', '1993-05-12', '04725722G', NULL, 1, 1, '/SecondWeaponLife/img/uploads/dni/AnversoNicko38Casos de Uso.png', '/SecondWeaponLife//img/uploads/dni/ReversoNicko38Diagrama1.png', 'nose', 'nose', 'San Andrés y Sauces', 'Santa Cruz de Tenerife', 0);
 
 --
 -- Disparadores `usuario`
 --
 DELIMITER $$
-CREATE TRIGGER `licenciaDefecto` AFTER INSERT ON `usuario` FOR EACH ROW BEGIN
+CREATE TRIGGER `crearLicenciaDefecto` AFTER INSERT ON `usuario` FOR EACH ROW BEGIN
     DECLARE fecha_actual DATE;
     DECLARE valida_hasta_date DATE;
-    
     SET fecha_actual = CURDATE();
     SET valida_hasta_date = DATE_ADD(fecha_actual, INTERVAL 100 YEAR);
     
@@ -9060,6 +8922,13 @@ ALTER TABLE `municipio`
   ADD KEY `id_provincia` (`id_provincia`);
 
 --
+-- Indices de la tabla `notificacion`
+--
+ALTER TABLE `notificacion`
+  ADD PRIMARY KEY (`id_notificacion`),
+  ADD KEY `id_usuario` (`id_usuario`);
+
+--
 -- Indices de la tabla `pedido`
 --
 ALTER TABLE `pedido`
@@ -9112,61 +8981,67 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `anuncio`
 --
 ALTER TABLE `anuncio`
-  MODIFY `id_anuncio` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id_anuncio` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 
 --
 -- AUTO_INCREMENT de la tabla `arma`
 --
 ALTER TABLE `arma`
-  MODIFY `id_arma` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=147;
+  MODIFY `id_arma` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
 
 --
 -- AUTO_INCREMENT de la tabla `contrato_compra_venta`
 --
 ALTER TABLE `contrato_compra_venta`
-  MODIFY `id_contrato_compra_venta` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_contrato_compra_venta` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `estado_pedido`
 --
 ALTER TABLE `estado_pedido`
-  MODIFY `id_estado_pedido` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_estado_pedido` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `factura`
 --
 ALTER TABLE `factura`
-  MODIFY `id_factura` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_factura` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT de la tabla `hilo`
 --
 ALTER TABLE `hilo`
-  MODIFY `id_hilo` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_hilo` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `imagen`
 --
 ALTER TABLE `imagen`
-  MODIFY `id_imagen` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
+  MODIFY `id_imagen` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=211;
 
 --
 -- AUTO_INCREMENT de la tabla `licencia`
 --
 ALTER TABLE `licencia`
-  MODIFY `id_licencia` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id_licencia` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT de la tabla `mensaje`
 --
 ALTER TABLE `mensaje`
-  MODIFY `id_mensaje` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_mensaje` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT de la tabla `notificacion`
+--
+ALTER TABLE `notificacion`
+  MODIFY `id_notificacion` bigint(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `id_pedido` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_pedido` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_arma`
@@ -9184,7 +9059,7 @@ ALTER TABLE `tipo_licencia`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id_usuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- Restricciones para tablas volcadas
@@ -9262,6 +9137,12 @@ ALTER TABLE `municipio`
   ADD CONSTRAINT `municipio_ibfk_1` FOREIGN KEY (`id_provincia`) REFERENCES `provincia` (`id_provincia`);
 
 --
+-- Filtros para la tabla `notificacion`
+--
+ALTER TABLE `notificacion`
+  ADD CONSTRAINT `notificacion_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
+
+--
 -- Filtros para la tabla `pedido`
 --
 ALTER TABLE `pedido`
@@ -9281,16 +9162,18 @@ ALTER TABLE `tipo_licencia_faculta_tipo_arma`
 --
 ALTER TABLE `usuario`
   ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`id_municipio`) REFERENCES `municipio` (`id_municipio`);
-
-DELIMITER $$
---
--- Eventos
---
-CREATE DEFINER=`root`@`localhost` EVENT `borraLicencia` ON SCHEDULE EVERY 1 DAY STARTS '2023-05-13 18:35:00' ON COMPLETION NOT PRESERVE ENABLE DO CALL borrarLicenciaCadudcada()$$
-
-DELIMITER ;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+DELIMITER $$
+--
+-- Eventos
+--
+CREATE DEFINER=`root`@`localhost` EVENT `borraLicencia` ON SCHEDULE EVERY 1 DAY STARTS '2023-05-13 00:00:00' ON COMPLETION NOT PRESERVE ENABLE DO CALL borrarLicenciaCadudcada()$$
+
+DELIMITER ;
+COMMIT;

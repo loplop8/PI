@@ -28,10 +28,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import modelo.dao.AnuncioJpaController;
 import modelo.dao.ImagenJpaController;
+import modelo.dao.NotificacionJpaController;
 import modelo.dao.UsuarioJpaController;
 import modelo.dao.exceptions.NonexistentEntityException;
 import modelo.entidades.Anuncio;
 import modelo.entidades.Imagen;
+import modelo.entidades.Notificacion;
 
 import modelo.entidades.Usuario;
 import org.apache.tika.Tika;
@@ -79,6 +81,18 @@ public class BorrarAnuncio extends HttpServlet {
             ijc.destroy(imagen.getId_imagen());
         }
         ajc.destroy(idAnuncio);
+        Notificacion n=new Notificacion();
+        Anuncio a= ajc.findAnuncio(idAnuncio);
+            n.setMensaje("El ususario "+usuario.getNickname()+" ha borrado el anuncio con titulo"+a.getTitulo());
+            UsuarioJpaController ujc=new UsuarioJpaController(emf);
+            NotificacionJpaController njc=new NotificacionJpaController(emf);
+            
+            for(Usuario user :ujc.findUsuarioEntities()  ){
+                     if(user.getRol().equals("admin")){
+                        n.setId_usuario(user);
+                        njc.create(n);
+                     }
+                 }
         response.sendRedirect("./MisAnuncios");    
     }
 

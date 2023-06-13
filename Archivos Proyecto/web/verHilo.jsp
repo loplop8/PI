@@ -37,7 +37,7 @@
 
                     </ul>
 
-                    
+
 
                     <div class="text-end me-5">
 
@@ -61,62 +61,65 @@
 
                                             <a href="#" class="nav-link px-2 text-white mt-2 elementosResponsive"><button type="button" class="btn btn-outline-warning  me-2"><a href="./Login" id="login"> Iniciar sesión</a></button></a>
 
- 
+
                                             <a href="#" class="nav-link px-2 text-white mt-2 elementosResponsive"><button type="button" class="btn btn-outline-warning me-2" > <a href="./Registro" id="login"> Registrate</a></button>
- 
-                                            
-                                        </c:if>
-                                        <c:if test="${usuario.id_usuario!=null}">
-                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-
-                                                <img src="${usuario.url_img_perfil}" width="50" alt="Imagen de Perfil">   ${usuario.nickname}
-                                            </a>
 
 
+                                            </c:if>
+                                            <c:if test="${usuario.id_usuario!=null}">
+                                                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
-                                            <ul class="dropdown-menu-dark  dropdown-menu"  aria-labelledby="navbarDarkDropdownMenuLink " >
-
-                                                <c:if test="${usuario.rol=='admin'}">
-                                                    <li><a class="dropdown-item" href="admin/PanelAdministracion"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pc-display-horizontal" viewBox="0 0 16 16">
-                                                            <path d="M1.5 0A1.5 1.5 0 0 0 0 1.5v7A1.5 1.5 0 0 0 1.5 10H6v1H1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5v-1h4.5A1.5 1.5 0 0 0 16 8.5v-7A1.5 1.5 0 0 0 14.5 0h-13Zm0 1h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5ZM12 12.5a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0Zm2 0a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0ZM1.5 12h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1ZM1 14.25a.25.25 0 0 1 .25-.25h5.5a.25.25 0 1 1 0 .5h-5.5a.25.25 0 0 1-.25-.25Z"/>
-                                                            </svg> Panel de Administración</a></li>
-                                                        </c:if>
-
-                                                <c:if test="${usuario.rol=='moderador'}">
-                                                    <li><a class="dropdown-item" href="moderador/PanelModeracion"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pc-display-horizontal" viewBox="0 0 16 16">
-                                                            <path d="M1.5 0A1.5 1.5 0 0 0 0 1.5v7A1.5 1.5 0 0 0 1.5 10H6v1H1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5v-1h4.5A1.5 1.5 0 0 0 16 8.5v-7A1.5 1.5 0 0 0 14.5 0h-13Zm0 1h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5ZM12 12.5a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0Zm2 0a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0ZM1.5 12h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1ZM1 14.25a.25.25 0 0 1 .25-.25h5.5a.25.25 0 1 1 0 .5h-5.5a.25.25 0 0 1-.25-.25Z"/>
-                                                            </svg> Panel de Moderación</a></li>
-                                                        </c:if>
+                                                    <img src="${usuario.url_img_perfil}" width="50" alt="Imagen de Perfil">   ${usuario.nickname}
+                                                </a>
 
 
-                                                <li><a class="dropdown-item" href="./usuario/CrearAnuncio"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-newspaper" viewBox="0 0 16 16">
-                                                        <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z"/>
-                                                        <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
-                                                        </svg> Crear Anuncio</a></li>                                          
+
+                                                <ul class="dropdown-menu-dark  dropdown-menu"  aria-labelledby="navbarDarkDropdownMenuLink " >
+
+                                                    <c:if test="${usuario.rol=='admin'}">
+                                                        <li><a class="dropdown-item" href="admin/PanelAdministracion"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pc-display-horizontal" viewBox="0 0 16 16">
+                                                                <path d="M1.5 0A1.5 1.5 0 0 0 0 1.5v7A1.5 1.5 0 0 0 1.5 10H6v1H1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5v-1h4.5A1.5 1.5 0 0 0 16 8.5v-7A1.5 1.5 0 0 0 14.5 0h-13Zm0 1h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5ZM12 12.5a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0Zm2 0a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0ZM1.5 12h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1ZM1 14.25a.25.25 0 0 1 .25-.25h5.5a.25.25 0 1 1 0 .5h-5.5a.25.25 0 0 1-.25-.25Z"/>
+                                                                </svg> Panel de Administración</a></li>
+                                                            </c:if>
+
+                                                    <c:if test="${usuario.rol=='moderador'}">
+                                                        <li><a class="dropdown-item" href="moderador/PanelModeracion"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pc-display-horizontal" viewBox="0 0 16 16">
+                                                                <path d="M1.5 0A1.5 1.5 0 0 0 0 1.5v7A1.5 1.5 0 0 0 1.5 10H6v1H1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5v-1h4.5A1.5 1.5 0 0 0 16 8.5v-7A1.5 1.5 0 0 0 14.5 0h-13Zm0 1h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5ZM12 12.5a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0Zm2 0a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0ZM1.5 12h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1ZM1 14.25a.25.25 0 0 1 .25-.25h5.5a.25.25 0 1 1 0 .5h-5.5a.25.25 0 0 1-.25-.25Z"/>
+                                                                </svg> Panel de Moderación</a></li>
+                                                            </c:if>
+
+                                                    <li><a class="dropdown-item" href="./usuario/MisNotificaciones"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
+                                                            <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
+                                                            </svg> Notificaciones </a></li>            
+
+                                                    <li><a class="dropdown-item" href="./usuario/CrearAnuncio"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-newspaper" viewBox="0 0 16 16">
+                                                            <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z"/>
+                                                            <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
+                                                            </svg> Crear Anuncio</a></li>                                          
 
 
-                                                <li><a class="dropdown-item" href="./usuario/Compras"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
-                                                        <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z"/>
-                                                        </svg> Compras</a></li>
-                                                <li><a class="dropdown-item" href="./usuario/Ventas"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-seam-fill" viewBox="0 0 16 16">
-                                                        <path fill-rule="evenodd" d="M15.528 2.973a.75.75 0 0 1 .472.696v8.662a.75.75 0 0 1-.472.696l-7.25 2.9a.75.75 0 0 1-.557 0l-7.25-2.9A.75.75 0 0 1 0 12.331V3.669a.75.75 0 0 1 .471-.696L7.443.184l.01-.003.268-.108a.75.75 0 0 1 .558 0l.269.108.01.003 6.97 2.789ZM10.404 2 4.25 4.461 1.846 3.5 1 3.839v.4l6.5 2.6v7.922l.5.2.5-.2V6.84l6.5-2.6v-.4l-.846-.339L8 5.961 5.596 5l6.154-2.461L10.404 2Z"/>
-                                                        </svg> Ventas</a></li>
+                                                    <li><a class="dropdown-item" href="./usuario/Compras"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-fill" viewBox="0 0 16 16">
+                                                            <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z"/>
+                                                            </svg> Compras</a></li>
+                                                    <li><a class="dropdown-item" href="./usuario/Ventas"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-seam-fill" viewBox="0 0 16 16">
+                                                            <path fill-rule="evenodd" d="M15.528 2.973a.75.75 0 0 1 .472.696v8.662a.75.75 0 0 1-.472.696l-7.25 2.9a.75.75 0 0 1-.557 0l-7.25-2.9A.75.75 0 0 1 0 12.331V3.669a.75.75 0 0 1 .471-.696L7.443.184l.01-.003.268-.108a.75.75 0 0 1 .558 0l.269.108.01.003 6.97 2.789ZM10.404 2 4.25 4.461 1.846 3.5 1 3.839v.4l6.5 2.6v7.922l.5.2.5-.2V6.84l6.5-2.6v-.4l-.846-.339L8 5.961 5.596 5l6.154-2.461L10.404 2Z"/>
+                                                            </svg> Ventas</a></li>
 
-                                                <li><a class="dropdown-item" href="./usuario/MisAnuncios"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar4" viewBox="0 0 16 16">
-                                                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1H2zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5z"/>
-                                                        </svg> Mis anuncios</a></li>
+                                                    <li><a class="dropdown-item" href="./usuario/MisAnuncios"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar4" viewBox="0 0 16 16">
+                                                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v1h14V3a1 1 0 0 0-1-1H2zm13 3H1v9a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V5z"/>
+                                                            </svg> Mis anuncios</a></li>
 
-                                                <li><a class="dropdown-item" href="./usuario/GestionarPerfil"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                                                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                                                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                                                        </svg> Gestionar Perfil</a></li>
-                                                <li><a class="dropdown-item" href="./CerrarSesion"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
-                                                        <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
-                                                        <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
-                                                        </svg> Cerrar Sesión </a></li>
-                                            </ul>
+                                                    <li><a class="dropdown-item" href="./usuario/GestionarPerfil"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                                            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                                            </svg> Gestionar Perfil</a></li>
+                                                    <li><a class="dropdown-item" href="./CerrarSesion"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                                                            <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+                                                            <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                                                            </svg> Cerrar Sesión </a></li>
+                                                </ul>
 
-                                        </c:if>    
+                                            </c:if>    
                                 </div>
                             </div>
                     </div>
@@ -126,60 +129,60 @@
 
 
 
-        <main class="mt-5">
-            <div class="container mt-4">
-    <div class="row">
-      <div class="col-lg-8 offset-lg-2">
-        <!-- Encabezado del Foro -->
-        <div class="card mb-4">
-          <div class="card-header bg-dark text-light">
-            <h5 class="mb-0 text-center">${hilo.titutlo_descriptivo}</h5>
-          </div>
-        </div>
+                    <main class="mt-5">
+                        <div class="container mt-4">
+                            <div class="row">
+                                <div class="col-lg-8 offset-lg-2">
+                                    <!-- Encabezado del Foro -->
+                                    <div class="card mb-4">
+                                        <div class="card-header bg-dark text-light">
+                                            <h5 class="mb-0 text-center">${hilo.titutlo_descriptivo}</h5>
+                                        </div>
+                                    </div>
 
-        <!-- Lista de Mensajes -->
-        <div class="card">
-          <div class="card-header bg-dark text-light">
-            <h5 class="mb-0">Mensajes</h5>
-          </div>
-          <div class="card-body bg-dark text-light">
-              <c:forEach items="${mensajes}" var="m">
-              <div class="media mb-3">
-              <div class="media-body">
-                  
-                <h5 class="mt-0">  <fmt:formatDate value="${m.fecha_publicacion}" pattern="dd-MM-yyyy"/> ${m.id_usuario.nickname} </h5>
-                <p> ${m.contenido} </p>
-              </div>
-            </div>
-            </c:forEach>  
-              
-              
-            
-            <!-- Agrega más mensajes aquí -->
-          </div>
-        </div>
+                                    <!-- Lista de Mensajes -->
+                                    <div class="card">
+                                        <div class="card-header bg-dark text-light">
+                                            <h5 class="mb-0">Mensajes</h5>
+                                        </div>
+                                        <div class="card-body bg-dark text-light">
+                                            <c:forEach items="${mensajes}" var="m">
+                                                <div class="media mb-3">
+                                                    <div class="media-body">
 
-        <!-- Formulario de Publicación -->
-        <c:if test="${usuario.id_usuario!=null && usuario.puntuacion_foro>=(-9)}">
-        <div class="card mt-4">
-          <div class="card-header bg-dark text-light">
-            <h5 class="mb-0">Postear mensaje</h5>
-          </div>
-          <div class="card-body bg-dark text-light">
-              <form action="./usuario/PublicarMensaje" id="formulario">
-              <div class="form-group ">
-                <label for="mensaje">Mensaje:</label>
-                <textarea class="form-control" id="mensaje" required name="mensaje" rows="3"></textarea>
-              </div>
-                <input type="hidden" name="hilo" value="${hilo.id_hilo}"> 
-                <button  type="submit" class="mt-3 btn btn-primary">Publicar</button>
-            </form>
-          </div>
-        </div>
-        </c:if>
-      </div>
-    </div>
-  </div>
+                                                        <h5 class="mt-0">  <fmt:formatDate value="${m.fecha_publicacion}" pattern="dd-MM-yyyy"/> ${m.id_usuario.nickname} </h5>
+                                                        <p> ${m.contenido} </p>
+                                                    </div>
+                                                </div>
+                                            </c:forEach>  
+
+
+
+                                            <!-- Agrega más mensajes aquí -->
+                                        </div>
+                                    </div>
+
+                                    <!-- Formulario de Publicación -->
+                                    <c:if test="${usuario.id_usuario!=null && usuario.puntuacion_foro>=(-9)}">
+                                        <div class="card mt-4">
+                                            <div class="card-header bg-dark text-light">
+                                                <h5 class="mb-0">Postear mensaje</h5>
+                                            </div>
+                                            <div class="card-body bg-dark text-light">
+                                                <form action="./usuario/PublicarMensaje" id="formulario">
+                                                    <div class="form-group ">
+                                                        <label for="mensaje">Mensaje:</label>
+                                                        <textarea class="form-control" id="mensaje" required name="mensaje" rows="3"></textarea>
+                                                    </div>
+                                                    <input type="hidden" name="hilo" value="${hilo.id_hilo}"> 
+                                                    <button  type="submit" class="mt-3 btn btn-primary">Publicar</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </c:if>
+                                </div>
+                            </div>
+                        </div>
 
                     </main>
 

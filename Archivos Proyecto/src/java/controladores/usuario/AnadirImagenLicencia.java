@@ -28,9 +28,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import modelo.dao.LicenciaJpaController;
+import modelo.dao.NotificacionJpaController;
 import modelo.dao.TipoLicenciaJpaController;
 import modelo.dao.UsuarioJpaController;
 import modelo.entidades.Licencia;
+import modelo.entidades.Notificacion;
 import modelo.entidades.TipoLicencia;
 import modelo.entidades.Usuario;
 import org.apache.tika.Tika;
@@ -130,6 +132,17 @@ public class AnadirImagenLicencia extends HttpServlet {
                 
                 try { //Persistimos los datos en la base de datos
                     ljc.create(l);
+                    Notificacion n=new Notificacion();
+            n.setMensaje("El ususario "+usuario.getNickname()+" ha insertado una nueva licencia, revisela");
+            UsuarioJpaController ujc=new UsuarioJpaController(emf);
+            NotificacionJpaController njc=new NotificacionJpaController(emf);
+            
+            for(Usuario user :ujc.findUsuarioEntities()  ){
+                     if(user.getRol().equals("admin")){
+                        n.setId_usuario(user);
+                        njc.create(n);
+                     }
+                 }
                     request.getSession().setAttribute("licencia", l);
                     response.sendRedirect("./VerLicenciaCreada");
                 } catch (RollbackException e) {

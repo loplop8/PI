@@ -14,8 +14,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.dao.ArmaFuegoJpaController;
+import modelo.dao.NotificacionJpaController;
 import modelo.dao.UsuarioJpaController;
 import modelo.entidades.ArmaFuego;
+import modelo.entidades.Notificacion;
 import modelo.entidades.Usuario;
 
 
@@ -55,6 +57,8 @@ public class CambiarEstadoGuiaArma extends HttpServlet {
             
          if(af.getGuia_validada()==true){
              af.setGuia_validada(false);
+            
+             
          }else{
              af.setGuia_validada(true);
          }

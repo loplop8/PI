@@ -14,8 +14,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.dao.LicenciaJpaController;
+import modelo.dao.NotificacionJpaController;
 import modelo.dao.UsuarioJpaController;
 import modelo.entidades.Licencia;
+import modelo.entidades.Notificacion;
 import modelo.entidades.Usuario;
 
 
@@ -55,8 +57,20 @@ public class CambiarEstadoLicencia extends HttpServlet {
             
          if(editar.getLicencia_validada()==true){
              editar.setLicencia_validada(false);
+             Notificacion n= new Notificacion();
+            n.setMensaje("El administrador ha desvalidado su licencia de armas tipo "+editar.getId_tipo_licencia().getTipo());
+            UsuarioJpaController ujc=new UsuarioJpaController(emf);
+            NotificacionJpaController njc=new NotificacionJpaController(emf);
+                        n.setId_usuario(editar.getId_usuario());
+                        njc.create(n);
          }else{
              editar.setLicencia_validada(true);
+             Notificacion n= new Notificacion();
+            n.setMensaje("El administrador ha validado su licencia de armas tipo "+editar.getId_tipo_licencia().getTipo());
+            UsuarioJpaController ujc=new UsuarioJpaController(emf);
+            NotificacionJpaController njc=new NotificacionJpaController(emf);
+                        n.setId_usuario(editar.getId_usuario());
+                        njc.create(n);
          }
          
            

@@ -34,12 +34,15 @@ import modelo.dao.ContratoCompraVentaJpaController;
 import modelo.dao.EstadoAnuncioJpaController;
 import modelo.dao.EstadoPedidoJpaController;
 import modelo.dao.FacturaJpaController;
+import modelo.dao.NotificacionJpaController;
 import modelo.dao.PedidoJpaController;
+import modelo.dao.UsuarioJpaController;
 import modelo.entidades.ArmaFuego;
 import modelo.entidades.ContratoCompraVenta;
 import modelo.entidades.EstadoAnuncio;
 import modelo.entidades.EstadoPedido;
 import modelo.entidades.Factura;
+import modelo.entidades.Notificacion;
 import modelo.entidades.Pedido;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
@@ -92,7 +95,19 @@ public class CompraCompletada extends HttpServlet {
         p.setNumero_pedido(numeroUltimoPedido);
 
         try {
+            
             pjc.create(p);
+            Notificacion n=new Notificacion();
+            n.setMensaje("El ususario "+usuario.getNickname()+" ha comprado un producto, revise el estado del pedido");
+            UsuarioJpaController ujc=new UsuarioJpaController(emf);
+            NotificacionJpaController njc=new NotificacionJpaController(emf);
+            
+            for(Usuario user :ujc.findUsuarioEntities()  ){
+                     if(user.getRol().equals("admin")){
+                        n.setId_usuario(user);
+                        njc.create(n);
+                     }
+                 }
         } catch (Exception e) {
 
         }

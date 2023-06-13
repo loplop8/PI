@@ -27,9 +27,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import modelo.dao.AnuncioJpaController;
 import modelo.dao.ImagenJpaController;
+import modelo.dao.NotificacionJpaController;
 import modelo.dao.UsuarioJpaController;
 import modelo.entidades.Anuncio;
 import modelo.entidades.Imagen;
+import modelo.entidades.Notificacion;
 
 import modelo.entidades.Usuario;
 import org.apache.tika.Tika;
@@ -87,6 +89,12 @@ public class AdminEditarAnuncio extends HttpServlet {
             
             try{
                 ajc.edit(anuncio);
+                Notificacion n= new Notificacion();
+            n.setMensaje("El administrador ha editado el anuncio con titulo"+anuncio.getTitulo());
+            UsuarioJpaController ujc=new UsuarioJpaController(emf);
+            NotificacionJpaController njc=new NotificacionJpaController(emf);
+                        n.setId_usuario(anuncio.getId_arma().getId_usuario());
+                        njc.create(n);
             }catch(Exception e){
                 System.out.println(e.getMessage());
             }
@@ -172,6 +180,12 @@ public class AdminEditarAnuncio extends HttpServlet {
                
         try{
             ijc.create(i);
+            Notificacion n= new Notificacion();
+            n.setMensaje("El administrador "+usuario.getNickname()+" ha modificado las imagenes del anuncio con titulo"+anuncio.getTitulo());
+            UsuarioJpaController ujc=new UsuarioJpaController(emf);
+            NotificacionJpaController njc=new NotificacionJpaController(emf);
+                        n.setId_usuario(anuncio.getId_arma().getId_usuario());
+                        njc.create(n);
         }catch(Exception e){
             
         }

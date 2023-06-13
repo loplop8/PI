@@ -116,6 +116,10 @@
                                                                 d="M1.5 0A1.5 1.5 0 0 0 0 1.5v7A1.5 1.5 0 0 0 1.5 10H6v1H1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5v-1h4.5A1.5 1.5 0 0 0 16 8.5v-7A1.5 1.5 0 0 0 14.5 0h-13Zm0 1h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5ZM12 12.5a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0Zm2 0a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0ZM1.5 12h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1ZM1 14.25a.25.25 0 0 1 .25-.25h5.5a.25.25 0 1 1 0 .5h-5.5a.25.25 0 0 1-.25-.25Z" />
                                                             </svg> Panel de Moderación</a></li>
                                                         </c:if>
+                                                            
+                                                            <li><a class="dropdown-item" href="../usuario/MisNotificaciones"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
+                                                            <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
+                                                            </svg> Notificaciones </a></li>
 
                                                 <li><a class="dropdown-item" href="../usuario/CrearAnuncio"> <svg
                                                             xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -301,7 +305,7 @@
                                                                             </c:if>
                                                                             <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
                                                                                 <c:if test="${arma.guia_validada}">
-                                                                                    <input <c:if test="${a.id_estado_anuncio.id_estado_anuncio==8}"> disabled </c:if> type="submit" class="btn btn-sm btn-danger" value="Desvalidar Guia"/>
+                                                                                    <input <c:if test="${a.id_estado_anuncio.id_estado_anuncio==8 || a.id_estado_anuncio.id_estado_anuncio==6 }"> disabled </c:if> type="submit" class="btn btn-sm btn-danger" value="Desvalidar Guia"/>
                                                                                 </c:if>
                                                                             </c:if>
                                                                             <c:if test="${a.id_arma.id_arma == arma.id_arma.id_arma}">
@@ -320,12 +324,12 @@
 
                                                                     <form action="./CambiarEstadoAnuncio" method="post">
                                                                         <input type="hidden" name="anuncioEditar" value="${a.id_anuncio}"/>
-                                                                        <c:if test="${a.id_estado_anuncio.id_estado_anuncio==3}">
+                                                                        <c:if test="${a.id_estado_anuncio.id_estado_anuncio==3  }">
                                                                             <input type="submit" class="btn btn-sm btn-danger" value="Desvalidar Anuncio"/>
                                                                         </c:if>
                                                                         
                                                                             
-                                                                        <c:if test="${a.id_estado_anuncio.id_estado_anuncio==8}">
+                                                                        <c:if test="${a.id_estado_anuncio.id_estado_anuncio==8 || a.id_estado_anuncio.id_estado_anuncio==6 }">
                                                                             <input type="submit" disabled class="btn btn-sm btn-danger" value="Desvalidar Anuncio"/>
                                                                         </c:if>    
                                                                             

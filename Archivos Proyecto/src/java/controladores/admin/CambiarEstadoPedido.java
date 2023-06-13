@@ -37,6 +37,8 @@ import com.paypal.base.rest.APIContext;
 import com.paypal.base.rest.PayPalRESTException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import modelo.dao.NotificacionJpaController;
+import modelo.entidades.Notificacion;
 
 
 
@@ -80,11 +82,32 @@ public class CambiarEstadoPedido extends HttpServlet {
             if(ep.getId_estado_pedido()==1L){
                 ep=epjc.findEstadoPedido(3L);
                 pedido.setId_estado_pedido(ep);
+                
+                Notificacion n= new Notificacion();
+            n.setMensaje("El estado de su compra con número "+ pedido.getNumero_pedido()+ " es ahora "+ep.getEstado() );
+            UsuarioJpaController ujc=new UsuarioJpaController(emf);
+            NotificacionJpaController njc=new NotificacionJpaController(emf);
+                        n.setId_usuario(pedido.getId_usuario());
+                        njc.create(n);
+                        n.setMensaje("El estado de su venta con número "+ pedido.getNumero_pedido()+ " es ahora "+ep.getEstado() );
+                        n.setId_usuario(pedido.getId_arma().getId_usuario());
+                        njc.create(n);
+                        
             }else if(ep.getId_estado_pedido()==3L){
                 ep=epjc.findEstadoPedido(4L);
                 pedido.setId_estado_pedido(ep);
                 Date hoy=new Date();
                 pedido.setFecha_entrega(hoy);
+                Notificacion n= new Notificacion();
+            n.setMensaje("El estado de su compra con número "+ pedido.getNumero_pedido()+ " es ahora "+ep.getEstado() );
+            UsuarioJpaController ujc=new UsuarioJpaController(emf);
+            NotificacionJpaController njc=new NotificacionJpaController(emf);
+                        n.setId_usuario(pedido.getId_usuario());
+                        njc.create(n);
+                        n.setMensaje("El estado de su venta con número "+ pedido.getNumero_pedido()+ " es ahora "+ep.getEstado() );
+                        n.setId_usuario(pedido.getId_arma().getId_usuario());
+                        njc.create(n);
+                        
             }else if(ep.getId_estado_pedido()==4L){
                 
         String clientId = "Ac8yE_eDwR7B_uRD6u4It8W6ibZnoJYxjF53Pl6qX9IV4o-Tde-sCjPbHSI23QO6O-I_ykr6nbRCBt3X";
@@ -93,7 +116,7 @@ public class CambiarEstadoPedido extends HttpServlet {
         PayoutSenderBatchHeader batchHeader = new PayoutSenderBatchHeader();
         Payout payout = new Payout();
         payout.setSenderBatchHeader(batchHeader);
-        payout.getSenderBatchHeader().setSenderBatchId("Pedidoo :"+pedido.getNumero_pedido().toString());
+        payout.getSenderBatchHeader().setSenderBatchId("Pedido :"+pedido.getNumero_pedido().toString());
         payout.getSenderBatchHeader().setEmailSubject(pedido.getId_arma().getId_usuario().getEmail());
         
         
@@ -128,6 +151,16 @@ public class CambiarEstadoPedido extends HttpServlet {
         }
         ep=epjc.findEstadoPedido(5L);
         pedido.setId_estado_pedido(ep);
+        Notificacion n= new Notificacion();
+            n.setMensaje("El estado de su compra con número "+ pedido.getNumero_pedido()+ " es ahora "+ep.getEstado() );
+            UsuarioJpaController ujc=new UsuarioJpaController(emf);
+            NotificacionJpaController njc=new NotificacionJpaController(emf);
+                        n.setId_usuario(pedido.getId_usuario());
+                        njc.create(n);
+                        n.setMensaje("El estado de su venta con número "+ pedido.getNumero_pedido()+ " es ahora "+ep.getEstado() );
+                        n.setId_usuario(pedido.getId_arma().getId_usuario());
+                        njc.create(n);
+                        
     }
     
     

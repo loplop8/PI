@@ -19,9 +19,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.dao.HiloJpaController;
 import modelo.dao.MensajeJpaController;
+import modelo.dao.NotificacionJpaController;
 
 import modelo.dao.UsuarioJpaController;
+import modelo.entidades.Hilo;
 import modelo.entidades.Mensaje;
+import modelo.entidades.Notificacion;
 
 import modelo.entidades.Usuario;
 
@@ -56,15 +59,25 @@ public class BorrarHilo extends HttpServlet {
         if(request.getParameter("hilo")!=null){
             Long idHilo= (Long.parseLong(request.getParameter("hilo")));
             HiloJpaController hjc=new HiloJpaController(emf);
+            Hilo h=hjc.findHilo(idHilo);
             MensajeJpaController mjc=new MensajeJpaController(emf);
             
             
-            
+            Notificacion n= new Notificacion();
+            NotificacionJpaController njc=new NotificacionJpaController(emf);
             for(Mensaje mensaje:mjc.findMensajeEntities()){
                 if(mensaje.getId_hilo().getId_hilo().equals(idHilo)){
                     
                     try{
+                        
                 mjc.destroy(mensaje.getId_mensaje());
+                
+            n.setMensaje("El mensaje con contenido"+ mensaje.getContenido()+ " se ha borrado debido a que el hilo que lo contenia se ha borrado" );
+                        n.setId_usuario(mensaje.getId_usuario());
+                        njc.create(n);
+                
+                        
+                        
             }catch(Exception e){
                 
             }
@@ -74,7 +87,10 @@ public class BorrarHilo extends HttpServlet {
             }
             
             try{
+                
                 hjc.destroy(idHilo);
+                n.setMensaje("El hilo "+h.getTitutlo_descriptivo()+" se ha eliminado por el moderador por no ser adecuado");
+                njc.create(n);
             }catch(Exception e){
                 
             }

@@ -24,7 +24,10 @@ import com.paypal.base.rest.*;
 import java.util.Collections;
 import java.util.Date;
 import modelo.dao.HiloJpaController;
+import modelo.dao.NotificacionJpaController;
+import modelo.dao.UsuarioJpaController;
 import modelo.entidades.Hilo;
+import modelo.entidades.Notificacion;
 
 /**
  *
@@ -66,6 +69,17 @@ public class CrearHilo extends HttpServlet {
                 
                 try{
                     hjc.create(h);
+                    Notificacion n=new Notificacion();
+            n.setMensaje("El ususario "+usuario.getNickname()+" ha creado un nuevo hilo, reviselo");
+            UsuarioJpaController ujc=new UsuarioJpaController(emf);
+            NotificacionJpaController njc=new NotificacionJpaController(emf);
+            
+            for(Usuario user :ujc.findUsuarioEntities()  ){
+                     if(user.getRol().equals("moderador")){
+                        n.setId_usuario(user);
+                        njc.create(n);
+                     }
+                 }
                     response.sendRedirect("../Foro");
                     return;
                 }catch(Exception e){

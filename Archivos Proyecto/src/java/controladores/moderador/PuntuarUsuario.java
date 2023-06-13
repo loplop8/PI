@@ -17,8 +17,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.dao.HiloJpaController;
+import modelo.dao.NotificacionJpaController;
 import modelo.dao.UsuarioJpaController;
 import modelo.entidades.Hilo;
+import modelo.entidades.Notificacion;
 import modelo.entidades.Usuario;
 
 
@@ -48,6 +50,8 @@ public class PuntuarUsuario extends HttpServlet {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecondWeaponLife");
         
         UsuarioJpaController ujc=new UsuarioJpaController(emf);
+        Notificacion n= new Notificacion();
+        NotificacionJpaController njc= new NotificacionJpaController(emf);
         
         if(request.getParameter("usuarioHilo")!=null){
            
@@ -59,6 +63,10 @@ public class PuntuarUsuario extends HttpServlet {
             
             try{
                 ujc.edit(u);
+                
+                n.setMensaje("Se le ha puntuado negativamente para utilizar el foro, actualmente tiene una puntuacion de "+puntuacionActual+"le avisamos que si llega a -10 puntos negativos no podra crear contenido en el foro");
+                n.setId_usuario(u);
+                njc.create(n);
             }catch(Exception e){
                 System.out.println(e.getMessage());
             }

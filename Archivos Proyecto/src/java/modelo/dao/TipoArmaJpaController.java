@@ -147,6 +147,7 @@ public class TipoArmaJpaController implements Serializable {
        String queryString ="SELECT t.tipo, t.id_tipo_arma " +
     "FROM Usuario u, Licencia l, TipoLicencia tl, TipoLicenciaFacultaTipoArma f, TipoArma t " +
     "WHERE (u.id_usuario = l.id_usuario.id_usuario " +
+    "AND l.licencia_validada=1 "+           
     "AND l.id_tipo_licencia.id_tipo_licencia = tl.id_tipo_licencia " +
     "AND tl.id_tipo_licencia = f.idTipoLicencia " +
     "AND f.idTipoArma = t.id_tipo_arma " +               

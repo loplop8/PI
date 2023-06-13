@@ -13,7 +13,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.dao.NotificacionJpaController;
 import modelo.dao.UsuarioJpaController;
+import modelo.entidades.Notificacion;
 import modelo.entidades.Usuario;
 
 
@@ -53,8 +55,20 @@ public class CambiarEstadoDNI extends HttpServlet {
             
          if(editar.getDni_validado()==true){
              editar.setDni_validado(false);
+             Notificacion n= new Notificacion();
+            n.setMensaje("El administrador  ha desvalidado su DNI");
+            
+            NotificacionJpaController njc=new NotificacionJpaController(emf);
+                        n.setId_usuario(editar);
+                        njc.create(n);
          }else{
              editar.setDni_validado(true);
+             Notificacion n= new Notificacion();
+            n.setMensaje("El administrador  ha validado su DNI");
+            
+            NotificacionJpaController njc=new NotificacionJpaController(emf);
+                        n.setId_usuario(editar);
+                        njc.create(n);
          }
          
            

@@ -25,8 +25,11 @@ import java.util.Collections;
 import java.util.Date;
 import modelo.dao.HiloJpaController;
 import modelo.dao.MensajeJpaController;
+import modelo.dao.NotificacionJpaController;
+import modelo.dao.UsuarioJpaController;
 import modelo.entidades.Hilo;
 import modelo.entidades.Mensaje;
+import modelo.entidades.Notificacion;
 
 /**
  *
@@ -70,6 +73,17 @@ public class PublicarMensaje extends HttpServlet {
                 request.getSession().setAttribute("hiloVer", h.getId_hilo());
                 try{
                     mjc.create(m);
+                    Notificacion n=new Notificacion();
+            n.setMensaje("El ususario "+usuario.getNickname()+" ha creado un nuevo mensaje en el hilo "+h.getTitutlo_descriptivo()+" reviselo");
+            UsuarioJpaController ujc=new UsuarioJpaController(emf);
+            NotificacionJpaController njc=new NotificacionJpaController(emf);
+            
+            for(Usuario user :ujc.findUsuarioEntities()  ){
+                     if(user.getRol().equals("moderador")){
+                        n.setId_usuario(user);
+                        njc.create(n);
+                     }
+                 }
                     response.sendRedirect("../VerHilo");
                     return;
                 }catch(Exception e){

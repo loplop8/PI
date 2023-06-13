@@ -1,0 +1,12 @@
+
+Con la licencia de sin licencia se pueden usar las armas que no sean de fuego,
+
+Con la licencia de tipo b se pueden usar las pistolas y revolveres
+
+Con la licencia de tipo c se pueden usar pistolas revolveres y escopetas 
+
+Con la licencia tipo d se pueden usar rifles 
+
+Con la licencia tipo e se pueden usar escopetas, armas accionadas por gas u otro aire comprimido y ballestas 
+
+Con la licencia tipo f se pueden usar todas las armas de fuego ya que esta licencia es para concursos.

@@ -29,10 +29,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import modelo.dao.AnuncioJpaController;
 import modelo.dao.ImagenJpaController;
+import modelo.dao.NotificacionJpaController;
 import modelo.dao.UsuarioJpaController;
 import modelo.dao.exceptions.NonexistentEntityException;
 import modelo.entidades.Anuncio;
 import modelo.entidades.Imagen;
+import modelo.entidades.Notificacion;
 
 import modelo.entidades.Usuario;
 import org.apache.tika.Tika;
@@ -77,9 +79,26 @@ public class AdminBorrarAnuncio extends HttpServlet {
             }
         }
         for(Imagen imagen: imagenesAnuncio){
-            ijc.destroy(imagen.getId_imagen());
+            try{
+                ijc.destroy(imagen.getId_imagen());
+            }catch(Exception e){
+                System.out.println("Error eliminando la imagen");
+            }
+            
         }
-        ajc.destroy(idAnuncio);
+        try{
+            ajc.destroy(idAnuncio);
+            Notificacion n= new Notificacion();
+            n.setMensaje("El administrador  ha borrado el anuncio con titulo"+anuncio.getTitulo());
+            UsuarioJpaController ujc=new UsuarioJpaController(emf);
+            NotificacionJpaController njc=new NotificacionJpaController(emf);
+                        n.setId_usuario(anuncio.getId_arma().getId_usuario());
+                        njc.create(n);
+        }catch(Exception e){
+            System.out.println("Error borrando el anuncio");
+        }
+        
+        
         response.sendRedirect("./PanelAdministarAnuncios");    
     }
 

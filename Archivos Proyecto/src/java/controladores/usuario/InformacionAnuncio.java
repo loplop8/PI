@@ -35,6 +35,7 @@ import modelo.dao.ArmaFuegoJpaController;
 import modelo.dao.EstadoAnuncioJpaController;
 import modelo.dao.ImagenJpaController;
 import modelo.dao.LicenciaJpaController;
+import modelo.dao.NotificacionJpaController;
 import modelo.dao.TipoLicenciaJpaController;
 import modelo.dao.UsuarioJpaController;
 import modelo.entidades.Anuncio;
@@ -44,6 +45,7 @@ import modelo.entidades.ArmaReplica;
 import modelo.entidades.EstadoAnuncio;
 import modelo.entidades.Imagen;
 import modelo.entidades.Licencia;
+import modelo.entidades.Notificacion;
 import modelo.entidades.TipoLicencia;
 import modelo.entidades.Usuario;
 import org.apache.tika.Tika;
@@ -103,6 +105,7 @@ public class InformacionAnuncio extends HttpServlet {
                 an.setUrl_img_principal(null);
                 
                 try{
+                    
                     ajc.create(an);
                 }catch(Exception e){
                     
@@ -191,7 +194,19 @@ public class InformacionAnuncio extends HttpServlet {
                 request.setAttribute("arma_replica", ar);
                 request.getSession().removeAttribute("arma_replica");
         }
+                
         
+                 Notificacion n=new Notificacion();
+            n.setMensaje("El ususario "+usuario.getNickname()+" ha creado un nuevo anuncio, reviselo");
+            UsuarioJpaController ujc=new UsuarioJpaController(emf);
+            NotificacionJpaController njc=new NotificacionJpaController(emf);
+            
+            for(Usuario user :ujc.findUsuarioEntities()  ){
+                     if(user.getRol().equals("admin")){
+                        n.setId_usuario(user);
+                        njc.create(n);
+                     }
+                 }
                 getServletContext().getRequestDispatcher(siguienteControlador).forward(request, response);
         }else{
                     getServletContext().getRequestDispatcher(vista).forward(request, response);

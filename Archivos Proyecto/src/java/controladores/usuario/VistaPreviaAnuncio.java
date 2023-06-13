@@ -57,6 +57,7 @@ public class VistaPreviaAnuncio extends HttpServlet {
         }       
         String siguiente="siguiente";
         request.setAttribute("siguiente", siguiente);
+        
         getServletContext().getRequestDispatcher(vista).forward(request, response);
     }
 
